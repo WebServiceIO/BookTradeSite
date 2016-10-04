@@ -9,11 +9,13 @@ class User
     {
         $this->db_connection = db_loader::connect();
     }
+
+
     // create user into DB
-    public function create($username, $password)
+    public function create($username, $password, $fname, $lname, $email)
     {
 
-        if($this->checkUser($username))
+        if($this->checkUser($username, $email))
         {
             // TODO research more, it may redirect to that [age
             // sends a raw http header
@@ -21,7 +23,8 @@ class User
             // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
             //https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
             // http://stackoverflow.com/questions/24039340/why-is-the-http-location-header-only-set-for-post-requests-201-created-respons
-            header('Location: '.SITE_ROOT);
+            // it will redirect you to this page!
+            header('Location: '. site_root . '?error');
             exit("User name already taken");
         }
         else
@@ -30,10 +33,18 @@ class User
 
             // TODO WHAT IS ROLE
             //$insert = $this->db_connection->prepare("INSERT INTO `users` (`uid`,`username`,`password`, `role`) VALUES ('', :username, :password, '1')");
-            $insert = $this->db_connection->prepare("INSERT INTO `users` (username`,`password`) VALUES (:username, :hashed_password)");
+            $insert = $this->db_connection->prepare("INSERT INTO users (username, password, email, fname, lname) VALUES (:username, :hashed_password, :email, :fname, :lname)");
+
+            // PDO::PARAM_STR (integer) : Represents the SQL CHAR, VARCHAR, or other string data type.
             $insert->bindValue(':username', $username, PDO::PARAM_STR);
-            $insert->bindValue(':password', $hashed_password, PDO::PARAM_STR);
+            $insert->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
+            $insert->bindValue(':email', $email, PDO::PARAM_STR);
+            $insert->bindValue(':fname', $fname, PDO::PARAM_STR);
+            $insert->bindValue(':lname', $lname, PDO::PARAM_STR);
+
             $insert->execute();
+
+            header('Location: '. loggedin);
 
 //            if($session->isLoggedIn() == false) {
 //                $this->login($username, $password);
@@ -63,15 +74,17 @@ class User
             //password matches, process in session
         }
         else {
-            header('Location: '.WEB_ROOT.'?error');
+            header('Location: '.site_root.'?error');
         }
     }
 
-    function checkUser($username)
+    function checkUser($username, $email)
     {
+        // TODO check if email exist MORE THAN one time, count function
         $user_count =  $this->db_connection->query("SELECT username FROM users WHERE username = '$username'")->rowCount();
+        $email_count =  $this->db_connection->query("SELECT email FROM users WHERE email = '$email'")->rowCount();
 
-        if($user_count >= 1) {
+        if($user_count >= 1 || $email_count>= 1) {
             return true;
         }
         else {

@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action = "RegisterNewUser.php" method = "post">
+<form action = "register.php" method = "post">
     Email <input type="text" name="email"><br>
     User Name <input type = "text" name = "username"><br>
     Password <input type = "text" name = "password"><br>

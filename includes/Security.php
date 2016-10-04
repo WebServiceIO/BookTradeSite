@@ -34,8 +34,10 @@ class DBSecurity
       *  The alphanumeric string can also include ‘.’ and ‘/’.
       */
         $options = array(
-            'cost' => rand(0, 1000),
-            'salt' => mcrypt_create_iv($salt, MCRYPT_DEV_URANDOM),
+//            'cost' => rand(0, 1000),
+//            'salt' => mcrypt_create_iv($salt, MCRYPT_DEV_URANDOM),
+            'cost' => $cost,
+            'salt' => $salt
         );
         /*
          *  crypt()
