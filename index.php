@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src ="register.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<form action = "register.php" method = "post">
+<form name="register" action = "register.php" onsubmit="return validateForm()" method = "post">
     Email <input type="text" name="email"><br>
     User Name <input type = "text" name = "username"><br>
     Password <input type = "text" name = "password"><br>
