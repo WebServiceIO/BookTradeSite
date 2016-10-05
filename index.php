@@ -7,11 +7,11 @@
 </head>
 <body>
 <form name="register" action = "register.php" onsubmit="return validateForm()" method = "post">
-    Email <input type="text" name="email"><br>
-    User Name <input type = "text" name = "username"><br>
-    Password <input type = "text" name = "password"><br>
-    First Name <input type = "text" name = "first_name"><br>
-    Last Name <input type = "text" name = "last_name"><br>
+    Email <input type="text" name="email" required><br>
+    User Name <input type = "text" name = "username" required><br>
+    Password <input type = "text" name = "password" required><br>
+    First Name <input type = "text" name = "first_name" required><br>
+    Last Name <input type = "text" name = "last_name" required><br>
     <input type = "submit">
 </form>
 </body>
