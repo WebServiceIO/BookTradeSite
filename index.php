@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src ="register.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<form name="register" action = "register.php" onsubmit="return validateForm()" method = "post">
-    Email <input type="text" name="email" required><br>
-    User Name <input type = "text" name = "username" required><br>
-    Password <input type = "text" name = "password" required><br>
-    First Name <input type = "text" name = "first_name" required><br>
-    Last Name <input type = "text" name = "last_name" required><br>
-    <input type = "submit">
-</form>
-</body>
+
 
 <?php
+// TODO: check for session, and if logged in, dont displya reg / sign in button, else do show it
+
+
+
 ?>
+
+
+<form action="register.php">
+    <input type="submit" value="Register" />
+</form>
+
+
+<form action="login.php">
+    <input type="submit" value="Login" />
+</form>
+
+
+

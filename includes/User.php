@@ -12,47 +12,46 @@ class User
 
 
     // create user into DB
-    public function create($username, $password, $fname, $lname, $email)
-    {
-
-        if($this->checkUser($username, $email))
-        {
-            // TODO research more, it may redirect to that [age
-            // sends a raw http header
-            // in this case, header field is location and value is root of the web page
-            // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-            //https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-            // http://stackoverflow.com/questions/24039340/why-is-the-http-location-header-only-set-for-post-requests-201-created-respons
-            // it will redirect you to this page!
-            header('Location: '. site_root . '?error');
-            exit("User name already taken");
-        }
-        else
-        {
-            $hashed_password = DBSecurity::hash_password($password);
-
-            // TODO WHAT IS ROLE
-            //$insert = $this->db_connection->prepare("INSERT INTO `users` (`uid`,`username`,`password`, `role`) VALUES ('', :username, :password, '1')");
-            $insert = $this->db_connection->prepare("INSERT INTO users (username, password, email, fname, lname) VALUES (:username, :hashed_password, :email, :fname, :lname)");
-
-            // PDO::PARAM_STR (integer) : Represents the SQL CHAR, VARCHAR, or other string data type.
-            $insert->bindValue(':username', $username, PDO::PARAM_STR);
-            $insert->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
-            $insert->bindValue(':email', $email, PDO::PARAM_STR);
-            $insert->bindValue(':fname', $fname, PDO::PARAM_STR);
-            $insert->bindValue(':lname', $lname, PDO::PARAM_STR);
-
-            $insert->execute();
-
-            header('Location: '. loggedin);
-
-//            if($session->isLoggedIn() == false) {
-//                $this->login($username, $password);
-//            }
-
-        }
-    }
-
+//    public function create($username, $password, $fname, $lname, $email)
+//    {
+//        if($this->checkUser($username, $email))
+//        {
+//            // TODO research more, it may redirect to that [age
+//            // sends a raw http header
+//            // in this case, header field is location and value is root of the web page
+//            // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+//            //https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+//            // http://stackoverflow.com/questions/24039340/why-is-the-http-location-header-only-set-for-post-requests-201-created-respons
+//            // it will redirect you to this page!
+//            header('Location: '. site_root . '?error');
+//            exit("User name already taken");
+//        }
+//        else
+//        {
+//            $hashed_password = DBSecurity::hash_password($password);
+//
+//            // TODO WHAT IS ROLE
+//            //$insert = $this->db_connection->prepare("INSERT INTO `users` (`uid`,`username`,`password`, `role`) VALUES ('', :username, :password, '1')");
+//            $insert = $this->db_connection->prepare("INSERT INTO users (username, password, email, fname, lname) VALUES (:username, :hashed_password, :email, :fname, :lname)");
+//
+//            // PDO::PARAM_STR (integer) : Represents the SQL CHAR, VARCHAR, or other string data type.
+//            $insert->bindValue(':username', $username, PDO::PARAM_STR);
+//            $insert->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
+//            $insert->bindValue(':email', $email, PDO::PARAM_STR);
+//            $insert->bindValue(':fname', $fname, PDO::PARAM_STR);
+//            $insert->bindValue(':lname', $lname, PDO::PARAM_STR);
+//
+//            $insert->execute();
+//
+//            header('Location: '. loggedin);
+//
+////            if($session->isLoggedIn() == false) {
+////                $this->login($username, $password);
+////            }
+//
+//        }
+//    }
+//
 
     //  https://www.sitepoint.com/password-hashing-in-php/
 

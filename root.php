@@ -6,10 +6,25 @@
 </head>
 <body>
 
-<form action="index.php" method="get">
-    <input type="submit" value="Register"
-           name="Submit" id="frm1_submit" />
+<?php
+
+// check for session here
+
+
+
+?>
+
+
+
+<form action="register.php">
+    <input type="submit" value="Register" />
 </form>
+
+
+<form action="login.php">
+    <input type="submit" value="Login" />
+</form>
+
 
 </body>
 </html>

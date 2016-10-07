@@ -16,7 +16,7 @@ class DBSecurity
         // base64_encode makes the text URL safe
         // however, mcrypt_create_iv add + which in http post will turn into spaces, so we change them
         // stackoverflow.com/questions/5757870/sending-an-mcrypt-encrypted-string-via-a-url-parameter-decoded-text-is-mangled
-        // TODO need to test with diff sizes,
+        // TODO need to test with diff sizes, or does cost have to be same each passowrd?
         // TODO read
         // http://stackoverflow.com/questions/3135524/comparing-passwords-with-crypt-in-php
         // https://en.wikipedia.org/wiki/Bcrypt
