@@ -1,0 +1,78 @@
+@import 'https://fonts.googleapis.com/css?family=Baloo+Da';
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+.parallax {
+    height: 100%;
+    background-image: url("http://imgur.com/pNYp5A5.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* Search Box */
+#input-container {
+    height: 100%;
+}
+
+#wrapper-form {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+form {
+    height: 100%;
+    text-align: center;
+}
+
+input[type=text] {
+    width: 83%;
+    box-sizing: border-box;
+    border: none;
+    font-size: 16px;
+    padding: 20px 20px 20px 40px; /* top right bottom left */
+    background: none;
+}
+
+select {
+    background: none;
+    border: none;
+    padding: 20px 1px 20px 1px;
+}
+
+textarea:focus, input:focus {
+    outline: none;
+}
+
+/* For Chrome no form highlight */
+*:focus {
+    outline: none;
+}
+
+.outer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.inner {
+    align-self: center;
+}
+
+.section-header {
+    font-family: 'Baloo Da', cursive;
+    font-size: 36px;
+}
