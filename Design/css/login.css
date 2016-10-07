@@ -1,0 +1,16 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+.wrapper {
+    width: 30%;
+}
+
+.center {
+    text-align: center;
+}
