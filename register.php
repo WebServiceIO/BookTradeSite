@@ -1,122 +1,194 @@
-<script src ="registration.js"></script>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Bookxchange</title>
+    <meta name="description" content="The solution for buying and selling textbooks.">
+
+    <!--- JS -->
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="includes/js/registration.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- CSS -->
+    <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="includes/css/login.css">
+</head>
+<body>
+
+<div class="container wrapper center">
+    <h1>Register</h1>
+
+    <?php
 
 
+
+    // TODO make the page repopulate with post data back into fields
+    require_once('includes/php/included_classes.php');
+    $db_connection = db_loader::connect();
+
+    /*
+     * Allow the user to register to the website
+     * If user registered properly, it will be redirected back to home page with a session
+     * If user registration is incorrect, it will come back to this page using post
+     */
+
+    // checks for set fields, all must be filled out to continue
+    // JS will check first but in case of hack, glitch, etc, this is the second line of defense
+
+
+
+//    $post_values = array();
+//    $post_values['email'] = $_POST['email'];
+//    $post_values['password'] = $_POST['password'];
+//    $post_values['username'] = $_POST['username'];
+//    $post_values['first_name'] = $_POST['first_name'];
+//    $post_values['last_name'] = $_POST['last_name'];
+
+
+    if(!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_conf'])  && !empty($_POST['username'])  && !empty($_POST['first_name']) && !empty($_POST['last_name']))
+    {
+        // need to check for "", this is not normal but due to other code implmentaiton, it is needed
+       // if ((strcmp($_POST['email'], "") != 0) || (strcmp($_POST['password'], "") != 0) || (strcmp($_POST['password_conf'], "") != 0) ||(strcmp($_POST['username'], "") != 0) || (strcmp($_POST['first_name'], "") != 0) ||
+       //(strcmp($_POST['last_name'], "") != 0)) {
+            if (checkUsername($_POST['username'])) {
+                // sends a raw http header
+                // in this case, header field is location and value is root of the web page
+                // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+                // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+                // http://stackoverflow.com/questions/24039340/why-is-the-http-location-header-only-set-for-post-requests-201-created-respons
+                // it will redirect you to this page with error code via GET
+                // http://stackoverflow.com/questions/5826784/how-do-i-make-a-php-form-that-submits-to-self
+                //header('Location: '. htmlspecialchars($_SERVER["PHP_SELF"]));
+                echo ' <h4> Username Already Taken </h4>';
+                generateForm();
+            } // check if email is taken
+            else if (checkEmail($_POST['email'])) {
+               // header('Location: ' . htmlspecialchars($_SERVER["PHP_SELF"]));
+                // header('Error: 34333');
+                //headers_sent();
+                //   exit("Email already taken");
+                echo ' <h4> Email Already Taken </h4>';
+                generateForm();
+
+            } else {
+                // Use information taken through from the current page after user submitted information
+                $newUserEmail = trim($_POST['email']);
+                $newUserFirstName = trim($_POST['first_name']);
+                $newUserLastName = trim($_POST['last_name']);
+                $newUserName = trim($_POST['username']);
+                $newUserPassword = trim($_POST['password']);
+
+                registerUser($newUserName, $newUserPassword, $newUserFirstName, $newUserLastName, $newUserEmail);
+
+               header('Location: index.php');
+            }
+    }
+    else
+    {
+        echo ' <h4> Please fill out all fields </h4>';
+        generateForm();
+    }
+
+    ?>
+
+
+
+
+</div>
+</body>
+</html>
 
 
 
 
 
 <?php
-
-
-// TODO make the page repopulate with post data back into fields
-require_once('includes/included_classes.php');
-$db_connection = db_loader::connect();
-
-
-
-
-
-
-/*
- * Allow the user to register to the website
- * If user registered properly, it will be redirected back to home page with a session
- * If user registration is incorrect, it will come back to this page using post
- *
- *
- */
-
-//// TODO need to find post type requst
-//// Check for error code passed via GET
-//if(isset($_POST['error']))
-//{
-//    if ($_POST['error'] == 234) {
-//        // print to screen error
-//        echo '<h1> username taken </h1>';
-//    } else if ($_POST['error'] == 342) {
-//        // print to screen error
-//        echo '<h1> email taken </h1>';
-//    }
-//
-//    //end current script
-//    exit();
-//}
-// checks for set fields, all must be filled out to continue
-// JS will check first but in case of hack, glitch, etc, this is the second line of defense
-if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['username'])  && isset($_POST['first_name']) && isset($_POST['last_name']))
+function generateForm()
 {
-    echo '<form name="registration" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '"  method = "post">';
-    echo 'Email <input type="text" name="email" value="' . $_POST['email'] . '" required><br>';
-    echo 'User Name <input type = "text" name = "username"  value="' . $_POST['username'] . '"required><br>';
-    echo 'Password <input type = "text" name = "password"  value="' . $_POST['password'] . '"required><br>';
-    echo 'First Name <input type = "text" name = "first_name" value="' . $_POST['first_name'] . '" required><br>';
-    echo 'Last Name <input type = "text" name = "last_name"  value="' . $_POST['last_name'] . '"required><br>';
-    echo '<input type = "submit">';
-    echo '</form>';
+    echo '<form id="reg_form" name="registration" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method = "post"  onsubmit="return validateForm()">';
+    //echo '<form id="reg_form" name="registration" method = "post">';
+    echo '<div class="form-group">';
 
-    // Use information taken through from the current page after user submitted information
-    $newUserEmail = trim($_POST['email']);
-    $newUserFirstName = trim($_POST['first_name']);
-    $newUserLastName = trim($_POST['last_name']);
-    $newUserName = trim($_POST['username']);
-    $newUserPassword = trim($_POST['password']);
+    if(isset($_POST['first_name']))
+        echo '<input type="text" class="form-control" id="fname" name = "first_name" aria-describedby="firstName" placeholder="First Name" value="' . $_POST['first_name'] . '">';
+    else
+        echo '<input type="text" class="form-control" id="fname" name = "first_name" aria-describedby="firstName" placeholder="First Name">';
 
-    // run function to register user
-    //header('Error: 4045');
-    registerUser($newUserName, $newUserPassword, $newUserFirstName, $newUserLastName, $newUserEmail);
-}
-else
-{
-    echo '<form name="registration" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method = "post">';
-    echo 'Email <input type="text" name="email" required><br>';
-    echo 'User Name <input type = "text" name = "username" required><br>';
-    echo 'Password <input type = "text" name = "password" required><br>';
-    echo 'First Name <input type = "text" name = "first_name" required><br>';
-    echo 'Last Name <input type = "text" name = "last_name" required><br>';
-    echo '<input type = "submit">';
+    echo '</div>';
+    echo '<div class="form-group">';
+
+    if(isset($_POST['last_name']))
+        echo '<input type="text" class="form-control" id="lname" name = "last_name" aria-describedby="lastName" placeholder="Last Name" value="' . $_POST['last_name'] . '">';
+    else
+        echo '<input type="text" class="form-control" id="lname" name = "last_name" aria-describedby="lastName" placeholder="Last Name">';
+
+    echo '</div>';
+    echo '<div class="form-group">';
+
+    if(isset($_POST['email']))
+        echo '<input type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="Email" value="' . $_POST['email'] . '">';
+    else
+        echo '<input type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="Email">';
+
+    echo '</div>';
+    echo '<div class="form-group">';
+
+    if(isset($_POST['username']))
+        echo '<input type="text" class="form-control" id="username" name = "username" aria-describedby="user" placeholder="Username" value="' . $_POST['username'] . '">';
+    else
+        echo '<input type="text" class="form-control" id="username" name = "username" aria-describedby="user" placeholder="Username">';
+
+    echo '</div>';
+    echo '<div class="form-group">';
+    echo '<input type="password" class="form-control" id="password" name = "password" placeholder="Password">';
+    echo '</div>';
+    echo '<div class="form-group">';
+    echo '<input type="password" class="form-control" id="password_conf" name = "password_conf" placeholder="Password (Again)">';
+    echo '</div>';
+    echo '<button type="submit" class="btn btn-primary">Register</button>';
     echo '</form>';
 }
-
-
-
-
-
-
-//
-//password
-//$user = new User();
-//
-//
-//$user->create($newUserName, $newUserPassword, $newUserFirstName, $newUserLastName, $newUserEmail);
-
-
-
 
 function registerUser($username, $password, $fname, $lname, $email)
 {
+
     // check if username is taken
-    if(checkUsername($username))
-    {
-        // sends a raw http header
-        // in this case, header field is location and value is root of the web page
-        // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-        // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-        // http://stackoverflow.com/questions/24039340/why-is-the-http-location-header-only-set-for-post-requests-201-created-respons
-        // it will redirect you to this page with error code via GET
-        // http://stackoverflow.com/questions/5826784/how-do-i-make-a-php-form-that-submits-to-self
-        header('Location: '. htmlspecialchars($_SERVER["PHP_SELF"]));
-        header('Error: 343');
-        exit("Username already taken");
-    }
-    // check if email is taken
-    else if (checkEmail($email))
-    {
-        header('Location: '. 'register.php');
-        exit("Email already taken");
-    }
+//    if(checkUsername($username))
+//    {
+//        // sends a raw http header
+//        // in this case, header field is location and value is root of the web page
+//        // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+//        // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+//        // http://stackoverflow.com/questions/24039340/why-is-the-http-location-header-only-set-for-post-requests-201-created-respons
+//        // it will redirect you to this page with error code via GET
+//        // http://stackoverflow.com/questions/5826784/how-do-i-make-a-php-form-that-submits-to-self
+//
+//        echo 'debug 1';
+//
+////        header('Error: 343');
+////        header('Location: '. htmlspecialchars($_SERVER["PHP_SELF"]));
+//        return false;
+//        //
+//
+//    }
+//    // check if email is taken
+//    else if (checkEmail($email))
+//    {
+//        header('Location: '. htmlspecialchars($_SERVER["PHP_SELF"]));
+//        // header('Error: 34333');
+//        //headers_sent();
+//        //   exit("Email already taken");
+//        return false;
+//    }
     // email and username not taken
-    else
-    {
+   // else
+   // {
         // generate hash of password
         $hashed_password = DBSecurity::hash_password($password);
         // TODO will need to be updated for sessions later
@@ -129,16 +201,14 @@ function registerUser($username, $password, $fname, $lname, $email)
         $insert->bindValue(':lname', $lname, PDO::PARAM_STR);
         // execute query
         $insert->execute();
-        // once logged in, it will redirect them here
-        // TODO test with sessions
-       // todo REDIRECT TO LOGGED IN PAGE, OR THE MIAN PAGE
-        header('Location: index.php');
+        return true;
 
 //            if($session->isLoggedIn() == false) {
 //                $this->login($username, $password);
 //            }
 
-    }
+  // }
+
 }
 
 
@@ -164,3 +234,4 @@ function checkEmail($email)
 
 
 ?>
+

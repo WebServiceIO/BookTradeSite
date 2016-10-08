@@ -1,28 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Bookxchange</title>
+    <meta name="description" content="The solution for buying and selling textbooks.">
+
+    <!--- Bootstrap CDN -->
+    <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../includes/css/login.css">
+</head>
+<body>
+
+<div class="container wrapper center">
+
+    <h1>Login</h1>
+
+    <form>
+        <div class="form-group">
+            <input type="email" class="form-control" id="user" aria-describedby="useremail" placeholder="Email or username">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="pass" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <select class="form-control" id="school">
+                <option>California Polytechnic State University, Pomona</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+
+    <p>Not registered? <a href="register.html">Create an account!</a></p>
+
+</div>
+
+</body>
+</html>
+
+
 <?php
 
-//Use information taken through a html form on the client side.
-if(isset($_POST['email']) && isset($_POST['password']))
-{
-
-
-
-
-
-
-
-}
-
-else if(isset($_POST['username']) && isset($_POST['password']))
-{
-
-
-
-}
-
-else
-{
-    // return error? no wait, have js validate this first
-}
 
 $newUserEmail = $_POST['email'];
 $newUserFirstName = $_POST['first_name'];

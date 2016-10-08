@@ -5,15 +5,14 @@ class db_loader
     protected $db_connection;
 
     static function connect() {
-        // the db info is from the config file
-//        $db_connection = new PDO('mysql:dbname='. db.';host=' . db_host .';port=8080', db_login, db_pass);
+
         $db_connection = null;
 
         try {
             $db_connection = new PDO('mysql:dbname=' . db . ';host=' . db_host, db_login, db_pass);
             // set the PDO error mode to exception
             $db_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully";
+            //echo "Connected successfully";
         }
         catch(PDOException $e)
         {
