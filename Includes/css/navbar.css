@@ -15,26 +15,34 @@
 .navbar-default .navbar-brand {
     color: white;
     font-family: 'Raleway', sans-serif;
+    font-weight: 700;
     font-size: 20px;
     -webkit-transition: color 0.5s ease-in-out;
 	-o-transition: color 0.5s ease-in-out;
 	-moz-transition: color 0.5s ease-in-out;
 	transition: color 0.5s ease-in-out;
 }
+
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: blue;
+    color: #B73400;
 }
 
 /* Links */
 .navbar-default .navbar-nav > li > a {
-    color: black;
+    color: white;
+    -webkit-transition: color 0.5s ease-in-out;
+	-o-transition: color 0.5s ease-in-out;
+	-moz-transition: color 0.5s ease-in-out;
+	transition: color 0.5s ease-in-out;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
 }
 
 /* Links on hover */
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: blue;
+    color: white;
 }
 
 /* Login Button */
