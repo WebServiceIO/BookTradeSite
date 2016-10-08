@@ -37,10 +37,14 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="my-nav">
             <ul class="nav navbar-nav navbar-right">
-                <!--<li><a href="#">Log In</a></li>-->
                 <a href="login.html">
-                    <button type="button" class="btn btn-s navbar-btn">
+                    <button type="button" class="navbar-btn">
                         Log In
+                    </button>
+                </a>
+                <a href="register.html">
+                    <button type="button" class="navbar-btn">
+                        Register
                     </button>
                 </a>
             </ul>
@@ -51,17 +55,16 @@
 <!-- User Input Container-->
 <div class="parallax">
     <div id="wrapper-form">
-        <form>
-            <input type="text" name"input-search" placeholder="Search..">
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Buy or Sell
-                    <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li>Buying</li>
-                    <li>Selling</li>
-                </ul>
+        <form class="wrapper-form">
+            <div id="button-search"></div>
+            <input type="text" name"input-search" placeholder="Find your perfect book here...">
+            <div id="vertical-line"></div>
+            <div class="select-style">
+                <select>
+                    <option value="isbn" selected>ISBN</option>
+                    <option value="class">Class Number</option>
+                </select>
             </div>
-            <!--<input type="submit" value="Submit">-->
         </form>
     </div>
 </div>
