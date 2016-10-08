@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="includes/css/navbar.css">
 
     <!-- JavaScript -->
-    <script type="text/javascript" src="sticky-top.js"></script>
+    <script type="text/javascript" src="includes/js/sticky-top.js"></script>
 </head>
 <body>
 
@@ -31,18 +31,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">bookXchange</a>
+            <a class="navbar-brand" href="index.php">bookXchange</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="my-nav">
             <ul class="nav navbar-nav navbar-right">
-                <a href="login.html">
+                <a href="login.php">
                     <button type="button" class="navbar-btn">
                         Log In
                     </button>
                 </a>
-                <a href="register.html">
+                <a href="register.php">
                     <button type="button" class="navbar-btn">
                         Register
                     </button>
