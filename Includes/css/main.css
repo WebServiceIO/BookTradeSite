@@ -1,4 +1,5 @@
 @import 'https://fonts.googleapis.com/css?family=Baloo+Da';
+@import 'https://fonts.googleapis.com/css?family=Raleway:300';
 
 html, body {
     height: 100%;
@@ -19,38 +20,45 @@ body {
     position: relative;
 }
 
-/* Search Box */
-#input-container {
-    height: 100%;
-}
-
-#wrapper-form {
+form {
+    height: 65px;
+    text-align: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 65%;
+    width: 765px;
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(255, 255, 255, 0.92);
 }
 
-form {
-    height: 100%;
-    text-align: center;
+.form-wrapper {
+    width: 100%;
+}
+
+.form-wrapper button {
+    position: relative;
+    float: right;
+    border: 0;
+    padding: 0;
+}
+
+#button-search {
+    float: left;
+    width: 68px;
+    height: 65px;
+    background: url("http://i.imgur.com/3iGPcKb.png") no-repeat right;
 }
 
 input[type=text] {
-    width: 83%;
+    width: 480px;
     box-sizing: border-box;
     border: none;
-    font-size: 16px;
-    padding: 20px 20px 20px 40px; /* top right bottom left */
+    padding: 20px 20px 20px 20px; /* top right bottom left */
     background: none;
-}
-
-select {
-    background: none;
-    border: none;
-    padding: 20px 1px 20px 1px;
+    float: left;
+    height: 65px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
 }
 
 textarea:focus, input:focus {
@@ -60,6 +68,53 @@ textarea:focus, input:focus {
 /* For Chrome no form highlight */
 *:focus {
     outline: none;
+}
+
+#vertical-line {
+    margin: 0;
+    padding: 0;
+    height: 41px;
+    width: 0px;
+    border-left: 1px solid #ccc;
+    float: left;
+    margin-top: 12px;
+}
+
+.select-style {
+    height: 100%;
+    float: left;
+    display: table;
+}
+
+.select-style select {
+    display: table-cell;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 216px;
+    height: 65px;
+    background: url("http://imgur.com/PIj08tl.png") no-repeat right;
+    border: none;
+    border-radius: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align-last: center;
+    -webkit-transition: background-color 0.5s ease-in-out;
+	-o-transition: background-color 0.5s ease-in-out;
+	-moz-transition: background-color 0.5s ease-in-out;
+	transition: background-color 0.5s ease-in-out;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.select-style select:hover {
+    background-color: white;
+}
+
+.glyphicon-menu-down {
+    float: left;
 }
 
 .outer {
