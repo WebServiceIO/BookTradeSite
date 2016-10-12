@@ -20,22 +20,28 @@
 
     <h1>Login</h1>
 
-    <form>
-        <div class="form-group">
-            <input type="email" class="form-control" id="user" aria-describedby="useremail" placeholder="Email or username">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" id="pass" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <select class="form-control" id="school">
-                <option>California Polytechnic State University, Pomona</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Log In</button>
-    </form>
+    <?php
+    require_once('includes/php/included_classes.php');
+    generateLoginForm();
+    if($_POST['password'] && $_POST['email']) {
+        $password = $_POST['password'];
+        $email = $_POST['email'];
 
-    <p>Not registered? <a href="register.html">Create an account!</a></p>
+        if(checkEmail($email) && verifyPassword($email, $password)) {
+            header('Location: index.php');
+        }
+        else if(!checkEmail($email)){
+            echo "Invalid email";
+        }
+        else if(!verifyPassword($email,$password)){
+            echo "Incorrect password, please try again.";
+        }
+    }
+    else{
+        echo "Fill in credentials";
+    }
+    ?>
+
 
 </div>
 
@@ -43,105 +49,48 @@
 </html>
 
 
+
 <?php
+function checkEmail($email){
+    try {
+        $db_connection = db_loader::connect();
+        $statement = $db_connection->prepare("SELECT * FROM users WHERE email = '$email'");
+        $result = $statement->execute();
+        return $result;
+    }catch(PDOException $e){
+        echo "Error in checkEmail";
+    }
+}
+function verifyPassword($email, $password){
+    try {
+        $db_connection = db_loader::connect();
+        $statement = $db_connection->prepare("SELECT password FROM users WHERE email = '$email'");
+        $statement->execute();
+        $result = $statement->setFetchMode(PDO::FETCH_ASSOC);
+        $x = $statement->fetch();
+        return password_verify($password,$x['password']);
+    }catch(PDOException $e){
+        echo "Error in verifyPassword";
+    }
+}
 
+function generateLoginForm(){
+    echo '<form id="login_form" name="login" action ="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method = "post" onsubmit = "return validateForm()">';
 
-$newUserEmail = $_POST['email'];
-$newUserFirstName = $_POST['first_name'];
-$newUserLastName = $_POST['last_name'];
-$newUserName = $_POST['username'];
-$newUserPassword = $_POST['password'];
+    echo '<div class = "form-group">';
 
-//
-//  //Use information taken through a html form on the client side.
-//  $newUserEmail = $_POST['email'];
-//  $newUserFirstName = $_POST['first_name'];
-//  $newUserLastName = $_POST['last_name'];
-//  $newUserName = $_POST['username'];
-//  $newUserPassword = $_POST['password'];
-////If all the validations go through, Pass them to the database? (Tanner)
-///**
-// * Make sure that the email is valid. Verify a cpp domain.
-// * @return string
-// */
-//function validateEmail(){
-//    global $newUserEmail, $emailError;
-//    if(!$newUserEmail){
-//        $emailError = "A valid email  is required.";
-//    }
-//    //Use a filter to check that input matches reqs. of an e-mail address
-//    if(filter_var($newUserEmail,FILTER_VALIDATE_EMAIL)) {
-//        $newUserEmail = htmlspecialchars($newUserEmail);
-//        //Check that the email then has a @cpp.edu domain
-//        if (!strpos($newUserEmail, '@cpp.edu')) {
-//            $emailError = "Not a valid CPP.edu e-mail address.";
-//        }
-//    }
-//    else{
-//        $emailError = "Not a valid CPP.edu e-mail address.";
-//    }
-//}
-///**
-// * Make sure the first and last name is only made up of letters.
-// * If it contains numbers or special characters, update the $firstNameError.
-// */
-//function validateFirstName(){
-//    global $newUserFirstName, $firstNameError;
-//    if(!onlyAlphaCharacters($newUserFirstName)){
-//        $firstNameError = "First name must only contain letters.";
-//    };
-//}
-//function validateLastName(){
-//    global $newUserLastName, $lastNameError;
-//    if(!onlyAlphaCharacters($newUserLastName)){
-//        $lastNameError = "Last name must only contain letters.";
-//    }
-//}
-///**
-// *  Make sure that the userName chosen by the new user is available
-// *  by checking the database (Tanner?)
-// *  Also make sure that html can be added by the user. (Is it done from here?)
-// */
-//function checkUserNameAvailable(){
-//    global $newUserName;
-//    $newUserName = formDataValidation($newUserName);
-//    //call a function that will search through database to see if
-//    //there already exists a matching username. If it does return an error message.
-//}
-///**
-// * Same as the userName make sure that the password is at least 8 characters.(For now?)
-// * Make sure that no html can be added by user either.
-// *
-// */
-//function checkPassword(){
-//    global $newUserPassword, $passwordError;
-//    $newUserPassword = formDataValidation($newUserPassword);
-//    if ($newUserPassword <= 7)
-//        $passwordError = "Password must be at least 8 characters long";
-//    //Call a function to add the valid and hashed password to the database.
-//}
-///**
-// * Function to check that a string only contains letters.
-// * @param $name how first and last name are checked.
-// */
-//function onlyAlphaCharacters($name){
-//    if(!ctype_alpha($name)){
-//        return false;
-//    }
-//    else{
-//        return true;
-//    }
-//}
-///**
-// * This function is meant to help prevent the injection of client-side scripts.
-// * Not sure if it should go here or not.
-// * @param $formData data that will be processed to prevent attacks.
-// * @return string fully processed string.
-// */
-//function formDataValidation($formData){
-//    $formData = trim($formData);
-//    $formData = stripslashes($formData);
-//    $formData = htmlspecialchars($formData);
-//    return $formData;
-//}
-//?>
+    if(isset($_POST['email']))
+        echo '<input type = "text" class = "form-control" id = "email" name = "email" aria-decribedby = "email" placeholder = "Email" value = "'.$_POST['email'].'">';
+
+    else
+        echo '<input type  ="email" class="form-control" id = "email" name = "email" aria-describedby = "email" placeholder="Email">';
+    echo '</div>';
+
+    echo '<div class="form-group">';
+    echo '<input type="password" class="form-control" id="password" name = "password" placeholder="Password">';
+    echo '</div>';
+
+    echo '<button type="submit" class="btn btn-primary">Login</button>';
+    echo '</form>';
+}
+?>
