@@ -25,8 +25,7 @@
             else{
                 $fetchedResults = $result->fetch_row();
                 $statement = "INSERT INTO user_db(name, email, username, password) 
-                              VALUES($fetchedResults['name'], $fetchedResults['email'], $fetchedResults['username'], $fetchedResults['password'])";
-                $
+                              VALUES(" . $fetchedResults['name'] . "," . $fetchedResults['email'] . "," . $fetchedResults['username'] . ", " . $fetchedResults['password'] . ")";
             }
         }
         $query->close();
