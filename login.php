@@ -22,8 +22,6 @@
 
     <?php
     require_once('includes/php/included_classes.php');
-    use Goutte\Client;
-
     generateLoginForm();
     if($_POST['password'] && $_POST['email']) {
         $password = $_POST['password'];
