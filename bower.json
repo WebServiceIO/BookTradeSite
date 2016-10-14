@@ -1,0 +1,18 @@
+{
+  "name": "BookTradeSite",
+  "homepage": "https://github.com/WebServiceIO/BookTradeSite",
+  "authors": [
+    "Christine <christine.tn.nguyen@gmail.com>"
+  ],
+  "description": "The solution for buying and selling textbooks",
+  "main": "index.php",
+  "keywords": [
+    "textbooks",
+    "buy",
+    "sell"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "fakeLoader": "fakeloader#*"
+  }
+}

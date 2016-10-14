@@ -17,142 +17,157 @@
 
     <!-- JavaScript -->
     <script type="text/javascript" src="includes/js/sticky-top.js"></script>
+    
+    <!-- FakeLoader -->
+    <link rel="stylesheet" href="bower_components/fakeLoader/fakeLoader.css">
+    <script src="bower_components/fakeLoader/fakeLoader.min.js"></script>
 </head>
 <body>
+    
+    <div id="fakeLoader"></div>
 
-<!-- Navigation Bar -->
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-nav" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.php">bookXchange</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="my-nav">
-            <ul class="nav navbar-nav navbar-right">
-                <a href="login.php">
-                    <button type="button" class="navbar-btn">
-                        Log In
-                    </button>
-                </a>
-                <a href="register.php">
-                    <button type="button" class="navbar-btn">
-                        Register
-                    </button>
-                </a>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- User Input Container-->
-<div class="parallax">
-    <div id="wrapper-form">
-        <form class="wrapper-form">
-            <div id="button-search"></div>
-            <input type="text" name"input-search" placeholder="Find your perfect book here...">
-            <div id="vertical-line"></div>
-            <div class="select-style">
-                <select>
-                    <option value="isbn" selected>ISBN</option>
-                    <option value="class">Class Number</option>
-                </select>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-nav" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">bookXchange</a>
             </div>
-        </form>
-    </div>
-</div>
 
-<!-- How It Works -->
-<div class="outer">
-    <div class="inner">
-        <span class="section-header">How to Xchange</span>
-        <br>
-        hwa
-        <br>
-        seg
-        <br>
-        sefes
-        <br>
-        seges
-        <br>
-        hwa
-        <br>
-        seg
-        <br>
-        sefes
-        <br>
-        seges
-        <br>
-        hwa
-        <br>
-        seg
-        <br>
-        sefes
-        <br>
-        seges
-        <br>
-        hwa
-        <br>
-        seg
-        <br>
-        sefes
-        <br>
-        seges
-        <br>
-        hwa
-        <br>
-        seg
-        <br>
-        sefes
-        <br>
-        seges
-        <br>
-        hwa
-        <br>
-        seg
-        <br>
-        sefes
-        <br>
-        seges
-        <br>
-        hwa
-        <br>
-        seg
-        <br>
-        sefes
-        <br>
-        seges
-        <br>
-        hwa
-        <br>
-        seg
-        <br>
-        sefes
-        <br>
-        seges
-    </div>
-</div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="my-nav">
+                <ul class="nav navbar-nav navbar-right">
+                    <a href="login.php">
+                        <button type="button" class="navbar-btn">
+                            Log In
+                        </button>
+                    </a>
+                    <a href="register.php">
+                        <button type="button" class="navbar-btn">
+                            Register
+                        </button>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<!-- Why Use This -->
-<div class="outer">
-    <div class="inner">
-        <span class="section-header">Why Use It?</span>
+    <!-- User Input Container-->
+    <div class="parallax">
+        <div id="wrapper-form">
+            <form class="wrapper-form">
+                <div id="button-search"></div>
+                <input type="text" name"input-search" placeholder="Find your perfect book here...">
+                <div id="vertical-line"></div>
+                <div class="select-style">
+                    <select>
+                        <option value="isbn" selected>ISBN</option>
+                        <option value="class">Class Number</option>
+                    </select>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<!-- Send Us Feedback -->
-<div class="outer">
-    <div class="inner">
-        <span class="section-header">Send Us Feedback</span>
+    <!-- How It Works -->
+    <div class="outer">
+        <div class="inner">
+            <span class="section-header">How to Xchange</span>
+            <br>
+            hwa
+            <br>
+            seg
+            <br>
+            sefes
+            <br>
+            seges
+            <br>
+            hwa
+            <br>
+            seg
+            <br>
+            sefes
+            <br>
+            seges
+            <br>
+            hwa
+            <br>
+            seg
+            <br>
+            sefes
+            <br>
+            seges
+            <br>
+            hwa
+            <br>
+            seg
+            <br>
+            sefes
+            <br>
+            seges
+            <br>
+            hwa
+            <br>
+            seg
+            <br>
+            sefes
+            <br>
+            seges
+            <br>
+            hwa
+            <br>
+            seg
+            <br>
+            sefes
+            <br>
+            seges
+            <br>
+            hwa
+            <br>
+            seg
+            <br>
+            sefes
+            <br>
+            seges
+            <br>
+            hwa
+            <br>
+            seg
+            <br>
+            sefes
+            <br>
+            seges
+        </div>
     </div>
-</div>
+
+    <!-- Why Use This -->
+    <div class="outer">
+        <div class="inner">
+            <span class="section-header">Why Use It?</span>
+        </div>
+    </div>
+
+    <!-- Send Us Feedback -->
+    <div class="outer">
+        <div class="inner">
+            <span class="section-header">Send Us Feedback</span>
+        </div>
+    </div>
+    
+    <!-- Initialize fakeLoader -->
+    <script type="text/javascript">
+        $("#fakeLoader").fakeLoader({
+            timeToHide: 2000, // fakeLoader time (ms)
+            spinner:"spinner1", // Options: 'spinner1' to 7
+            bgColor:"#2ecc71", //Hex, RGB or RGBA colors
+        });
+    </script>
 
 </body>
 </html>
