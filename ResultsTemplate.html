@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Bookxchange: ISBN</title> <!-- PHP -->
+        <meta name="description" content="The solution for buying and selling textbooks.">
+        
+        <!--- Bootstrap CDN -->
+        <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="includes/css/results.css">
+        
+        <!-- JavaScript -->
+        <script src="Includes/js/result.js"></script>
+    </head>
+    <body>
+        
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-search" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Brand</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-search">
+                    <form class="navbar-form navbar-left">
+                        <span class="v-line"></span>
+                        <!-- Submit button for form -->
+                        <button type="submit" class="btn btn-default search-submit">
+                            <img src="http://i.imgur.com/3iGPcKb.png" alt="icon-search" />
+                        </button>
+                        <!-- User input form -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Find your perfect book here...">
+                        </div>
+                    </form>
+                    <span class="v-line"></span>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>Your Books</li>
+                                <li role="separator" class="divider"></li>
+                                <li>Sign Out</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Start of Page Content -->
+        <div id="wrapper">
+            
+            <!-- Brand New Results -->
+            <div class="container">
+                <h1 class="section-header">Brand New</h1>
+                <table id="brand-new">
+                    <tr>
+                        <th>Price</th>
+                        <th>Seller</th>
+                        <th>Pictures</th>
+                        <th>Comments</th>
+                        <th>Contact</th>
+                    </tr>
+                    <tr>
+                        <td>$100</td> <!-- PHP -->
+                        <td>Christine</td> <!-- PHP -->
+                        <td>Christine</td> <!-- PHP -->
+                        <td>No scratches</td> <!-- PHP -->
+                        <td>Text @ (555)-123-1234</td> <!-- PHP -->
+                    </tr>
+                    <tr>
+                        <td>$90</td> <!-- PHP -->
+                        <td>Tanner</td> <!-- PHP -->
+                        <td>f</td> <!-- PHP -->
+                        <td>Still in package</td> <!-- PHP -->
+                        <td>Facebook message me</td> <!-- PHP -->
+                    </tr>
+                    <tr>
+                        <td>$80</td> <!-- PHP -->
+                        <td>Giovanni</td> <!-- PHP -->
+                        <td>pics</td> <!-- PHP -->
+                        <td>new</td> <!-- PHP -->
+                        <td>Call me</td> <!-- PHP -->
+                    </tr>
+                    
+                </table>
+            </div>
+        
+            <!-- Like New Results -->
+            <div class="container">
+                <h1 class="section-header">Like New</h1>
+                <table id="like-new">
+                    <tr>
+                        <th>Price</th>
+                        <th>Seller</th>
+                        <th>Pictures</th>
+                        <th>Comments</th>
+                        <th>Contact</th>
+                    </tr>
+                    <tr>
+                        <td>$70</td> <!-- PHP -->
+                        <td>David</td> <!-- PHP -->
+                        <td>pics</td> <!-- PHP -->
+                        <td>Some wear and tear on bind</td> <!-- PHP -->
+                        <td>Text @ (555)-123-1234</td> <!-- PHP -->
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Very Good Results -->
+            <div class="container">
+                <h1 class="section-header">Very Good</h1>
+                <table id="very-good">
+                    <tr>
+                        <th>Price</th>
+                        <th>Seller</th>
+                        <th>Pictures</th>
+                        <th>Comments</th>
+                        <th>Contact</th>
+                    </tr>
+                    <tr>
+                        <td>$60</td> <!-- PHP -->
+                        <td>David</td> <!-- PHP -->
+                        <td>pics</td> <!-- PHP -->
+                        <td>very good</td> <!-- PHP -->
+                        <td>Text @ (555)-123-1234</td> <!-- PHP -->
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Good Results -->
+            <div class="container">
+                <h1 class="section-header">Good</h1>
+                <table id="good">
+                    <tr>
+                        <th>Price</th>
+                        <th>Seller</th>
+                        <th>Pictures</th>
+                        <th>Comments</th>
+                        <th>Contact</th>
+                    </tr>
+                    <tr>
+                        <td>$50</td> <!-- PHP -->
+                        <td>Christine</td> <!-- PHP -->
+                        <td>Christine</td> <!-- PHP -->
+                        <td>good</td> <!-- PHP -->
+                        <td>Text @ (555)-123-1234</td> <!-- PHP -->
+                    </tr>
+                    
+                </table>
+            </div>
+
+            <!-- Acceptable -->
+            <div class="container">
+                <h1 class="section-header">Acceptable</h1>
+                <table id="acceptable">
+                    <tr>
+                        <th>Price</th>
+                        <th>Seller</th>
+                        <th>Pictures</th>
+                        <th>Comments</th>
+                        <th>Contact</th>
+                    </tr>
+                    <tr>
+                        <td>$40</td> <!-- PHP -->
+                        <td>Tanner</td> <!-- PHP -->
+                        <td>f</td> <!-- PHP -->
+                        <td>ok</td> <!-- PHP -->
+                        <td>Facebook message me</td> <!-- PHP -->
+                    </tr>
+                    <tr>
+                        <td>$30</td> <!-- PHP -->
+                        <td>Giovanni</td> <!-- PHP -->
+                        <td>pics</td> <!-- PHP -->
+                        <td>acceptable</td> <!-- PHP -->
+                        <td>Call me</td> <!-- PHP -->
+                    </tr>
+                    
+                </table>
+            </div>
+        
+        </div>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

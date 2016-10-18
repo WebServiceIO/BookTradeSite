@@ -1,0 +1,200 @@
+@import 'https://fonts.googleapis.com/css?family=Baloo+Da';
+@import 'https://fonts.googleapis.com/css?family=Raleway:300';
+
+/******************************************************************************
+General
+******************************************************************************/
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+#wrapper {
+    margin-top: 65px;
+}
+
+/******************************************************************************
+Navbar Defaults
+******************************************************************************/
+.navbar-default {
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+.navbar-brand,
+.navbar-nav li a {
+    line-height: 65px;
+    height: 65px;
+    padding-top: 0;
+}
+
+/******************************************************************************
+Search Form
+******************************************************************************/
+/* Basics */
+.navbar-form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Submit Button */
+.search-submit {
+    margin: 0;
+    margin-left: 15px;
+    padding: 0;
+    border: none;
+}
+
+.search-submit:hover {
+    background: none;
+}
+
+/* Search Form */
+.form-control {
+    border: 0;
+}
+
+input[type=text] {
+    width: 69vw !important;
+    height: 65px;
+    outline: none;
+    background: none;
+    border: none !important;
+    box-shadow: none !important;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
+
+/* Dropdown menu */
+.navbar-default .navbar-nav .open .dropdown-menu > li {
+    width: 16vw;
+}
+
+/* Dropdown menu items (without separator) */
+.navbar-default .navbar-nav .open .dropdown-menu > li:nth-of-type(1),
+.navbar-default .navbar-nav .open .dropdown-menu > li:nth-of-type(3) {
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-bottom: 5%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    -webkit-transition: color 0.3s ease-in-out;
+	-o-transition: color 0.3s ease-in-out;
+	-moz-transition: color 0.3s ease-in-out;
+	transition: color 0.3s ease-in-out;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li:nth-of-type(1):hover,
+.navbar-default .navbar-nav .open .dropdown-menu > li:nth-of-type(3):hover {
+    color: #36D0AA;
+    cursor: pointer;
+}
+
+/* Dropdown menu title */
+.navbar-default .navbar-nav .dropdown .dropdown-toggle {
+    padding-left: 55px;
+    padding-right: 55px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    -webkit-transition: color 0.3s ease-in-out;
+	-o-transition: color 0.3s ease-in-out;
+	-moz-transition: color 0.3s ease-in-out;
+	transition: color 0.3s ease-in-out;
+}
+
+.navbar-default .navbar-nav .dropdown .dropdown-toggle:hover,
+.navbar-default .navbar-nav .dropdown .dropdown-toggle:active,
+.navbar-default .navbar-nav .dropdown .dropdown-toggle:focus {
+    background: none;
+    color: #36D0AA;
+    font-weight: bold;
+}
+
+/* Extra */
+.v-line {
+    margin: 0;
+    margin-top: 12px;
+    padding: 0;
+    height: 40px;
+    width: 0px;
+    border-left: 1px solid #ccc;
+    float: left;
+}
+
+/******************************************************************************
+Tables
+******************************************************************************/
+.section-header {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+tr:nth-of-type(2n+2) {
+    background: #DFDFDF;
+}
+
+th, td {
+    width: 20%;
+    padding: 6px;
+}
+
+#brand-new tr:nth-of-type(1) {
+    background: #36D0AA;
+}
+
+#like-new tr:nth-of-type(1) {
+    background: #37AED2;
+}
+
+#very-good tr:nth-of-type(1) {
+    background: #D237C0;
+}
+
+#good tr:nth-of-type(1) {
+    background: #D28C37;
+}
+
+#acceptable tr:nth-of-type(1) {
+    background: #D25637;
+}
+
+/******************************************************************************
+Media Queries
+******************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
