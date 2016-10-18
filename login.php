@@ -12,7 +12,7 @@
     <script src = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../includes/css/login.css">
+    <link rel="stylesheet" href="includes/css/login.css">
 </head>
 <body>
 
@@ -21,24 +21,61 @@
     <h1>Login</h1>
 
     <?php
-    require_once('includes/php/included_classes.php');
+    require_once('includes/php/security.php');
+    require_once('includes/php/db_helper.php');
+    $db = new db_helper();
+    $session = new Session();
     generateLoginForm();
-    if($_POST['password'] && $_POST['email']) {
-        $password = $_POST['password'];
-        $email = $_POST['email'];
 
-        if(checkEmail($email) && verifyPassword($email, $password)) {
-            header('Location: index.php');
+    // make sure login info is set before using
+    if(isset($_POST['password']) && isset($_POST['email']))
+    {
+        // if password and email are both submitted
+        // TODO need to make it also use email
+        if ($_POST['password'] && $_POST['email'])
+        {
+            // place post data into variables
+            $password = $_POST['password'];
+            $email = trim($_POST['email']);
+            // backend validation on the email and password
+            if ($db->checkEmail($email) && $db->verifyPassword($email, $password))
+            {
+                // start a session for login
+                session_start();
+                // get user id;
+                $user_id = $db->getUserIdFromEmail($email);
+                // check if session already exist
+                if(isset($_SESSION['USER_ID']))
+                {
+                    echo 'debug login.php 1';
+                    // really, there should not already exsit the same useri d session
+                    if($_SESSION['USER_ID'] == $user_id)
+                    {
+                        //DEBUG
+                        echo 'something has gone wrong';
+                    }
+                }
+                // no current session exist
+                else
+                {
+                    echo 'debug login.php 2';
+                    // create new session with this ID ONLY
+                    $session_arr = $session->createSessionEntry($user_id);
+                    // insert session int odb
+                    $db->insertSession($session_arr);
+                }
+                // after success,
+                header('Location: index.php');
+                // if email is invalid
+            } else if (!checkEmail($email)) {
+                echo "Invalid email";
+                // if passwords do not match
+            } else if (!$db->verifyPassword($email, $password)) {
+                echo "Incorrect password, please try again.";
+            }
+        } else {
+            echo "Fill in credentials";
         }
-        else if(!checkEmail($email)){
-            echo "Invalid email";
-        }
-        else if(!verifyPassword($email,$password)){
-            echo "Incorrect password, please try again.";
-        }
-    }
-    else{
-        echo "Fill in credentials";
     }
     ?>
 
@@ -51,28 +88,6 @@
 
 
 <?php
-function checkEmail($email){
-    try {
-        $db_connection = db_loader::connect();
-        $statement = $db_connection->prepare("SELECT * FROM users WHERE email = '$email'");
-        $result = $statement->execute();
-        return $result;
-    }catch(PDOException $e){
-        echo "Error in checkEmail";
-    }
-}
-function verifyPassword($email, $password){
-    try {
-        $db_connection = db_loader::connect();
-        $statement = $db_connection->prepare("SELECT password FROM users WHERE email = '$email'");
-        $statement->execute();
-        $result = $statement->setFetchMode(PDO::FETCH_ASSOC);
-        $x = $statement->fetch();
-        return password_verify($password,$x['password']);
-    }catch(PDOException $e){
-        echo "Error in verifyPassword";
-    }
-}
 
 function generateLoginForm(){
     echo '<form id="login_form" name="login" action ="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method = "post" onsubmit = "return validateForm()">';
