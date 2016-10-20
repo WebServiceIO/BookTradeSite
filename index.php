@@ -43,6 +43,22 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="my-nav">
                 <ul class="nav navbar-nav navbar-right">
+
+                    <?php
+
+                    require_once('includes/php/db_helper.php');
+                    $db = new db_helper();
+                    session_start();
+
+                    if(isset($_SESSION['USER_ID']))
+                    {
+                        echo $db->getFName(22);
+
+
+                    }
+                    else
+                    {
+                        echo '
                     <a href="login.php">
                         <button type="button" class="navbar-btn">
                             Log In
@@ -53,6 +69,19 @@
                             Register
                         </button>
                     </a>
+                        ';
+                    }
+                        ?>
+<!--                    <a href="login.php">-->
+<!--                        <button type="button" class="navbar-btn">-->
+<!--                            Log In-->
+<!--                        </button>-->
+<!--                    </a>-->
+<!--                    <a href="register.php">-->
+<!--                        <button type="button" class="navbar-btn">-->
+<!--                            Register-->
+<!--                        </button>-->
+<!--                    </a>-->
                 </ul>
             </div>
         </div>

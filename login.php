@@ -23,6 +23,7 @@
     <?php
     require_once('includes/php/security.php');
     require_once('includes/php/db_helper.php');
+    require_once('includes/php/session.php');
     $db = new db_helper();
     $session = new Session();
     generateLoginForm();
@@ -37,6 +38,8 @@
             // place post data into variables
             $password = $_POST['password'];
             $email = trim($_POST['email']);
+            echo $password;
+
             // backend validation on the email and password
             if ($db->checkEmail($email) && $db->verifyPassword($email, $password))
             {
@@ -47,7 +50,6 @@
                 // check if session already exist
                 if(isset($_SESSION['USER_ID']))
                 {
-                    echo 'debug login.php 1';
                     // really, there should not already exsit the same useri d session
                     if($_SESSION['USER_ID'] == $user_id)
                     {
@@ -67,7 +69,7 @@
                 // after success,
                 header('Location: index.php');
                 // if email is invalid
-            } else if (!checkEmail($email)) {
+            } else if (!$db->checkEmail($email)) {
                 echo "Invalid email";
                 // if passwords do not match
             } else if (!$db->verifyPassword($email, $password)) {
