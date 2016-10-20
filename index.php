@@ -52,44 +52,36 @@
                     $db = new db_helper();
                     session_start();
 
-                    if(isset($_SESSION['USER_ID']))
+                    if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
                     {
-                        echo '<p>Welcome ' . $db->getFName($_SESSION['USER_ID']) . '</p>';
-                        echo '
+                        if(strcmp($db->getFingerprintInfoFromId($_SESSION['USER_ID']), $_SESSION['FINGER_PRINT']) == 0)
+                        {
+                            echo '<p>Welcome ' . $db->getFName($_SESSION['USER_ID']) . '</p>';
+                            echo '
                                 <a href="logout.php">
                                     <button type="button" class="navbar-btn">
                                         Log out
                                     </button>
                                 </a>
                             ';
+                        }
                     }
                     else
                     {
-
                         echo '
-                    <a href="login.php">
-                        <button type="button" class="navbar-btn">
-                            Log In
-                        </button>
-                    </a>
-                    <a href="register.php">
-                        <button type="button" class="navbar-btn">
-                            Register
-                        </button>
-                    </a>
+                                <a href="login.php">
+                                    <button type="button" class="navbar-btn">
+                                        Log In
+                                    </button>
+                                </a>
+                                <a href="register.php">
+                                    <button type="button" class="navbar-btn">
+                                        Register
+                                    </button>
+                                </a>
                         ';
                     }
                         ?>
-<!--                    <a href="login.php">-->
-<!--                        <button type="button" class="navbar-btn">-->
-<!--                            Log In-->
-<!--                        </button>-->
-<!--                    </a>-->
-<!--                    <a href="register.php">-->
-<!--                        <button type="button" class="navbar-btn">-->
-<!--                            Register-->
-<!--                        </button>-->
-<!--                    </a>-->
                 </ul>
             </div>
         </div>

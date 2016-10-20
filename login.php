@@ -28,9 +28,14 @@
     header('Cache-Control: no-cache, no-store, must-revalidate');
     $session = new Session();
     generateLoginForm();
-
+    // start a session for login
+    session_start();
+    if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
+    {
+       header('Location: index.php');
+    }
     // make sure login info is set before using
-    if(isset($_POST['password']) && isset($_POST['email']))
+    else if(isset($_POST['password']) && isset($_POST['email']))
     {
         // if password and email are both submitted
         // TODO need to make it also use email
@@ -40,16 +45,22 @@
             $password = $_POST['password'];
             $email = trim($_POST['email']);
             // backend validation on the email and password
-            if ($db->checkEmail($email) && $db->verifyPassword($email, $password))
+            $is_valid_email = $db->checkEmail($email);
+            $is_valid_password = $db->verifyPassword($email, $password);
+
+            if ($is_valid_email && $is_valid_password)
             {
-                // start a session for login
-                session_start();
+
                 // get user id;
                 $user_id = $db->getUserIdFromEmail($email);
+                $finger_print = $db->getFingerprintInfoFromId($user_id);
                 // check if session already exist
-                if(isset($_SESSION['USER_ID']))
+                // TODO delete soon after testing
+                if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
                 {
-                    if($_SESSION['USER_ID'] == $user_id)
+                    // check if current session is the right session
+                    // may not be needed but is extra security
+                    if(($_SESSION['USER_ID'] == $user_id) && ($_SESSION['FINGER_PRINT'] == $finger_print))
                     {
                         //DEBUG
                         echo 'something has gone wrong';
@@ -60,17 +71,21 @@
                 {
                     // create new session with this ID ONLY
                     $session_arr = $session->createSessionEntry($user_id);
+
+                   // var_dump($session_arr);
+
                     // insert session int odb
                     $db->insertSession($session_arr);
+                    // TODO NEED TO TAKE CARE OF ERRORS HERE FOR DB
                 }
                 // after success,
                 header('Cache-Control: no-cache, no-store, must-revalidate');
                 header('Location: index.php');
                 // if email is invalid
-            } else if (!$db->checkEmail($email)) {
+            } else if ($is_valid_email) {
                 echo "Invalid email";
                 // if passwords do not match
-            } else if (!$db->verifyPassword($email, $password)) {
+            } else if ($is_valid_password) {
                 echo "Incorrect password, please try again.";
             }
         } else {
