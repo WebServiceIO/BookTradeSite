@@ -34,7 +34,6 @@ class db_helper
 
     public function checkEmail($email){
         try {
-         
             $statement = $this->db_connection->prepare("SELECT * FROM users WHERE email = '$email'");
             $result = $statement->execute();
             return $result;
@@ -43,17 +42,12 @@ class db_helper
         }
     }
 
-    public function getUserIdFromEmail($login)
+    public function getUserIdFromEmail($email)
     {
         try {
-         
-            $statement = $this->db_connection->prepare("SELECT user_id FROM users WHERE email = '$login'");
-            $result = $statement->execute();
-
-
-
-
-            return $result;
+            $statement = $this->db_connection->prepare("SELECT user_id FROM users WHERE email = '$email'");
+            $statement->execute();
+            return $statement->fetch()['user_id'];
         }catch(PDOException $e){
             echo "Error, please report to admin error code 134";
         }
@@ -64,11 +58,7 @@ class db_helper
             
             $statement = $this->db_connection->prepare("SELECT password FROM users WHERE email = '$email'");
             $statement->execute();
-           // $result = $statement->setFetchMode(PDO::FETCH_ASSOC);
             $hashed_pass = $statement->fetch();
-
-           // echo($hashed_pass['password']);
-
             return password_verify($password,$hashed_pass['password']);
         }catch(PDOException $e){
             echo "Error, please report to admin error code 131";

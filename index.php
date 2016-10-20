@@ -46,18 +46,26 @@
 
                     <?php
 
+                    header('Cache-Control: no-cache, no-store, must-revalidate');
+
                     require_once('includes/php/db_helper.php');
                     $db = new db_helper();
                     session_start();
 
                     if(isset($_SESSION['USER_ID']))
                     {
-                        echo $db->getFName(22);
-
-
+                        echo '<p>Welcome ' . $db->getFName($_SESSION['USER_ID']) . '</p>';
+                        echo '
+                                <a href="logout.php">
+                                    <button type="button" class="navbar-btn">
+                                        Log out
+                                    </button>
+                                </a>
+                            ';
                     }
                     else
                     {
+
                         echo '
                     <a href="login.php">
                         <button type="button" class="navbar-btn">

@@ -9,7 +9,7 @@ class DBSecurity
     {
         // http://php.net/manual/en/function.crypt.php
         // create a random cost
-        $cost = 15;
+        $cost = 10;
         // salt
         // http://searchsecurity.techtarget.com/definition/salt
         // http://stackoverflow.com/questions/20893790/using-mcrypt-create-iv-to-create-salt
@@ -20,10 +20,10 @@ class DBSecurity
         // TODO read
         // http://stackoverflow.com/questions/3135524/comparing-passwords-with-crypt-in-php
         // https://en.wikipedia.org/wiki/Bcrypt
-        $salt = strtr(base64_encode(mcrypt_create_iv(rand(16, 32), MCRYPT_DEV_URANDOM)), '+', '.');
+        //$salt = strtr(base64_encode(mcrypt_create_iv(rand(16, 32), MCRYPT_DEV_URANDOM)), '+', '.');
         // read intro
         // https://en.wikipedia.org/wiki/Bcrypt
-        $salt = sprintf("$2a$%02d$", $cost) . $salt;
+      //  $salt = sprintf("$2y$%02d$", $cost) . $salt;
       /*
       *  The above function checks whether the Blowfish cipher is available through
       *  the CRYPT_BLOWFISH constant. If so, then we generate a random salt. The requirement
@@ -36,8 +36,8 @@ class DBSecurity
         $options = array(
 //            'cost' => rand(0, 1000),
 //            'salt' => mcrypt_create_iv($salt, MCRYPT_DEV_URANDOM),
-            'cost' => $cost,
-            'salt' => $salt
+'cost' => 15
+            //'salt' => $salt
         );
         /*
          *  crypt()
@@ -47,7 +47,9 @@ class DBSecurity
          * password_hash() is a simple crypt() wrapper and compatible with existing password hashes. Use of password_hash() is encouraged.
          */
         // PASSWORD_BCRYPT = crypt_blowfish
-        $hashed_password = password_hash($password, PASSWORD_BCRYPT, $options)."\n";
+       //$hashed_password = password_hash($password, PASSWORD_BCRYPT, $options)."\n";
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
 
         //**************************other info on blow fish salt: look at top comment http://stackoverflow.com/questions/3135524/comparing-passwords-with-crypt-in-php **************************
 

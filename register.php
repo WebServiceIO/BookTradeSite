@@ -88,7 +88,7 @@
 
                 registerUser($newUserName, $newUserPassword, $newUserFirstName, $newUserLastName, $newUserEmail);
 
-               header('Location: index.php');
+              // header('Location: index.php');
             }
     }
     else
@@ -193,6 +193,12 @@ function registerUser($username, $password, $fname, $lname, $email)
    // {
         // generate hash of password
         $hashed_password = DBSecurity::hash_password($password);
+
+
+    echo '<br>';
+    echo $hashed_password;
+    echo '<br>';
+
         // TODO will need to be updated for sessions later
         $insert = $GLOBALS['db_connection']->prepare("INSERT INTO users (username, password, email, fname, lname) VALUES (:username, :hashed_password, :email, :fname, :lname)");
         // PDO::PARAM_STR (integer) : Represents the SQL CHAR, VARCHAR, or other string data type.

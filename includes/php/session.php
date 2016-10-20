@@ -3,7 +3,9 @@ class Session
 {
     public function createSessionEntry($user_id)
     {
-        session_start();
+
+        echo 'DEBUG user id: ' . $user_id;
+        //session_start();
 
         $fingerprint = md5(rand());
         //$_SESSION['HTTP_USER_AGENT'] = md5($_SERVER['HTTP_USER_AGENT']);

@@ -25,6 +25,7 @@
     require_once('includes/php/db_helper.php');
     require_once('includes/php/session.php');
     $db = new db_helper();
+    header('Cache-Control: no-cache, no-store, must-revalidate');
     $session = new Session();
     generateLoginForm();
 
@@ -38,8 +39,6 @@
             // place post data into variables
             $password = $_POST['password'];
             $email = trim($_POST['email']);
-            echo $password;
-
             // backend validation on the email and password
             if ($db->checkEmail($email) && $db->verifyPassword($email, $password))
             {
@@ -50,7 +49,6 @@
                 // check if session already exist
                 if(isset($_SESSION['USER_ID']))
                 {
-                    // really, there should not already exsit the same useri d session
                     if($_SESSION['USER_ID'] == $user_id)
                     {
                         //DEBUG
@@ -60,13 +58,13 @@
                 // no current session exist
                 else
                 {
-                    echo 'debug login.php 2';
                     // create new session with this ID ONLY
                     $session_arr = $session->createSessionEntry($user_id);
                     // insert session int odb
                     $db->insertSession($session_arr);
                 }
                 // after success,
+                header('Cache-Control: no-cache, no-store, must-revalidate');
                 header('Location: index.php');
                 // if email is invalid
             } else if (!$db->checkEmail($email)) {
