@@ -98,9 +98,9 @@
     <!-- User Input Container-->
     <div class="parallax">
         <div id="wrapper-form">
-            <form class="wrapper-form">
+            <form class="wrapper-form" action = "searchByISBN.php" method = "POST">
                 <div id="button-search"></div>
-                <input type="text" name"input-search" placeholder="Find your perfect book here...">
+                <input type="text" name = "isbn" placeholder="Find your perfect book here...">
                 <div id="vertical-line"></div>
                 <div class="select-style">
                     <select>

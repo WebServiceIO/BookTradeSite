@@ -72,118 +72,160 @@
 
 
 <?php
-  require_once "includes/php/included_classes.php";
+    require_once "includes/php/included_classes.php";
     $db = db_loader::connect();
-//    if(!empty($_POST['isbn'])){
-//        $isbn = $_POST['isbn'];
-//    }
-//    if(!empty($_POST['title'])) {
-//        $title = $_POST['title'];
-//    }
-//    if(!empty($_POST['author'])) {
-//        $author = $_POST['author'];
-//    }
-searchISBN();
-//    try {
-//        $statement = $db->prepare("SELECT * FROM book WHERE seller = 'also me'");
-//        $statement->execute();
-//        $result = $statement->fetch(PDO::FETCH_ASSOC);
-//        echo($result['id']." ".$result['title']." ".$result['author']." ".$result['isbn']);
-//    }catch(PDOException $e){
-//        echo "failure";
-//    }
-function searchISBN(){
-    echo '<div id="wrapper">
-            
-            <!-- Brand New Results -->
-            <div class="container">
-                <h1 class="section-header">Brand New</h1>
-                <table id="brand-new">
-                    <tr>
-                        <th>Price</th>
-                        <th>Seller</th>
-                        <th>Pictures</th>
-                        <th>Comments</th>
-                        <th>Contact</th>
-                    </tr>';
-    try {
-        global $db;//,$isbn;
-        $isbn = '012-87456523';
-        $statement = $db->prepare("SELECT * FROM book WHERE isbn = '$isbn'");
-        $statement->execute();
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
-        $seller = $result['seller'];
-        echo "<tr>
-                        <td>$100</td> 
-                        <td>$seller</td> 
-                        <td>TBD</td> 
-                        <td>No scratches</td> 
-                        <td>Text @ (555)-123-1234</td> 
-                    </tr>";
-        echo '</table>
-            </div>';
+    if(!empty($_POST['isbn'])){
+        $isbn = $_POST['isbn'];
+    }
+    searchISBN();
+    function searchISBN(){
+        $new = 0;
+        $likenew = 0;
+        $verygood = 0;
+        $good = 0;
+        $acceptable = 0;
+
+        try {
+            global $db,$isbn;
+            $statement = $db->prepare("SELECT * FROM books WHERE isbn = '$isbn' ORDER BY conditions");
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        echo '<div id="wrapper">';
+
+        while($result != false) {
+            if($result['conditions'] == 'Acceptable'){
+                if($acceptable == 0){
+                    echo '<!-- Acceptable Results -->
+                            <div class="container">
+                                <h1 class="section-header">Acceptable</h1>
+                                    <table id="acceptable">
+                                        <tr>
+                                            <th>Price</th>
+                                            <th>Seller</th>
+                                            <th>Pictures</th>
+                                            <th>Comments</th>
+                                            <th>Contact</th>
+                                        </tr>';
+                    $acceptable = 1;
+                }
+                printNew($result['price'], $result['seller'],"TBD",$result['comments'],$result['contact']);
+            }
+
+            else if($result['conditions'] == 'Good'){
+                if($acceptable == 1){
+                    echo '</table></div>';
+                    $acceptable = 2;
+                }
+                if($good == 0){
+                    echo '<!-- Good Results -->
+                            <div class="container">
+                                <h1 class="section-header">Good</h1>
+                                    <table id="good">
+                                        <tr>
+                                            <th>Price</th>
+                                            <th>Seller</th>
+                                            <th>Pictures</th>
+                                            <th>Comments</th>
+                                            <th>Contact</th>
+                                        </tr>';
+                    $good = 1;
+                }
+
+                printNew($result['price'], $result['seller'],"TBD",$result['comments'],$result['contact']);
+            }
+
+            else if($result['conditions'] == 'Like New'){
+                if($good == 1){
+                    echo '</table></div>';
+                    $good = 2;
+                }
+                if($likenew == 0) {
+                    echo '<!-- Like New Results -->
+                            <div class="container">
+                                 <h1 class="section-header">Like New</h1>
+                                     <table id="like-new">
+                                        <tr>
+                                            <th>Price</th>
+                                            <th>Seller</th>
+                                            <th>Pictures</th>
+                                            <th>Comments</th>
+                                            <th>Contact</th>
+                                        </tr>';
+                    $likenew =1;
+                }
+                printNew($result['price'], $result['seller'],"TBD",$result['comments'],$result['contact']);
+            }
+
+            else if($result['conditions'] == "New") {
+                if($likenew == 1){
+                    echo '</table></div>';
+                    $likenew = 2;
+                }
+                if($new == 0){
+                    echo '<!-- Brand New Results -->
+                             <div class="container">
+                                <h1 class="section-header">Brand New</h1>
+                                     <table id="brand-new">
+                                        <tr>
+                                            <th>Price</th>
+                                            <th>Seller</th>
+                                            <th>Pictures</th>
+                                            <th>Comments</th>
+                                            <th>Contact</th>
+                                        </tr>';
+                    $new = 1;
+                }
+                printNew($result['price'], $result['seller'],"TBD",$result['comments'],$result['contact']);
+
+            }
+
+            else if($result['conditions'] == 'Very Good'){
+                if($new == 1){
+                    echo '</table></div>';
+                    $new = 2;
+                }
+                if($verygood == 0){
+                    echo '<!-- Very Good Results -->
+                            <div class="container">
+                                <h1 class="section-header">Very Good</h1>
+                                    <table id="very-good">
+                                        <tr>
+                                            <th>Price</th>
+                                            <th>Seller</th>
+                                            <th>Pictures</th>
+                                            <th>Comments</th>
+                                            <th>Contact</th>
+                                        </tr>';
+                    $verygood = 1;
+                }
+
+                printNew($result['price'], $result['seller'],"TBD",$result['comments'],$result['contact']);
+            }
+
+
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+        }
+        if($acceptable == 1 || $good == 1 || $likenew == 1 || $new == 1 || $verygood == 1){
+            echo '</table></div>';
+        }
+        echo '</div>';
 
     } catch (PDOException $e) {
         echo "error";
     }
 }
 
-//function searchTitle(){
-//    try{
-//        global $db,$title;
-//        $statement = $db->prepare("SELECT * FROM books WHERE title = '$title'");
-//        $statement->execute();
-//        $result = $statement->fetch(PDO::FETCH_ASSOC);
-//
-//
-//    }catch (PDOException $e){
-//        echo "error in title";
-//    }
-//}
-//
-//function searchAuthor(){
-//    try{
-//        global $db, $author;
-//        $statement = $db->prepare("SELECT * FROM books WHERE author = '$author'");
-//        $statement->execute();
-//        $result = $statement->fetch(PDO::FETCH_ASSOC);
-//    }catch(PDOException $e){
-//        echo "error in author";
-//    }
-//}
-//
-//function searchTitleAuthor(){
-//    try{
-//        global $db, $author, $title;
-//        $statement = $db->prepare("SELECT * FROM books WHERE author = '$author', title = 'title'");
-//        $statement->execute();
-//        $statement->setFetchMode(PDO::FETCH_ASSOC);
-//        echo '<div class="container">
-//                <h1 class="section-header">Brand New</h1>
-//                <table id="brand-new">
-//                <tr>
-//                        <th>Price</th>
-//                        <th>Seller</th>
-//                        <th>Pictures</th>
-//                        <th>Comments</th>
-//                        <th>Contact</th>
-//                    </tr>';
-//        $result = $statement->fetch();
-//        while($result){
-//            echo '<tr>
-//                        <td>$100</td> <!-- PHP -->
-//                        <td>Christine</td> <!-- PHP -->
-//                        <td>Christine</td> <!-- PHP -->
-//                        <td>No scratches</td> <!-- PHP -->
-//                        <td>Text @ (555)-123-1234</td> <!-- PHP -->
-//                    </tr>';
-//        }
-//
-//    }catch (PDOException $e){
-//
-//    }
-//}
-//?>
+function printNew($price,$seller,$images,$comments,$contact){
+    echo "<tr>
+             <td>$price</td> 
+             <td>$seller</td> 
+             <td>$images</td> 
+             <td>$comments</td> 
+             <td>$contact</td> 
+          </tr>";
+}
+?>
 
 </body>
 </html>
