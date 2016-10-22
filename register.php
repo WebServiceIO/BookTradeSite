@@ -199,7 +199,7 @@ function registerUser($username, $password, $fname, $lname, $email)
    // else
    // {
         // generate hash of password
-        $hashed_password = DBSecurity::hash_password($password);
+        $hashed_password = Security::hash_password($password);
 
         // TODO will need to be updated for sessions later
         $insert = $GLOBALS['db_connection']->prepare("INSERT INTO users (username, password, email, fname, lname) VALUES (:username, :hashed_password, :email, :fname, :lname)");

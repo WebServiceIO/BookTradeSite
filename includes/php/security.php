@@ -1,7 +1,7 @@
 <?php
 
 
-class DBSecurity
+class Security
 {
     // https://jonsuh.com/blog/securely-hash-passwords-with-php/
     // https://github.com/seanhweb/PHP-Secure-Session-Database-Login/blob/master/inc/class.user.inc.php
