@@ -2,8 +2,8 @@
 //include_once ('../vendor/autoload.php');
 //use PHPUnit\Framework\TestCase;
 
-require_once('../includes/php/Security.php');
-require_once ('../includes/php/MySqlTools.php');
+require "php/security.php";
+require "php/MySqlTools.php";
 
 class SecurityTest extends PHPUnit_Framework_TestCase
 {

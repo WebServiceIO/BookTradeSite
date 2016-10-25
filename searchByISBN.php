@@ -77,6 +77,7 @@
     if(!empty($_POST['isbn'])){
         $isbn = $_POST['isbn'];
     }
+    
     searchISBN();
     function searchISBN(){
         $new = 0;
