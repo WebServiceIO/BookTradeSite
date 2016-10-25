@@ -13,20 +13,17 @@ class MySqlTools
 
     public function insertSession($session_info)
     {
-
-        var_dump($session_info);
         try {
             $statement = $this->db_connection->prepare("INSERT INTO sessions (user_id, fingerprint, time_stamp) VALUES(:user_id, :fingerp, :time_stamp )");
 
             if (isset($session_info['user_id']) && isset($session_info['finger_print']) && isset($session_info['time_stamp']))
             {
-                echo 'debug!!!!!!!!!1';
+
                 $statement->bindValue(':user_id', $session_info['user_id'], PDO::PARAM_INT);
                 $statement->bindValue(':fingerp', $session_info['finger_print'], PDO::PARAM_STR);
                 $statement->bindValue(':time_stamp', $session_info['time_stamp'], PDO::PARAM_STR);
                 $result = $statement->execute();
 
-                echo 'RESULT: ' . $result;
                 return $result;
             }
             return false;
@@ -56,7 +53,7 @@ class MySqlTools
     public function checkEmail($email){
         try {
             $statement = $this->db_connection->prepare("SELECT * FROM users WHERE email = '$email'");
-            //$result = $statement->execute();
+            $result = $statement->execute();
             return $statement->fetch();
         }catch(PDOException $e){
             echo "Error, please report to admin error code 542";
@@ -88,15 +85,37 @@ class MySqlTools
 
     public function verifyPassword($email, $password){
         try {
-            
+
             $statement = $this->db_connection->prepare("SELECT password FROM users WHERE email = '$email'");
             $statement->execute();
             $hashed_pass = $statement->fetch();
-            return password_verify($password,$hashed_pass['password']);
+
+            echo '<br>';
+            var_dump (password_get_info($hashed_pass['password']));
+            echo strlen($hashed_pass['password']);
+            echo '<br>';
+            echo substr($hashed_pass['password'], 0, 60);
+            echo '<br>';
+
+            return password_verify($password, substr($hashed_pass['password'], 0, 60));
         }catch(PDOException $e){
             echo "Error, please report to admin error code 131";
         }
     }
+
+//    public function verifyPassword($email, $password){
+//        try {
+//            echo $email . $password;
+//            $statement = $this->db_connection->prepare("SELECT password FROM users WHERE email = '$email'");
+//            $statement->execute();
+//            $hashed_pass = $statement->fetch();
+//            var_dump( $hashed_pass);
+//            echo $password;
+//            return password_verify($password,$hashed_pass['password']);
+//        }catch(PDOException $e){
+//            echo "Error, please report to admin error code 131";
+//        }
+//    }
 
 
     public function getFName($user_id)
@@ -114,6 +133,11 @@ class MySqlTools
     {
         $hashed_password = Security::hash_password($password);
 
+        echo '<br>';
+        echo 'HASHED PASS: ' . $hashed_password;
+        echo '<br>';
+        echo strlen($hashed_password);
+        echo '<br>';
         // TODO will need to be updated for sessions later
         $insert = $this->db_connection->prepare("INSERT INTO users (username, password, email, fname, lname) VALUES (:username, :hashed_password, :email, :fname, :lname)");
         // PDO::PARAM_STR (integer) : Represents the SQL CHAR, VARCHAR, or other string data type.

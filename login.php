@@ -21,6 +21,9 @@
     <h1>Login</h1>
 
     <?php
+
+    echo 'Current PHP version: ' . phpversion();
+
     require_once('includes/php/Security.php');
     require_once('includes/php/MySqlTools.php');
     require_once('includes/php/Session.php');
@@ -44,11 +47,16 @@
         {
             // place post data into variables
             $password = $_POST['password'];
-            $email = strtoupper(trim($_POST['email']));
+           // $email = strtoupper(trim($_POST['email']));
+            $email = trim($_POST['email']);
             // backend validation on the email and password
             $is_valid_email = $db->checkEmail($email);
             $is_valid_password = $db->verifyPassword($email, $password);
 
+            echo '<br>';
+            echo 'EMAIL: ' . $is_valid_email;
+            echo '<br>';
+            echo 'PASSWORD: ' . $is_valid_password;
             if ($is_valid_email && $is_valid_password)
             {
 
@@ -83,10 +91,10 @@
                 header('Cache-Control: no-cache, no-store, must-revalidate');
                 header('Location: index.php');
                 // if email is invalid
-            } else if ($is_valid_email) {
+            } else if (!$is_valid_email) {
                 echo "Invalid email";
                 // if passwords do not match
-            } else if ($is_valid_password) {
+            } else if (!$is_valid_password) {
                 echo "Incorrect password, please try again.";
             }
         } else {

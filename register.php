@@ -49,6 +49,10 @@
 
     if(!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_conf'])  && !empty($_POST['username'])  && !empty($_POST['first_name']) && !empty($_POST['last_name']))
     {
+        echo $_POST['password'];
+        echo '<br>';
+        echo $_POST['password_conf'];
+        echo '<br>';
        // $_POST['email'] = strtoupper($_POST['email']);
         $db = new MySqlTools();
 
