@@ -56,8 +56,8 @@ class MySqlTools
     public function checkEmail($email){
         try {
             $statement = $this->db_connection->prepare("SELECT * FROM users WHERE email = '$email'");
-            $result = $statement->execute();
-            return $result;
+            //$result = $statement->execute();
+            return $statement->fetch();
         }catch(PDOException $e){
             echo "Error, please report to admin error code 542";
         }
@@ -130,7 +130,7 @@ class MySqlTools
     }
 
 
-
+    // TODO convert to PDO later
     function checkUsername($username)
     {
         $user_count = $this->db_connection->query("SELECT username FROM users WHERE username = '$username'")->rowCount();

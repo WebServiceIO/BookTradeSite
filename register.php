@@ -25,7 +25,7 @@
     <h1>Register</h1>
 
     <?php
-    // TODO make the page repopulate with post data back into fields
+
     require_once('includes/php/Security.php');
     require_once('includes/php/MySqlTools.php');
 
@@ -49,7 +49,7 @@
 
     if(!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_conf'])  && !empty($_POST['username'])  && !empty($_POST['first_name']) && !empty($_POST['last_name']))
     {
-        $_POST['email'] = strtoupper($_POST['email']);
+       // $_POST['email'] = strtoupper($_POST['email']);
         $db = new MySqlTools();
 
         // need to check for "", this is not normal but due to other code implmentaiton, it is needed
@@ -68,6 +68,8 @@
                 generateForm();
             } // check if email is taken
             else if ($db->checkEmail($_POST['email'])) {
+
+                var_dump($_POST['email']);
                // header('Location: ' . htmlspecialchars($_SERVER["PHP_SELF"]));
                 // header('Error: 34333');
                 //headers_sent();
