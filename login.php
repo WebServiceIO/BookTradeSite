@@ -22,7 +22,7 @@
 
     <?php
     require_once('includes/php/Security.php');
-    require_once('includes/php/db_helper.php');
+    require_once('includes/php/MySqlTools.php');
     require_once('includes/php/Session.php');
     $db = new MySqlTools();
     header('Cache-Control: no-cache, no-store, must-revalidate');

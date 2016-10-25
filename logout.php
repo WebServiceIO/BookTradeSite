@@ -1,7 +1,7 @@
 <?php
 
 header('Cache-Control: no-cache, no-store, must-revalidate');
-require_once('includes/php/db_helper.php');
+require_once('includes/php/MySqlTools.php');
 require_once('includes/php/Session.php');
 
 session_start();

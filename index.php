@@ -48,7 +48,7 @@
 
                     header('Cache-Control: no-cache, no-store, must-revalidate');
 
-                    require_once('includes/php/db_helper.php');
+                    require_once('includes/php/MySqlTools.php');
                     $db = new MySqlTools();
                     session_start();
 

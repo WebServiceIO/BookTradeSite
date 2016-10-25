@@ -30,7 +30,7 @@
 
     // TODO make the page repopulate with post data back into fields
     require_once('includes/php/Security.php');
-    require_once('includes/php/db_helper.php');
+    require_once('includes/php/MySqlTools.php');
     $db_connection = DataBaseLoader::connect();
 
 
