@@ -109,4 +109,36 @@ class MySqlTools
             echo "Error, please report to admin error code 131";
         }
     }
+
+    function registerUser($username, $password, $fname, $lname, $email)
+    {
+        $hashed_password = Security::hash_password($password);
+
+        // TODO will need to be updated for sessions later
+        $insert = $this->db_connection->prepare("INSERT INTO users (username, password, email, fname, lname) VALUES (:username, :hashed_password, :email, :fname, :lname)");
+        // PDO::PARAM_STR (integer) : Represents the SQL CHAR, VARCHAR, or other string data type.
+        $insert->bindValue(':username', $username, PDO::PARAM_STR);
+        $insert->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
+        $insert->bindValue(':email', $email, PDO::PARAM_STR);
+        $insert->bindValue(':fname', $fname, PDO::PARAM_STR);
+        $insert->bindValue(':lname', $lname, PDO::PARAM_STR);
+        // execute query
+        $insert->execute();
+        return true;
+
+
+    }
+
+
+
+    function checkUsername($username)
+    {
+        $user_count = $this->db_connection->query("SELECT username FROM users WHERE username = '$username'")->rowCount();
+        if($user_count >= 1)
+            return true;
+        else
+            return false;
+    }
+
+
 }

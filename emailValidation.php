@@ -9,7 +9,7 @@
 //Will be taken from the user registration code. Should these have set functions?
 $to = $from = $subject = $message = $result = $confirmation_code = '';//message will contain the link for the user to follow; Le's us know when the user clicks
 
-$temporary_table = pending_activation_db;
+$temporary_table = 'pending_activation_db';
 
 function call_email_validation($name,$email,$username, $password){
     global $result;

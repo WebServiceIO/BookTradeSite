@@ -25,13 +25,9 @@
     <h1>Register</h1>
 
     <?php
-
-
-
     // TODO make the page repopulate with post data back into fields
     require_once('includes/php/Security.php');
     require_once('includes/php/MySqlTools.php');
-    $db_connection = DataBaseLoader::connect();
 
 
 
@@ -54,11 +50,12 @@
     if(!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_conf'])  && !empty($_POST['username'])  && !empty($_POST['first_name']) && !empty($_POST['last_name']))
     {
         $_POST['email'] = strtoupper($_POST['email']);
+        $db = new MySqlTools();
 
         // need to check for "", this is not normal but due to other code implmentaiton, it is needed
        // if ((strcmp($_POST['email'], "") != 0) || (strcmp($_POST['password'], "") != 0) || (strcmp($_POST['password_conf'], "") != 0) ||(strcmp($_POST['username'], "") != 0) || (strcmp($_POST['first_name'], "") != 0) ||
        //(strcmp($_POST['last_name'], "") != 0)) {
-            if (checkUsername($_POST['username'])) {
+            if ($db->checkUsername($_POST['username'])) {
                 // sends a raw http header
                 // in this case, header field is location and value is root of the web page
                 // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
@@ -70,7 +67,7 @@
                 echo ' <h4> Username Already Taken </h4>';
                 generateForm();
             } // check if email is taken
-            else if (checkEmail($_POST['email'])) {
+            else if ($db->checkEmail($_POST['email'])) {
                // header('Location: ' . htmlspecialchars($_SERVER["PHP_SELF"]));
                 // header('Error: 34333');
                 //headers_sent();
@@ -86,7 +83,7 @@
                 $newUserName = trim($_POST['username']);
                 $newUserPassword = trim($_POST['password']);
 
-                registerUser($newUserName, $newUserPassword, $newUserFirstName, $newUserLastName, $newUserEmail);
+                $db->registerUser($newUserName, $newUserPassword, $newUserFirstName, $newUserLastName, $newUserEmail);
 
                header('Location: index.php');
             }
@@ -155,84 +152,6 @@ function generateForm()
     echo '</div>';
     echo '<button type="submit" class="btn btn-primary">Register</button>';
     echo '</form>';
-}
-
-function registerUser($username, $password, $fname, $lname, $email)
-{
-
-    // check if username is taken
-//    if(checkUsername($username))
-//    {
-//        // sends a raw http header
-//        // in this case, header field is location and value is root of the web page
-//        // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-//        // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-//        // http://stackoverflow.com/questions/24039340/why-is-the-http-location-header-only-set-for-post-requests-201-created-respons
-//        // it will redirect you to this page with error code via GET
-//        // http://stackoverflow.com/questions/5826784/how-do-i-make-a-php-form-that-submits-to-self
-//
-//        echo 'debug 1';
-//
-////        header('Error: 343');
-////        header('Location: '. htmlspecialchars($_SERVER["PHP_SELF"]));
-//        return false;
-//        //
-//
-//    }
-//    // check if email is taken
-//    else if (checkEmail($email))
-//    {
-//        header('Location: '. htmlspecialchars($_SERVER["PHP_SELF"]));
-//        // header('Error: 34333');
-//        //headers_sent();
-//        //   exit("Email already taken");
-//        return false;
-//    }
-    // email and username not taken
-   // else
-   // {
-        // generate hash of password
-        $hashed_password = Security::hash_password($password);
-
-        // TODO will need to be updated for sessions later
-        $insert = $GLOBALS['db_connection']->prepare("INSERT INTO users (username, password, email, fname, lname) VALUES (:username, :hashed_password, :email, :fname, :lname)");
-        // PDO::PARAM_STR (integer) : Represents the SQL CHAR, VARCHAR, or other string data type.
-        $insert->bindValue(':username', $username, PDO::PARAM_STR);
-        $insert->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
-        $insert->bindValue(':email', $email, PDO::PARAM_STR);
-        $insert->bindValue(':fname', $fname, PDO::PARAM_STR);
-        $insert->bindValue(':lname', $lname, PDO::PARAM_STR);
-        // execute query
-        $insert->execute();
-        return true;
-
-//            if($session->isLoggedIn() == false) {
-//                $this->login($username, $password);
-//            }
-
-  // }
-
-}
-
-
-
-function checkUsername($username)
-{
-    $user_count =  $GLOBALS['db_connection']->query("SELECT username FROM users WHERE username = '$username'")->rowCount();
-    if($user_count >= 1)
-        return true;
-    else
-        return false;
-}
-
-function checkEmail($email)
-{
-    $email_count =  $GLOBALS['db_connection']->query("SELECT email FROM users WHERE email = '$email'")->rowCount();
-
-    if($email_count>= 1)
-        return true;
-    else
-        return false;
 }
 
 

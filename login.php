@@ -40,7 +40,6 @@
     else if(isset($_POST['password']) && isset($_POST['email']))
     {
         // if password and email are both submitted
-        // TODO need to make it also use email
         if ($_POST['password'] && $_POST['email'])
         {
             // place post data into variables
@@ -58,19 +57,19 @@
                 $finger_print = $db->getFingerprintInfoFromId($user_id);
                 // check if session already exist
                 // TODO delete soon after testing
-                if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
-                {
-                    // check if current session is the right session
-                    // may not be needed but is extra security
-                    if(($_SESSION['USER_ID'] == $user_id) && ($_SESSION['FINGER_PRINT'] == $finger_print))
-                    {
-                        //DEBUG
-                        echo 'something has gone wrong';
-                    }
-                }
-                // no current session exist
-                else
-                {
+//                if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
+//                {
+//                    // check if current session is the right session
+//                    // may not be needed but is extra security
+//                    if(($_SESSION['USER_ID'] == $user_id) && ($_SESSION['FINGER_PRINT'] == $finger_print))
+//                    {
+//                        //DEBUG
+//                        echo 'something has gone wrong';
+//                    }
+//                }
+//                // no current session exist
+//                else
+//                {
                     // create new session with this ID ONLY
                     $session_arr = $session->createSessionEntry($user_id);
 
@@ -79,7 +78,7 @@
                     // insert session int odb
                     $db->insertSession($session_arr);
                     // TODO NEED TO TAKE CARE OF ERRORS HERE FOR DB
-                }
+                //}
                 // after success,
                 header('Cache-Control: no-cache, no-store, must-revalidate');
                 header('Location: index.php');

@@ -194,7 +194,7 @@
         $("#fakeLoader").fakeLoader({
             timeToHide: 2000, // fakeLoader time (ms)
             spinner:"spinner1", // Options: 'spinner1' to 7
-            bgColor:"#2ecc71", //Hex, RGB or RGBA colors
+            bgColor:"#2ecc71" //Hex, RGB or RGBA colors
         });
     </script>
 

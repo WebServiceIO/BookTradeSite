@@ -5,13 +5,18 @@
   "license": "proprietary",
   "authors": [
     {
+      "name": "Tanner Summers",
+      "email": "Tannersummers@gmail.com"
+    },
+    {
       "name": "author's name",
       "email": "email@example.com"
     }
   ],
   "require": {
-    "fabpot/goutte": "^3.1",
-    "phpunit/phpunit": "5.5.*",
     "rmccue/requests": ">=1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.5.*"
   }
 }
