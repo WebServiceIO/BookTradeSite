@@ -30,6 +30,8 @@
     generateLoginForm();
     // start a session for login
     session_start();
+
+
     if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
     {
        header('Location: index.php');
@@ -43,7 +45,7 @@
         {
             // place post data into variables
             $password = $_POST['password'];
-            $email = trim($_POST['email']);
+            $email = strtoupper(trim($_POST['email']));
             // backend validation on the email and password
             $is_valid_email = $db->checkEmail($email);
             $is_valid_password = $db->verifyPassword($email, $password);

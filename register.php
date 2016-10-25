@@ -59,6 +59,8 @@
 //    $post_values['first_name'] = $_POST['first_name'];
 //    $post_values['last_name'] = $_POST['last_name'];
 
+    $_POST['email'] = strtoupper($_POST['email']);
+
 
     if(!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_conf'])  && !empty($_POST['username'])  && !empty($_POST['first_name']) && !empty($_POST['last_name']))
     {
