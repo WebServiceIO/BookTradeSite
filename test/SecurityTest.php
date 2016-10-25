@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-require "php/Security.php";
+require "php/security.php";
 require "php/MySqlTools.php";
 
 class SecurityTest extends TestCase
