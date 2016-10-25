@@ -12,7 +12,7 @@ class ValidationTest extends TestCase
         $db = new MySqlTools();
         $username = "testUsername";
         $password = "testPassword";
-        $email = "tEsTeMaIlcPp.EdU";
+        $email = strtoupper("tEsTeMaIlcPp.EdU");
         $fname = "testFname";
         $lname = "testlName";
 
