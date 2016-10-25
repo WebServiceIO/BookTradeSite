@@ -21,10 +21,10 @@
     <h1>Login</h1>
 
     <?php
-    require_once('includes/php/security.php');
+    require_once('includes/php/Security.php');
     require_once('includes/php/db_helper.php');
-    require_once('includes/php/session.php');
-    $db = new db_helper();
+    require_once('includes/php/Session.php');
+    $db = new MySqlTools();
     header('Cache-Control: no-cache, no-store, must-revalidate');
     $session = new Session();
     generateLoginForm();

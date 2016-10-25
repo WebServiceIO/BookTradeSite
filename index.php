@@ -49,7 +49,7 @@
                     header('Cache-Control: no-cache, no-store, must-revalidate');
 
                     require_once('includes/php/db_helper.php');
-                    $db = new db_helper();
+                    $db = new MySqlTools();
                     session_start();
 
                     if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))

@@ -73,7 +73,7 @@
 
 <?php
     require_once "includes/php/included_classes.php";
-    $db = db_loader::connect();
+    $db = DataBaseLoader::connect();
     if(!empty($_POST['isbn'])){
         $isbn = $_POST['isbn'];
     }

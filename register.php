@@ -29,9 +29,9 @@
 
 
     // TODO make the page repopulate with post data back into fields
-    require_once('includes/php/security.php');
+    require_once('includes/php/Security.php');
     require_once('includes/php/db_helper.php');
-    $db_connection = db_loader::connect();
+    $db_connection = DataBaseLoader::connect();
 
 
 

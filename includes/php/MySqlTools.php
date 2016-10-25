@@ -2,13 +2,13 @@
 require_once('included_classes.php');
 
 // TODO convert to boolean on returns and have web page take care of that
-class db_helper
+class MySqlTools
 {
     private  $db_connection;
 
     function __construct()
     {
-        $this->db_connection = db_loader::connect();
+        $this->db_connection = DataBaseLoader::connect();
     }
 
     public function insertSession($session_info)

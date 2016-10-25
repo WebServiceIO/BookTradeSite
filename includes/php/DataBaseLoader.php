@@ -1,6 +1,6 @@
 <?php
 
-class db_loader
+class DataBaseLoader
 {
     protected $db_connection;
 
