@@ -51,19 +51,10 @@
     // JS will check first but in case of hack, glitch, etc, this is the second line of defense
 
 
-
-//    $post_values = array();
-//    $post_values['email'] = $_POST['email'];
-//    $post_values['password'] = $_POST['password'];
-//    $post_values['username'] = $_POST['username'];
-//    $post_values['first_name'] = $_POST['first_name'];
-//    $post_values['last_name'] = $_POST['last_name'];
-
-    $_POST['email'] = strtoupper($_POST['email']);
-
-
     if(!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_conf'])  && !empty($_POST['username'])  && !empty($_POST['first_name']) && !empty($_POST['last_name']))
     {
+        $_POST['email'] = strtoupper($_POST['email']);
+
         // need to check for "", this is not normal but due to other code implmentaiton, it is needed
        // if ((strcmp($_POST['email'], "") != 0) || (strcmp($_POST['password'], "") != 0) || (strcmp($_POST['password_conf'], "") != 0) ||(strcmp($_POST['username'], "") != 0) || (strcmp($_POST['first_name'], "") != 0) ||
        //(strcmp($_POST['last_name'], "") != 0)) {

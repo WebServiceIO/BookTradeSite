@@ -2,7 +2,7 @@
 use PHPUnit\Framework\TestCase;
 
 require_once('../includes/php/Security.php');
-require_once ('../includes/php/db_helper.php');
+require_once ('../includes/php/MySqlTools.php');
 
 class SecurityTest extends TestCase
 {
