@@ -4,10 +4,10 @@ use PHPUnit\Framework\TestCase;
 class SecurityTest extends TestCase
 {
 
-    public function meaningfulTestFunctionName() {
+    public function testMeaningfulTestFunctionName() {
         // arbitrary unit test
         $a = -1;
-        $this->assertEquals(-1, $a->getAmount());
+        $this->assertEquals(-1, $a);
     }
 
 }
