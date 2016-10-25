@@ -78,7 +78,7 @@
         $isbn = $_POST['isbn'];
     }
     
-    //searchISBN();
+    searchISBN();
     function searchISBN(){
         $new = 0;
         $likenew = 0;
