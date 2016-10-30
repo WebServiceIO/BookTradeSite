@@ -13,7 +13,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "fakeLoader": "fakeloader#*"
+    "fakeLoader": "fakeloader#*",
+    "jquery-countTo": "^1.2.0"
   },
   "devDependencies": {
     "qunit": "^2.0.1"

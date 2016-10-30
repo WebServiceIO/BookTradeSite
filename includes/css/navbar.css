@@ -1,64 +1,109 @@
 @import 'https://fonts.googleapis.com/css?family=Raleway:700';
 @import 'https://fonts.googleapis.com/css?family=Montserrat';
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
 
+/* Navbar Defaults */
 .navbar {
     margin-bottom: 0;
 }
 
 .navbar-default {
-    background-color: transparent;
+    background-color: white;
     border-color: transparent;
     position: absolute;
 }
 
+/* Collapsed */
+.navbar-default .navbar-toggle {
+    border: 0;
+}
+
+#btn-collapsed {
+    background-color: transparent;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #C0B283;
+}
+
 /* Brand */
 .navbar-default .navbar-brand {
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 700;
+    color: #373737;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
     font-size: 20px;
     -webkit-transition: color 0.5s ease-in-out;
 	-o-transition: color 0.5s ease-in-out;
 	-moz-transition: color 0.5s ease-in-out;
 	transition: color 0.5s ease-in-out;
+    border-bottom: 3px solid #C0B283;
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: #B73400;
+    color: #C0B283;
 }
 
-/* Links */
-.navbar-default .navbar-nav > li > a {
-    color: white;
-    -webkit-transition: color 0.5s ease-in-out;
-	-o-transition: color 0.5s ease-in-out;
-	-moz-transition: color 0.5s ease-in-out;
-	transition: color 0.5s ease-in-out;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-}
-
-/* Links on hover */
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    color: white;
-}
-
-/* Login Button */
+/* Navbar Button Links */
 .navbar-btn {
-    margin-right: 20px;
-    background: transparent;
-    border: 1px solid white;
-    -webkit-transition: background-color 0.5s ease-in-out;
-	-o-transition: background-color 0.5s ease-in-out;
-	-moz-transition: background-color 0.5s ease-in-out;
-	transition: background-color 0.5s ease-in-out;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    color: white;
+    background: none;
+    border: none;
 }
 
-.navbar-btn:hover {
-    background-color: white;
+/* Form */
+.navbar-form {
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    display: inline;
+}
+
+.form-group {
+    height: 100%;
+    /*display: inline;*/
+}
+
+.input-group {
+    height: 100%;
+    display: table;
+}
+
+.input-group-addon {
+    background: none;
+    border: 0;
+}
+
+.form-control {
+    margin: 0;
+    height: 50px;
+    /*padding: 10px 20px 10px 20px;*/ /* top right bottom left */
+    background: none;
+    border: 0;
+    box-shadow: none;
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+}
+
+.form-control:hover,
+.form-control:focus {
+    border: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+/* Navbar right links */
+.navbar-default .navbar-nav > li > a {
+    color: #373737;
+    text-transform: uppercase;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    -webkit-transition: color 0.3s ease-in-out;
+	-o-transition: color 0.3s ease-in-out;
+	-moz-transition: color 0.3s ease-in-out;
+	transition: color 0.3s ease-in-out;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #C0B283;
 }

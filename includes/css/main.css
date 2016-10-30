@@ -1,5 +1,6 @@
 @import 'https://fonts.googleapis.com/css?family=Baloo+Da';
 @import 'https://fonts.googleapis.com/css?family=Raleway:300';
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
 
 html, body {
     height: 100%;
@@ -12,7 +13,7 @@ body {
 
 .parallax {
     height: 100%;
-    background-image: url("http://imgur.com/pNYp5A5.jpg");
+    background-image: url("http://i.imgur.com/bbwkb4R.png");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -20,111 +21,218 @@ body {
     position: relative;
 }
 
-form {
-    height: 65px;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 765px;
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.92);
-    border: 1px solid #ccc;
-}
-
-.form-wrapper {
+.statistics {
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
 }
 
-.form-wrapper button {
-    position: relative;
-    float: right;
-    border: 0;
-    padding: 0;
+.statistics > div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #373737;
+    background-color: white;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #DCD0C0;
 }
 
-#button-search {
-    float: left;
-    width: 68px;
-    height: 65px;
-    background: url("http://i.imgur.com/3iGPcKb.png") no-repeat right;
+.statistics > div > img {
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 38px;
+    max-height: 38px;
+    width: auto;
+    height: auto;
+    height: auto;
+    display: block;
 }
 
-input[type=text] {
-    width: 480px;
-    box-sizing: border-box;
-    border: none;
-    padding: 20px 20px 20px 20px; /* top right bottom left */
-    background: none;
-    float: left;
-    height: 65px;
-    font-family: 'Raleway', sans-serif;
+.statistics > div > p {
+    margin: 0;
+}
+
+.statistics > div > span {
     font-size: 20px;
 }
 
-textarea:focus, input:focus {
-    outline: none;
+.statistics > div:not(:last-child) {
+    border-right: 1px solid #DCD0C0;
 }
 
-/* For Chrome no form highlight */
-*:focus {
-    outline: none;
-}
-
-#vertical-line {
-    margin: 0;
-    padding: 0;
-    height: 41px;
-    width: 0px;
-    border-left: 1px solid #ccc;
-    float: left;
+.statistics > div > hr {
     margin-top: 12px;
+    margin-bottom: 12px;
+    width: 10%;
+    border-top: 1px solid #DCD0C0;
 }
 
-.select-style {
-    height: 100%;
-    float: left;
-    display: table;
+.content {
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
-.select-style select {
-    display: table-cell;
-    vertical-align: middle;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 213px;
-    height: 65px;
-    background: url("http://imgur.com/PIj08tl.png") no-repeat right;
-    border: none;
-    border-radius: 0;
-    padding-left: 5px;
-    padding-right: 5px;
-    text-align-last: center;
-    -webkit-transition: background-color 0.5s ease-in-out;
-	-o-transition: background-color 0.5s ease-in-out;
-	-moz-transition: background-color 0.5s ease-in-out;
-	transition: background-color 0.5s ease-in-out;
-    font-family: 'Raleway', sans-serif;
-    font-size: 16px;
-    font-weight: bold;
+.sect1,
+.sect3 {
+    background-color: #F4F4F4;
 }
 
-.select-style select:hover {
-    background-color: white;
+.content > div {
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
 }
 
-.outer {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+.content > .row > .col-md-12 {
+    margin-bottom: 25px;
+    color: #B87A6F;
+    font-size: 28px;
 }
 
-.inner {
-    align-self: center;
+.content > .row:nth-child(4) > .col-md-12 {
+    margin-top: 40px;
 }
 
-.section-header {
-    font-family: 'Baloo Da', cursive;
-    font-size: 36px;
+.content > .section-header {
+    margin-bottom: 40px;
 }
+
+.content > .row > span {
+    color: #C0B283;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-size: 48px;
+}
+
+.content > .row > .col-md-2 {
+    padding-bottom: 30px;
+    font-size: 17px;
+}
+
+.glyphicon.glyphicon-pencil,
+.glyphicon.glyphicon-user,
+.glyphicon.glyphicon-heart-empty,
+.glyphicon.glyphicon-book,
+.glyphicon.glyphicon-earphone,
+.glyphicon.glyphicon-cog,
+.glyphicon.glyphicon-plus-sign,
+.glyphicon.glyphicon-inbox,
+.content > .row > .col-md-1 > .glyphicon.glyphicon-search,
+.glyphicon.glyphicon-thumbs-up,
+.glyphicon.glyphicon-time,
+.glyphicon.glyphicon-usd {
+    font-size: 30px;
+}
+
+.sect2 > .row > .col-md-1,
+.sect2 > .row > .col-md-5 {
+    margin-bottom: 30px;
+}
+
+.sect2 > .row > .col-md-1:hover,
+.sect2 > .row > .col-md-5:hover {
+    margin-bottom: 30px;
+}
+
+.sect2 > .row > .col-md-1 {
+    padding: 0;
+}
+
+.sect2 > .row > .col-md-5 {
+    text-align: left;
+}
+
+.sect2 > .row > .col-md-5 > .brief,
+.sect2 > .row > .col-md-5 > .description {
+    margin: 0;
+}
+
+.sect2 > .row > .col-md-5 > .brief {
+    color: #B87A6F;
+    font-size: 28px;
+}
+
+.sect2 > .row > .col-md-5 > .description {
+    color: #373737;
+    font-size: 17px;
+}
+
+.footer {
+    padding: 30px 50px 30px 50px;
+    background-color: #373737;
+}
+
+.footer > span {
+    color: #F4F4F4;
+}
+
+.footer > span.footer-desc > a {
+    color: #C0B283;
+}
+
+.footer > span.footer-desc > a:hover,
+.footer > span.footer-desc > a:focus {
+    text-decoration: none;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 991px) {
+    .glyphicon.glyphicon-chevron-right {
+        display: none;
+    }
+    
+    .glyphicon.glyphicon-chevron-down {
+        display: block;
+    }
+    
+    .sect2 > .row > .col-md-1 {
+        margin-bottom: 10px;
+        padding-left: 15px;
+        text-align: left;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .glyphicon.glyphicon-chevron-right {
+        display: block;
+    }
+    
+    .glyphicon.glyphicon-chevron-down {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
