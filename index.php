@@ -55,7 +55,7 @@
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-
+                    
                     <?php
 
                     header('Cache-Control: no-cache, no-store, must-revalidate');
@@ -68,9 +68,13 @@
                     {
                         if(strcmp($db->getFingerprintInfoFromId($_SESSION['USER_ID']), $_SESSION['FINGER_PRINT']) == 0)
                         {
-                            echo '<p>Welcome ' . $db->getFName($_SESSION['USER_ID']) . '</p>';
+                            echo '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome ' . $db->getFName($_SESSION['USER_ID']) . ' <span class="caret"></span></a>';
                             echo '
-                                <li><a href="logout.php">Log out</a></li>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">My Account</a></li>
+                                    <li><a href="logout.php">Log out</a></li>
+                                </ul>
+                                </li>
                             ';
                         }
                     }
