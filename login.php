@@ -21,9 +21,6 @@
     <h1>Login</h1>
 
     <?php
-
-    echo 'Current PHP version: ' . phpversion();
-
     require_once('includes/php/Security.php');
     require_once('includes/php/MySqlTools.php');
     require_once('includes/php/Session.php');
