@@ -40,9 +40,6 @@ class MySqlTools
     {
         try {
             $statement = $this->db_connection->prepare("SELECT * FROM " . $table . " where user_id = '$id'");
-
-            var_dump($statement);
-
             $statement->execute();
             //$result = $statement->fetch();
 

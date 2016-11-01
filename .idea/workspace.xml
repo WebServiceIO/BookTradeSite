@@ -4,6 +4,7 @@
     <list default="true" id="d72112ce-c2fa-4c11-aa40-314be8381895" name="Default" comment="- Fixed typo in sql query">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/php/MySqlTools.php" afterPath="$PROJECT_DIR$/includes/php/MySqlTools.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/php/serverside_user_post.php" afterPath="$PROJECT_DIR$/includes/php/serverside_user_post.php" />
     </list>
     <ignored path="BookTradeSite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -106,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serverside_user_post.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="serverside_user_post.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/includes/php/serverside_user_post.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.0">
-              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.77952754">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="e#6#240#0#PHP" expanded="true" />
               </folding>
@@ -118,30 +119,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MySqlTools.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MySqlTools.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/php/MySqlTools.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20787401">
-              <caret line="41" column="84" selection-start-line="41" selection-start-column="84" selection-end-line="41" selection-end-column="84" />
+            <state vertical-scroll-proportion="-6.285714">
+              <caret line="41" column="109" selection-start-line="41" selection-start-column="109" selection-end-line="41" selection-end-column="109" />
               <folding>
-                <marker date="1478033123869" expanded="true" signature="391:487" placeholder="INSERT INTO sessions... " />
-                <marker date="1478033123869" expanded="true" signature="1415:1428" placeholder="SELECT * FRO... " />
-                <marker date="1478033123869" expanded="true" signature="1415:1429" placeholder="SELECT * FRO... ${$table}" />
-                <marker date="1478033123869" expanded="true" signature="1415:1439" placeholder="SELECT * FRO... " />
-                <marker date="1478033123869" expanded="true" signature="1415:1465" placeholder="SELECT * FRO... " />
-                <marker date="1478033123869" expanded="true" signature="1415:1466" placeholder="DELETE FROM " />
-                <marker date="1478033123869" expanded="true" signature="1979:2026" placeholder="DELETE FROM " />
-                <marker date="1478033123869" expanded="true" signature="2440:2482" placeholder="SELECT * FRO... users" />
-                <marker date="1478033123869" expanded="true" signature="2809:2857" placeholder="SELECT user_... users" />
-                <marker date="1478033123869" expanded="true" signature="3187:3240" placeholder="SELECT user_... users" />
-                <marker date="1478033123869" expanded="true" signature="3567:3620" placeholder="SELECT usern... users" />
-                <marker date="1478033123869" expanded="true" signature="3903:3940" placeholder="SELECT id, n... users" />
-                <marker date="1478033123869" expanded="true" signature="4159:4218" placeholder="SELECT finge... sessions" />
-                <marker date="1478033123869" expanded="true" signature="4553:4602" placeholder="SELECT passw... users" />
-                <marker date="1478033123869" expanded="true" signature="5316:5365" placeholder="SELECT passw... users" />
-                <marker date="1478033123869" expanded="true" signature="5838:5888" placeholder="SELECT fname... users" />
-                <marker date="1478033123869" expanded="true" signature="6492:6612" placeholder="INSERT INTO users... " />
-                <marker date="1478033123869" expanded="true" signature="7263:7318" placeholder="SELECT usern... users" />
+                <marker date="1478033208606" expanded="true" signature="391:487" placeholder="INSERT INTO sessions... " />
+                <marker date="1478033208606" expanded="true" signature="1415:1428" placeholder="SELECT * FRO... " />
+                <marker date="1478033208606" expanded="true" signature="1415:1429" placeholder="SELECT * FRO... ${$table}" />
+                <marker date="1478033208606" expanded="true" signature="1415:1439" placeholder="SELECT * FRO... " />
+                <marker date="1478033208606" expanded="true" signature="1415:1465" placeholder="SELECT * FRO... " />
+                <marker date="1478033208606" expanded="true" signature="1415:1466" placeholder="DELETE FROM " />
+                <marker date="1478033208606" expanded="true" signature="1943:1990" placeholder="DELETE FROM " />
+                <marker date="1478033208606" expanded="true" signature="2404:2446" placeholder="SELECT * FRO... users" />
+                <marker date="1478033208606" expanded="true" signature="2773:2821" placeholder="SELECT user_... users" />
+                <marker date="1478033208606" expanded="true" signature="3151:3204" placeholder="SELECT user_... users" />
+                <marker date="1478033208606" expanded="true" signature="3531:3584" placeholder="SELECT usern... users" />
+                <marker date="1478033208606" expanded="true" signature="3867:3904" placeholder="SELECT id, n... users" />
+                <marker date="1478033208606" expanded="true" signature="4123:4182" placeholder="SELECT finge... sessions" />
+                <marker date="1478033208606" expanded="true" signature="4517:4566" placeholder="SELECT passw... users" />
+                <marker date="1478033208606" expanded="true" signature="5280:5329" placeholder="SELECT passw... users" />
+                <marker date="1478033208606" expanded="true" signature="5802:5852" placeholder="SELECT fname... users" />
+                <marker date="1478033208606" expanded="true" signature="6456:6576" placeholder="INSERT INTO users... " />
+                <marker date="1478033208606" expanded="true" signature="7227:7282" placeholder="SELECT usern... users" />
               </folding>
             </state>
           </provider>
@@ -215,8 +216,8 @@
         <option value="$PROJECT_DIR$/includes/php/UserPost.php" />
         <option value="$PROJECT_DIR$/userAccount.php" />
         <option value="$PROJECT_DIR$/includes/js/data_tables.js" />
-        <option value="$PROJECT_DIR$/includes/php/serverside_user_post.php" />
         <option value="$PROJECT_DIR$/includes/php/MySqlTools.php" />
+        <option value="$PROJECT_DIR$/includes/php/serverside_user_post.php" />
       </list>
     </option>
   </component>
@@ -1254,7 +1255,7 @@
       <workItem from="1477421112955" duration="3246000" />
       <workItem from="1477879019310" duration="1122000" />
       <workItem from="1477944506739" duration="1053000" />
-      <workItem from="1478018491700" duration="12166000" />
+      <workItem from="1478018491700" duration="12462000" />
     </task>
     <task id="LOCAL-00001" summary="Deleted old files">
       <created>1475397502371</created>
@@ -1424,11 +1425,17 @@
       <option name="project" value="LOCAL" />
       <updated>1478032706582</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="- Fixed typo in sql query">
+      <created>1478033133987</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1478033133987</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93735000" />
+    <option name="totallyTimeSpent" value="94031000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3872" height="2092" extended-state="6" />
@@ -1924,16 +1931,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/php/serverside_user_post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.0">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-          <folding>
-            <element signature="e#6#240#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/js/data_tables.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1944,27 +1941,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/php/MySqlTools.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20787401">
-          <caret line="41" column="84" selection-start-line="41" selection-start-column="84" selection-end-line="41" selection-end-column="84" />
+        <state vertical-scroll-proportion="-6.285714">
+          <caret line="41" column="109" selection-start-line="41" selection-start-column="109" selection-end-line="41" selection-end-column="109" />
           <folding>
-            <marker date="1478033123869" expanded="true" signature="391:487" placeholder="INSERT INTO sessions... " />
-            <marker date="1478033123869" expanded="true" signature="1415:1428" placeholder="SELECT * FRO... " />
-            <marker date="1478033123869" expanded="true" signature="1415:1429" placeholder="SELECT * FRO... ${$table}" />
-            <marker date="1478033123869" expanded="true" signature="1415:1439" placeholder="SELECT * FRO... " />
-            <marker date="1478033123869" expanded="true" signature="1415:1465" placeholder="SELECT * FRO... " />
-            <marker date="1478033123869" expanded="true" signature="1415:1466" placeholder="DELETE FROM " />
-            <marker date="1478033123869" expanded="true" signature="1979:2026" placeholder="DELETE FROM " />
-            <marker date="1478033123869" expanded="true" signature="2440:2482" placeholder="SELECT * FRO... users" />
-            <marker date="1478033123869" expanded="true" signature="2809:2857" placeholder="SELECT user_... users" />
-            <marker date="1478033123869" expanded="true" signature="3187:3240" placeholder="SELECT user_... users" />
-            <marker date="1478033123869" expanded="true" signature="3567:3620" placeholder="SELECT usern... users" />
-            <marker date="1478033123869" expanded="true" signature="3903:3940" placeholder="SELECT id, n... users" />
-            <marker date="1478033123869" expanded="true" signature="4159:4218" placeholder="SELECT finge... sessions" />
-            <marker date="1478033123869" expanded="true" signature="4553:4602" placeholder="SELECT passw... users" />
-            <marker date="1478033123869" expanded="true" signature="5316:5365" placeholder="SELECT passw... users" />
-            <marker date="1478033123869" expanded="true" signature="5838:5888" placeholder="SELECT fname... users" />
-            <marker date="1478033123869" expanded="true" signature="6492:6612" placeholder="INSERT INTO users... " />
-            <marker date="1478033123869" expanded="true" signature="7263:7318" placeholder="SELECT usern... users" />
+            <marker date="1478033208606" expanded="true" signature="391:487" placeholder="INSERT INTO sessions... " />
+            <marker date="1478033208606" expanded="true" signature="1415:1428" placeholder="SELECT * FRO... " />
+            <marker date="1478033208606" expanded="true" signature="1415:1429" placeholder="SELECT * FRO... ${$table}" />
+            <marker date="1478033208606" expanded="true" signature="1415:1439" placeholder="SELECT * FRO... " />
+            <marker date="1478033208606" expanded="true" signature="1415:1465" placeholder="SELECT * FRO... " />
+            <marker date="1478033208606" expanded="true" signature="1415:1466" placeholder="DELETE FROM " />
+            <marker date="1478033208606" expanded="true" signature="1943:1990" placeholder="DELETE FROM " />
+            <marker date="1478033208606" expanded="true" signature="2404:2446" placeholder="SELECT * FRO... users" />
+            <marker date="1478033208606" expanded="true" signature="2773:2821" placeholder="SELECT user_... users" />
+            <marker date="1478033208606" expanded="true" signature="3151:3204" placeholder="SELECT user_... users" />
+            <marker date="1478033208606" expanded="true" signature="3531:3584" placeholder="SELECT usern... users" />
+            <marker date="1478033208606" expanded="true" signature="3867:3904" placeholder="SELECT id, n... users" />
+            <marker date="1478033208606" expanded="true" signature="4123:4182" placeholder="SELECT finge... sessions" />
+            <marker date="1478033208606" expanded="true" signature="4517:4566" placeholder="SELECT passw... users" />
+            <marker date="1478033208606" expanded="true" signature="5280:5329" placeholder="SELECT passw... users" />
+            <marker date="1478033208606" expanded="true" signature="5802:5852" placeholder="SELECT fname... users" />
+            <marker date="1478033208606" expanded="true" signature="6456:6576" placeholder="INSERT INTO users... " />
+            <marker date="1478033208606" expanded="true" signature="7227:7282" placeholder="SELECT usern... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/php/serverside_user_post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77952754">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#240#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

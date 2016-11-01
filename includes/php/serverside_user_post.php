@@ -14,7 +14,17 @@
     $selected_table = 'posts';
     $index = 'post_id';
 
-    echo json_encode($db_connection->getTableColumns($selected_table, 1 ));
+    $ajax = array(
+        "iTotalRecords" => 2,
+        "iTotalDisplayRecords" => 2,
+        "aaData" => array()
+    );
+
+    $ajax['aaData'][] = $db_connection->getTableColumns($selected_table, 1 );
+
+
+
+    echo json_encode($ajax);
 
 //
 
