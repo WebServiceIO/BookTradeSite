@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d72112ce-c2fa-4c11-aa40-314be8381895" name="Default" comment="- Datatables ajax fixes">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/php/serverside_user_post.php" afterPath="$PROJECT_DIR$/includes/php/serverside_user_post.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/userAccount.php" afterPath="$PROJECT_DIR$/userAccount.php" />
     </list>
     <ignored path="BookTradeSite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,20 +33,20 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.214286">
+            <state vertical-scroll-proportion="-0.78571427">
               <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
               <folding>
-                <marker date="1478030166384" expanded="true" signature="4084:4272" placeholder="..." />
+                <marker date="1478038259596" expanded="true" signature="4084:4272" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userAccount.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="userAccount.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/userAccount.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.142857">
-              <caret line="83" column="83" selection-start-line="83" selection-start-column="83" selection-end-line="83" selection-end-column="83" />
+            <state vertical-scroll-proportion="0.31181103">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="100" />
               <folding />
             </state>
           </provider>
@@ -55,7 +55,7 @@
       <file leaf-file-name="included_classes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/php/included_classes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.142857">
+            <state vertical-scroll-proportion="0.0">
               <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
               <folding />
             </state>
@@ -65,7 +65,7 @@
       <file leaf-file-name="DataBaseLoader.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/php/DataBaseLoader.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.071429">
+            <state vertical-scroll-proportion="0.0">
               <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
@@ -75,24 +75,10 @@
       <file leaf-file-name="searchByISBN.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/searchByISBN.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.78571427">
+            <state vertical-scroll-proportion="0.0">
               <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sort_asc.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/images/sort_asc.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="favicon.ico" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/images/favicon.ico">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
@@ -106,13 +92,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serverside_user_post.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="serverside_user_post.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/php/serverside_user_post.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4417323">
-              <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+            <state vertical-scroll-proportion="-13.357142">
+              <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
               <folding>
                 <element signature="e#6#240#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="result.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/js/result.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/js/account.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,28 +131,9 @@
       <file leaf-file-name="MySqlTools.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/php/MySqlTools.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.0">
+            <state vertical-scroll-proportion="0.0">
               <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-              <folding>
-                <marker date="1478033985452" expanded="true" signature="390:486" placeholder="INSERT INTO sessions... " />
-                <marker date="1478033985452" expanded="true" signature="1314:1327" placeholder="SELECT * FRO... " />
-                <marker date="1478033985452" expanded="true" signature="1314:1328" placeholder="SELECT * FRO... ${$table}" />
-                <marker date="1478033985452" expanded="true" signature="1314:1338" placeholder="SELECT * FRO... " />
-                <marker date="1478033985452" expanded="true" signature="1314:1364" placeholder="SELECT * FRO... " />
-                <marker date="1478033985452" expanded="true" signature="1314:1365" placeholder="DELETE FROM " />
-                <marker date="1478033985452" expanded="true" signature="1757:1804" placeholder="DELETE FROM " />
-                <marker date="1478033985452" expanded="true" signature="2218:2260" placeholder="SELECT * FRO... users" />
-                <marker date="1478033985452" expanded="true" signature="2587:2635" placeholder="SELECT user_... users" />
-                <marker date="1478033985452" expanded="true" signature="2965:3018" placeholder="SELECT user_... users" />
-                <marker date="1478033985452" expanded="true" signature="3345:3398" placeholder="SELECT usern... users" />
-                <marker date="1478033985452" expanded="true" signature="3681:3718" placeholder="SELECT id, n... users" />
-                <marker date="1478033985452" expanded="true" signature="3937:3996" placeholder="SELECT finge... sessions" />
-                <marker date="1478033985452" expanded="true" signature="4331:4380" placeholder="SELECT passw... users" />
-                <marker date="1478033985452" expanded="true" signature="5094:5143" placeholder="SELECT passw... users" />
-                <marker date="1478033985452" expanded="true" signature="5616:5666" placeholder="SELECT fname... users" />
-                <marker date="1478033985452" expanded="true" signature="6270:6390" placeholder="INSERT INTO users... " />
-                <marker date="1478033985452" expanded="true" signature="7041:7096" placeholder="SELECT usern... users" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -214,9 +205,9 @@
         <option value="$PROJECT_DIR$/register.php" />
         <option value="$PROJECT_DIR$/includes/php/UserPost.php" />
         <option value="$PROJECT_DIR$/includes/php/MySqlTools.php" />
-        <option value="$PROJECT_DIR$/userAccount.php" />
         <option value="$PROJECT_DIR$/includes/js/data_tables.js" />
         <option value="$PROJECT_DIR$/includes/php/serverside_user_post.php" />
+        <option value="$PROJECT_DIR$/userAccount.php" />
       </list>
     </option>
   </component>
@@ -299,7 +290,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -370,8 +360,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -394,419 +385,6 @@
       <recent name="C:\xampp\htdocs\BookTradeSite\Includes\js" />
       <recent name="$PROJECT_DIR$" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/index.php</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/AddBookTemplate.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/.bower.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/CHANGE.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/LICENSE.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/README.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/bower.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/css/fileinput.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/css/fileinput.min.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/img/loading-sm.gif</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/img/loading.gif</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/fileinput.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/fileinput.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/LANG.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/ar.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/bg.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/ca.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/cr.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/cz.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/da.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/de.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/el.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/es.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/fa.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/fi.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/fr.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/hu.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/id.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/it.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/ja.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/nl.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/pl.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/pt-BR.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/pt.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/ro.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/ru.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/sk.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/th.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/tr.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/uk.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/vi.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/zh-TW.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/locales/zh.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/plugins/canvas-to-blob.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/plugins/purify.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/plugins/purify.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/plugins/sortable.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/js/plugins/sortable.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/nuget/Package.nuspec</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/nuget/build.bat</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/package.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/sass/fileinput.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/themes/fa/theme.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap-fileinput/themes/gly/theme.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/.bower.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/CHANGELOG.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/Gemfile</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/Gemfile.lock</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/Gruntfile.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/ISSUE_TEMPLATE.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/LICENSE</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/README.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/bower.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/css/bootstrap-theme.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/css/bootstrap-theme.css.map</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/css/bootstrap-theme.min.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/css/bootstrap-theme.min.css.map</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/css/bootstrap.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/css/bootstrap.css.map</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/css/bootstrap.min.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/css/bootstrap.min.css.map</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/js/bootstrap.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/js/bootstrap.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/dist/js/npm.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/grunt/.jshintrc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/grunt/bs-commonjs-generator.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/grunt/bs-glyphicons-data-generator.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/grunt/bs-lessdoc-parser.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/grunt/bs-raw-files-generator.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/grunt/change-version.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/grunt/configBridge.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/grunt/npm-shrinkwrap.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/grunt/sauce_browsers.yml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/js/.jscsrc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/js/.jshintrc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/js/affix.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/js/alert.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/js/button.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/js/carousel.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/js/collapse.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/js/dropdown.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/js/modal.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/js/popover.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/js/scrollspy.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/js/tab.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/js/tooltip.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/js/transition.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/.csscomb.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/.csslintrc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/alerts.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/badges.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/bootstrap.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/breadcrumbs.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/button-groups.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/buttons.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/carousel.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/close.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/code.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/component-animations.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/dropdowns.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/forms.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/glyphicons.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/grid.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/input-groups.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/jumbotron.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/labels.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/list-group.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/media.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/alerts.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/background-variant.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/border-radius.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/buttons.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/center-block.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/clearfix.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/forms.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/gradients.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/grid-framework.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/grid.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/hide-text.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/image.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/labels.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/list-group.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/nav-divider.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/nav-vertical-align.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/opacity.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/pagination.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/panels.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/progress-bar.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/reset-filter.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/reset-text.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/resize.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/responsive-visibility.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/size.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/tab-focus.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/table-row.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/text-emphasis.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/text-overflow.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/mixins/vendor-prefixes.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/modals.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/navbar.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/navs.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/normalize.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/pager.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/pagination.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/panels.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/popovers.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/print.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/progress-bars.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/responsive-embed.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/responsive-utilities.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/scaffolding.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/tables.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/theme.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/thumbnails.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/tooltip.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/type.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/utilities.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/variables.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/less/wells.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/nuget/MyGet.ps1</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/nuget/bootstrap.less.nuspec</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/nuget/bootstrap.nuspec</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/package.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/bootstrap/package.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/.bower.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/AUTHORS.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/LICENSE.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/README.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/bower.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/dist/core.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/dist/jquery.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/dist/jquery.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/dist/jquery.min.map</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/dist/jquery.slim.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/dist/jquery.slim.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/dist/jquery.slim.min.map</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/external/sizzle/LICENSE.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/external/sizzle/dist/sizzle.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/external/sizzle/dist/sizzle.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/external/sizzle/dist/sizzle.min.map</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/.eslintrc.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/ajax.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/ajax/jsonp.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/ajax/load.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/ajax/parseXML.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/ajax/script.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/ajax/var/location.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/ajax/var/nonce.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/ajax/var/rquery.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/ajax/xhr.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/attributes.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/attributes/attr.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/attributes/classes.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/attributes/prop.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/attributes/support.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/attributes/val.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/callbacks.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/core.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/core/DOMEval.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/core/access.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/core/init.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/core/parseHTML.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/core/ready-no-deferred.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/core/ready.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/core/readyException.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/core/stripAndCollapse.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/core/support.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/core/var/rsingleTag.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/css.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/css/addGetHookIf.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/css/adjustCSS.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/css/curCSS.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/css/hiddenVisibleSelectors.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/css/showHide.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/css/support.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/css/var/cssExpand.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/css/var/getStyles.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/css/var/isHiddenWithinTree.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/css/var/rmargin.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/css/var/rnumnonpx.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/css/var/swap.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/data.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/data/Data.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/data/var/acceptData.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/data/var/dataPriv.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/data/var/dataUser.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/deferred.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/deferred/exceptionHook.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/deprecated.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/dimensions.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/effects.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/effects/Tween.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/effects/animatedSelector.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/event.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/event/ajax.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/event/alias.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/event/focusin.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/event/support.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/event/trigger.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/exports/amd.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/exports/global.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/jquery.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/manipulation.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/manipulation/_evalUrl.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/manipulation/buildFragment.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/manipulation/getAll.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/manipulation/setGlobalEval.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/manipulation/support.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/manipulation/var/rcheckableType.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/manipulation/var/rscriptType.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/manipulation/var/rtagName.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/manipulation/wrapMap.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/offset.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/queue.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/queue/delay.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/selector-native.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/selector-sizzle.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/selector.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/serialize.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/traversing.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/traversing/findFilter.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/traversing/var/dir.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/traversing/var/rneedsContext.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/traversing/var/siblings.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/ObjectFunctionString.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/arr.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/class2type.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/concat.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/document.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/documentElement.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/fnToString.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/getProto.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/hasOwn.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/indexOf.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/pnum.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/push.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/rcssNum.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/rnothtmlwhite.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/slice.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/support.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/var/toString.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/bower_components/jquery/src/wrap.js</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -1255,6 +833,7 @@
       <workItem from="1477879019310" duration="1122000" />
       <workItem from="1477944506739" duration="1053000" />
       <workItem from="1478018491700" duration="14164000" />
+      <workItem from="1478038263798" duration="37000" />
     </task>
     <task id="LOCAL-00001" summary="Deleted old files">
       <created>1475397502371</created>
@@ -1476,7 +1055,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95733000" />
+    <option name="totallyTimeSpent" value="95770000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3872" height="2092" extended-state="6" />
@@ -1484,12 +1063,10 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25515744" sideWeight="0.51370895" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25515744" sideWeight="0.51491416" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25515744" sideWeight="0.48629105" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25515744" sideWeight="0.48508587" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13567708" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1498,13 +1075,15 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3262758" sideWeight="0.48749623" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1596,18 +1175,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/includes/php/included_classes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/php/Security.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1636,7 +1207,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1658,7 +1228,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1681,7 +1250,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1774,7 +1342,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1782,7 +1349,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1790,7 +1356,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1806,7 +1371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1814,10 +1378,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.357143">
           <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-          <folding>
-            <marker date="1476310419274" expanded="true" signature="413:505" placeholder="SELECT name,... pending_activation_db" />
-            <marker date="1476310419274" expanded="true" signature="1017:1246" placeholder="INSERT INTO user_db... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1825,9 +1385,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.428572">
           <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
-          <folding>
-            <marker date="1477416546933" expanded="true" signature="1159:1321" placeholder="INSERT INTO ${$temporary_table}... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1851,7 +1408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.9285715">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1859,7 +1415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.0">
           <caret line="89" column="35" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1867,17 +1422,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.357142">
           <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/js/account.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1885,30 +1429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-140.64285">
           <caret line="179" column="20" selection-start-line="179" selection-start-column="20" selection-end-line="179" selection-end-column="20" />
-          <folding>
-            <marker date="1478023074700" expanded="true" signature="336:379" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="465:512" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="582:625" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="711:758" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="828:871" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="957:1004" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="1073:1114" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="1195:1238" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="1307:1348" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="1429:1472" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="1543:1586" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="1673:1720" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="1792:1836" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="1926:1975" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="2044:2085" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="2166:2209" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="2286:2336" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="2443:2504" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="2575:2618" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="2705:2752" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="2822:2864" placeholder="{...}" />
-            <marker date="1478023074700" expanded="true" signature="2948:2993" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1916,7 +1436,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.5">
           <caret line="29" column="26" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1930,19 +1449,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.214286">
-          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
-          <folding>
-            <marker date="1478030166384" expanded="true" signature="4084:4272" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/searchByISBN.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.78571427">
+        <state vertical-scroll-proportion="0.0">
           <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
           <folding />
         </state>
@@ -1950,7 +1459,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/php/included_classes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.142857">
+        <state vertical-scroll-proportion="0.0">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding />
         </state>
@@ -1958,7 +1467,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/php/DataBaseLoader.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.071429">
+        <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
@@ -1966,35 +1475,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/php/MySqlTools.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding>
-            <marker date="1478033985452" expanded="true" signature="390:486" placeholder="INSERT INTO sessions... " />
-            <marker date="1478033985452" expanded="true" signature="1314:1327" placeholder="SELECT * FRO... " />
-            <marker date="1478033985452" expanded="true" signature="1314:1328" placeholder="SELECT * FRO... ${$table}" />
-            <marker date="1478033985452" expanded="true" signature="1314:1338" placeholder="SELECT * FRO... " />
-            <marker date="1478033985452" expanded="true" signature="1314:1364" placeholder="SELECT * FRO... " />
-            <marker date="1478033985452" expanded="true" signature="1314:1365" placeholder="DELETE FROM " />
-            <marker date="1478033985452" expanded="true" signature="1757:1804" placeholder="DELETE FROM " />
-            <marker date="1478033985452" expanded="true" signature="2218:2260" placeholder="SELECT * FRO... users" />
-            <marker date="1478033985452" expanded="true" signature="2587:2635" placeholder="SELECT user_... users" />
-            <marker date="1478033985452" expanded="true" signature="2965:3018" placeholder="SELECT user_... users" />
-            <marker date="1478033985452" expanded="true" signature="3345:3398" placeholder="SELECT usern... users" />
-            <marker date="1478033985452" expanded="true" signature="3681:3718" placeholder="SELECT id, n... users" />
-            <marker date="1478033985452" expanded="true" signature="3937:3996" placeholder="SELECT finge... sessions" />
-            <marker date="1478033985452" expanded="true" signature="4331:4380" placeholder="SELECT passw... users" />
-            <marker date="1478033985452" expanded="true" signature="5094:5143" placeholder="SELECT passw... users" />
-            <marker date="1478033985452" expanded="true" signature="5616:5666" placeholder="SELECT fname... users" />
-            <marker date="1478033985452" expanded="true" signature="6270:6390" placeholder="INSERT INTO users... " />
-            <marker date="1478033985452" expanded="true" signature="7041:7096" placeholder="SELECT usern... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/userAccount.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.142857">
-          <caret line="83" column="83" selection-start-line="83" selection-start-column="83" selection-end-line="83" selection-end-column="83" />
           <folding />
         </state>
       </provider>
@@ -2009,11 +1491,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/php/serverside_user_post.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4417323">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+        <state vertical-scroll-proportion="-13.357142">
+          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
           <folding>
             <element signature="e#6#240#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/js/result.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/js/account.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.78571427">
+          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+          <folding>
+            <marker date="1478038259596" expanded="true" signature="4084:4272" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userAccount.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31181103">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="100" />
+          <folding />
         </state>
       </provider>
     </entry>
