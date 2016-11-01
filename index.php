@@ -9,16 +9,13 @@
     <meta name="description" content="The solution for buying and selling textbooks.">
     <meta name="keywords" content="bookxchange christine nguyen tanner summers giovanni hernandez david ghermezi">
     <!-- CSS -->
-    <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel = "stylesheet" href = "includes/css/bootstrap3.3.4/bootstrap.min.css">
     <link rel="stylesheet" href="includes/css/main.css">
     <link rel="stylesheet" href="includes/css/navbar.css">
     <!-- JavaScript -->
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <!--<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>-->
+    <script src = "includes/js/jquery1.11.1/jquery.min.js"></script>
+    <script src = "includes/js/bootstrap3.3.4/bootstrap.min.js"></script>
     <script type="text/javascript" src="includes/js/main.js"></script>
-    <!--<script src="includes/js/angular/BookXchange.js"></script>-->
-    <!--<script src="includes/js/angular/BookXchangeController.js"></script>-->
     <!-- FakeLoader -->
     <link rel="stylesheet" href="bower_components/fakeLoader/fakeLoader.css">
     <script src="bower_components/fakeLoader/fakeLoader.min.js"></script>
@@ -29,7 +26,6 @@
     
     <div id="fakeLoader"></div>
 
-<!--    <div ng-app="BookXchange" ng-controller="BookXchangeController">-->
     <!-- Navigation Bar -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -261,16 +257,6 @@
         </span>
     </div>
 
-    <!-- Initialize fakeLoader
-    <script type="text/javascript">
-        $("#fakeLoader").fakeLoader({
-            timeToHide: 2000, // fakeLoader time (ms)
-            spinner:"spinner1", // Options: 'spinner1' to 7
-            bgColor:"#2ecc71" //Hex, RGB or RGBA colors
-        });
-    </script>
--->
-<!--    </div>-->
 
 </body>
 </html>

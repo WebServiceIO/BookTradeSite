@@ -7,16 +7,16 @@
     <meta name="description" content="The solution for buying and selling textbooks.">
 
     <!--- JS -->
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src = "includes/js/jquery1.11.1/jquery.min.js"></script>
+    <script src = "includes/js/bootstrap3.3.4/bootstrap.min.js"></script>
     <script src="includes/js/registration.js"></script>
 
     <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <script  src="includes/js/html5shiv.js"></script>
     <![endif]-->
 
     <!-- CSS -->
-    <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel = "stylesheet" href = "includes/css/bootstrap3.3.4/bootstrap.min.css">
     <link rel="stylesheet" href="includes/css/login.css">
 </head>
 <body>

@@ -5,15 +5,14 @@
     <meta charset="utf-8">
     <title>Bookxchange: ISBN</title> <!-- PHP -->
     <meta name="description" content="The solution for buying and selling textbooks.">
-
-    <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel = "stylesheet" href = "includes/css/bootstrap3.3.4/bootstrap.min.css">
+    <script src = "includes/js/jquery1.11.1/jquery.min.js"></script>
+    <script src = "includes/js/bootstrap3.3.4/bootstrap.min.js"></script>
     <link rel="stylesheet" href="includes/css/account.css">
     <script type="text/javascript" src="includes/js/account.js"></script>
-    <script src = "http://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src = "includes/js/datatables1.10.12/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="includes/js/data_tables.js"></script>
-    <link rel = "stylesheet" href = "http://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css?v=1.0">
+    <link rel = "stylesheet" href = "includes/css/datatables1.10.12/jquery.dataTables.min.css?v=1.0">
 
 </head>
 <body>
