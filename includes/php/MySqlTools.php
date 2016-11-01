@@ -39,7 +39,7 @@ class MySqlTools
     function getTableColumns($table, $id)
     {
         try {
-            $statement = $this->db_connection->prepare("SELECT * FROM '$table' where user_id = '$id'");
+            $statement = $this->db_connection->prepare("SELECT * FROM " . $table . " where user_id = '$id'");
 
             var_dump($statement);
 
@@ -47,7 +47,7 @@ class MySqlTools
             //$result = $statement->fetch();
 
             $result = $statement->fetchAll(PDO::FETCH_CLASS);
-      
+
             var_dump($result);
 
 
