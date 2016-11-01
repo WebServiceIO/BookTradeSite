@@ -41,13 +41,13 @@ class MySqlTools
         try {
             $statement = $this->db_connection->prepare("SELECT * FROM '$table' where user_id = '$id'");
 
-            var_dum($statement);
+            var_dump($statement);
 
             $statement->execute();
             //$result = $statement->fetch();
 
             $result = $statement->fetchAll(PDO::FETCH_CLASS);
-
+      
             var_dump($result);
 
 
