@@ -30,8 +30,7 @@ class MySqlTools
             echo "Error, please report to admin error code 548" . $e;
             return false;
         }
-        // some reason, the array values were not there and it cant continue
-        //return false;
+
     }
 
 
@@ -40,25 +39,14 @@ class MySqlTools
         try {
             $statement = $this->db_connection->prepare("SELECT * FROM " . $table . " where user_id = '$id'");
             $statement->execute();
-            //$result = $statement->fetch();
-
             $result = $statement->fetchAll(PDO::FETCH_CLASS);
-
-            var_dump($result);
-
-
             return $result;
-
         } catch (PDOException $e) {
             echo "Error, please report to admin error code 543";
         }
 
         return null;
     }
-
-
-
-
 
     public function deleteSession($user_id)
     {
