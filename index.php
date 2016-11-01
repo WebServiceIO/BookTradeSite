@@ -83,7 +83,7 @@
                     else
                     {
                         echo '
-                                <li><a href="login.php">Log In</a></li>
+                                <li><a href="AddBookTemplate.html">Log In</a></li>
                                 <li><a href="register.php">Register</a></li>
                         ';
                     }
