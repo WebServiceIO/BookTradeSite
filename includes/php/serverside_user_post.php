@@ -7,6 +7,8 @@
  * https://gist.github.com/jjb3rd/3156545
  */
 
+echo 'test';
+
     require_once ('MySqlTools.php');
 
     $db_connection = new MySqlTools();
@@ -14,19 +16,19 @@
     $selected_table = 'Posts';
     $index = 'post_id';
 
-    $db_connection->getTableColumns($selected_table, 1 );
+echo json_encode($db_connection->getTableColumns($selected_table, 1 ));
 
-
-        // Output
-        $output = array(
-            "sEcho" => intval($_GET['sEcho']),
-            "iTotalRecords" => $iTotal,
-            "iTotalDisplayRecords" => $iFilteredTotal,
-            "aaData" => array()
-        );
-
-
-        echo json_encode( $output );
+//
+//        // Output
+//        $output = array(
+//            "sEcho" => intval($_GET['sEcho']),
+//            "iTotalRecords" => $iTotal,
+//            "iTotalDisplayRecords" => $iFilteredTotal,
+//            "aaData" => array()
+//        );
+//
+//
+//        echo json_encode( $output );
 
 
 
