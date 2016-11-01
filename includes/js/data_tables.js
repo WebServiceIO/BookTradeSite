@@ -6,18 +6,20 @@ $(document).ready(function() {
         sPaginationType: "full_numbers",
         bProcessing: true,
         oLanguage: {
-            sProcessing: "Loading all post...",
+            sProcessing: "Retrieving all records...",
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
-        "bJQueryUI": true,
+
+        bJQueryUI: true,
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],
         bServerSide: true,
         sAjaxSource: "includes/php/serverside_user_post.php",
-        "bDeferRender": true
+        bDeferRender: true
     });
 
 
-});
 
+
+});
