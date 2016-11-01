@@ -15,7 +15,7 @@
     $index = 'post_id';
 
     $ajax = array(
-        "sEcho" => intval(2),
+      
         "iTotalRecords" => 2,
         "iTotalDisplayRecords" => 2,
         "aaData" => array()

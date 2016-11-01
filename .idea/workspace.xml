@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d72112ce-c2fa-4c11-aa40-314be8381895" name="Default" comment="- Datatables ajax fixes">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/js/data_tables.js" afterPath="$PROJECT_DIR$/includes/js/data_tables.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/php/serverside_user_post.php" afterPath="$PROJECT_DIR$/includes/php/serverside_user_post.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/userAccount.php" afterPath="$PROJECT_DIR$/userAccount.php" />
     </list>
     <ignored path="BookTradeSite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -102,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/includes/js/data_tables.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="30" />
+              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -111,8 +109,8 @@
       <file leaf-file-name="serverside_user_post.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/includes/php/serverside_user_post.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7401575">
-              <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.4417323">
+              <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
               <folding>
                 <element signature="e#6#240#0#PHP" expanded="true" />
               </folding>
@@ -216,8 +214,8 @@
         <option value="$PROJECT_DIR$/register.php" />
         <option value="$PROJECT_DIR$/includes/php/UserPost.php" />
         <option value="$PROJECT_DIR$/includes/php/MySqlTools.php" />
-        <option value="$PROJECT_DIR$/includes/js/data_tables.js" />
         <option value="$PROJECT_DIR$/userAccount.php" />
+        <option value="$PROJECT_DIR$/includes/js/data_tables.js" />
         <option value="$PROJECT_DIR$/includes/php/serverside_user_post.php" />
       </list>
     </option>
@@ -1256,7 +1254,7 @@
       <workItem from="1477421112955" duration="3246000" />
       <workItem from="1477879019310" duration="1122000" />
       <workItem from="1477944506739" duration="1053000" />
-      <workItem from="1478018491700" duration="13947000" />
+      <workItem from="1478018491700" duration="14164000" />
     </task>
     <task id="LOCAL-00001" summary="Deleted old files">
       <created>1475397502371</created>
@@ -1462,11 +1460,23 @@
       <option name="project" value="LOCAL" />
       <updated>1478034369837</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="- Datatables ajax fixes">
+      <created>1478034918648</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1478034918648</updated>
+    </task>
+    <task id="LOCAL-00036" summary="- Datatables testing">
+      <created>1478035074876</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1478035074876</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95516000" />
+    <option name="totallyTimeSpent" value="95733000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3872" height="2092" extended-state="6" />
@@ -1537,7 +1547,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="- Partial session implementation&#10;- Login page code updated&#10;- OO code conversions" />
     <MESSAGE value="Fixed include file for DBSecurity" />
     <MESSAGE value="Backup" />
     <MESSAGE value="- Working login/logout system&#10;- updated hashing function&#10;- temp welcome message with login" />
@@ -1562,7 +1571,8 @@
     <MESSAGE value="- Fixed typo in sql query" />
     <MESSAGE value="- Testing datatables" />
     <MESSAGE value="- Datatables ajax fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Datatables ajax fixes" />
+    <MESSAGE value="- Datatables testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Datatables testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1981,14 +1991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/js/data_tables.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/userAccount.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.142857">
@@ -1997,10 +1999,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/includes/js/data_tables.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/includes/php/serverside_user_post.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7401575">
-          <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.4417323">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
           <folding>
             <element signature="e#6#240#0#PHP" expanded="true" />
           </folding>
