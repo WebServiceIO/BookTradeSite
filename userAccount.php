@@ -80,7 +80,7 @@ $user_id = 1;
 
         <h3 class="edit-header">Your Books</h3>
 
-        <table id='initial_datatable' class='data_table dataTable table_margin_shrink'>
+        <table id='initial_datatable' class='data_table dataTable table_margin_shrink'></table>
 
         <a href="#">
             <button type="button" class="btn btn-primary" id="btn-sell">

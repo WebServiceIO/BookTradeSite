@@ -12,7 +12,7 @@ $(document).ready(function() {
         },
         "bJQueryUI": true,
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
-        aaSorting: [[0, "asc"]],
+        //aaSorting: [[0, "asc"]],
         bServerSide: true,
         sAjaxSource: "../php/serverside_user_post.php",
         "bDeferRender": true
