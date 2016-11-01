@@ -39,7 +39,7 @@ class MySqlTools
     function getTableColumns($table, $id)
     {
         try {
-            $statement = $this->db_connection->prepare("SELECT * FROM '$table' where id = '$id'");
+            $statement = $this->db_connection->prepare("SELECT * FROM '$table' where user_id = '$id'");
             $statement->execute();
             //$result = $statement->fetch();
 
