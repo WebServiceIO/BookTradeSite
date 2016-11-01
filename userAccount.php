@@ -78,14 +78,6 @@ $user_id = 1;
 
         <h3 class="edit-header">Your Books</h3>
 
-
-        <?php
-
-        var_dump(file_get_contents('includes/php/serverside_user_post.php'));
-
-
-        ?>
-
         <table id='initial_datatable' class='data_table dataTable table_margin_shrink'>
 
         <a href="#">
