@@ -2,20 +2,20 @@
 <html lang="en">
 
 <head>
-    <title>Bookxchange</title>
+    <title>bookxchange</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Christine Nguyen Tanner Summers Giovanni Hernandez David Ghermezi">
     <meta name="description" content="The solution for buying and selling textbooks.">
     <meta name="keywords" content="bookxchange christine nguyen tanner summers giovanni hernandez david ghermezi">
     <!-- CSS -->
-    <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="includes/css/main.css">
     <link rel="stylesheet" href="includes/css/navbar.css">
     <!-- JavaScript -->
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>-->
     <script type="text/javascript" src="includes/js/main.js"></script>
     <!--<script src="includes/js/angular/BookXchange.js"></script>-->
     <!--<script src="includes/js/angular/BookXchangeController.js"></script>-->

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>bookxchange</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Christine Nguyen Tanner Summers Giovanni Hernandez David Ghermezi">
+    <meta name="description" content="The solution for buying and selling textbooks.">
+    <meta name="keywords" content="bookxchange christine nguyen tanner summers giovanni hernandez david ghermezi">
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-fileinput/css/fileinput.min.css" media="all" type="text/css">
+    
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap-fileinput/js/fileinput.min.js"></script>
+</head>
+    
+<body>
+    
+    <div class="container">
+        <h1>Add New Book</h1>
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" id="inputISBN" aria-describedby="enterISBNOfBook" placeholder="ISBN">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" id="inputPrice" aria-describedby="enterPrice" placeholder="Price">
+            </div>
+            <div class="form-group">
+                <label class="picture-label">Picture(s)</label>
+                <small id="picturesHelp" class="form-text text-muted">It's a good idea to take multiple pictures of all sides of the book so buyers can see.</small>
+                <input id="pictures" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments</label>
+                <small id="commentsHelp" class="form-text text-muted">Is there anything you want to say about your book, method of contact, etc.?</small>
+                <textarea class="form-control" id="comments" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="contact">How do you want buyers to contact you?</label>
+                <small id="contactHelp" class="form-text text-muted">You can select multiple options with Shift + Click.</small>
+                <select multiple class="form-control" id="contact">
+                    <option>Text me @ 1-743-1234</option>
+                    <option>FB Message Me</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
+</body>
+
+</html>
