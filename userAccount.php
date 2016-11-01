@@ -82,14 +82,6 @@ $user_id = 1;
 
 
         <table id="initial_datatable" class="display" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-                <th></th>
-            <tbody>
-            <tr>
-                <td></td>
-            </tr>
-            </tbody>
         </table>
 
 
