@@ -19,17 +19,6 @@ echo 'test';
 echo json_encode($db_connection->getTableColumns($selected_table, 1 ));
 
 //
-//        // Output
-//        $output = array(
-//            "sEcho" => intval($_GET['sEcho']),
-//            "iTotalRecords" => $iTotal,
-//            "iTotalDisplayRecords" => $iFilteredTotal,
-//            "aaData" => array()
-//        );
-//
-//
-//        echo json_encode( $output );
-
 
 
 ?>
