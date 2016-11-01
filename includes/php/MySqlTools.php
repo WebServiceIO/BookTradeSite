@@ -28,7 +28,7 @@ class MySqlTools
             }
             return false;
         } catch (PDOException $e) {
-            echo "Error, please report to admin error code 542" . $e;
+            echo "Error, please report to admin error code 548" . $e;
             return false;
         }
         // some reason, the array values were not there and it cant continue
@@ -40,6 +40,9 @@ class MySqlTools
     {
         try {
             $statement = $this->db_connection->prepare("SELECT * FROM '$table' where user_id = '$id'");
+
+            var_dum($statement);
+
             $statement->execute();
             //$result = $statement->fetch();
 
@@ -51,7 +54,7 @@ class MySqlTools
             return $result;
 
         } catch (PDOException $e) {
-            echo "Error, please report to admin error code 542";
+            echo "Error, please report to admin error code 543";
         }
 
         return null;
@@ -69,7 +72,7 @@ class MySqlTools
                 return $result;
 
         } catch (PDOException $e) {
-            echo "Error, please report to admin error code 542";
+            echo "Error, please report to admin error code 522";
         }
         // some reason, the array values were not there and it cant continue
         return false;
@@ -82,7 +85,7 @@ class MySqlTools
             $result = $statement->execute();
             return $statement->fetch();
         }catch(PDOException $e){
-            echo "Error, please report to admin error code 542";
+            echo "Error, please report to admin error code 512";
         }
     }
 

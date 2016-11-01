@@ -11,7 +11,7 @@
 
     $db_connection = new MySqlTools();
 
-    $selected_table = 'Posts';
+    $selected_table = 'posts';
     $index = 'post_id';
 
     echo json_encode($db_connection->getTableColumns($selected_table, 1 ));
