@@ -21,7 +21,7 @@
         "aaData" => array()
     );
 
-    $ajax['aaData'] = $db_connection->getTableColumns($selected_table, 1 );
+    $ajax['aaData'][] = $db_connection->getTableColumns($selected_table, 1 );
 
 
 
