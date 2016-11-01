@@ -48,6 +48,7 @@ $db_connection = DataBaseLoader::connect();
 
 $table = "posts";
 $index_column = "post_id";
+
 $columns = Array('post_id', 'user_id', 'isbn_id', 'title', 'class', 'author', 'edition', 'item_condition', 'price', 'comments', 'contact');
 
     // Paging

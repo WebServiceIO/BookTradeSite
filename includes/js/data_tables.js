@@ -10,8 +10,20 @@ $(document).ready(function() {
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
-
-        bJQueryUI: true,
+        aoColumns: [
+            {"title": "Post ID"},
+            {"title": "User ID"},
+            {"title": "ISBN ID"},
+            {"title": "Title"},
+            {"title": "Class"},
+            {"title": "Author"},
+            {"title": "Edition"},
+            {"title": "Condition"},
+            {"title": "Price"},
+            {"title": "Contact"},
+            {"title": "Comments"}
+        ],
+        bJQueryUI: false,
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],
         bServerSide: true,
