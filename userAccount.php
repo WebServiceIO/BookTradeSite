@@ -23,6 +23,7 @@
 
     <link rel = "stylesheet" href = "http://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
     <script src = "http://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="includes/js/data_tables.js"></script>
 </head>
 <body>
 
