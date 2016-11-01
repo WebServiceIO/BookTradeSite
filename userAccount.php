@@ -80,7 +80,90 @@ $user_id = 1;
 
         <h3 class="edit-header">Your Books</h3>
 
-        <table id='initial_datatable' class='data_table dataTable table_margin_shrink'></table>
+<!--        <table id='initial_datatable' class='data_table dataTable table_margin_shrink'></table>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <table id="initial_datatable" class="display" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+            </tfoot>
+            <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$170,750</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <a href="#">
             <button type="button" class="btn btn-primary" id="btn-sell">
