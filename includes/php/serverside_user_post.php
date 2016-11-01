@@ -15,8 +15,8 @@
     $index = 'post_id';
 
     $ajax = array(
-        "iTotalRecords" => 2,
-        "iTotalDisplayRecords" => 2,
+//        "iTotalRecords" => 2,
+//        "iTotalDisplayRecords" => 2,
         "aaData" => array()
     );
 
@@ -27,6 +27,43 @@
     echo json_encode($ajax);
 
 //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ?>
