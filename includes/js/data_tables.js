@@ -15,25 +15,6 @@ $(document).ready(function() {
         aaSorting: [[0, "asc"]],
         bServerSide: true,
         sAjaxSource: "../php/serverside_user_post.php",
-
-        columnDefs: [
-            {
-                render: function ( data, type, row )
-                {
-
-
-                },
-
-                "targets": []
-            }
-
-        ],
-        //aoColumns: [
-        //    {"title": ""},
-        //    { "sClass": "", "title": "" },
-        //
-        //],
-
         "bDeferRender": true
     });
 

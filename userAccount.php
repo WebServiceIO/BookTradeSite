@@ -65,7 +65,7 @@ $user_id = 1;
         <h1 class="content-header">Your Profile</h1>
 
         <h3 class="edit-header">Edit Account Information</h3>
-        <p class="profile-prompt">Username: <?php $db_connection->getUserNameFromID($user_id)?></p>
+<!--        <p class="profile-prompt">Username: --><?php //$db_connection->getUserNameFromID($user_id)?><!--</p>-->
         <p editable class="profile-info">user</p>
         <br>
         <p class="profile-prompt">Password:</p>
