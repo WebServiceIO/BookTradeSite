@@ -35,6 +35,32 @@ class MySqlTools
         //return false;
     }
 
+
+    function getTableColumns($table, $id)
+    {
+        try {
+            $statement = $this->db_connection->prepare("SELECT * FROM '$table' where id = '$id'");
+            $statement->execute();
+            //$result = $statement->fetch();
+
+            $result = $statement->fetchAll(PDO::FETCH_CLASS);
+
+            var_dump($result);
+
+
+            return $result;
+
+        } catch (PDOException $e) {
+            echo "Error, please report to admin error code 542";
+        }
+
+        return null;
+    }
+
+
+
+
+
     public function deleteSession($user_id)
     {
         try {
@@ -71,6 +97,34 @@ class MySqlTools
         }
     }
 
+
+    public function getUserNameFromID($user_id)
+    {
+        try {
+            $statement = $this->db_connection->prepare("SELECT username FROM users WHERE user_id = '$user_id'");
+            $statement->execute();
+            return $statement->fetch()['username'];
+        }catch(PDOException $e){
+            echo "Error, please report to admin error code 134";
+        }
+    }
+
+    public function getAllUserPost($user_id)
+    {
+        try {
+            $statement = $this->db_connection->prepare("SELECT username FROM users WHERE user_id = '$user_id'");
+            $statement->execute();
+            return $statement->fetch()['username'];
+        }catch(PDOException $e){
+            echo "Error, please report to admin error code 134";
+        }
+    }
+
+    public static function load_by_id ($id) {
+        $stmt = $pdo->prepare('SELECT id, name FROM users WHERE id=?');
+        $stmt->execute([$id]);
+        return $stmt->fetchObject(__CLASS__);
+    }
 
     public function getFingerprintInfoFromId($user_id)
     {

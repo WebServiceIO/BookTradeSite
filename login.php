@@ -24,6 +24,7 @@
     require_once('includes/php/Security.php');
     require_once('includes/php/MySqlTools.php');
     require_once('includes/php/Session.php');
+    require_once ('includes/php/config.php');
     $db = new MySqlTools();
     header('Cache-Control: no-cache, no-store, must-revalidate');
     $session = new Session();
@@ -34,7 +35,7 @@
 
     if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
     {
-       header('Location: index.php');
+       header('Location: site_root');
     }
     // make sure login info is set before using
     else if(isset($_POST['password']) && isset($_POST['email']))
@@ -86,7 +87,7 @@
                 //}
                 // after success,
                 header('Cache-Control: no-cache, no-store, must-revalidate');
-                header('Location: index.php');
+                header('Location: site_root');
                 // if email is invalid
             } else if (!$is_valid_email) {
                 echo "Invalid email";

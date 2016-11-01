@@ -28,13 +28,13 @@
 
     require_once('includes/php/Security.php');
     require_once('includes/php/MySqlTools.php');
-
+    require_once ('includes/php/config.php');
 
 
     session_start();
     if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
     {
-        header('Location: index.php');
+        header('Location: site_root');
     }
 
     /*
@@ -72,8 +72,6 @@
                 generateForm();
             } // check if email is taken
             else if ($db->checkEmail($_POST['email'])) {
-
-                var_dump($_POST['email']);
                // header('Location: ' . htmlspecialchars($_SERVER["PHP_SELF"]));
                 // header('Error: 34333');
                 //headers_sent();
@@ -91,7 +89,7 @@
 
                 $db->registerUser($newUserName, $newUserPassword, $newUserFirstName, $newUserLastName, $newUserEmail);
 
-               header('Location: index.php');
+               header('Location: site_root');
             }
     }
     else
