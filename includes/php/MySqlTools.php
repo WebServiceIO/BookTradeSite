@@ -1,6 +1,5 @@
 <?php
 require_once('included_classes.php');
-
 // TODO convert to boolean on returns and have web page take care of that
 class MySqlTools
 {
