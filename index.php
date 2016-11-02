@@ -4,17 +4,18 @@
 <head>
     <title>bookxchange</title>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Christine Nguyen Tanner Summers Giovanni Hernandez David Ghermezi">
     <meta name="description" content="The solution for buying and selling textbooks.">
     <meta name="keywords" content="bookxchange christine nguyen tanner summers giovanni hernandez david ghermezi">
     <!-- CSS -->
-    <link rel = "stylesheet" href = "includes/css/bootstrap3.3.4/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="includes/css/main.css">
     <link rel="stylesheet" href="includes/css/navbar.css">
     <!-- JavaScript -->
     <script src = "includes/js/jquery1.11.1/jquery.min.js"></script>
-    <script src = "includes/js/bootstrap3.3.4/bootstrap.min.js"></script>
+    <script src = "bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="includes/js/main.js"></script>
     <!-- FakeLoader -->
     <link rel="stylesheet" href="bower_components/fakeLoader/fakeLoader.css">
@@ -92,19 +93,19 @@
     <div class="container-fluid parallax">
         <div class="row statistics">
             <div class="col-xs-18 col-sm-4 col-md-4">
-                <img src="http://i.imgur.com/0pRdvCh.png" class="img-responsive" alt="Users Icon">
+                <img src="includes/images/stat-user.png" class="img-responsive" alt="Users Icon">
                 <span class="timer" data-from="0" data-to="700" data-speed="2000"></span>
                 <hr>
                 <p>Registered Users</p>
             </div>
             <div class="col-xs-18 col-sm-4 col-md-4">
-                <img src="http://i.imgur.com/AKyXyav.png" class="img-responsive" alt="Books Icon">
+                <img src="includes/images/stat-book.png" class="img-responsive" alt="Books Icon">
                 <span class="timer" data-from="0" data-to="1000" data-speed="2000"></span>
                 <hr>
                 <p>Books Waiting to be Sold</p>
             </div>
             <div class="col-xs-18 col-sm-4 col-md-4">
-                <img src="http://i.imgur.com/M9uBXnc.png" class="img-responsive" alt="Sold Icon">
+                <img src="includes/images/stat-sold.png" class="img-responsive" alt="Sold Icon">
                 <span class="timer" data-from="0" data-to="2500" data-speed="2000"></span>
                 <hr>
                 <p>Books Sold So Far</p>

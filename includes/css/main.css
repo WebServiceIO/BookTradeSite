@@ -13,7 +13,7 @@ body {
 
 .parallax {
     height: 100%;
-    background-image: url("http://i.imgur.com/bbwkb4R.png");
+    background-image: url("../images/banner.png");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
