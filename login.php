@@ -1,18 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <title>bookxchange</title>
     <meta charset="utf-8">
-    <title>Bookxchange</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Christine Nguyen Tanner Summers Giovanni Hernandez David Ghermezi">
     <meta name="description" content="The solution for buying and selling textbooks.">
-
-    <!--- Bootstrap CDN -->
-    <link rel = "stylesheet" href = "includes/css/bootstrap3.3.4/bootstrap.min.css">
-    <script src = "includes/js/jquery1.11.1/jquery.min.js"></script>
-    <script src = "includes/js/bootstrap3.3.4/bootstrap.min.js"></script>
-
+    <meta name="keywords" content="bookxchange christine nguyen tanner summers giovanni hernandez david ghermezi">
     <!-- CSS -->
-    <link rel="stylesheet" href="includes/css/login.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="includes/css/main.css">
+    <link rel="stylesheet" href="includes/css/navbar.css">
+    <!-- JavaScript -->
+    <script src = "includes/js/jquery1.11.1/jquery.min.js"></script>
+    <script src = "bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="includes/js/main.js"></script>
+    <!-- FakeLoader -->
+    <link rel="stylesheet" href="bower_components/fakeLoader/fakeLoader.css">
+    <script src="bower_components/fakeLoader/fakeLoader.min.js"></script>
+    <!-- countTo -->
+    <script src="bower_components/jquery-countTo/jquery.countTo.js"></script>
+</head>
+
+<head>
+    <title>bookxchange</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Christine Nguyen Tanner Summers Giovanni Hernandez David Ghermezi">
+    <meta name="description" content="The solution for buying and selling textbooks.">
+    <meta name="keywords" content="bookxchange christine nguyen tanner summers giovanni hernandez david ghermezi">
+    <!-- CSS -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- JavaScript -->
+    <script src="includes/js/jquery1.11.1/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
 

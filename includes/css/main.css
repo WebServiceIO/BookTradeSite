@@ -21,6 +21,16 @@ body {
     position: relative;
 }
 
+.parallax > p {
+    margin-top: 80px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-size: 52px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
 .statistics {
     width: 100%;
     position: absolute;
@@ -179,6 +189,16 @@ body {
 }
 
 /* Media Queries */
+@media only screen and (max-width: 767px) {
+    .statistics > div > img {
+        display: none;
+    }
+    
+    .statistics > div > span {
+        font-size: 18px;
+    }
+}
+
 @media only screen and (max-width: 991px) {
     .glyphicon.glyphicon-chevron-right {
         display: none;
