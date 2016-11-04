@@ -1,7 +1,7 @@
 <?php
 require_once('included_classes.php');
 // TODO convert to boolean on returns and have web page take care of that
-class MySqlTools
+class DBUtilities
 {
     private  $db_connection;
 
@@ -31,21 +31,6 @@ class MySqlTools
             return false;
         }
 
-    }
-
-
-    function getTableColumns($table, $id)
-    {
-        try {
-            $statement = $this->db_connection->prepare("SELECT * FROM " . $table . " where user_id = '$id'");
-            $statement->execute();
-            $result = $statement->fetchAll(PDO::FETCH_CLASS);
-            return $result;
-        } catch (PDOException $e) {
-            echo "Error, please report to admin error code 543";
-        }
-
-        return null;
     }
 
     public function deleteSession($user_id)
@@ -107,10 +92,10 @@ class MySqlTools
         }
     }
 
-    public static function load_by_id ($id) {
-        $stmt = $pdo->prepare('SELECT id, name FROM users WHERE id=?');
-        $stmt->execute([$id]);
-        return $stmt->fetchObject(__CLASS__);
+    public function load_by_id ($id) {
+        $statement =  $this->db_connection->prepare('SELECT id, name FROM users WHERE id=?');
+        $statement->execute([$id]);
+        return $statement->fetchObject(__CLASS__);
     }
 
     public function getFingerprintInfoFromId($user_id)
@@ -144,21 +129,6 @@ class MySqlTools
         }
     }
 
-//    public function verifyPassword($email, $password){
-//        try {
-//            echo $email . $password;
-//            $statement = $this->db_connection->prepare("SELECT password FROM users WHERE email = '$email'");
-//            $statement->execute();
-//            $hashed_pass = $statement->fetch();
-//            var_dump( $hashed_pass);
-//            echo $password;
-//            return password_verify($password,$hashed_pass['password']);
-//        }catch(PDOException $e){
-//            echo "Error, please report to admin error code 131";
-//        }
-//    }
-
-
     public function getFName($user_id)
     {
         try {
@@ -173,13 +143,6 @@ class MySqlTools
     function registerUser($username, $password, $fname, $lname, $email)
     {
         $hashed_password = Security::hash_password($password);
-
-        echo '<br>';
-        echo 'HASHED PASS: ' . $hashed_password;
-        echo '<br>';
-        echo strlen($hashed_password);
-        echo '<br>';
-        // TODO will need to be updated for sessions later
         $insert = $this->db_connection->prepare("INSERT INTO users (username, password, email, fname, lname) VALUES (:username, :hashed_password, :email, :fname, :lname)");
         // PDO::PARAM_STR (integer) : Represents the SQL CHAR, VARCHAR, or other string data type.
         $insert->bindValue(':username', $username, PDO::PARAM_STR);
@@ -190,8 +153,6 @@ class MySqlTools
         // execute query
         $insert->execute();
         return true;
-
-
     }
 
 
@@ -206,4 +167,17 @@ class MySqlTools
     }
 
 
+//    function getTableColumns($table)
+//    {
+//        $statement = $this->db_connection->prepare('SELECT * FROM ' . $table);
+//        $statement->execute();
+//        $table_fields = $statement->fetchAll(PDO::FETCH_COLUMN);
+//        //$table_fields = $statement->fetchAll();
+//        var_dump($table_fields);
+//
+//        return $table_fields;
+//    }
+
+
 }
+

@@ -45,24 +45,25 @@
     <h1>Login</h1>
 
     <?php
-    require_once('includes/php/Security.php');
-    require_once('includes/php/MySqlTools.php');
-    require_once('includes/php/Session.php');
+    require_once('includes/php/security.php');
+    require_once('includes/php/db_util.php');
+    require_once('includes/php/session.php');
     require_once ('includes/php/config.php');
-    $db = new MySqlTools();
-    header('Cache-Control: no-cache, no-store, must-revalidate');
-    $session = new Session();
-    generateLoginForm();
+
     // start a session for login
     session_start();
 
-
     if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
     {
-       header('Location: site_root');
+        header('Location: site_root');
     }
+
+    $db = new DBUtilities();
+    header('Cache-Control: no-cache, no-store, must-revalidate');
+    $session = new Session();
+    generateLoginForm();
     // make sure login info is set before using
-    else if(isset($_POST['password']) && isset($_POST['email']))
+    if(isset($_POST['password']) && isset($_POST['email']))
     {
         // if password and email are both submitted
         if ($_POST['password'] && $_POST['email'])

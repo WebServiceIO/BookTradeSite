@@ -245,7 +245,7 @@ html, body {
         background: rgba(250,250,250, 0.2);
         color: white;
     }
-    
+
     #page-content-wrapper {
         padding: 30px;
         width: 80%;
@@ -253,10 +253,10 @@ html, body {
         position: absolute;
         right: 0;
     }
-    
+
     .content-header,
     .edit-header,
-    .profile-prompt
+    .profile-prompt,
     .profile-info {
         font-family: 'Raleway', sans-serif;
     }

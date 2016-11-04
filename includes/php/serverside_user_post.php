@@ -6,70 +6,54 @@
  * License:   GPL v2 or BSD (3-point)
  * https://gist.github.com/jjb3rd/3156545
  */
-//
-    require_once ('MySqlTools.php');
 
-    $db_connection = new MySqlTools();
-
-//    $selected_table = 'posts';
-//    $index = 'post_id';
-//
-//    $ajax = array(
-//
-//        "iTotalRecords" => 2,
-//        "iTotalDisplayRecords" => 2,
-//        "aaData" => array()
-//    );
-//
-//    $ajax['aaData'][] = $db_connection->getTableColumns($selected_table, 1 );
-//
-//
-//
-//    echo json_encode($ajax);
-//
-//
-//
-//
-
-
-
-
-
-
-
-
-
-
-
-
+require_once('db_util.php');
 require_once('included_classes.php');
 
-$db_connection = DataBaseLoader::connect();
+session_start();
 
-$table = "posts";
-$index_column = "post_id";
+// this should even reach this point, since this is already taken care of before getting
+// to this page but it is always good practice to be safer rather than sorry
+if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
+{
+    header('Location: site_root');
+}
 
-$columns = Array('post_id', 'user_id', 'isbn_id', 'title', 'class', 'author', 'edition', 'item_condition', 'price', 'comments', 'contact');
+else if(isset($_SESSION['USER_ID']))
+{
+    $user_id = $_SESSION['USER_ID'];
+    // for testing
+//    else
+//        $user_id = 1;
+    //$user_id = $_SESSION['USER_ID'];
+    $db_tools = new DBUtilities();
+    $db_connection = DataBaseLoader::connect();
+
+    $table = "posts";
+    $index_column = "post_id";
+
+    // TODO for now it will be hard coded
+    $columns = Array('post_id', 'user_id', 'isbn_id', 'title', 'class', 'author', 'edition', 'item_condition', 'price', 'comments', 'contact');
 
     // Paging
     $sLimit = "";
-    if ( isset( $_GET['iDisplayStart'] ) && $_GET['iDisplayLength'] != '-1' ) {
-        $sLimit = "LIMIT ".intval( $_GET['iDisplayStart'] ).", ".intval( $_GET['iDisplayLength'] );
+    if (isset($_GET['iDisplayStart']) && $_GET['iDisplayLength'] != '-1') {
+        $sLimit = "LIMIT " . intval($_GET['iDisplayStart']) . ", " . intval($_GET['iDisplayLength']);
     }
 
     // Ordering
     $sOrder = "";
-    if ( isset( $_GET['iSortCol_0'] ) ) {
+    if (isset($_GET['iSortCol_0'])) {
         $sOrder = "ORDER BY  ";
-        for ( $i=0 ; $i<intval( $_GET['iSortingCols'] ) ; $i++ ) {
-            if ( $_GET[ 'bSortable_'.intval($_GET['iSortCol_'.$i]) ] == "true" ) {
-                $sortDir = (strcasecmp($_GET['sSortDir_'.$i], 'ASC') == 0) ? 'ASC' : 'DESC';
-                $sOrder .= "`".$columns[ intval( $_GET['iSortCol_'.$i] ) ]."` ". $sortDir .", ";
+        for ($i = 0; $i < intval($_GET['iSortingCols']); $i++) {
+            if ($_GET['bSortable_' . intval($_GET['iSortCol_' . $i])] == "true") {
+                $sortDir = (strcasecmp($_GET['sSortDir_' . $i], 'ASC') == 0) ? 'ASC' : 'DESC';
+                $sOrder .= "`" . $columns[intval($_GET['iSortCol_' . $i])] . "` " . $sortDir . ", ";
             }
         }
 
-        $sOrder = substr_replace( $sOrder, "", -2 );
-        if ( $sOrder == "ORDER BY" ) {
+        $sOrder = substr_replace($sOrder, "", -2);
+        if ($sOrder == "ORDER BY") {
             $sOrder = "";
         }
     }
@@ -81,41 +65,49 @@ $columns = Array('post_id', 'user_id', 'isbn_id', 'title', 'class', 'author', 'e
      * on very large tables, and MySQL's regex functionality is very limited
      */
     $sWhere = "";
-    if ( isset($_GET['sSearch']) && $_GET['sSearch'] != "" ) {
+    if (isset($_GET['sSearch']) && $_GET['sSearch'] != "") {
         $sWhere = "WHERE (";
-        for ( $i=0 ; $i<count($columns) ; $i++ ) {
-            if ( isset($_GET['bSearchable_'.$i]) && $_GET['bSearchable_'.$i] == "true" ) {
-                $sWhere .= "`".$columns[$i]."` LIKE :search OR ";
+        for ($i = 0; $i < count($columns); $i++) {
+            if (isset($_GET['bSearchable_' . $i]) && $_GET['bSearchable_' . $i] == "true") {
+                $sWhere .= "`" . $columns[$i] . "` LIKE :search OR ";
             }
         }
-        $sWhere = substr_replace( $sWhere, "", -3 );
+        $sWhere = substr_replace($sWhere, "", -3);
         $sWhere .= ')';
     }
 
+
     // Individual column filtering
-    for ( $i=0 ; $i<count($columns) ; $i++ ) {
-        if ( isset($_GET['bSearchable_'.$i]) && $_GET['bSearchable_'.$i] == "true" && $_GET['sSearch_'.$i] != '' ) {
-            if ( $sWhere == "" ) {
+    for ($i = 0; $i < count($columns); $i++) {
+        if (isset($_GET['bSearchable_' . $i]) && $_GET['bSearchable_' . $i] == "true" && $_GET['sSearch_' . $i] != '')
+        {
+            if ($sWhere == "") {
                 $sWhere = "WHERE ";
-            }
-            else {
+            } else {
                 $sWhere .= " AND ";
             }
-            $sWhere .= "`".$columns[$i]."` LIKE :search".$i." ";
+            $sWhere .= "`" . $columns[$i] . "` LIKE :search" . $i . " ";
         }
     }
 
+    if ($sWhere == "") {
+        $sWhere = "WHERE user_id = " . $user_id;
+    } else {
+        $sWhere .= " AND WHERE user_id = " . $user_id;
+    }
+
+
     // SQL queries get data to display
-    $sQuery = "SELECT SQL_CALC_FOUND_ROWS `".str_replace(" , ", " ", implode("`, `", $columns))."` FROM `".$table."` ".$sWhere." ".$sOrder." ".$sLimit;
+    $sQuery = "SELECT SQL_CALC_FOUND_ROWS `" . str_replace(" , ", " ", implode("`, `", $columns)) . "` FROM `" . $table . "` " . $sWhere . " " . $sOrder . " " . $sLimit;
     $statement = $db_connection->prepare($sQuery);
 
     // Bind parameters
-    if ( isset($_GET['sSearch']) && $_GET['sSearch'] != "" ) {
-        $statement->bindValue(':search', '%'.$_GET['sSearch'].'%', PDO::PARAM_STR);
+    if (isset($_GET['sSearch']) && $_GET['sSearch'] != "") {
+        $statement->bindValue(':search', '%' . $_GET['sSearch'] . '%', PDO::PARAM_STR);
     }
-    for ( $i=0 ; $i<count($columns) ; $i++ ) {
-        if ( isset($_GET['bSearchable_'.$i]) && $_GET['bSearchable_'.$i] == "true" && $_GET['sSearch_'.$i] != '' ) {
-            $statement->bindValue(':search'.$i, '%'.$_GET['sSearch_'.$i].'%', PDO::PARAM_STR);
+    for ($i = 0; $i < count($columns); $i++) {
+        if (isset($_GET['bSearchable_' . $i]) && $_GET['bSearchable_' . $i] == "true" && $_GET['sSearch_' . $i] != '') {
+            $statement->bindValue(':search' . $i, '%' . $_GET['sSearch_' . $i] . '%', PDO::PARAM_STR);
         }
     }
     $statement->execute();
@@ -124,7 +116,7 @@ $columns = Array('post_id', 'user_id', 'isbn_id', 'title', 'class', 'author', 'e
     $iFilteredTotal = current($db_connection->query('SELECT FOUND_ROWS()')->fetch());
 
     // Get total number of rows in table
-    $sQuery = "SELECT COUNT(`".$index_column."`) FROM `".$table."`";
+    $sQuery = "SELECT COUNT(`" . $index_column . "`) FROM `" . $table . "`";
     $iTotal = current($db_connection->query($sQuery)->fetch());
 
     // Output
@@ -136,26 +128,21 @@ $columns = Array('post_id', 'user_id', 'isbn_id', 'title', 'class', 'author', 'e
     );
 
     // Return array of values
-    foreach($rResult as $aRow) {
+    foreach ($rResult as $aRow) {
         $row = array();
-        for ( $i = 0; $i < count($columns); $i++ ) {
-            if ( $columns[$i] == "version" ) {
+        for ($i = 0; $i < count($columns); $i++) {
+            if ($columns[$i] == "version") {
                 // Special output formatting for 'version' column
-                $row[] = ($aRow[ $columns[$i] ]=="0") ? '-' : $aRow[ $columns[$i] ];
-            }
-            else if ( $columns[$i] != ' ' ) {
-                $row[] = $aRow[ $columns[$i] ];
+                $row[] = ($aRow[$columns[$i]] == "0") ? '-' : $aRow[$columns[$i]];
+            } else if ($columns[$i] != ' ') {
+                $row[] = $aRow[$columns[$i]];
             }
         }
         $output['aaData'][] = $row;
     }
 
-    echo json_encode( $output );
-
-
-//
-
-
+    echo json_encode($output);
+}
 
 
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once ("php/MySqlTools.php");
+require_once ("php/db_util.php");
 //require_once ("../register.php");
 
 use PHPUnit\Framework\TestCase;
@@ -9,7 +9,7 @@ class ValidationTest extends TestCase
 {
 
     public function testCaseInsensitivity() {
-        $db = new MySqlTools();
+        $db = new DBUtilities();
         $username = "testUsername";
         $password = "testPassword";
         $email = strtoupper("tEsTeMaIlcPp.EdU");

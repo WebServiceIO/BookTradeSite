@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <title>Bookxchange: ISBN</title> <!-- PHP -->
     <meta name="description" content="The solution for buying and selling textbooks.">
-    <link rel = "stylesheet" href = "includes/css/bootstrap3.3.4/bootstrap.min.css">
     <script src = "includes/js/jquery1.11.1/jquery.min.js"></script>
     <script src = "includes/js/bootstrap3.3.4/bootstrap.min.js"></script>
     <link rel="stylesheet" href="includes/css/account.css">
@@ -19,25 +18,19 @@
 
 <?php
 
-//require_once ('includes/php/config.php');
-require_once('includes/php/MySqlTools.php');
+require_once('includes/php/db_util.php');
 // start a session
 session_start();
-$db_connection = new MySqlTools();
-//
-//
-//if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
-//{
-//    header('Location: site_root');
-//}
-//else
-//{
-//    $user_id = $_SESSION['USER_ID'];
-//
-//}
 
-$user_id = 1;
-
+if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
+{
+    header('Location: site_root');
+}
+else
+{
+    $user_id = $_SESSION['USER_ID'];
+    $db_connection = new DBUtilities();
+}
 ?>
 
 
@@ -57,8 +50,8 @@ $user_id = 1;
         <h3 class="edit-header">Edit Account Information</h3>
         <p class="profile-prompt">Username: <?php $db_connection->getUserNameFromID($user_id)?></p>
 
-        <br>
-        <p class="profile-prompt">Password:</p>
+<!--        <br>-->
+<!--        <p class="profile-prompt">Password:</p>-->
 
     </div>
 
@@ -66,17 +59,17 @@ $user_id = 1;
         <h1 class="content-header">Your Posts</h1>
         <h3 class="edit-header">Your Books</h3>
 
-        <table id="initial_datatable" class="display" cellspacing="0" width="100%"></table>
+        <table id="initial_datatable" class="display" cellspacing="0"></table>
 
         <a href="#">
             <button type="button" class="btn btn-primary" id="btn-sell">
-                Sell Another Book
             </button>
         </a>
 <!--        <div id="post-edit">-->
 <!--            <h3 class="edit-header">Editor</h3>-->
 <!--            <p post-editor id="edit-isbn">isbn</p>-->
 <!--            <p post-editor id="edit-price">price</p>-->
+        Sell Another Book
 <!--            <p post-editor id="edit-pictures">pics</p>-->
 <!--            <p post-editor id="edit-condition">condition</p>-->
 <!--            <p post-editor id="edit-comments"></p>-->

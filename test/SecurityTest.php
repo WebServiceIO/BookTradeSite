@@ -3,7 +3,7 @@
 //use PHPUnit\Framework\TestCase;
 
 require "php/security.php";
-require "php/MySqlTools.php";
+require "php/db_util.php";
 
 class SecurityTest extends PHPUnit_Framework_TestCase
 {

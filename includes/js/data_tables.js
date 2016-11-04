@@ -10,6 +10,7 @@ $(document).ready(function() {
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
+        // must be defined it html table does not**
         aoColumns: [
             {"title": "Post ID"},
             {"title": "User ID"},
