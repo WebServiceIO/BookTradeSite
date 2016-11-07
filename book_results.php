@@ -17,6 +17,14 @@
 
     <!-- JavaScript -->
     <script src="includes/js/result.js"></script>
+
+
+
+
+    <script src = "includes/js/datatables1.10.12/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="includes/js/tables/results_post_data_tables.js"></script>
+    <link rel = "stylesheet" href = "includes/css/datatables1.10.12/jquery.dataTables.min.css?v=1.0">
+
 </head>
 <body>
 
@@ -63,211 +71,16 @@
 </nav>
 
 
+<table id="condition_good_datatable" class="display" cellspacing="0"></table>
+<table id="condition_poor_datatable" class="display" cellspacing="0"></table>
+<table id="condition_ok_datatable" class="display" cellspacing="0"></table>
+<table id="condition_acceptable_datatable" class="display" cellspacing="0"></table>
+<table id="condition_excellent_datatable" class="display" cellspacing="0"></table>
+<table id="condition_new_datatable" class="display" cellspacing="0"></table>
 
 
 
 
-
-
-
-
-<?php
-     require_once "includes/php/included_classes.php";
-    // $db = DataBaseLoader::connect();
-    // if(!empty($_POST['isbn'])){
-    //     $isbn = $_POST['isbn'];
-    // }
-    //
-    // searchISBN();
-echo '<div id ="wrapper">';
-    div_container("Acceptable","acceptable");
-echo '</table></div></div>';
-    function searchISBN(){
-        $new = 0;
-        $likenew = 0;
-        $verygood = 0;
-        $good = 0;
-        $acceptable = 0;
-
-        try {
-            global $db,$isbn;
-            $statement = $db->prepare("SELECT * FROM books WHERE isbn = '$isbn' ORDER BY conditions");
-            $statement->execute();
-            $result = $statement->fetch(PDO::FETCH_ASSOC);
-
-            echo '<div id="wrapper">';
-
-            while($result != false) {
-          //conditions should be 4 for acceptable
-              if($result['conditions'] == 'Acceptable'){
-                if($acceptable == 0){
-
-                  $section_header = "Acceptable";
-                  $id = "acceptable";
-                  div_container($section_header,$id);
-
-
-                    // echo '<!-- Acceptable Results -->
-                    //         <div class="container">
-                    //             <h1 class="section-header">Acceptable</h1>
-                    //                 <table id="acceptable">
-                    //                     <tr>
-                    //                         <th>Price</th>
-                    //                         <th>Seller</th>
-                    //                         <th>Pictures</th>
-                    //                         <th>Comments</th>
-                    //                         <th>Contact</th>
-                    //                     </tr>';
-                  $acceptable = 1;
-                }
-                printNew($result['price'], $result['seller'],"TBD",$result['comments'],$result['contact']);
-            }
-//conditions should be 3 for good
-            else if($result['conditions'] == 'Good'){
-                if($acceptable == 1){
-                    echo '</table></div>';
-                    $acceptable = 2;
-                }
-                if($good == 0){
-
-                  $section_header = "Good";
-                  $id = "good";
-                  div_container($section_header,$id);
-
-                    // echo '<!-- Good Results -->
-                    //         <div class="container">
-                    //             <h1 class="section-header">Good</h1>
-                    //                 <table id="good">
-                    //                     <tr>
-                    //                         <th>Price</th>
-                    //                         <th>Seller</th>
-                    //                         <th>Pictures</th>
-                    //                         <th>Comments</th>
-                    //                         <th>Contact</th>
-                    //                     </tr>';
-                  $good = 1;
-                }
-
-                printNew($result['price'], $result['seller'],"TBD",$result['comments'],$result['contact']);
-            }
-//conditions should be 1 for like New
-            else if($result['conditions'] == 'Like New'){
-                if($good == 1){
-                    echo '</table></div>';
-                    $good = 2;
-                }
-                if($likenew == 0) {
-
-                  $section_heaader = "Like New";
-                  $id = "like-new";
-                  div_container($section_header,$id);
-                    // echo '<!-- Like New Results -->
-                    //         <div class="container">
-                    //              <h1 class="section-header">Like New</h1>
-                    //                  <table id="like-new">
-                    //                     <tr>
-                    //                         <th>Price</th>
-                    //                         <th>Seller</th>
-                    //                         <th>Pictures</th>
-                    //                         <th>Comments</th>
-                    //                         <th>Contact</th>
-                    //                     </tr>';
-                  $likenew =1;
-                }
-                printNew($result['price'], $result['seller'],"TBD",$result['comments'],$result['contact']);
-            }
-//conditions should be 0 for brand new
-            else if($result['conditions'] == "New") {
-                if($likenew == 1){
-                    echo '</table></div>';
-                    $likenew = 2;
-                }
-                if($new == 0){
-
-                  $section_header = "Brand New";
-                  $id = "brand-new";
-                  div_container($section_header,$id);
-                    // echo '<!-- Brand New Results -->
-                    //          <div class="container">
-                    //             <h1 class="section-header">Brand New</h1>
-                    //                  <table id="brand-new">
-                    //                     <tr>
-                    //                         <th>Price</th>
-                    //                         <th>Seller</th>
-                    //                         <th>Pictures</th>
-                    //                         <th>Comments</th>
-                    //                         <th>Contact</th>
-                    //                     </tr>';
-                  $new = 1;
-                }
-                printNew($result['price'], $result['seller'],"TBD",$result['comments'],$result['contact']);
-
-            }
-//conditions should be 2 for very good
-            else if($result['conditions'] == 'Very Good'){
-                if($new == 1){
-                    echo '</table></div>';
-                    $new = 2;
-                }
-                if($verygood == 0){
-
-                  $section_header = "Very Good";
-                  $id = "very-good";
-                  div_container($section_header,$id);
-
-                    // echo '<!-- Very Good Results -->
-                    //         <div class="container">
-                    //             <h1 class="section-header">Very Good</h1>
-                    //                 <table id="very-good">
-                    //                     <tr>
-                    //                         <th>Price</th>
-                    //                         <th>Seller</th>
-                    //                         <th>Pictures</th>
-                    //                         <th>Comments</th>
-                    //                         <th>Contact</th>
-                    //                     </tr>';
-                    $verygood = 1;
-                }
-
-                printNew($result['price'], $result['seller'],"TBD",$result['comments'],$result['contact']);
-            }
-
-
-            $result = $statement->fetch(PDO::FETCH_ASSOC);
-        }
-        if($acceptable == 1 || $good == 1 || $likenew == 1 || $new == 1 || $verygood == 1){
-            echo '</table></div>';
-        }
-        echo '</div>';
-
-    } catch (PDOException $e) {
-        echo "error";
-    }
-}
-
-
-function div_container($section_header, $id){
-  echo "<div class='container'>
-            <h1 class='section-header'>$section_header</h1>
-                <table id=$id>
-                      <tr>
-                          <th>Price</th>
-                          <th>Seller</th>
-                          <th>Pictures</th>
-                          <th>Comments</th>
-                          <th>Contact</th>
-                      </tr>";
-}
-function printNew($price,$seller,$images,$comments,$contact){
-    echo "<tr>
-             <td>$price</td>
-             <td>$seller</td>
-             <td>$images</td>
-             <td>$comments</td>
-             <td>$contact</td>
-          </tr>";
-}
-?>
 
 </body>
 </html>

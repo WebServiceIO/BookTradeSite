@@ -10,13 +10,12 @@ $(document).ready(function() {
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
         aoColumns: [
-            {"title": "Post ID"},
-            {"title": "User ID"},
-            {"title": "ISBN ID"},
+            {"title": "User"},
+            {"title": "ISBN"},
             {"title": "Title"},
-            {"title": "Class"},
             {"title": "Author"},
             {"title": "Edition"},
+            {"title": "Class"},
             {"title": "Condition"},
             {"title": "Price"},
             {"title": "Contact"},
@@ -26,7 +25,7 @@ $(document).ready(function() {
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],
         bServerSide: true,
-        sAjaxSource: "includes/php/serverside_processing_user_post.php",
+        sAjaxSource: "includes/php/tables/serverside_processing_condition_good.php",
         bDeferRender: true
     });
 
@@ -41,13 +40,12 @@ $(document).ready(function() {
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
         aoColumns: [
-            {"title": "Post ID"},
-            {"title": "User ID"},
-            {"title": "ISBN ID"},
+            {"title": "User"},
+            {"title": "ISBN"},
             {"title": "Title"},
-            {"title": "Class"},
             {"title": "Author"},
             {"title": "Edition"},
+            {"title": "Class"},
             {"title": "Condition"},
             {"title": "Price"},
             {"title": "Contact"},
@@ -57,7 +55,7 @@ $(document).ready(function() {
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],
         bServerSide: true,
-        sAjaxSource: "includes/php/serverside_processing_user_post.php",
+        sAjaxSource: "includes/php/serverside_processing_condition_poor.php",
         bDeferRender: true
     });
 
@@ -72,13 +70,12 @@ $(document).ready(function() {
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
         aoColumns: [
-            {"title": "Post ID"},
-            {"title": "User ID"},
-            {"title": "ISBN ID"},
+            {"title": "User"},
+            {"title": "ISBN"},
             {"title": "Title"},
-            {"title": "Class"},
             {"title": "Author"},
             {"title": "Edition"},
+            {"title": "Class"},
             {"title": "Condition"},
             {"title": "Price"},
             {"title": "Contact"},
@@ -88,7 +85,7 @@ $(document).ready(function() {
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],
         bServerSide: true,
-        sAjaxSource: "includes/php/serverside_processing_user_post.php",
+        sAjaxSource: "includes/php/serverside_processing_condition_ok.php",
         bDeferRender: true
     });
 
@@ -103,13 +100,12 @@ $(document).ready(function() {
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
         aoColumns: [
-            {"title": "Post ID"},
-            {"title": "User ID"},
-            {"title": "ISBN ID"},
+            {"title": "User"},
+            {"title": "ISBN"},
             {"title": "Title"},
-            {"title": "Class"},
             {"title": "Author"},
             {"title": "Edition"},
+            {"title": "Class"},
             {"title": "Condition"},
             {"title": "Price"},
             {"title": "Contact"},
@@ -119,7 +115,7 @@ $(document).ready(function() {
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],
         bServerSide: true,
-        sAjaxSource: "includes/php/serverside_processing_user_post.php",
+        sAjaxSource: "includes/php/serverside_processing_condition_acceptable.php",
         bDeferRender: true
     });
 
@@ -134,13 +130,12 @@ $(document).ready(function() {
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
         aoColumns: [
-            {"title": "Post ID"},
-            {"title": "User ID"},
-            {"title": "ISBN ID"},
+            {"title": "User"},
+            {"title": "ISBN"},
             {"title": "Title"},
-            {"title": "Class"},
             {"title": "Author"},
             {"title": "Edition"},
+            {"title": "Class"},
             {"title": "Condition"},
             {"title": "Price"},
             {"title": "Contact"},
@@ -150,7 +145,7 @@ $(document).ready(function() {
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],
         bServerSide: true,
-        sAjaxSource: "includes/php/serverside_processing_user_post.php",
+        sAjaxSource: "includes/php/serverside_processing_condition_excellent.php",
         bDeferRender: true
     });
 
@@ -165,13 +160,12 @@ $(document).ready(function() {
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
         aoColumns: [
-            {"title": "Post ID"},
-            {"title": "User ID"},
-            {"title": "ISBN ID"},
+            {"title": "User"},
+            {"title": "ISBN"},
             {"title": "Title"},
-            {"title": "Class"},
             {"title": "Author"},
             {"title": "Edition"},
+            {"title": "Class"},
             {"title": "Condition"},
             {"title": "Price"},
             {"title": "Contact"},
@@ -181,9 +175,7 @@ $(document).ready(function() {
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],
         bServerSide: true,
-        sAjaxSource: "includes/php/serverside_processing_user_post.php",
+        sAjaxSource: "includes/php/serverside_processing_condition_new.php",
         bDeferRender: true
     });
-
-
 });

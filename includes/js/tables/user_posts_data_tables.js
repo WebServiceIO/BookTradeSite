@@ -27,7 +27,7 @@ $(document).ready(function() {
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],
         bServerSide: true,
-        sAjaxSource: "includes/php/serverside_processing_user_post.php",
+        sAjaxSource: "includes/php/tables/serverside_processing_user_post.php",
         bDeferRender: true
     });
 });

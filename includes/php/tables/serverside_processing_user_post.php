@@ -29,14 +29,14 @@ session_start();
     //$user_id = $_SESSION['USER_ID'];
     $db_tools = new DBUtilities();
     $db_connection = DataBaseLoader::connect();
-
     $table = "posts";
     $index_column = "post_id";
-
+    $sWhere_v1 = "WHERE user_id = " . $user_id;
+    $sWhere_v2 = " AND WHERE user_id = " . $user_id;
 
     $columns = Array('post_id', 'user_id', 'isbn_id', 'title', 'class', 'author', 'edition', 'item_condition', 'price', 'comments', 'contact');
 
-    include_once('server_side_datatables_processing_template.php');
+    include_once('serverside_processing_datatables_template.php');
 
 
 

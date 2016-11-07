@@ -55,9 +55,9 @@ for ($i = 0; $i < count($columns); $i++) {
 }
 
 if ($sWhere == "") {
-    $sWhere = "WHERE user_id = " . $user_id;
+    $sWhere .= $sWhere_v1;
 } else {
-    $sWhere .= " AND WHERE user_id = " . $user_id;
+    $sWhere .= $sWhere_v2;
 }
 
 
