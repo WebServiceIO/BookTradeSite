@@ -45,17 +45,17 @@
     <h1>Login</h1>
 
     <?php
-    require_once('includes/php/security.php');
+    require_once('includes/php/web_security.php');
     require_once('includes/php/db_util.php');
     require_once('includes/php/session.php');
-    require_once ('includes/php/config.php');
+    require_once('includes/php/config.php');
 
     // start a session for login
     session_start();
 
     if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
     {
-        header('Location: site_root');
+        header('Location:' . site_root);
     }
 
     $db = new DBUtilities();
@@ -112,7 +112,7 @@
                 //}
                 // after success,
                 header('Cache-Control: no-cache, no-store, must-revalidate');
-                header('Location: site_root');
+                header('Location:' . site_root);
                 // if email is invalid
             } else if (!$is_valid_email) {
                 echo "Invalid email";

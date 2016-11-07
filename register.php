@@ -26,21 +26,21 @@
 
     <?php
 
-    require_once('includes/php/security.php');
+    require_once('includes/php/web_security.php');
     require_once('includes/php/db_util.php');
-    require_once ('includes/php/config.php');
+    require_once('includes/php/config.php');
 
 
     session_start();
     if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
     {
-        header('Location: site_root');
+        header('Location:' . site_root);
     }
 
     if(!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_conf'])  && !empty($_POST['username'])  && !empty($_POST['first_name']) && !empty($_POST['last_name']))
     {
         $db = new DBUtilities();
-        // TODO hash first then check?
+
         if(strcmp ($_POST['password'] , $_POST['password_conf']) != 0)
         {
             echo ' <h4> Passwords do not match </h4>';
@@ -54,15 +54,13 @@
             // http://stackoverflow.com/questions/24039340/why-is-the-http-location-header-only-set-for-post-requests-201-created-respons
             // it will redirect you to this page with error code via GET
             // http://stackoverflow.com/questions/5826784/how-do-i-make-a-php-form-that-submits-to-self
-            //header('Location: '. htmlspecialchars($_SERVER["PHP_SELF"]));
+            header('Location: '. htmlspecialchars($_SERVER["PHP_SELF"]));
             echo ' <h4> Username Already Taken </h4>';
             generateForm();
         } // check if email is taken
         else if ($db->checkEmail($_POST['email'])) {
-           // header('Location: ' . htmlspecialchars($_SERVER["PHP_SELF"]));
+            header('Location: ' . htmlspecialchars($_SERVER["PHP_SELF"]));
             // header('Error: 34333');
-            //headers_sent();
-            //   exit("Email already taken");
             echo ' <h4> Email Already Taken </h4>';
             generateForm();
 
@@ -76,7 +74,7 @@
 
             $db->registerUser($newUserName, $newUserPassword, $newUserFirstName, $newUserLastName, $newUserEmail);
 
-           header('Location: site_root');
+            header('Location:' . site_root);
         }
     }
     else

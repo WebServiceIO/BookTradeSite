@@ -37,7 +37,7 @@ function prepare_email($email){
     $from = "From: bookxchange@gmail.com";
     $subject = "BookXChange Account Verification";
     $message = "Please follow the link in order to activate your BookXChange account. "
-    ."https://www.bookxchange.com/confirmEmail.php?confirmkey=".$confirmation_code;
+    ."https://www.bookxchange.com/email_confirm.php?confirmkey=".$confirmation_code;
 }
 
 function sendVerifyEmail()

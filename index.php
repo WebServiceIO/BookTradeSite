@@ -24,9 +24,6 @@
     <script src="bower_components/jquery-countTo/jquery.countTo.js"></script>
 </head>
 <body>
-    
-    <div id="fakeLoader"></div>
-
     <!-- Navigation Bar -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -43,7 +40,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="my-nav">
-                <form class="navbar-form navbar-left" action = "searchByISBN.php" method = "POST">
+                <form class="navbar-form navbar-left" action = "book_results.php" method = "POST">
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon" style="width:1%;">

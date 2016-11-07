@@ -3,7 +3,7 @@
 header('Cache-Control: no-cache, no-store, must-revalidate');
 require_once('includes/php/db_util.php');
 require_once('includes/php/session.php');
-require_once ('includes/php/config.php');
+require_once('includes/php/config.php');
 
 session_start();
 
@@ -15,4 +15,4 @@ if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
     session_destroy();
 }
 
-header('Location: site_root');
+header('Location:' . site_root);

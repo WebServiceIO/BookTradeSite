@@ -8,7 +8,7 @@
     <meta name="description" content="The solution for buying and selling textbooks.">
 
     <!--- Bootstrap CDN -->
-    <link rel = "stylesheet" href = "includes/css/bootstrap3.3.4/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <script src = "includes/js/jquery1.11.1/jquery.min.js"></script>
     <script src = "includes/js/bootstrap3.3.4/bootstrap.min.js"></script>
 
