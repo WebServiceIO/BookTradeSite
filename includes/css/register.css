@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:300');
+
+/* Main */
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+#wrapper-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.container {
+    width: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    position: absolute;
+    text-align: center;
+}
+
+h1, h4 {
+    color: #373737;
+    font-family: 'Rubik', sans-serif;
+}
+
+/* Form */
+.form-control {
+    margin: 0;
+    background: rgba(250, 250, 250, 0.9);
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+    box-shadow: none;
+    display: inline-block;
+    font-family: 'Rubik', sans-serif;
+}
+
+/* Submit Button */
+.btn-default {
+    border: 1px solid #C0B283;
+    color: #373737;
+    font-family: 'Rubik', sans-serif;
+    letter-spacing: 1.5px;
+    -webkit-transition: color 0.3s ease-in-out;
+    -o-transition: color 0.3s ease-in-out;
+    -moz-transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+
+}
+
+.btn-default:hover {
+    background: transparent;
+    border: 1px solid #C0B283;
+    color: #C0B283;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 575px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .container {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .container {
+        width: 50%;
+    }
+}
