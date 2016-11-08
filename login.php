@@ -20,6 +20,7 @@
 
     <div id="wrapper-content">
         <div class="container">
+            <img src="includes/images/Logo.png" class="img-fluid" alt="Logo">
 
             <h1>Sign in to bookxchange</h1>
 
