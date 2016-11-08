@@ -143,7 +143,7 @@ function generateForm()
     echo '<div class="form-group">';
     echo '<input type="password" class="form-control" id="password_conf" name = "password_conf" placeholder="Password (Again)">';
     echo '</div>';
-    echo '<button type="submit" class="btn btn-primary">Register</button>';
+    echo '<button type="submit" class="btn btn-default btn-transparent">Register</button>';
     echo '</form>';
 }
 
