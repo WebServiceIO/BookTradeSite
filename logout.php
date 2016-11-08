@@ -3,7 +3,7 @@
 header('Cache-Control: no-cache, no-store, must-revalidate');
 require_once('includes/php/db_util.php');
 require_once('includes/php/session.php');
-require_once('includes/php/config.php');
+require_once('includes/php/config/config.php');
 
 session_start();
 

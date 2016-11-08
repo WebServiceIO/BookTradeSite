@@ -67,7 +67,7 @@
                         $user_id = $db->getUserIdFromEmail($email);
                         $finger_print = $db->getFingerprintInfoFromId($user_id);
                         // check if session already exist
-                        // TODO delete soon after testing
+
         //                if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
         //                {
         //                    // check if current session is the right session
