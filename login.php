@@ -20,7 +20,6 @@
 
     <div id="wrapper-content">
         <div class="container">
-
             <h1>Sign in to bookxchange</h1>
 
     <?php

@@ -10,13 +10,13 @@ $(document).ready(function() {
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
         aoColumns: [
+            {"title": "Post"},
             {"title": "User"},
             {"title": "ISBN"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
-            {"title": "Condition"},
             {"title": "Price"},
             {"title": "Contact"},
             {"title": "Comments"}
@@ -40,13 +40,13 @@ $(document).ready(function() {
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
         aoColumns: [
+            {"title": "Post"},
             {"title": "User"},
             {"title": "ISBN"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
-            {"title": "Condition"},
             {"title": "Price"},
             {"title": "Contact"},
             {"title": "Comments"}
@@ -70,13 +70,13 @@ $(document).ready(function() {
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
         aoColumns: [
+            {"title": "Post"},
             {"title": "User"},
             {"title": "ISBN"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
-            {"title": "Condition"},
             {"title": "Price"},
             {"title": "Contact"},
             {"title": "Comments"}
@@ -100,13 +100,13 @@ $(document).ready(function() {
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
         aoColumns: [
+            {"title": "Post"},
             {"title": "User"},
             {"title": "ISBN"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
-            {"title": "Condition"},
             {"title": "Price"},
             {"title": "Contact"},
             {"title": "Comments"}
@@ -130,13 +130,13 @@ $(document).ready(function() {
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
         aoColumns: [
+            {"title": "Post"},
             {"title": "User"},
             {"title": "ISBN"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
-            {"title": "Condition"},
             {"title": "Price"},
             {"title": "Contact"},
             {"title": "Comments"}
@@ -159,14 +159,14 @@ $(document).ready(function() {
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
-        aoColumns: [
+        aoColumns:[
+            {"title": "Post"},
             {"title": "User"},
             {"title": "ISBN"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
-            {"title": "Condition"},
             {"title": "Price"},
             {"title": "Contact"},
             {"title": "Comments"}
@@ -187,7 +187,7 @@ $(document).ready(function() {
         .css("width", "-moz-calc(100% - 200px)")
         .css("width", "calc(100% - 200px)");
     // let tables be below nav bar
-    $('#first_table').css("margin-top", $('nav').height() + 5);
+    $('#content_wrapper').css("margin-top", $('nav').height() + 5);
     /*width: -webkit-calc(100% - 200px);*/
     /*width:    -moz-calc(100% - 200px);*/
     /*width:         calc(100% - 200px);*/

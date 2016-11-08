@@ -71,31 +71,38 @@
     </div>
 </nav>
 
+<div id="content_wrapper">
 
-<div id ="first_table" class="display datatables_template">
-    <table id="condition_good_datatable" class="display" cellspacing="0"></table>
+    <h3>Good</h3>
+    <div class="display datatables_template">
+        <table id="condition_good_datatable" class="display" cellspacing="0"></table>
+    </div>
+
+    <h3>Poor</h3>
+    <div class="display datatables_template">
+        <table id="condition_poor_datatable" class="display" cellspacing="0"></table>
+    </div>
+
+    <h3>Ok</h3>
+    <div class="display datatables_template">
+        <table id="condition_ok_datatable" class="display" cellspacing="0"></table>
+    </div>
+
+    <h3>Acceptable</h3>
+    <div class="display datatables_template">
+        <table id="condition_acceptable_datatable" class="display" cellspacing="0"></table>
+    </div>
+
+    <h3>Excellent</h3>
+    <div class="display datatables_template">
+        <table id="condition_excellent_datatable" class="display" cellspacing="0"></table>
+    </div>
+
+    <h3>New</h3>
+    <div class="display datatables_template">
+        <table id="condition_new_datatable" class="display" cellspacing="0"></table>
+    </div>
 </div>
-
-<div class="display datatables_template">
-    <table id="condition_poor_datatable" class="display" cellspacing="0"></table>
-</div>
-
-<div class="display datatables_template">
-    <table id="condition_ok_datatable" class="display" cellspacing="0"></table>
-</div>
-
-<div class="display datatables_template">
-    <table id="condition_acceptable_datatable" class="display" cellspacing="0"></table>
-</div>
-
-<div class="display datatables_template">
-    <table id="condition_excellent_datatable" class="display" cellspacing="0"></table>
-</div>
-
-<div class="display datatables_template">
-    <table id="condition_new_datatable" class="display" cellspacing="0"></table>
-</div>
-
 
 
 
