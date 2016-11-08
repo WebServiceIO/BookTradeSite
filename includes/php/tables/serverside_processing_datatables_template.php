@@ -74,6 +74,7 @@ for ($i = 0; $i < count($columns); $i++) {
         $statement->bindValue(':search' . $i, '%' . $_GET['sSearch_' . $i] . '%', PDO::PARAM_STR);
     }
 }
+
 $statement->execute();
 $rResult = $statement->fetchAll();
 

@@ -9,6 +9,7 @@
 
     <!--- Bootstrap CDN -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/includes/css/datatables1.10.12/datatables.css">
     <script src = "includes/js/jquery1.11.1/jquery.min.js"></script>
     <script src = "includes/js/bootstrap3.3.4/bootstrap.min.js"></script>
 
@@ -71,13 +72,29 @@
 </nav>
 
 
-<table id="condition_good_datatable" class="display" cellspacing="0"></table>
-<table id="condition_poor_datatable" class="display" cellspacing="0"></table>
-<table id="condition_ok_datatable" class="display" cellspacing="0"></table>
-<table id="condition_acceptable_datatable" class="display" cellspacing="0"></table>
-<table id="condition_excellent_datatable" class="display" cellspacing="0"></table>
-<table id="condition_new_datatable" class="display" cellspacing="0"></table>
+<div id ="first_table" class="display datatables_template">
+    <table id="condition_good_datatable" class="display" cellspacing="0"></table>
+</div>
 
+<div class="display datatables_template">
+    <table id="condition_poor_datatable" class="display" cellspacing="0"></table>
+</div>
+
+<div class="display datatables_template">
+    <table id="condition_ok_datatable" class="display" cellspacing="0"></table>
+</div>
+
+<div class="display datatables_template">
+    <table id="condition_acceptable_datatable" class="display" cellspacing="0"></table>
+</div>
+
+<div class="display datatables_template">
+    <table id="condition_excellent_datatable" class="display" cellspacing="0"></table>
+</div>
+
+<div class="display datatables_template">
+    <table id="condition_new_datatable" class="display" cellspacing="0"></table>
+</div>
 
 
 

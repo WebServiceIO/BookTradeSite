@@ -31,6 +31,7 @@ session_start();
     $db_connection = DataBaseLoader::connect();
     $table = "posts";
     $index_column = "post_id";
+
     $sWhere_v1 = "WHERE user_id = " . $user_id;
     $sWhere_v2 = " AND WHERE user_id = " . $user_id;
 

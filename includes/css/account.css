@@ -8,9 +8,9 @@ html, body {
     width: 100%;
 }
 
-/* Media Queries
-@media only screen 
-    and (min-device-width: 480px) 
+/* Media Queries  */
+@media only screen
+    and (min-device-width: 480px)
     and (max-device-width: 640px)
     and (orientation: landscape) {
     #sidebar {
@@ -20,7 +20,7 @@ html, body {
         background: black;
         text-align: right;
     }
-    
+
     #sidebar-header {
         padding: 30px;
         color: #959AA0;
@@ -48,12 +48,12 @@ html, body {
         color: white;
         text-decoration: none;
     }
-    
+
     .active-link {
         background: rgba(250,250,250, 0.2);
         color: white;
     }
-    
+
     #page-content-wrapper {
         padding: 30px;
         width: 80%;
@@ -61,34 +61,34 @@ html, body {
         position: absolute;
         right: 0;
     }
-    
+
     .content-header,
     .edit-header,
     .profile-prompt
     .profile-info {
         font-family: 'Raleway', sans-serif;
     }
-    
+
     .content-header {
         margin-bottom: 75px;
         font-size: 24px;
     }
-    
+
     .edit-header {
         font-size: 18px;
     }
-    
+
     .profile-prompt {
         margin-left: 60px;
         font-weight: bold;
     }
-    
+
     .profile-prompt,
     .profile-info {
         display: inline;
     }
 }
- */
+
 
 @media only screen 
     and (min-width: 768px) 

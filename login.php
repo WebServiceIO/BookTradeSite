@@ -48,7 +48,7 @@
     require_once('includes/php/web_security.php');
     require_once('includes/php/db_util.php');
     require_once('includes/php/session.php');
-    require_once('includes/php/config.php');
+    require_once('includes/php/config/config.php');
 
     // start a session for login
     session_start();

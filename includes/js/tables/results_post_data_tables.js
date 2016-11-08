@@ -55,7 +55,7 @@ $(document).ready(function() {
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],
         bServerSide: true,
-        sAjaxSource: "includes/php/serverside_processing_condition_poor.php",
+        sAjaxSource: "includes/php/tables/serverside_processing_condition_poor.php",
         bDeferRender: true
     });
 
@@ -85,7 +85,7 @@ $(document).ready(function() {
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],
         bServerSide: true,
-        sAjaxSource: "includes/php/serverside_processing_condition_ok.php",
+        sAjaxSource: "includes/php/tables/serverside_processing_condition_ok.php",
         bDeferRender: true
     });
 
@@ -115,7 +115,7 @@ $(document).ready(function() {
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],
         bServerSide: true,
-        sAjaxSource: "includes/php/serverside_processing_condition_acceptable.php",
+        sAjaxSource: "includes/php/tables/serverside_processing_condition_acceptable.php",
         bDeferRender: true
     });
 
@@ -145,7 +145,7 @@ $(document).ready(function() {
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],
         bServerSide: true,
-        sAjaxSource: "includes/php/serverside_processing_condition_excellent.php",
+        sAjaxSource: "includes/php/tables/serverside_processing_condition_excellent.php",
         bDeferRender: true
     });
 
@@ -175,7 +175,22 @@ $(document).ready(function() {
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],
         bServerSide: true,
-        sAjaxSource: "includes/php/serverside_processing_condition_new.php",
+        sAjaxSource: "includes/php/tables/serverside_processing_condition_new.php",
         bDeferRender: true
     });
+
+
+    //set tables
+    $('.datatables_template')
+        .css("margin", "auto auto")
+        .css("width", "-webkit-calc(100% - 200px)")
+        .css("width", "-moz-calc(100% - 200px)")
+        .css("width", "calc(100% - 200px)");
+    // let tables be below nav bar
+    $('#first_table').css("margin-top", $('nav').height() + 5);
+    /*width: -webkit-calc(100% - 200px);*/
+    /*width:    -moz-calc(100% - 200px);*/
+    /*width:         calc(100% - 200px);*/
+
+
 });
