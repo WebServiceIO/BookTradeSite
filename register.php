@@ -13,6 +13,7 @@
     <!--[if lt IE 9]>
     <script  src="includes/js/html5shiv.js"></script>
     <![endif]-->
+
     <!-- CSS -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="includes/css/register.css">
@@ -89,7 +90,7 @@
         }
 
         ?>
-        
+
     </div>
 </div>
 </body>
@@ -140,10 +141,12 @@ function generateForm()
     echo '<input type="password" class="form-control" id="password" name = "password" placeholder="Password">';
     echo '</div>';
     echo '<div class="form-group">';
-    echo '<input type="password" class="form-control" id="password_conf" name = "password_conf" placeholder="Re-enter your password">';
+    echo '<input type="password" class="form-control" id="password_conf" name = "password_conf" placeholder="Password (Again)">';
     echo '</div>';
-    echo '<button type="submit" class="btn btn-default btn-transparent">Register</button>';
+    echo '<button type="submit" class="btn btn-primary">Register</button>';
     echo '</form>';
 }
+
+
 ?>
 

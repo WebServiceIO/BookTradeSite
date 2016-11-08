@@ -24,8 +24,8 @@ include_once('serverside_processing_datatables_initial_template.php');
 
 $condition = 'poor';
 
-$sWhere_v1 = "WHERE item_condition = Poor";
-$sWhere_v2 .= " AND WHERE item_condition = Poor";
+$sWhere_v1 = "WHERE item_condition = 'Poor'";
+$sWhere_v2 = " AND WHERE item_condition = 'Poor'";
 
 include_once('serverside_processing_datatables_template.php');
 

@@ -22,8 +22,8 @@ session_start();
 //
 include_once('serverside_processing_datatables_initial_template.php');
 
-$sWhere_v1 = "WHERE item_condition = Ok";
-$sWhere_v2 .= " AND WHERE item_condition = Ok";
+$sWhere_v1 = "WHERE item_condition = 'Ok'";
+$sWhere_v2 = " AND WHERE item_condition = 'Ok'";
 
 include_once('serverside_processing_datatables_template.php');
 

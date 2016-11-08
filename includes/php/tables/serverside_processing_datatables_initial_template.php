@@ -6,5 +6,6 @@ $db_tools = new DBUtilities();
 $db_connection = DataBaseLoader::connect();
 $table = "posts";
 $index_column = "post_id";
-$columns = Array('post_id', 'user_id', 'isbn_id title',  'author', 'edition', 'class', 'item_condition', 'price', 'contact', 'comments');
+//$columns = Array('post_id', 'user_id', 'isbn_id', 'title',  'author', 'edition', 'class', 'item_condition', 'price', 'contact', 'comments');
 
+$columns = Array('post_id', 'user_id', 'isbn_id', 'title',  'author', 'edition', 'class', 'price', 'contact', 'comments');
