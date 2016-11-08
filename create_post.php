@@ -33,7 +33,13 @@
     //if(empty($_POST['ISBN']) || empty($_POST['Price']) || empty($_POST['Condition']) || empty($_POST['Contact']))
     if(!empty($_POST['ISBN']) && !empty($_POST['Price']) && !empty($_POST['Condition']) && !empty($_POST['Contact']))
     {
-        // would
+
+
+
+
+
+
+        // would sent to indiviual results page
         header('Location:' . site_root);
     }
 
