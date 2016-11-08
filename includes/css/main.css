@@ -13,7 +13,7 @@ body {
 
 .parallax {
     height: 100%;
-    background-image: url("../images/banner.png");
+    background-image: url("../images/Homepage-Banner.png");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,14 +21,25 @@ body {
     position: relative;
 }
 
-.parallax > p {
+.parallax > p:nth-child(1) {
     margin-top: 80px;
     font-family: 'Rubik', sans-serif;
     font-weight: 300;
-    font-size: 52px;
+    font-size: 3.2em;
     letter-spacing: 10px;
     text-transform: uppercase;
     text-align: center;
+    color: #C0B283;
+}
+
+.parallax > p:nth-child(2) {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-size: 1.5em;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #373737;
 }
 
 .statistics {
@@ -190,6 +201,11 @@ body {
 
 /* Media Queries */
 @media only screen and (max-width: 767px) {
+    .parallax > p:nth-child(2) {
+        -webkit-text-stroke: 1px #C0B283;
+        color: #B87A6F;
+    }
+
     .statistics > div > img {
         display: none;
     }

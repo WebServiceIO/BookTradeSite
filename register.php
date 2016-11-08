@@ -25,6 +25,8 @@
 
 <div id="wrapper-content">
     <div class="container">
+        <img src="includes/images/Logo.png" class="img-fluid" alt="Logo">
+
         <h1>Create your account</h1>
 
         <?php

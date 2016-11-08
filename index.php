@@ -87,8 +87,10 @@
         </div>
     </nav>
 
+    <!-- Content Starts Here -->
     <div class="container-fluid parallax">
         <p>bookxchange</p>
+        <p>The solution for buying and selling textbooks</p>
         <div class="row statistics">
             <div class="col-xs-18 col-sm-4 col-md-4">
                 <img src="includes/images/stat-user.png" class="img-responsive" alt="Users Icon">
