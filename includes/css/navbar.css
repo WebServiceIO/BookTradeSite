@@ -92,7 +92,7 @@
     -webkit-box-shadow: none;
 }
 
-/* Navbar right links */
+/* Navbar right link */
 .navbar-default .navbar-nav > li > a {
     color: #373737;
     text-transform: uppercase;
@@ -114,6 +114,7 @@
     background-color: transparent;
 }
 
+/*
 .dropdown-menu > li > a {
     color: #373737;
     font-family: 'Rubik', sans-serif;
@@ -127,4 +128,19 @@
 .dropdown-menu > li > a:hover {
     color: #B87A6F;
     background-color: transparent;
+}
+*/
+
+.navbar-default .navbar-nav > li > ul > li > a {
+    color: #373737;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    -webkit-transition: color 0.3s ease-in-out;
+    -o-transition: color 0.3s ease-in-out;
+    -moz-transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-default .navbar-nav > li > ul > li > a:hover {
+    color: #B87A6F;
 }
