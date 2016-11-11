@@ -25,22 +25,21 @@
     <?php
 
     session_start();
-//    if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
-//    {
-//        header('Location:' . site_root);
-//    }
-//
-    //if(empty($_POST['ISBN']) || empty($_POST['Price']) || empty($_POST['Condition']) || empty($_POST['Contact']))
-    if(!empty($_POST['ISBN']) && !empty($_POST['Price']) && !empty($_POST['Condition']) && !empty($_POST['Contact']))
+    if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
     {
-
-
-
-
-
-
-        // would sent to indiviual results page
         header('Location:' . site_root);
+    }
+    else {
+
+        if (!empty($_POST['ISBN']) && !empty($_POST['Price']) && !empty($_POST['Condition']) && !empty($_POST['Contact'])) {
+            $db_connection = new DBUtilities();
+            // add entry into DB
+            if ($db_connection->addPost($user_id, $_POST['ISBN'], $_POST['Title'], $_POST['Author'], $_POST['Edition'], $_POST['Class'], $_POST['Price'], $_POST['Contact'], $_POST['Comments'], $_POST['Condition'])) {
+                header('Location:' . site_root);
+            } else {
+                echo '<h3 style="background-color:red;"> An Error has occurred. Please try agian later </h3>';
+            }
+        }
     }
 
     ?>
@@ -86,19 +85,18 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="comments">Comments</label>
+                <label for="Comments">Comments</label>
                 <small id="commentsHelp" class="form-text text-muted">Is there anything you want to say about your book, method of contact, etc.?</small>
-                <textarea class="form-control" id="comments" rows="3" name="Comments"></textarea>
+                <textarea class="form-control" id="Comments" rows="3" name="Comments"></textarea>
             </div>
             <div class="form-group">
-                <label for="contact">How do you want buyers to contact you?</label>
+                <label for="Contact">How do you want buyers to contact you?</label>
                 <small id="contactHelp" class="form-text text-muted">You can select multiple options with Shift + Click.</small>
                 <?php if(isset($_POST['Contact'])) { if(empty($_POST['Contact'])) { echo '<h3 style="background-color:red;"> Please enter the contact information </h3>'; } } ?>
                 <textarea class="form-control" id="contact" rows="2" name="Contact"></textarea>
 
             </div>
             <input type="submit" class="btn btn-primary">
-<!--            <button type="submit" class="btn btn-primary">Submit</button>-->
         </form>
     </div>
     

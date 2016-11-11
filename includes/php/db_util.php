@@ -8,26 +8,50 @@ class DBUtilities
     function __construct()
     {
         $this->db_connection = DataBaseLoader::connect();
+        $this->db_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function insertSession($session_info)
+
+
+
+    function addPost($user_id, $isbn, $title, $author, $edition, $class, $price, $contact, $comments, $item_condition)
     {
-        try {
-            $statement = $this->db_connection->prepare("INSERT INTO sessions (user_id, fingerprint, time_stamp) VALUES(:user_id, :fingerp, :time_stamp )");
+        try
+        {
+            $this->db_connection->beginTransaction();
 
-            if (isset($session_info['user_id']) && isset($session_info['finger_print']) && isset($session_info['time_stamp']))
-            {
+            $isbn_table_statement = $this->db_connection->prepare("INSERT INTO isbns (isbn) VALUES(:isbn)");
+            $isbn_table_statement->bindParam(':isbn', $isbn, PDO::PARAM_INT);
+            $isbn_table_statement->execute();
 
-                $statement->bindValue(':user_id', $session_info['user_id'], PDO::PARAM_INT);
-                $statement->bindValue(':fingerp', $session_info['finger_print'], PDO::PARAM_STR);
-                $statement->bindValue(':time_stamp', $session_info['time_stamp'], PDO::PARAM_STR);
-                $result = $statement->execute();
+            $last_isbn_entry = $this->db_connection->lastInsertId();
 
-                return $result;
-            }
-            return false;
-        } catch (PDOException $e) {
-            echo "Error, please report to admin error code 548" . $e;
+            $post_table_statement = $this->db_connection->prepare("INSERT INTO posts (user_id, title, author, edition, class, price, contact, comments, item_condition) VALUES (:user_id, :title, :author, :edition, :class, :price, :contact, :comments, :item_condition)");
+            $post_table_statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            $post_table_statement->bindParam(':title', $title, PDO::PARAM_STR);
+            $post_table_statement->bindParam(':author', $author, PDO::PARAM_STR);
+            $post_table_statement->bindParam(':edition', $edition, PDO::PARAM_STR);
+            $post_table_statement->bindParam(':class', $class, PDO::PARAM_STR);
+            $post_table_statement->bindParam(':price', $price, PDO::PARAM_INT);
+            $post_table_statement->bindParam(':contact', $contact, PDO::PARAM_STR);
+            $post_table_statement->bindParam(':comments', $comments, PDO::PARAM_STR);
+            $post_table_statement->bindParam(':item_condition', $item_condition, PDO::PARAM_STR);
+            $post_table_statement->execute();
+
+            $last_post_entry = $this->db_connection->lastInsertId();
+
+            $junction_table_statement = $this->db_connection->prepare("INSERT INTO posts_isbns (isbn_id, post_id) VALUES (:isbn_id, :post_id)");
+            $junction_table_statement->bindParam(':isbn_id', $last_isbn_entry, PDO::PARAM_INT);
+            $junction_table_statement->bindParam(':post_id', $last_post_entry, PDO::PARAM_INT);
+            $junction_table_statement->execute();
+
+            $this->db_connection->commit();
+            return true;
+        }
+        catch (Exception $e)
+        {
+            $this->db_connection->rollBack();
+            echo  $e->getMessage();
             return false;
         }
 
@@ -41,10 +65,9 @@ class DBUtilities
                 return $result;
 
         } catch (PDOException $e) {
-            echo "Error, please report to admin error code 522";
+            echo $e->getMessage();
         }
-        // some reason, the array values were not there and it cant continue
-        return false;
+
     }
 
 
@@ -53,9 +76,10 @@ class DBUtilities
             $statement = $this->db_connection->prepare("SELECT * FROM users WHERE email = '$email'");
             $result = $statement->execute();
             return $statement->fetch();
-        }catch(PDOException $e){
-            echo "Error, please report to admin error code 512";
+        } catch (PDOException $e) {
+            echo $e->getMessage();
         }
+
     }
 
     public function getUserIdFromEmail($email)
@@ -64,9 +88,10 @@ class DBUtilities
             $statement = $this->db_connection->prepare("SELECT user_id FROM users WHERE email = '$email'");
             $statement->execute();
             return $statement->fetch()['user_id'];
-        }catch(PDOException $e){
-            echo "Error, please report to admin error code 134";
+        } catch (PDOException $e) {
+            echo $e->getMessage();
         }
+
     }
 
 
@@ -76,9 +101,10 @@ class DBUtilities
             $statement = $this->db_connection->prepare("SELECT username FROM users WHERE user_id = '$user_id'");
             $statement->execute();
             return $statement->fetch()['username'];
-        }catch(PDOException $e){
-            echo "Error, please report to admin error code 134";
+        } catch (PDOException $e) {
+            echo $e->getMessage();
         }
+
     }
 
     public function getAllUserPost($user_id)
@@ -87,15 +113,21 @@ class DBUtilities
             $statement = $this->db_connection->prepare("SELECT username FROM users WHERE user_id = '$user_id'");
             $statement->execute();
             return $statement->fetch()['username'];
-        }catch(PDOException $e){
-            echo "Error, please report to admin error code 134";
+        } catch (PDOException $e) {
+            echo $e->getMessage();
         }
+
     }
 
-    public function load_by_id ($id) {
-        $statement =  $this->db_connection->prepare('SELECT id, name FROM users WHERE id=?');
-        $statement->execute([$id]);
-        return $statement->fetchObject(__CLASS__);
+    public function load_by_id ($id)
+    {
+        try {
+            $statement =  $this->db_connection->prepare('SELECT id, name FROM users WHERE id=?');
+            $statement->execute([$id]);
+            return $statement->fetchObject(__CLASS__);
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     }
 
     public function getFingerprintInfoFromId($user_id)
@@ -105,7 +137,7 @@ class DBUtilities
             $statement->execute();
             return $statement->fetch()['fingerprint'];
         }catch(PDOException $e){
-            echo "Error, please report to admin error code 134";
+            echo $e->getMessage();
         }
     }
 
@@ -125,7 +157,7 @@ class DBUtilities
 
             return password_verify($password, substr($hashed_pass['password'], 0, 60));
         }catch(PDOException $e){
-            echo "Error, please report to admin error code 131";
+            echo $e->getMessage();
         }
     }
 
@@ -136,47 +168,62 @@ class DBUtilities
             $statement->execute();
             return $statement->fetch()['fname'];
         }catch(PDOException $e){
-            echo "Error, please report to admin error code 131";
+            echo $e->getMessage();
         }
     }
 
     function registerUser($username, $password, $fname, $lname, $email)
     {
-        $hashed_password = Security::hash_password($password);
-        $insert = $this->db_connection->prepare("INSERT INTO users (username, password, email, fname, lname) VALUES (:username, :hashed_password, :email, :fname, :lname)");
-        // PDO::PARAM_STR (integer) : Represents the SQL CHAR, VARCHAR, or other string data type.
-        $insert->bindValue(':username', $username, PDO::PARAM_STR);
-        $insert->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
-        $insert->bindValue(':email', $email, PDO::PARAM_STR);
-        $insert->bindValue(':fname', $fname, PDO::PARAM_STR);
-        $insert->bindValue(':lname', $lname, PDO::PARAM_STR);
-        // execute query
-        $insert->execute();
-        return true;
+        $check = null;
+        try {
+        $check = $this->db_connection->prepare("SELECT * FROM users WHERE username = :username OR email = :email");
+        $check->bindParam(':username', $username);
+        $check->bindParam(':email', $email);
+        $check->execute();
+
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+
+        if($check != null) {
+            if ($check->rowCount() > 0)
+                return false;
+            else {
+                try {
+                    $insert = $this->db_connection->prepare("INSERT INTO users (username, password, email, fname, lname) VALUES (:username, :hashed_password, :email, :fname, :lname)");
+                    $hashed_password = Security::hash_password($password);
+                    $insert->bindValue(':username', $username, PDO::PARAM_STR);
+                    $insert->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
+                    $insert->bindValue(':email', $email, PDO::PARAM_STR);
+                    $insert->bindValue(':fname', $fname, PDO::PARAM_STR);
+                    $insert->bindValue(':lname', $lname, PDO::PARAM_STR);
+                    // execute query
+                    $insert->execute();
+                }catch(PDOException $e){
+                    echo $e->getMessage();
+                }
+            }
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
-
-    // TODO convert to PDO later
     function checkUsername($username)
     {
-        $user_count = $this->db_connection->query("SELECT username FROM users WHERE username = '$username'")->rowCount();
-        if($user_count >= 1)
-            return true;
-        else
-            return false;
+        try {
+            $user_count = $this->db_connection->query("SELECT username FROM users WHERE username = :username");
+            $user_count->bindValue(':username', $username, PDO::PARAM_STR);
+            if ($user_count->rowCount() >= 1)
+                return true;
+            else
+                return false;
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }
     }
-
-
-//    function getTableColumns($table)
-//    {
-//        $statement = $this->db_connection->prepare('SELECT * FROM ' . $table);
-//        $statement->execute();
-//        $table_fields = $statement->fetchAll(PDO::FETCH_COLUMN);
-//        //$table_fields = $statement->fetchAll();
-//        var_dump($table_fields);
-//
-//        return $table_fields;
-//    }
 
 
 }

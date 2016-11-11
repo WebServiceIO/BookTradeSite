@@ -36,57 +36,69 @@
         require_once('includes/php/db_util.php');
         require_once('includes/php/config/config.php');
 
-
         session_start();
+
         if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
         {
-            header('Location:' . site_root);
+            header('Location:' . login);
         }
+        else {
+            if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_conf']) && !empty($_POST['username']) && !empty($_POST['first_name']) && !empty($_POST['last_name'])) {
+                $db = new DBUtilities();
 
-        if(!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_conf'])  && !empty($_POST['username'])  && !empty($_POST['first_name']) && !empty($_POST['last_name']))
-        {
-            $db = new DBUtilities();
+                if (strcmp($_POST['password'], $_POST['password_conf']) != 0) {
+                    echo ' <h4> Passwords do not match </h4>';
+                    generateForm();
+                } else if ($db->checkUsername($_POST['username'])) {
+                    // sends a raw http header
+                    // in this case, header field is location and value is root of the web page
+                    // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+                    // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+                    // http://stackoverflow.com/questions/24039340/why-is-the-http-location-header-only-set-for-post-requests-201-created-respons
+                    // it will redirect you to this page with error code via GET
+                    // http://stackoverflow.com/questions/5826784/how-do-i-make-a-php-form-that-submits-to-self
+                    header('Location: ' . htmlspecialchars($_SERVER["REQUEST_URI"]));
+                    echo ' <h4> Username Already Taken </h4>';
+                    generateForm();
+                } // check if email is taken
+                else if ($db->checkEmail($_POST['email'])) {
+                    header('Location: ' . htmlspecialchars($_SERVER["REQUEST_URI"]));
+                    // header('Error: 34333');
+                    echo ' <h4> Email Already Taken </h4>';
+                    generateForm();
+                } else {
+                    // Use information taken through from the current page after user submitted information
+                    $newUserEmail = trim($_POST['email']);
+                    $newUserFirstName = trim($_POST['first_name']);
+                    $newUserLastName = trim($_POST['last_name']);
+                    $newUserName = trim($_POST['username']);
+                    $newUserPassword = trim($_POST['password']);
 
-            if(strcmp ($_POST['password'] , $_POST['password_conf']) != 0)
-            {
-                echo ' <h4> Passwords do not match </h4>';
-                generateForm();
-            }
-            else if ($db->checkUsername($_POST['username'])) {
-                // sends a raw http header
-                // in this case, header field is location and value is root of the web page
-                // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-                // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-                // http://stackoverflow.com/questions/24039340/why-is-the-http-location-header-only-set-for-post-requests-201-created-respons
-                // it will redirect you to this page with error code via GET
-                // http://stackoverflow.com/questions/5826784/how-do-i-make-a-php-form-that-submits-to-self
-                header('Location: '. htmlspecialchars($_SERVER["PHP_SELF"]));
-                echo ' <h4> Username Already Taken </h4>';
-                generateForm();
-            } // check if email is taken
-            else if ($db->checkEmail($_POST['email'])) {
-                header('Location: ' . htmlspecialchars($_SERVER["PHP_SELF"]));
-                // header('Error: 34333');
-                echo ' <h4> Email Already Taken </h4>';
-                generateForm();
-
+                    if(strcmp($_POST['password'],$_POST['password_conf']) == 0)
+                    {
+                        // if registration failed
+                        if(!$db->registerUser(trim($newUserName), $newUserPassword, trim($newUserFirstName), trim($newUserLastName), trim($newUserEmail)))
+                        {
+                            header('Location: ' . htmlspecialchars($_SERVER["REQUEST_URI"]));
+                            // header('Error: 34333');
+                            echo ' <h4> Email and/or username already taken </h4>';
+                            generateForm();
+                        }
+                        else
+                            header('Location:' . login);
+                    }
+                    else
+                    {
+                        header('Location: ' . htmlspecialchars($_SERVER["REQUEST_URI"]));
+                        // header('Error: 34333');
+                        echo ' <h4> Passwords do Not Match </h4>';
+                        generateForm();
+                    }
+                }
             } else {
-                // Use information taken through from the current page after user submitted information
-                $newUserEmail = trim($_POST['email']);
-                $newUserFirstName = trim($_POST['first_name']);
-                $newUserLastName = trim($_POST['last_name']);
-                $newUserName = trim($_POST['username']);
-                $newUserPassword = trim($_POST['password']);
-
-                $db->registerUser($newUserName, $newUserPassword, $newUserFirstName, $newUserLastName, $newUserEmail);
-
-                header('Location:' . site_root);
+                echo ' <h4> Please fill out all fields </h4>';
+                generateForm();
             }
-        }
-        else
-        {
-            echo ' <h4> Please fill out all fields </h4>';
-            generateForm();
         }
 
         ?>
@@ -103,7 +115,8 @@
 <?php
 function generateForm()
 {
-    echo '<form id="reg_form" name="registration" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method = "post"  onsubmit="return validateForm()">';
+    echo '<form id="reg_form" name="registration" action="' . htmlspecialchars($_SERVER["REQUEST_URI"]) . '" method = "post"  onsubmit="return validateForm()">';
+     //echo '<form id="reg_form" name="registration" action="register.php" method = "post"  onsubmit="return validateForm()">';
     //echo '<form id="reg_form" name="registration" method = "post">';
     echo '<div class="form-group">';
 
