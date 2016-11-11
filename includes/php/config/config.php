@@ -7,8 +7,3 @@ define('site_root', 'index.php');
 define('login', 'login.php');
 define('results_root', 'results.php');
 ?>
-
-
-
-
-
