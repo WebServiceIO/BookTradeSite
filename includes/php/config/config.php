@@ -6,8 +6,3 @@ define('db_pass', '6Fg3#$s');
 define('site_root', 'index.php');
 define('results_root', 'results.php');
 ?>
-
-
-
-
-

@@ -1,7 +1,8 @@
 <?php
-
+require_once './config.php';
 class DataBaseLoader
 {
+
     protected $db_connection;
 
     static function connect() {
@@ -23,3 +24,4 @@ class DataBaseLoader
         return $db_connection;
     }
 }
+?>
