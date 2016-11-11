@@ -50,16 +50,10 @@
                 {
                     // place post data into variables
                     $password = $_POST['password'];
-                   // $email = strtoupper(trim($_POST['email']));
                     $email = trim($_POST['email']);
-                    // backend validation on the email and password
                     $is_valid_email = $db->checkEmail($email);
                     $is_valid_password = $db->verifyPassword($email, $password);
 
-                    echo '<br>';
-                    echo 'EMAIL: ' . $is_valid_email;
-                    echo '<br>';
-                    echo 'PASSWORD: ' . $is_valid_password;
                     if ($is_valid_email && $is_valid_password)
                     {
 
@@ -68,28 +62,24 @@
                         $finger_print = $db->getFingerprintInfoFromId($user_id);
                         // check if session already exist
 
-        //                if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
-        //                {
-        //                    // check if current session is the right session
-        //                    // may not be needed but is extra security
-        //                    if(($_SESSION['USER_ID'] == $user_id) && ($_SESSION['FINGER_PRINT'] == $finger_print))
-        //                    {
-        //                        //DEBUG
-        //                        echo 'something has gone wrong';
-        //                    }
-        //                }
-        //                // no current session exist
-        //                else
-        //                {
-                            // create new session with this ID ONLY
+                        if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
+                        {
+                            // check if current session is the right session
+                            // may not be needed but is extra security
+                            if(($_SESSION['USER_ID'] == $user_id) && ($_SESSION['FINGER_PRINT'] == $finger_print))
+                            {
+                                //DEBUG
+                                echo 'something has gone wrong - DEBUG';
+                            }
+                        }
+                        // no current session exist
+                        else
+                        {
+                             //create new session with this ID ONLY
                             $session_arr = $session->createSessionEntry($user_id);
-
-                           // var_dump($session_arr);
-
                             // insert session int odb
                             $db->insertSession($session_arr);
-                            // TODO NEED TO TAKE CARE OF ERRORS HERE FOR DB
-                        //}
+                        }
                         // after success,
                         header('Cache-Control: no-cache, no-store, must-revalidate');
                         header('Location:' . site_root);

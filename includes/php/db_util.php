@@ -122,7 +122,7 @@ class DBUtilities
     public function load_by_id ($id)
     {
         try {
-            $statement =  $this->db_connection->prepare('SELECT id, name FROM users WHERE id=?');
+            $statement =  $this->db_connection->prepare('SELECT id, name FROM users WHERE id = ?');
             $statement->execute([$id]);
             return $statement->fetchObject(__CLASS__);
         } catch (PDOException $e) {
@@ -133,7 +133,8 @@ class DBUtilities
     public function getFingerprintInfoFromId($user_id)
     {
         try {
-            $statement = $this->db_connection->prepare("SELECT fingerprint FROM sessions WHERE user_id = '$user_id'");
+            $statement = $this->db_connection->prepare("SELECT fingerprint FROM sessions WHERE user_id = :user_id");
+            $statement->bindParam(':user_id', $user_id, PDO::PARAM_STR);
             $statement->execute();
             return $statement->fetch()['fingerprint'];
         }catch(PDOException $e){
@@ -223,6 +224,28 @@ class DBUtilities
         catch(PDOException $e){
             echo $e->getMessage();
         }
+    }
+
+
+    public function insertSession($session_info)
+    {
+        try {
+            $statement = $this->db_connection->prepare("INSERT INTO sessions (user_id, fingerprint, time_stamp) VALUES(:user_id, :fingerp, :time_stamp )");
+            if (isset($session_info['user_id']) && isset($session_info['finger_print']) && isset($session_info['time_stamp']))
+            {
+                $statement->bindValue(':user_id', $session_info['user_id'], PDO::PARAM_INT);
+                $statement->bindValue(':fingerp', $session_info['finger_print'], PDO::PARAM_STR);
+                $statement->bindValue(':time_stamp', $session_info['time_stamp'], PDO::PARAM_STR);
+                $result = $statement->execute();
+                return $result;
+            }
+            return false;
+        } catch (PDOException $e) {
+            echo "Error, please report to admin error code 548" . $e;
+            return false;
+        }
+        // some reason, the array values were not there and it cant continue
+        //return false;
     }
 
 

@@ -60,6 +60,7 @@
                     $db = new DBUtilities();
                     session_start();
 
+
                     if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
                     {
                         if(strcmp($db->getFingerprintInfoFromId($_SESSION['USER_ID']), $_SESSION['FINGER_PRINT']) == 0)

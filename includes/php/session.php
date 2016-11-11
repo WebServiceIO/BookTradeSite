@@ -4,7 +4,6 @@ class Session
     public function createSessionEntry($user_id)
     {
         $fingerprint = md5(rand());
-        //$_SESSION['HTTP_USER_AGENT'] = md5($_SERVER['HTTP_USER_AGENT']);
         $_SESSION['FINGER_PRINT'] = $fingerprint;
         $_SESSION['USER_ID'] = $user_id;
         $time_stamp = $_SERVER['REQUEST_TIME'];
