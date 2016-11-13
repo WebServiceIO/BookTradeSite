@@ -1,6 +1,8 @@
 <?php
+
 require_once('config/included_classes.php');
-// TODO convert to boolean on returns and have web page take care of that
+require_once('db_tables/post.php');
+
 class DBUtilities
 {
     private  $db_connection;
@@ -60,75 +62,64 @@ class DBUtilities
     public function deleteSession($user_id)
     {
         try {
-                $statement = $this->db_connection->prepare("DELETE FROM sessions WHERE user_id = '$user_id'");
+                $statement = $this->db_connection->prepare("DELETE FROM sessions WHERE user_id = :user_id");
+                $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
                 $result = $statement->execute();
                 return $result;
 
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
-
     }
 
 
     public function checkEmail($email){
         try {
-            $statement = $this->db_connection->prepare("SELECT * FROM users WHERE email = '$email'");
-            $result = $statement->execute();
+            $statement = $this->db_connection->prepare("SELECT * FROM users WHERE email = :email");
+            $statement->bindParam(':email', $email, PDO::PARAM_STR);
+            $statement->execute();
             return $statement->fetch();
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
-
     }
 
     public function getUserIdFromEmail($email)
     {
         try {
-            $statement = $this->db_connection->prepare("SELECT user_id FROM users WHERE email = '$email'");
+            $statement = $this->db_connection->prepare("SELECT user_id FROM users WHERE email = :email");
+            $statement->bindParam(':email', $email, PDO::PARAM_STR);
             $statement->execute();
             return $statement->fetch()['user_id'];
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
-
     }
 
 
     public function getUserNameFromID($user_id)
     {
         try {
-            $statement = $this->db_connection->prepare("SELECT username FROM users WHERE user_id = '$user_id'");
+            $statement = $this->db_connection->prepare("SELECT username FROM users WHERE user_id = :user_id");
+            $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
             $statement->execute();
             return $statement->fetch()['username'];
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
-
     }
 
-    public function getAllUserPost($user_id)
-    {
-        try {
-            $statement = $this->db_connection->prepare("SELECT username FROM users WHERE user_id = '$user_id'");
-            $statement->execute();
-            return $statement->fetch()['username'];
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
-
-    }
-
-    public function load_by_id ($id)
-    {
-        try {
-            $statement =  $this->db_connection->prepare('SELECT id, name FROM users WHERE id = ?');
-            $statement->execute([$id]);
-            return $statement->fetchObject(__CLASS__);
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
-    }
+//    public function getAllUserPost($user_id)
+//    {
+//        try {
+//            $statement = $this->db_connection->prepare("SELECT * FROM post WHERE user_id = :user_id");
+//            $statement->bindParam(':user_id', $user_id);
+//            $statement->execute();
+//            return $statement->fetchAll(PDO::FETCH_CLASS, 'UserPost');
+//        } catch (PDOException $e) {
+//            echo $e->getMessage();
+//        }
+//    }
 
     public function getFingerprintInfoFromId($user_id)
     {
@@ -145,17 +136,10 @@ class DBUtilities
     public function verifyPassword($email, $password){
         try {
 
-            $statement = $this->db_connection->prepare("SELECT password FROM users WHERE email = '$email'");
+            $statement = $this->db_connection->prepare("SELECT password FROM users WHERE email = :email");
+            $statement->bindParam(':email', $email, PDO::PARAM_STR);
             $statement->execute();
             $hashed_pass = $statement->fetch();
-
-            echo '<br>';
-            var_dump (password_get_info($hashed_pass['password']));
-            echo strlen($hashed_pass['password']);
-            echo '<br>';
-            echo substr($hashed_pass['password'], 0, 60);
-            echo '<br>';
-
             return password_verify($password, substr($hashed_pass['password'], 0, 60));
         }catch(PDOException $e){
             echo $e->getMessage();
@@ -165,7 +149,8 @@ class DBUtilities
     public function getFName($user_id)
     {
         try {
-            $statement = $this->db_connection->prepare("SELECT fname FROM users WHERE user_id = '$user_id'");
+            $statement = $this->db_connection->prepare("SELECT fname FROM users WHERE user_id = :user_id");
+            $statement->bindParam(':user_id', $user_id, PDO::PARAM_STR);
             $statement->execute();
             return $statement->fetch()['fname'];
         }catch(PDOException $e){
