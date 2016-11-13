@@ -42,124 +42,96 @@
         {
             header('Location:' . login);
         }
-        else {
+        else
+        {
             if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_conf']) && !empty($_POST['username']) && !empty($_POST['first_name']) && !empty($_POST['last_name'])) {
+
                 $db = new DBUtilities();
 
-                if (strcmp($_POST['password'], $_POST['password_conf']) != 0) {
-                    echo ' <h4> Passwords do not match </h4>';
-                    generateForm();
-                } else if ($db->checkUsername($_POST['username'])) {
-                    // sends a raw http header
-                    // in this case, header field is location and value is root of the web page
-                    // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-                    // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-                    // http://stackoverflow.com/questions/24039340/why-is-the-http-location-header-only-set-for-post-requests-201-created-respons
-                    // it will redirect you to this page with error code via GET
-                    // http://stackoverflow.com/questions/5826784/how-do-i-make-a-php-form-that-submits-to-self
-                    header('Location: ' . htmlspecialchars($_SERVER["REQUEST_URI"]));
-                    echo ' <h4> Username Already Taken </h4>';
-                    generateForm();
-                } // check if email is taken
-                else if ($db->checkEmail($_POST['email'])) {
-                    header('Location: ' . htmlspecialchars($_SERVER["REQUEST_URI"]));
-                    // header('Error: 34333');
-                    echo ' <h4> Email Already Taken </h4>';
-                    generateForm();
-                } else {
-                    // Use information taken through from the current page after user submitted information
-                    $newUserEmail = trim($_POST['email']);
-                    $newUserFirstName = trim($_POST['first_name']);
-                    $newUserLastName = trim($_POST['last_name']);
-                    $newUserName = trim($_POST['username']);
-                    $newUserPassword = trim($_POST['password']);
+                $newUserEmail = trim($_POST['email']);
+                $newUserFirstName = trim($_POST['first_name']);
+                $newUserLastName = trim($_POST['last_name']);
+                $newUserName = trim($_POST['username']);
+                $newUserPassword = trim($_POST['password']);
 
-                    if(strcmp($_POST['password'],$_POST['password_conf']) == 0)
+                if (strcmp($_POST['password'], $_POST['password_conf']) == 0) {
+                    // if registration failed
+                    if (!$db->registerUser(trim($newUserName), $newUserPassword, trim($newUserFirstName), trim($newUserLastName), trim($newUserEmail))) {
+                        //header('Location: ' . htmlspecialchars($_SERVER["REQUEST_URI"]));
+                        // header('Error: 34333');
+                        echo '<h3 style="background-color:red;"> Please enter your first namer </h3>';
+                    } else
+                        header('Location:' . login);
+                }
+            }
+        }
+?>
+
+
+        <?php if(isset($_POST['password']) && isset($_POST['password_conf'])) { if (strcmp($_POST['password'], $_POST['password_conf']) != 0) { echo '<h3 style="background-color:red;"> Passwords do not match </h3>'; } } ?>
+        <form id="reg_form" name="registration" action="<?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method = "post"  onsubmit="return validateForm()">
+            <div class="form-group">
+                <?php if(isset($_POST['first_name'])) { if(empty($_POST['first_name'])) { echo '<h3 style="background-color:red;"> Please enter your first namer </h3>'; } } ?>
+                <input type="text" class="form-control" id="fname" name = "first_name" aria-describedby="firstName" placeholder="First Name" value="<?php if(isset($_POST['first_name'])) ?>">
+            </div>
+            <div class="form-group">
+                <?php if(isset($_POST['last_name'])) { if(empty($_POST['last_name'])) { echo '<h3 style="background-color:red;"> Please enter your last name </h3>'; } } ?>
+                <input type="text" class="form-control" id="lname" name = "last_name" aria-describedby="lastName" placeholder="Last Name" value="<?php if(isset($_POST['last_name'])) ?>">
+            </div>
+            <div class="form-group">
+                <?php
+                if(isset($_POST['email']))
+                {
+                    if (empty($_POST['email']))
                     {
-                        // if registration failed
-                        if(!$db->registerUser(trim($newUserName), $newUserPassword, trim($newUserFirstName), trim($newUserLastName), trim($newUserEmail)))
-                        {
-                            header('Location: ' . htmlspecialchars($_SERVER["REQUEST_URI"]));
-                            // header('Error: 34333');
-                            echo ' <h4> Email and/or username already taken </h4>';
-                            generateForm();
-                        }
-                        else
-                            header('Location:' . login);
+                        echo '<h3 style="background-color:red;"> Please enter your email </h3>';
                     }
                     else
                     {
-                        header('Location: ' . htmlspecialchars($_SERVER["REQUEST_URI"]));
-                        // header('Error: 34333');
-                        echo ' <h4> Passwords do Not Match </h4>';
-                        generateForm();
+                        //$db = new DBUtilities();
+                        if ($db->checkEmail($_POST['email']))
+                        {
+                            echo '<h3 style="background-color:red;"> Email already exist </h3>';
+                        }
                     }
                 }
-            } else {
-                echo ' <h4> Please fill out all fields </h4>';
-                generateForm();
-            }
-        }
 
-        ?>
+                ?>
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="Email" value="<?php if(isset($_POST['email'])) ?>">
+            </div>
+            <div class="form-group">
+                <?php
+                if(isset($_POST['username']))
+                {
+                    if(empty($_POST['username']))
+                    {
+                        echo '<h3 style="background-color:red;"> Please enter a username </h3>';
+                    }
+                    else {
+                        //$db = new DBUtilities();
+                        if ($db->checkUsername($_POST['username'])) {
+                            echo '<h3 style="background-color:red;"> Username already exist </h3>';
+                        }
+                    }
+                }
+
+                ?>
+                <input type="text" class="form-control" id="username" name = "username" aria-describedby="user" placeholder="Username" value="<?php if(isset($_POST['username'])) ?>">
+            </div>
+            <div class="form-group">
+                <?php if(isset($_POST['password'])) { if(empty($_POST['password'])) { echo '<h3 style="background-color:red;"> Please enter a password </h3>'; } } ?>
+                <input type="password" class="form-control" id="password" name = "password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <?php if(isset($_POST['password_conf'])) { if(empty($_POST['password_conf'])) { echo '<h3 style="background-color:red;"> Please enter the same password </h3>'; } } ?>
+                <input type="password" class="form-control" id="password_conf" name = "password_conf" placeholder="Password (Again)">
+            </div>
+            <button type="submit" class="btn btn-default btn-transparent">Register</button>
+        </form>
+
+
 
     </div>
 </div>
 </body>
 </html>
-
-
-
-
-
-<?php
-function generateForm()
-{
-    echo '<form id="reg_form" name="registration" action="' . htmlspecialchars($_SERVER["REQUEST_URI"]) . '" method = "post"  onsubmit="return validateForm()">';
-     //echo '<form id="reg_form" name="registration" action="register.php" method = "post"  onsubmit="return validateForm()">';
-    //echo '<form id="reg_form" name="registration" method = "post">';
-    echo '<div class="form-group">';
-
-    if(isset($_POST['first_name']))
-        echo '<input type="text" class="form-control" id="fname" name = "first_name" aria-describedby="firstName" placeholder="First Name" value="' . $_POST['first_name'] . '">';
-    else
-        echo '<input type="text" class="form-control" id="fname" name = "first_name" aria-describedby="firstName" placeholder="First Name">';
-
-    echo '</div>';
-    echo '<div class="form-group">';
-
-    if(isset($_POST['last_name']))
-        echo '<input type="text" class="form-control" id="lname" name = "last_name" aria-describedby="lastName" placeholder="Last Name" value="' . $_POST['last_name'] . '">';
-    else
-        echo '<input type="text" class="form-control" id="lname" name = "last_name" aria-describedby="lastName" placeholder="Last Name">';
-
-    echo '</div>';
-    echo '<div class="form-group">';
-
-    if(isset($_POST['email']))
-        echo '<input type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="Email" value="' . $_POST['email'] . '">';
-    else
-        echo '<input type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="Email">';
-
-    echo '</div>';
-    echo '<div class="form-group">';
-
-    if(isset($_POST['username']))
-        echo '<input type="text" class="form-control" id="username" name = "username" aria-describedby="user" placeholder="Username" value="' . $_POST['username'] . '">';
-    else
-        echo '<input type="text" class="form-control" id="username" name = "username" aria-describedby="user" placeholder="Username">';
-
-    echo '</div>';
-    echo '<div class="form-group">';
-    echo '<input type="password" class="form-control" id="password" name = "password" placeholder="Password">';
-    echo '</div>';
-    echo '<div class="form-group">';
-    echo '<input type="password" class="form-control" id="password_conf" name = "password_conf" placeholder="Password (Again)">';
-    echo '</div>';
-    echo '<button type="submit" class="btn btn-default btn-transparent">Register</button>';
-    echo '</form>';
-}
-
-
-?>
-

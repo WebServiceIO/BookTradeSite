@@ -46,7 +46,7 @@
 
     <div class="container">
         <h1>Add New Book</h1>
-        <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+        <form action="<?php $_SERVER['REQUEST_URI'] ?>" method="post">
             <?php if(isset($_POST['ISBN'])) { if(empty($_POST['ISBN'])) { echo '<h3 style="background-color:red;"> Please enter the ISBN number </h3>'; } } ?>
             <div class="form-group">
                 <input type="text" name="ISBN" class="form-control" id="inputISBN" aria-describedby="enterISBNOfBook" placeholder="ISBN**">

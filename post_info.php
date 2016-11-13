@@ -48,14 +48,34 @@
         </div>
     </div>
 
+    <?php
 
-<?php
-    isbn();
-    seller();
-    price();
-    comments();
-    contact();
-?>
+    require_once('includes/php/db_util.php');
+    require_once('includes/php/db_tables/post.php');
+
+//    if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
+//    {
+        // get post id here
+    // debugging for now
+        $post_id = 1;
+        $db_connection = new DBUtilities();
+        $post = $db_connection->getUserPost($post_id);
+//    }
+//    else
+//        header('Location:' . site_root);
+
+    ?>
+
+
+
+
+    <p id = 'isbn'><?php var_dump($db_connection->getUserNameFromID($post->getIsbnId())) ;?></p>
+    <p id = 'seller'><?php $db_connection->getUserNameFromID($post->getUserId()); ?></p>
+    <p id = 'price'><?php echo $post->getPrice(); ?></p>
+    <p id = 'comments'><?php echo $post->getComments(); ?></p>
+    <p id = 'contact'><?php echo $post->getContact(); ?></p>
+
+
 
 
 
@@ -63,46 +83,4 @@
 
 </html>
 
-<?php
-require_once './includes/config/db_injection.php';
 
-$db = DataBaseLoader::connect();
-
-function retrieveFromDB(){
-  $tablename ="";
-  $id = "";
-
-  $statement = $db->prepare("SELECT * FROM $tablename WHERE id = '$id'");
-  $result = $statement->execute();
-
-}
-
-function data(){
-  return array("isbn" => "123456", "seller" => "Hello", "price" => "20","comments" => "slight wear and tear", "contact" => "626-251-0594");
-}
-
-function isbn(){
-  $isbn = data()['isbn'];
-  echo "<p id = 'isbn'>ISBN: $isbn </p>";
-}
-
-function seller(){
-  $seller = data()['seller'];
-  echo "<p id = 'seller'>Sold By: $seller </p>";
-}
-
-function price(){
-  $price = data()['price'];
-  echo "<p id = 'price'>Price: $price </p>";
-}
-
-function comments(){
-  $comments = data()['comments'];
-  echo "<p id = 'comments'>Comments: $comments </p>";
-}
-
-function contact(){
-  $contact = data()['contact'];
-  echo "<p id = 'contact'>Contact: $contact </p>";
-}
-?>
