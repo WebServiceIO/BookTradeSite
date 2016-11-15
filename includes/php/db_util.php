@@ -50,7 +50,8 @@ class DBUtilities
             $this->db_connection->commit();
 
             // TODO null/false check on lastinsertid?
-            return array('post_id' => $this->db_connection->lastInsertId(), 'condition' => true);
+
+            return array('post_id' => $last_post_entry, 'condition' => true);
         }
         catch (Exception $e)
         {

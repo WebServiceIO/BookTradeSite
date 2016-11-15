@@ -22,7 +22,7 @@
     <?php
 
     require_once ('includes/php/db_util.php');
-
+    require_once ('includes/php/config/config.php');
     session_start();
     $db_connection = new DBUtilities();
 
@@ -38,11 +38,14 @@
         if (!empty($_POST['ISBN']) && !empty($_POST['Price']) && !empty($_POST['Condition']) && !empty($_POST['Contact'])) {
             // add entry into DB
 
-            $post_results = $db_connection->addPost($user_id, $_POST['ISBN'], $_POST['Title'], $_POST['Author'], $_POST['Edition'], $_POST['Class'], $_POST['Price'], $_POST['Contact'], $_POST['Comments'], $_POST['Condition'])
+            $post_results = $db_connection->addPost($user_id, $_POST['ISBN'], $_POST['Title'], $_POST['Author'], $_POST['Edition'], $_POST['Class'], $_POST['Price'], $_POST['Contact'], $_POST['Comments'], $_POST['Condition']);
+
+            $_SESSION['post_id'] = $post_results['post_id'];
+
 
             if ($post_results['condition'])
             {
-                header('Location:' . site_root);
+              header('Location:' . indiv_root);
             }
             else
             {

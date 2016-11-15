@@ -27,26 +27,28 @@
     $post = null;
     $db_connection = new DBUtilities();
 
-    if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']) && isset($_POST['post_id']))
+    session_start();
+
+    if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']) && isset($_SESSION['post_id']))
     {
-        if(isset($_POST['post_id']) && !empty($_POST['post_id']))
+        if(!empty($_SESSION['post_id']))
         {
 
             // TODO error check here, error page if postdoesnt exist
-                $post = $db_connection->getUserPost($_POST['post_id']);
-            // TODO needs testing
+            $post = $db_connection->getUserPost($_SESSION['post_id']);
+            unset($_SESSION['post_id']);
         }
         else
         {
-            header('Location:' . site_root);
+            //header('Location:' . site_root);
         }
     }
-    else
-        header('Location:' . site_root);
+//    else
+//        header('Location:' . site_root);
 
     ?>
 
-    <?php if($post != null) : ?>
+<!--    --><?php //if($post != null) : ?>
 
 
     <div class="container">
@@ -85,11 +87,11 @@
     <p id = 'comments'><?php echo $post->getComments(); ?></p>
     <p id = 'contact'><?php echo $post->getContact(); ?></p>
 
-    <?php else : ?>
-
-        <h1>Post no longer exist</h1>
-
-    <?php endif; ?>
+<!--    --><?php //else : ?>
+<!---->
+<!--        <h1>Post no longer exist</h1>-->
+<!---->
+<!--    --><?php //endif; ?>
 
 </body>
 
