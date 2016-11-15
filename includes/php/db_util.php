@@ -48,13 +48,17 @@ class DBUtilities
             $junction_table_statement->execute();
 
             $this->db_connection->commit();
-            return true;
+
+            // TODO null/false check on lastinsertid?
+
+            return array('post_id' => $last_post_entry, 'condition' => true);
         }
         catch (Exception $e)
         {
             $this->db_connection->rollBack();
             echo  $e->getMessage();
-            return false;
+            //return false;
+            return array('post_id' => null, 'condition' => false);
         }
 
     }
@@ -229,9 +233,10 @@ class DBUtilities
     function checkUsername($username)
     {
         try {
-            $user_count = $this->db_connection->query("SELECT username FROM users WHERE username = :username");
-            $user_count->bindValue(':username', $username, PDO::PARAM_STR);
-            if ($user_count->rowCount() >= 1)
+            $statement = $this->db_connection->prepare("SELECT username FROM users WHERE username = :username");
+            $statement->bindValue(':username', $username, PDO::PARAM_STR);
+
+            if ($statement->rowCount() >= 1)
                 return true;
             else
                 return false;

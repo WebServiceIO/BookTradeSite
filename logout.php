@@ -14,8 +14,7 @@ if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
     $db->deleteSession($user_id);
     session_destroy();
 }
-else
-{
-    header('Location:' . site_root);
-}
+
+header('Location:' . site_root);
+
 

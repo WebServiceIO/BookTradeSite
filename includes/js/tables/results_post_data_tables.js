@@ -344,8 +344,6 @@ $(document).ready(function() {
 
 
 
-    0;
-
     //set tables
     $('.datatables_template')
         .css("margin", "auto auto")
