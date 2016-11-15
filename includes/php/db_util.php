@@ -97,7 +97,19 @@ class DBUtilities
     }
 
 
-    public function getUserNameFromID($user_id)
+    public function getUserNameFromID($isbn_id)
+    {
+        try {
+            $statement = $this->db_connection->prepare("SELECT isbn FROM isbns WHERE isbn_id = :isbn_id");
+            $statement->bindParam(':isbn_id', $isbn_id, PDO::PARAM_INT);
+            $statement->execute();
+            return $statement->fetch()['isbn_id'];
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function getUserIsbnFromIsbnID($isbn_id)
     {
         try {
             $statement = $this->db_connection->prepare("SELECT username FROM users WHERE user_id = :user_id");
@@ -108,6 +120,7 @@ class DBUtilities
             echo $e->getMessage();
         }
     }
+
 
 //    public function getAllUserPost($user_id)
 //    {
@@ -120,6 +133,23 @@ class DBUtilities
 //            echo $e->getMessage();
 //        }
 //    }
+
+
+    /**
+     * @param $post_id
+     * @return UserPost
+     */
+    public function getUserPost($post_id)
+    {
+        try {
+            $statement = $this->db_connection->prepare("SELECT * FROM posts WHERE post_id = :post_id");
+            $statement->bindParam(':post_id', $post_id);
+            $statement->execute();
+            return $statement->fetchObject('UserPost');
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 
     public function getFingerprintInfoFromId($user_id)
     {
@@ -229,10 +259,6 @@ class DBUtilities
             echo "Error, please report to admin error code 548" . $e;
             return false;
         }
-        // some reason, the array values were not there and it cant continue
-        //return false;
     }
-
-
 }
 

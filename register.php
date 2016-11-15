@@ -40,7 +40,7 @@
 
         if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
         {
-            header('Location:' . login);
+            header('Location:' . site_root);
         }
         else
         {
@@ -66,8 +66,6 @@
             }
         }
 ?>
-
-
         <?php if(isset($_POST['password']) && isset($_POST['password_conf'])) { if (strcmp($_POST['password'], $_POST['password_conf']) != 0) { echo '<h3 style="background-color:red;"> Passwords do not match </h3>'; } } ?>
         <form id="reg_form" name="registration" action="<?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method = "post"  onsubmit="return validateForm()">
             <div class="form-group">

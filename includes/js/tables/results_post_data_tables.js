@@ -9,17 +9,31 @@ $(document).ready(function() {
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
-        aoColumns: [
+        columnDefs: [
+            {
+                "aTargets" : [9],
+                "data": null,
+                "mData": function (source, type, val)
+                {
+                    var post_id = source[0];
+                    return  '<form name="post" action ="' + window.location.pathname.replace(/[^\\\/]*$/, '') + 'post_info.php" method="post">  ' +
+                        '<input type="hidden" name="post_id" value="' + post_id + '"/> ' +
+                        '<button type="submit" class="btn btn-default btn-transparent">View</button> ' +
+                        '</form>';
+                }
+            }
+        ],
+        aoColumns:[
             {"title": "Post"},
             {"title": "User"},
-            {"title": "ISBN"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
             {"title": "Price"},
             {"title": "Contact"},
-            {"title": "Comments"}
+            {"title": "Comments"},
+            {"title": "Misc"}
         ],
         bJQueryUI: false,
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
@@ -28,6 +42,20 @@ $(document).ready(function() {
         sAjaxSource: "includes/php/tables/serverside_processing_condition_good.php",
         bDeferRender: true
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     $("#condition_poor_datatable").dataTable({
         aLengthMenu: [[5, 10, 25, 50, 100, 500, 1000], [5, 10, 25, 50, 100, 500, 1000]],
@@ -39,17 +67,31 @@ $(document).ready(function() {
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
-        aoColumns: [
+        columnDefs: [
+            {
+                "aTargets" : [9],
+                "data": null,
+                "mData": function (source, type, val)
+                {
+                    var post_id = source[0];
+                    return  '<form name="post" action ="' + window.location.pathname.replace(/[^\\\/]*$/, '') + 'post_info.php" method="post">  ' +
+                        '<input type="hidden" name="post_id" value="' + post_id + '"/> ' +
+                        '<button type="submit" class="btn btn-default btn-transparent">View</button> ' +
+                        '</form>';
+                }
+            }
+        ],
+        aoColumns:[
             {"title": "Post"},
             {"title": "User"},
-            {"title": "ISBN"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
             {"title": "Price"},
             {"title": "Contact"},
-            {"title": "Comments"}
+            {"title": "Comments"},
+            {"title": "Misc"}
         ],
         bJQueryUI: false,
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
@@ -58,6 +100,20 @@ $(document).ready(function() {
         sAjaxSource: "includes/php/tables/serverside_processing_condition_poor.php",
         bDeferRender: true
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     $("#condition_ok_datatable").dataTable({
         aLengthMenu: [[5, 10, 25, 50, 100, 500, 1000], [5, 10, 25, 50, 100, 500, 1000]],
@@ -69,17 +125,31 @@ $(document).ready(function() {
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
-        aoColumns: [
+        columnDefs: [
+            {
+                "aTargets" : [9],
+                "data": null,
+                "mData": function (source, type, val)
+                {
+                    var post_id = source[0];
+                    return  '<form name="post" action ="' + window.location.pathname.replace(/[^\\\/]*$/, '') + 'post_info.php" method="post">  ' +
+                        '<input type="hidden" name="post_id" value="' + post_id + '"/> ' +
+                        '<button type="submit" class="btn btn-default btn-transparent">View</button> ' +
+                        '</form>';
+                }
+            }
+        ],
+        aoColumns:[
             {"title": "Post"},
             {"title": "User"},
-            {"title": "ISBN"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
             {"title": "Price"},
             {"title": "Contact"},
-            {"title": "Comments"}
+            {"title": "Comments"},
+            {"title": "Misc"}
         ],
         bJQueryUI: false,
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
@@ -88,6 +158,17 @@ $(document).ready(function() {
         sAjaxSource: "includes/php/tables/serverside_processing_condition_ok.php",
         bDeferRender: true
     });
+
+
+
+
+
+
+
+
+
+
+
 
     $("#condition_acceptable_datatable").dataTable({
         aLengthMenu: [[5, 10, 25, 50, 100, 500, 1000], [5, 10, 25, 50, 100, 500, 1000]],
@@ -99,17 +180,31 @@ $(document).ready(function() {
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
-        aoColumns: [
+        columnDefs: [
+            {
+                "aTargets" : [9],
+                "data": null,
+                "mData": function (source, type, val)
+                {
+                    var post_id = source[0];
+                    return  '<form name="post" action ="' + window.location.pathname.replace(/[^\\\/]*$/, '') + 'post_info.php" method="post">  ' +
+                        '<input type="hidden" name="post_id" value="' + post_id + '"/> ' +
+                        '<button type="submit" class="btn btn-default btn-transparent">View</button> ' +
+                        '</form>';
+                }
+            }
+        ],
+        aoColumns:[
             {"title": "Post"},
             {"title": "User"},
-            {"title": "ISBN"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
             {"title": "Price"},
             {"title": "Contact"},
-            {"title": "Comments"}
+            {"title": "Comments"},
+            {"title": "Misc"}
         ],
         bJQueryUI: false,
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
@@ -118,6 +213,21 @@ $(document).ready(function() {
         sAjaxSource: "includes/php/tables/serverside_processing_condition_acceptable.php",
         bDeferRender: true
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     $("#condition_excellent_datatable").dataTable({
         aLengthMenu: [[5, 10, 25, 50, 100, 500, 1000], [5, 10, 25, 50, 100, 500, 1000]],
@@ -129,17 +239,31 @@ $(document).ready(function() {
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
-        aoColumns: [
+        columnDefs: [
+            {
+                "aTargets" : [9],
+                "data": null,
+                "mData": function (source, type, val)
+                {
+                    var post_id = source[0];
+                    return  '<form name="post" action ="' + window.location.pathname.replace(/[^\\\/]*$/, '') + 'post_info.php" method="post">  ' +
+                        '<input type="hidden" name="post_id" value="' + post_id + '"/> ' +
+                        '<button type="submit" class="btn btn-default btn-transparent">View</button> ' +
+                        '</form>';
+                }
+            }
+        ],
+        aoColumns:[
             {"title": "Post"},
             {"title": "User"},
-            {"title": "ISBN"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
             {"title": "Price"},
             {"title": "Contact"},
-            {"title": "Comments"}
+            {"title": "Comments"},
+            {"title": "Misc"}
         ],
         bJQueryUI: false,
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
@@ -148,6 +272,21 @@ $(document).ready(function() {
         sAjaxSource: "includes/php/tables/serverside_processing_condition_excellent.php",
         bDeferRender: true
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     $("#condition_new_datatable").dataTable({
         aLengthMenu: [[5, 10, 25, 50, 100, 500, 1000], [5, 10, 25, 50, 100, 500, 1000]],
@@ -159,17 +298,31 @@ $(document).ready(function() {
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
             sInfo: "(_START_ to _END_ of _TOTAL_ total)"
         },
+        columnDefs: [
+            {
+                "aTargets" : [9],
+                "data": null,
+                "mData": function (source, type, val)
+                {
+                    var post_id = source[0];
+                    return  '<form name="post" action ="' + window.location.pathname.replace(/[^\\\/]*$/, '') + 'post_info.php" method="post">  ' +
+                        '<input type="hidden" name="post_id" value="' + post_id + '"/> ' +
+                        '<button type="submit" class="btn btn-default btn-transparent">View</button> ' +
+                        '</form>';
+                }
+            }
+        ],
         aoColumns:[
             {"title": "Post"},
             {"title": "User"},
-            {"title": "ISBN"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
             {"title": "Price"},
             {"title": "Contact"},
-            {"title": "Comments"}
+            {"title": "Comments"},
+            {"title": "Misc"}
         ],
         bJQueryUI: false,
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
@@ -179,6 +332,19 @@ $(document).ready(function() {
         bDeferRender: true
     });
 
+
+
+
+
+
+
+
+
+
+
+
+
+    0;
 
     //set tables
     $('.datatables_template')

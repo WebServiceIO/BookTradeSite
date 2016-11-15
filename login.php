@@ -33,67 +33,89 @@
             // start a session for login
             session_start();
 
+            $email = null;
+            $pass = null;
+            $is_valid_email = null;
+            $is_valid_password = null;
+
             if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
             {
                 header('Location:' . site_root);
             }
 
+            ?>
+
+            <form id="login_form" name="login" action =" <?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method = "post" onsubmit = "return validateForm()">
+            <div class = "form-group">
+                <?php
+                if(isset($_POST['email']))
+                {
+                    if(empty($_POST['email']))
+                    {
+                        echo '<h3 style="background-color:red;"> Please enter your email </h3>';
+                    }
+                    else
+                    {
+                        $email = trim($_POST['email']);
+                        $is_valid_email = $db->checkEmail($email);
+
+                        if (!$is_valid_email)
+                        {
+                            echo '<h3 style="background-color:red;"> Email not valid </h3>';
+                        }
+                    }
+                }
+                ?>
+
+                <input type = "email" class = "form-control" id = "email" name = "email" aria-decribedby = "email" placeholder = "Email" value = "<?php if(isset($_POST['email'])) ?>">
+                </div>
+            <div class="form-group">
+                <?php
+                if(isset($_POST['password']))
+                {
+                    if(empty($_POST['password']))
+                    {
+                        echo '<h3 style="background-color:red;"> Please enter a password </h3>';
+                    }
+                    else
+                    {
+                        $password = $_POST['password'];
+                        $is_valid_password = $db->verifyPassword($email, $password);
+
+                        if (!$is_valid_password)
+                        {
+                            echo '<h3 style="background-color:red;"> Password not valid </h3>';
+                        }
+                    }
+                } ?>
+                <input type="password" class="form-control" id="password" name = "password" placeholder="Password">
+                </div>
+            <button type="submit" class="btn btn-default btn-transparent">Sign in</button>
+            </form>
+
+            <?php
+
             $db = new DBUtilities();
             header('Cache-Control: no-cache, no-store, must-revalidate');
             $session = new Session();
-            generateLoginForm();
-            // make sure login info is set before using
-            if(isset($_POST['password']) && isset($_POST['email']))
+
+            if (isset($_POST['password']) && isset($_POST['email']))
             {
                 // if password and email are both submitted
                 if ($_POST['password'] && $_POST['email'])
                 {
-                    // place post data into variables
-                    $password = $_POST['password'];
-                    $email = trim($_POST['email']);
-                    $is_valid_email = $db->checkEmail($email);
-                    $is_valid_password = $db->verifyPassword($email, $password);
-
                     if ($is_valid_email && $is_valid_password)
                     {
-
-                        // get user id;
                         $user_id = $db->getUserIdFromEmail($email);
                         $finger_print = $db->getFingerprintInfoFromId($user_id);
-                        // check if session already exist
-
-                        if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
-                        {
-                            // check if current session is the right session
-                            // may not be needed but is extra security
-                            if(($_SESSION['USER_ID'] == $user_id) && ($_SESSION['FINGER_PRINT'] == $finger_print))
-                            {
-                                //DEBUG
-                                echo 'something has gone wrong - DEBUG';
-                            }
-                        }
-                        // no current session exist
-                        else
-                        {
-                             //create new session with this ID ONLY
-                            $session_arr = $session->createSessionEntry($user_id);
-                            // insert session int odb
-                            $db->insertSession($session_arr);
-                        }
-                        // after success,
+                        $session_arr = $session->createSessionEntry($user_id);
+                        $db->insertSession($session_arr);
                         header('Cache-Control: no-cache, no-store, must-revalidate');
                         header('Location:' . site_root);
-                        // if email is invalid
-                    } else if (!$is_valid_email) {
-                        echo "Invalid email";
-                        // if passwords do not match
-                    } else if (!$is_valid_password) {
-                        echo "Incorrect password, please try again.";
                     }
-                } else {
-                    echo "Fill in credentials";
                 }
             }
+
             ?>
 
         </div>
@@ -101,26 +123,3 @@
 
 </body>
 </html>
-
-<?php
-
-function generateLoginForm(){
-    echo '<form id="login_form" name="login" action ="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method = "post" onsubmit = "return validateForm()">';
-
-    echo '<div class = "form-group">';
-
-    if(isset($_POST['email']))
-        echo '<input type = "text" class = "form-control" id = "email" name = "email" aria-decribedby = "email" placeholder = "Email" value = "'.$_POST['email'].'">';
-
-    else
-        echo '<input type = "email" class="form-control" id = "email" name = "email" aria-describedby = "email" placeholder="Email">';
-    echo '</div>';
-
-    echo '<div class="form-group">';
-    echo '<input type="password" class="form-control" id="password" name = "password" placeholder="Password">';
-    echo '</div>';
-
-    echo '<button type="submit" class="btn btn-default btn-transparent">Sign in</button>';
-    echo '</form>';
-}
-?>

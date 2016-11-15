@@ -53,16 +53,21 @@
     require_once('includes/php/db_util.php');
     require_once('includes/php/db_tables/post.php');
 
-//    if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
-//    {
-        // get post id here
-    // debugging for now
-        $post_id = 1;
-        $db_connection = new DBUtilities();
-        $post = $db_connection->getUserPost($post_id);
-//    }
-//    else
-//        header('Location:' . site_root);
+    if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
+    {
+        if(isset($_POST['post_id']) && !empty($_POST['post_id']))
+        {
+            $db_connection = new DBUtilities();
+            // TODO error check here, error page if postdoesnt exist
+            $post = $db_connection->getUserPost($_POST['post_id']);
+        }
+        else
+        {
+            header('Location:' . site_root);
+        }
+    }
+    else
+        header('Location:' . site_root);
 
     ?>
 

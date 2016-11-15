@@ -75,6 +75,7 @@ for ($i = 0; $i < count($columns); $i++) {
     }
 }
 
+
 $statement->execute();
 $rResult = $statement->fetchAll();
 
