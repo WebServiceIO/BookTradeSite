@@ -1,4 +1,12 @@
 <?php
+/*
+ * Script:    DataTables server-side script for PHP and MySQL
+ * Copyright: 2012 - John Becker, Beckersoft, Inc.
+ * Copyright: 2010 - Allan Jardine
+ * License:   GPL v2 or BSD (3-point)
+ */
+
+
 // Paging
 $sLimit = "";
 if (isset($_GET['iDisplayStart']) && $_GET['iDisplayLength'] != '-1') {

@@ -25,15 +25,15 @@
     require_once('includes/php/db_util.php');
     require_once('includes/php/db_tables/post.php');
     $post = null;
-
+    $db_connection = new DBUtilities();
 
     if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']) && isset($_POST['post_id']))
     {
         if(isset($_POST['post_id']) && !empty($_POST['post_id']))
         {
-            $db_connection = new DBUtilities();
+
             // TODO error check here, error page if postdoesnt exist
-            $post = $db_connection->getUserPost($_POST['post_id']);
+                $post = $db_connection->getUserPost($_POST['post_id']);
             // TODO needs testing
         }
         else
@@ -79,7 +79,7 @@
     </div>
 
 
-    <p id = 'isbn'><?php var_dump($db_connection->getUserNameFromID($post->getIsbnId())) ;?></p>
+    <p id = 'isbn'><?php $db_connection->getUserNameFromID($post->getIsbnId()) ;?></p>
     <p id = 'seller'><?php $db_connection->getUserNameFromID($post->getUserId()); ?></p>
     <p id = 'price'><?php echo $post->getPrice(); ?></p>
     <p id = 'comments'><?php echo $post->getComments(); ?></p>

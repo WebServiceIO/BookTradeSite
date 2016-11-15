@@ -24,19 +24,31 @@
 
     <?php
 
+    require_once ('includes/php/db_util.php');
+
     session_start();
+    $db_connection = new DBUtilities();
+
+
     if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
     {
         header('Location:' . site_root);
     }
     else {
 
+        $user_id = $_SESSION['USER_ID'];
+
         if (!empty($_POST['ISBN']) && !empty($_POST['Price']) && !empty($_POST['Condition']) && !empty($_POST['Contact'])) {
-            $db_connection = new DBUtilities();
             // add entry into DB
-            if ($db_connection->addPost($user_id, $_POST['ISBN'], $_POST['Title'], $_POST['Author'], $_POST['Edition'], $_POST['Class'], $_POST['Price'], $_POST['Contact'], $_POST['Comments'], $_POST['Condition'])) {
+
+            $post_results = $db_connection->addPost($user_id, $_POST['ISBN'], $_POST['Title'], $_POST['Author'], $_POST['Edition'], $_POST['Class'], $_POST['Price'], $_POST['Contact'], $_POST['Comments'], $_POST['Condition'])
+
+            if ($post_results['condition'])
+            {
                 header('Location:' . site_root);
-            } else {
+            }
+            else
+            {
                 echo '<h3 style="background-color:red;"> An Error has occurred. Please try agian later </h3>';
             }
         }

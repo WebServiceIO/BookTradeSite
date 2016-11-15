@@ -38,6 +38,8 @@
 
         session_start();
 
+        $db = new DBUtilities();
+
         if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
         {
             header('Location:' . site_root);
@@ -46,7 +48,6 @@
         {
             if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_conf']) && !empty($_POST['username']) && !empty($_POST['first_name']) && !empty($_POST['last_name'])) {
 
-                $db = new DBUtilities();
 
                 $newUserEmail = trim($_POST['email']);
                 $newUserFirstName = trim($_POST['first_name']);
@@ -70,11 +71,11 @@
         <form id="reg_form" name="registration" action="<?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method = "post"  onsubmit="return validateForm()">
             <div class="form-group">
                 <?php if(isset($_POST['first_name'])) { if(empty($_POST['first_name'])) { echo '<h3 style="background-color:red;"> Please enter your first namer </h3>'; } } ?>
-                <input type="text" class="form-control" id="fname" name = "first_name" aria-describedby="firstName" placeholder="First Name" value="<?php if(isset($_POST['first_name'])) ?>">
+                <input type="text" class="form-control" id="fname" name = "first_name" aria-describedby="firstName" placeholder="First Name" value="<?php if(isset($_POST['first_name'])) {echo $_POST['first_name']; }?>">
             </div>
             <div class="form-group">
                 <?php if(isset($_POST['last_name'])) { if(empty($_POST['last_name'])) { echo '<h3 style="background-color:red;"> Please enter your last name </h3>'; } } ?>
-                <input type="text" class="form-control" id="lname" name = "last_name" aria-describedby="lastName" placeholder="Last Name" value="<?php if(isset($_POST['last_name'])) ?>">
+                <input type="text" class="form-control" id="lname" name = "last_name" aria-describedby="lastName" placeholder="Last Name" value="<?php if(isset($_POST['last_name'])){echo $_POST['last_name']; }  ?>">
             </div>
             <div class="form-group">
                 <?php
@@ -95,7 +96,7 @@
                 }
 
                 ?>
-                <input type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="Email" value="<?php if(isset($_POST['email'])) ?>">
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="Email" value="<?php if(isset($_POST['email'])) {echo $_POST['email']; } ?>">
             </div>
             <div class="form-group">
                 <?php
@@ -106,7 +107,6 @@
                         echo '<h3 style="background-color:red;"> Please enter a username </h3>';
                     }
                     else {
-                        //$db = new DBUtilities();
                         if ($db->checkUsername($_POST['username'])) {
                             echo '<h3 style="background-color:red;"> Username already exist </h3>';
                         }
@@ -114,7 +114,7 @@
                 }
 
                 ?>
-                <input type="text" class="form-control" id="username" name = "username" aria-describedby="user" placeholder="Username" value="<?php if(isset($_POST['username'])) ?>">
+                <input type="text" class="form-control" id="username" name = "username" aria-describedby="user" placeholder="Username" value="<?php if(isset($_POST['username'])) {echo $_POST['username']; } ?>">
             </div>
             <div class="form-group">
                 <?php if(isset($_POST['password'])) { if(empty($_POST['password'])) { echo '<h3 style="background-color:red;"> Please enter a password </h3>'; } } ?>
