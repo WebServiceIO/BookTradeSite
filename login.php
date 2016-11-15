@@ -33,6 +33,8 @@
             // start a session for login
             session_start();
 
+            $db = new DBUtilities();
+
             $email = null;
             $pass = null;
             $is_valid_email = null;
@@ -95,7 +97,6 @@
 
             <?php
 
-            $db = new DBUtilities();
             header('Cache-Control: no-cache, no-store, must-revalidate');
             $session = new Session();
 
@@ -104,6 +105,10 @@
                 // if password and email are both submitted
                 if ($_POST['password'] && $_POST['email'])
                 {
+                    echo $is_valid_email;
+                    echo $is_valid_password;
+
+
                     if ($is_valid_email && $is_valid_password)
                     {
                         $user_id = $db->getUserIdFromEmail($email);

@@ -1,5 +1,8 @@
 
+
 $(document).ready(function() {
+
+
     $("#user_post_datatable").dataTable({
         aLengthMenu: [[5, 10, 25, 50, 100, 500, 1000], [5, 10, 25, 50, 100, 500, 1000]],
         iDisplayLength: 5,
@@ -23,6 +26,8 @@ $(document).ready(function() {
             {"title": "Contact"},
             {"title": "Comments"}
         ],
+
+
         bJQueryUI: false,
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
         aaSorting: [[0, "asc"]],

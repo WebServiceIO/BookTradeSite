@@ -22,15 +22,16 @@ require_once('includes/php/db_util.php');
 // start a session
 session_start();
 
-if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
-{
-    header('Location:' . site_root);
-}
-else
-{
-    $user_id = $_SESSION['USER_ID'];
+//if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
+//{
+//    header('Location:' . site_root);
+//}
+//else
+//{
+//    $user_id = $_SESSION['USER_ID'];
+$user_id = 1;
     $db_connection = new DBUtilities();
-}
+//}
 ?>
 
 <!-- Navigation Bar -->
