@@ -254,7 +254,7 @@
     <div class="container-fluid footer">
         <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>
         <span class="footer-desc">
-            2016 bookXchange All rights reserved. Designed and coded with love by 
+            Designed and coded with love by
             <a href="http://cs480-projects.github.io/teams-fall2016/WebHeads/index.html">
                 &lt;WebHeads/&gt;
             </a>

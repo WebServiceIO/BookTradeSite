@@ -199,6 +199,21 @@ body {
 }
 
 /* Media Queries */
+@media only screen and (max-width: 667px) {
+    .parallax > p:nth-child(2) {
+        -webkit-text-stroke: 1px #C0B283;
+        color: #B87A6F;
+    }
+
+    .statistics > div > img {
+        display: none;
+    }
+
+    .statistics > div > span {
+        font-size: 18px;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .parallax > p:nth-child(2) {
         -webkit-text-stroke: 1px #C0B283;
@@ -239,35 +254,3 @@ body {
         display: none;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
