@@ -76,6 +76,8 @@
                                 </ul>
                                 </li>
                             ';
+
+                            echo '<li><a href="create_post.php">Create Post</a></li>';
                         }
                     }
                     else

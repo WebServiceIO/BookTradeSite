@@ -24,6 +24,21 @@
     </head>
     <body>
 
+
+
+    <?php
+
+
+    if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']) || !isset($_POST['isbn']))
+    {
+        header('Location:' . site_root);
+    }
+
+
+
+
+    ?>
+
         <!-- Navigation Bar -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
