@@ -24,19 +24,23 @@
     </head>
     <body>
 
-
-
     <?php
 
-    include_once ('includes/php/config/config.php');
+    //include_once ('includes/php/config/config.php');
+    include_once ('includes/php/db_util.php');
+    session_start();
 
-//    if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']) || !isset($_POST['isbn']))
-//    {
-//        header('Location:' . site_root);
-//    }
+    if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']) || !isset($_POST['isbn']))
+    {
+        header('Location:' . site_root);
+    }
 
+    $db_connection = new DBUtilities();
 
+    // TODO     PARSE ISBN NUMBER HERE
 
+    $isbn_id = $db_connection->getIsbnIdFromIsbn($_POST['isbn']);
+    $_SESSION['isbn_id'] = $isbn_id;
 
     ?>
 

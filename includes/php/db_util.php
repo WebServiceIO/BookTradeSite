@@ -261,6 +261,35 @@ class DBUtilities
         }
     }
 
+    function getIsbnIdFromIsbn($isbn)
+    {
+        try {
+            $statement = $this->db_connection->prepare("SELECT isbn_id FROM isbns WHERe isbn = :isbn");
+            $statement->bindValue(':isbn', $isbn, PDO::PARAM_STR);
+            $statement->execute();
+            return  $statement->fetch()['isbn_id'];
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+
+    function getAllPostIdFromIsbnId($isbn_id)
+    {
+        try {
+            $statement = $this->db_connection->prepare("SELECT post_id FROM posts_isbns WHERE isbn_id = :isbn_id");
+            $statement->bindValue(':isbn_id', $isbn_id, PDO::PARAM_INT);
+            $statement->execute();
+            return  $statement->fetchALL(PDO::FETCH_COLUMN, 0);
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+
+
 
     public function insertSession($session_info)
     {

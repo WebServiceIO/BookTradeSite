@@ -68,15 +68,10 @@ if ($sWhere == "") {
     $sWhere .= $sWhere_v2;
 }
 
-
-
-
-
 // SQL queries get data to display
 $sQuery = "SELECT SQL_CALC_FOUND_ROWS `" . str_replace(" , ", " ", implode("`, `", $columns)) . "` FROM `" . $table . "` " . $sWhere . " " . $sOrder . " " . $sLimit;
 $statement = $db_connection->prepare($sQuery);
 
-echo $sQuery;
 
 // Bind parameters
 if (isset($_GET['sSearch']) && $_GET['sSearch'] != "") {
@@ -97,6 +92,11 @@ $iFilteredTotal = current($db_connection->query('SELECT FOUND_ROWS()')->fetch())
 // Get total number of rows in table
 $sQuery = "SELECT COUNT(`" . $index_column . "`) FROM `" . $table . "`";
 $iTotal = current($db_connection->query($sQuery)->fetch());
+
+
+
+
+
 
 // Output
 $output = array(

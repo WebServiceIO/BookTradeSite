@@ -12,18 +12,22 @@ session_start();
 
 // this should even reach this point, since this is already taken care of before getting
 // to this page but it is always good practice to be safer rather than sorry
-//if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
-//{
-//    header('Location: site_root');
-//}
+if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
+{
+    header('Location: site_root');
+}
 
-//else if(isset($_SESSION['USER_ID']))
-//{
-//
+
 include_once('serverside_processing_datatables_initial_template.php');
 
-$sWhere_v1 = "WHERE item_condition = 'Excellent'";
-$sWhere_v2 = " AND WHERE item_condition = 'Excellent'";
+//$sWhere_v1 = "WHERE item_condition = 'Excellent'";
+//$sWhere_v2 = " AND WHERE item_condition = 'Excellent'";
+
+
+
+$sWhere_v1 = "WHERE post_id IN " . $post_id_array_str . "AND item_condition = 'Excellent'";
+$sWhere_v2 = " AND WHERE post_id IN " . $post_id_array_str . "AND item_condition = 'Excellent'";
+
 
 include_once('serverside_processing_datatables_template.php');
 
