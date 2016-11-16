@@ -54,6 +54,10 @@ h1 {
     -webkit-box-shadow: none;
 }
 
+.text-muted {
+    color: white;
+}
+
 /* Submit Button */
 .btn-default {
     border: 1px solid #C0B283;

@@ -268,6 +268,8 @@ class DBUtilities
 //            $statement = $this->db_connection->prepare("INSERT INTO sessions (user_id, fingerprint, time_stamp) VALUES(:user_id, :fingerp, :time_stamp )");
             $statement = $this->db_connection->prepare("REPLACE INTO sessions (user_id, fingerprint, time_stamp) VALUES(:user_id, :fingerp, :time_stamp )");
 
+
+
             if (isset($session_info['user_id']) && isset($session_info['finger_print']) && isset($session_info['time_stamp']))
             {
                 $statement->bindValue(':user_id', $session_info['user_id'], PDO::PARAM_INT);

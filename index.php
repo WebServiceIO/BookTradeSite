@@ -233,27 +233,9 @@
             </div>
         </div>
     </div>
-
-    <!-- Send Us Feedback
-    <div class="container-fluid content sect3">
-        <div class="row section-header">
-            <span>Send Us Feedback</span>
-        </div>
-        <div class="row">
-            <div class="col-xs-18 col-md-12">Buying</div>
-        </div>
-        <div class="row">
-            <div class="col-xs-18 col-md-6">1.</div>
-            <div class="col-xs-18 col-md-6">
-                Enter ISBN in search bar at the top of the page
-            </div>
-        </div>
-    </div>
-    -->
     
     <!-- Footer -->
     <div class="container-fluid footer">
-        <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>
         <span class="footer-desc">
             Designed and coded with love by
             <a href="http://cs480-projects.github.io/teams-fall2016/WebHeads/index.html">
