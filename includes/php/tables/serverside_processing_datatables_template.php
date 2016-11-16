@@ -69,9 +69,14 @@ if ($sWhere == "") {
 }
 
 
+
+
+
 // SQL queries get data to display
 $sQuery = "SELECT SQL_CALC_FOUND_ROWS `" . str_replace(" , ", " ", implode("`, `", $columns)) . "` FROM `" . $table . "` " . $sWhere . " " . $sOrder . " " . $sLimit;
 $statement = $db_connection->prepare($sQuery);
+
+echo $sQuery;
 
 // Bind parameters
 if (isset($_GET['sSearch']) && $_GET['sSearch'] != "") {

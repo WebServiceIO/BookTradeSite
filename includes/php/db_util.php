@@ -13,9 +13,6 @@ class DBUtilities
         $this->db_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-
-
-
     function addPost($user_id, $isbn, $title, $author, $edition, $class, $price, $contact, $comments, $item_condition)
     {
         try
@@ -49,15 +46,11 @@ class DBUtilities
 
             $this->db_connection->commit();
 
-            // TODO null/false check on lastinsertid?
-
             return array('post_id' => $last_post_entry, 'condition' => true);
         }
         catch (Exception $e)
         {
             $this->db_connection->rollBack();
-            echo  $e->getMessage();
-            //return false;
             return array('post_id' => null, 'condition' => false);
         }
 
@@ -100,8 +93,7 @@ class DBUtilities
         }
     }
 
-
-    public function getUserNameFromID($isbn_id)
+    public function getIsbnFromIsbnID($isbn_id)
     {
         try {
             $statement = $this->db_connection->prepare("SELECT isbn FROM isbns WHERE isbn_id = :isbn_id");
@@ -113,7 +105,7 @@ class DBUtilities
         }
     }
 
-    public function getUserIsbnFromIsbnID($isbn_id)
+    public function getUserNameFromID($user_id)
     {
         try {
             $statement = $this->db_connection->prepare("SELECT username FROM users WHERE user_id = :user_id");
@@ -122,6 +114,29 @@ class DBUtilities
             return $statement->fetch()['username'];
         } catch (PDOException $e) {
             echo $e->getMessage();
+        }
+    }
+
+    public function getIsbnFromPostID($post_id)
+    {
+        try {
+            $this->db_connection->beginTransaction();
+
+            $statement = $this->db_connection->prepare("SELECT isbn_id FROM posts_isbns WHERE post_id = :post_id");
+            $statement->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+            $statement->execute();
+
+            $isbn_id = $statement->fetch()['isbn_id'];
+
+
+            $statement = $this->db_connection->prepare("SELECT isbn FROM isbns WHERE isbn_id = :isbn_id");
+            $statement->bindParam(':isbn_id', $isbn_id, PDO::PARAM_INT);
+            $statement->execute();
+
+            return $statement->fetch()['isbn'];
+
+        } catch (PDOException $e) {
+            $this->db_connection->rollBack();
         }
     }
 
@@ -250,7 +265,9 @@ class DBUtilities
     public function insertSession($session_info)
     {
         try {
-            $statement = $this->db_connection->prepare("INSERT INTO sessions (user_id, fingerprint, time_stamp) VALUES(:user_id, :fingerp, :time_stamp )");
+//            $statement = $this->db_connection->prepare("INSERT INTO sessions (user_id, fingerprint, time_stamp) VALUES(:user_id, :fingerp, :time_stamp )");
+            $statement = $this->db_connection->prepare("REPLACE INTO sessions (user_id, fingerprint, time_stamp) VALUES(:user_id, :fingerp, :time_stamp )");
+
             if (isset($session_info['user_id']) && isset($session_info['finger_print']) && isset($session_info['time_stamp']))
             {
                 $statement->bindValue(':user_id', $session_info['user_id'], PDO::PARAM_INT);

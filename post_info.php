@@ -33,22 +33,21 @@
     {
         if(!empty($_SESSION['post_id']))
         {
-
-            // TODO error check here, error page if postdoesnt exist
             $post = $db_connection->getUserPost($_SESSION['post_id']);
-            unset($_SESSION['post_id']);
+            // TODO if unset, refreshing doesnt work, need to use get or find an alternative way
+            //unset($_SESSION['post_id']);
         }
         else
         {
-            //header('Location:' . site_root);
+            header('Location:' . site_root);
         }
     }
-//    else
-//        header('Location:' . site_root);
+    else
+        header('Location:' . site_root);
 
     ?>
 
-<!--    --><?php //if($post != null) : ?>
+    <?php if($post != null) : ?>
 
 
     <div class="container">
@@ -81,17 +80,18 @@
     </div>
 
 
-    <p id = 'isbn'><?php $db_connection->getUserNameFromID($post->getIsbnId()) ;?></p>
-    <p id = 'seller'><?php $db_connection->getUserNameFromID($post->getUserId()); ?></p>
-    <p id = 'price'><?php echo $post->getPrice(); ?></p>
-    <p id = 'comments'><?php echo $post->getComments(); ?></p>
-    <p id = 'contact'><?php echo $post->getContact(); ?></p>
 
-<!--    --><?php //else : ?>
-<!---->
-<!--        <h1>Post no longer exist</h1>-->
-<!---->
-<!--    --><?php //endif; ?>
+    <div id = 'seller'><h4> Seller: <?php echo $db_connection->getUserNameFromID($post->getUserId()); ?></h4></div>
+    <div id = 'isbn'><h4> ISBN: <?php echo $db_connection->getIsbnFromPostID($post->getPostId()); ?></h4></div>
+    <div id = 'price'><h4> Price: <?php echo $post->getPrice(); ?></h4></div>
+    <div id = 'comments'><h4> Comments: <?php echo $post->getComments(); ?></h4></div>
+    <div id = 'contact'><h4> Contact: <?php echo $post->getContact(); ?></h4></div>
+
+    <?php else : ?>
+
+        <h1>Post no longer exist</h1>
+
+    <?php endif; ?>
 
 </body>
 
