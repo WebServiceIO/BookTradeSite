@@ -17,6 +17,7 @@
     <script src = "includes/js/jquery1.11.1/jquery.min.js"></script>
     <script src = "bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="includes/js/main.js"></script>
+    <script type="text/javascript" src="includes/js/navbar.js"></script>
     <!-- FakeLoader -->
     <link rel="stylesheet" href="bower_components/fakeLoader/fakeLoader.css">
     <script src="bower_components/fakeLoader/fakeLoader.min.js"></script>
