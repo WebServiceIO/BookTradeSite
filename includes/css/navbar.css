@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Raleway:700';
+@import 'https://fonts.googleapis.com/css?family=Raleway:300';
 @import 'https://fonts.googleapis.com/css?family=Montserrat';
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
 
@@ -60,7 +60,6 @@
 
 .form-group {
     height: 100%;
-    /*display: inline;*/
 }
 
 .input-group {
@@ -76,7 +75,6 @@
 .form-control {
     margin: 0;
     height: 50px;
-    /*padding: 10px 20px 10px 20px;*/ /* top right bottom left */
     background: none;
     border: 0;
     box-shadow: none;

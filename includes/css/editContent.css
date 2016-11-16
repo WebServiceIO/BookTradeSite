@@ -1,0 +1,50 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway:300';
+
+/* Main */
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#wrapper-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-top: 80px;
+}
+
+.container {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    border: 1px solid #373737;
+}
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 30px 50px 30px 50px;
+    background-color: #373737;
+}
+
+.footer > span {
+    color: #F4F4F4;
+}
+
+.footer > span.footer-desc > a {
+    color: #C0B283;
+}
+
+.footer > span.footer-desc > a:hover,
+.footer > span.footer-desc > a:focus {
+    text-decoration: none;
+}

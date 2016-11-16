@@ -1,330 +1,86 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300');
-@import url('https://fonts.googleapis.com/css?family=Lato:300');
+@import 'https://fonts.googleapis.com/css?family=Raleway:300';
 
+/* Main */
 html, body {
-    margin: 0;
-    padding: 0;
     height: 100%;
     width: 100%;
 }
 
-/* Media Queries  */
-@media only screen
-    and (min-device-width: 480px)
-    and (max-device-width: 640px)
-    and (orientation: landscape) {
-    #sidebar {
-        width: 20%;
-        height: 100%;
-        position: fixed;
-        background: black;
-        text-align: right;
-    }
-
-    #sidebar-header {
-        padding: 30px;
-        color: #959AA0;
-        font-family: 'Raleway', sans-serif;
-        font-size: 24px;
-    }
-
-    .nav-link {
-        padding-top: 8px;
-        padding-bottom: 8px;
-        padding-right: 30px;
-        display: block;
-        color: #959AA0;
-        font-family: 'Raleway', sans-serif;
-        font-size: 14px;
-        -webkit-transition: color 0.3s ease-in-out;
-        -o-transition: color 0.3s ease-in-out;
-        -moz-transition: color 0.3s ease-in-out;
-        transition: color 0.3s ease-in-out;
-        text-transform: uppercase;
-    }
-
-    .nav-link:hover,
-    .nav-link:focus {
-        color: white;
-        text-decoration: none;
-    }
-
-    .active-link {
-        background: rgba(250,250,250, 0.2);
-        color: white;
-    }
-
-    #page-content-wrapper {
-        padding: 30px;
-        width: 80%;
-        height: auto;
-        position: absolute;
-        right: 0;
-    }
-
-    .content-header,
-    .edit-header,
-    .profile-prompt
-    .profile-info {
-        font-family: 'Raleway', sans-serif;
-    }
-
-    .content-header {
-        margin-bottom: 75px;
-        font-size: 24px;
-    }
-
-    .edit-header {
-        font-size: 18px;
-    }
-
-    .profile-prompt {
-        margin-left: 60px;
-        font-weight: bold;
-    }
-
-    .profile-prompt,
-    .profile-info {
-        display: inline;
-    }
+/* Page Content */
+h1 {
+    color: #373737;
 }
 
-
-@media only screen 
-    and (min-width: 768px) 
-    and (max-width: 989px) {
-    #sidebar {
-        width: 20%;
-        height: 100%;
-        position: fixed;
-        background: black;
-        text-align: right;
-    }
-    
-    #sidebar-header {
-        padding: 30px;
-        color: #959AA0;
-        font-family: 'Raleway', sans-serif;
-        font-size: 24px;
-    }
-
-    .nav-link {
-        padding-top: 8px;
-        padding-bottom: 8px;
-        padding-right: 30px;
-        display: block;
-        color: #959AA0;
-        font-family: 'Raleway', sans-serif;
-        font-size: 14px;
-        -webkit-transition: color 0.3s ease-in-out;
-        -o-transition: color 0.3s ease-in-out;
-        -moz-transition: color 0.3s ease-in-out;
-        transition: color 0.3s ease-in-out;
-        text-transform: uppercase;
-    }
-
-    .nav-link:hover,
-    .nav-link:focus {
-        color: white;
-        text-decoration: none;
-    }
-    
-    .active-link {
-        background: rgba(250,250,250, 0.2);
-        color: white;
-    }
-    
-    #page-content-wrapper {
-        padding: 30px;
-        width: 80%;
-        height: auto;
-        position: absolute;
-        right: 0;
-    }
-    
-    .content-header,
-    .edit-header,
-    .profile-prompt
-    .profile-info {
-        font-family: 'Raleway', sans-serif;
-    }
-    
-    .content-header {
-        margin-bottom: 75px;
-        font-size: 24px;
-    }
-    
-    .edit-header {
-        font-size: 18px;
-    }
-    
-    .profile-prompt {
-        margin-left: 60px;
-        font-weight: bold;
-    }
-    
-    .profile-prompt,
-    .profile-info {
-        display: inline;
-    }
-        
-    .btn-edit,
-    .btn-sold {
-        -webkit-transition: color 0.3s ease-in-out;
-        -o-transition: color 0.3s ease-in-out;
-        -moz-transition: color 0.3s ease-in-out;
-        transition: color 0.3s ease-in-out;
-    }
-    
-    .btn-edit {
-        color: #599FFF;
-    }
-        
-    .btn-sold {
-        color: #FF5959;
-    }
-        
-    .btn-edit:hover,
-    .btn-edit:focus,
-    .btn-sold:hover,
-    .btn-sold:focus {
-        text-decoration: none;
-    }
-        
-    .btn-edit:hover {
-        color: #0F73FF;
-    }
-
-    .btn-sold:hover {
-        color: #FF0F0F;
-    }
-        
-    #btn-sell {
-        margin-top: 10px;
-    }
+#wrapper-content {
+    padding-top: 80px;
 }
 
-@media only screen 
-    and (min-width: 990px) {
-    #sidebar {
-        width: 20%;
-        height: 100%;
-        position: fixed;
-        background: black;
-        text-align: right;
-    }
-    
-    #sidebar-header {
-        padding: 30px;
-        color: #959AA0;
-        font-family: 'Raleway', sans-serif;
-    }
+.container {
+    width: 80%;
+    margin-bottom: 20px;
+}
 
-    .nav-link {
-        padding-top: 8px;
-        padding-bottom: 8px;
-        padding-right: 30px;
-        display: block;
-        color: #959AA0;
-        font-family: 'Raleway', sans-serif;
-        font-size: 16px;
-        -webkit-transition: color 0.3s ease-in-out;
-        -o-transition: color 0.3s ease-in-out;
-        -moz-transition: color 0.3s ease-in-out;
-        transition: color 0.3s ease-in-out;
-        text-transform: uppercase;
-    }
+.border {
+    border: 1px solid #373737;
+    border-radius: 5px;
+}
 
-    .nav-link:hover,
-    .nav-link:focus {
-        color: white;
-        text-decoration: none;
-    }
-    
-    .active-link {
-        background: rgba(250,250,250, 0.2);
-        color: white;
-    }
+.row {
+    padding: 10px;
+}
 
-    #page-content-wrapper {
-        padding: 30px;
-        width: 80%;
-        height: auto;
-        position: absolute;
-        right: 0;
-    }
+h1,
+.section-header,
+.section-description,
+.subsection-header,
+.link {
+    font-family: 'Raleway', sans-serif;
+}
 
-    .content-header,
-    .edit-header,
-    .profile-prompt,
-    .profile-info {
-        font-family: 'Raleway', sans-serif;
-    }
-    
-    .content-header {
-        margin-bottom: 85px;
-    }
-    
-    .profile-prompt {
-        margin-left: 60px;
-        font-weight: bold;
-    }
-    
-    .profile-prompt,
-    .profile-info {
-        display: inline;
-    }
-        
-    table, th, td {
-        border: 1px solid black;
-        font-family: 'Lato', sans-serif;
-    }
-        
-    table {
-        width: 100%;
-    }
-        
-    th, td {
-        padding-left: 10px;
-    }
-        
-    th {
-        font-weight: bold;
-        font-size: 16px;
-    }
-        
-    .btn-edit,
-    .btn-sold {
-        -webkit-transition: color 0.3s ease-in-out;
-        -o-transition: color 0.3s ease-in-out;
-        -moz-transition: color 0.3s ease-in-out;
-        transition: color 0.3s ease-in-out;
-    }
-    
-    .btn-edit {
-        color: #599FFF;
-    }
-        
-    .btn-sold {
-        color: #FF5959;
-    }
-        
-    .btn-edit:hover,
-    .btn-edit:focus,
-    .btn-sold:hover,
-    .btn-sold:focus {
-        text-decoration: none;
-    }
-        
-    .btn-edit:hover {
-        color: #0F73FF;
-    }
+.section-header {
+    font-size: 1.7em;
+    color: #C0B283;
+}
 
-    .btn-sold:hover {
-        color: #FF0F0F;
-    }
-        
-    #btn-sell {
-        margin-top: 10px;
-    }
+.section-description {
+    color: #373737;
+}
+
+.subsection-header {
+    color: #B87A6F;
+}
+
+.link {
+    color: #373737;
+    -webkit-transition: color 0.15s ease-in-out;
+    -o-transition: color 0.15s ease-in-out;
+    -moz-transition: color 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out;
+}
+
+.link:hover,
+.link:focus {
+    color: #C0B283;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 30px 50px 30px 50px;
+    background-color: #373737;
+}
+
+.footer > span {
+    color: #F4F4F4;
+}
+
+.footer > span.footer-desc > a {
+    color: #C0B283;
+}
+
+.footer > span.footer-desc > a:hover,
+.footer > span.footer-desc > a:focus {
+    text-decoration: none;
 }
