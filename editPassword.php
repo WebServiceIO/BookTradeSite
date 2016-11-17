@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>bookxchange | Change Your Username</title>
+    <title>bookxchange | Change Your Password</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,7 +91,7 @@
 <!-- Start of Page Content -->
 <div id="wrapper-content">
     <div class="container">
-        <h1>Change Your Username</h1>
+        <h1>Change Your Password</h1>
         <p class="warning">
             Click the 'Submit' button when you are finished or click
             the 'Cancel' button to go back to your account page.
@@ -99,7 +99,10 @@
 
         <form>
             <div class="form-group">
-                <input type="text" class="form-control" id="username" aria-describedby="newUsername" placeholder="Enter new username">
+                <input type="text" class="form-control" id="oldPass" aria-describedby="oldPass" placeholder="Enter current password">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="newPass" aria-describedby="newPass" placeholder="Enter new password">
             </div>
             <div class="row">
                 <div class="col-xs-6 form-link">

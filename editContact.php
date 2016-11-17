@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>bookxchange | Change Your Username</title>
+    <title>bookxchange | Edit Contact Information</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,15 +91,35 @@
 <!-- Start of Page Content -->
 <div id="wrapper-content">
     <div class="container">
-        <h1>Change Your Username</h1>
+        <h1>Edit Contact Information</h1>
         <p class="warning">
-            Click the 'Submit' button when you are finished or click
-            the 'Cancel' button to go back to your account page.
+            All of your contact information will be displayed on your book post.
+            You do not have to fill out all of the fields. Click the 'Submit'
+            button when you are finished or click the 'Cancel' button to go
+            back to your account page.
         </p>
 
         <form>
             <div class="form-group">
-                <input type="text" class="form-control" id="username" aria-describedby="newUsername" placeholder="Enter new username">
+                <input type="text" class="form-control" id="phoneNum" aria-describedby="phoneNum" placeholder="Enter your phone number">
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Call
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Text
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your e-mail address">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="otherContact" aria-describedby="otherContact" placeholder="Enter other contact information">
             </div>
             <div class="row">
                 <div class="col-xs-6 form-link">

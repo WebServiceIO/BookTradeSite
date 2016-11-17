@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>bookxchange</title>
+    <title>bookxchange | Register</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -66,7 +66,7 @@
                 }
             }
         }
-?>
+        ?>
         <?php if(isset($_POST['password']) && isset($_POST['password_conf'])) { if (strcmp($_POST['password'], $_POST['password_conf']) != 0) { echo '<h3 style="background-color:red;"> Passwords do not match </h3>'; } } ?>
         <form id="reg_form" name="registration" action="<?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method = "post"  onsubmit="return validateForm()">
             <div class="form-group">
@@ -127,9 +127,23 @@
             <button type="submit" class="btn btn-default btn-transparent">Register</button>
         </form>
 
-
+        <div class="row other-links">
+            <div class="col-xs-18 col-md-6">
+                <a href="index.php">
+                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    Go back to homepage
+                </a>
+            </div>
+            <div class="col-xs-18 col-md-6">
+                <a href="login.php">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    Login to your account here
+                </a>
+            </div>
+        </div>
 
     </div>
 </div>
+
 </body>
 </html>

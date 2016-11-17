@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>bookxchange</title>
+    <title>bookxchange | Your Account</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,6 @@
     <script src="includes/js/jquery1.11.1/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="includes/js/navbar.js"></script>
-    <script type="text/javascript" src="includes/js/account.js"></script>
     <script src = "includes/js/datatables1.10.12/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="includes/js/tables/user_posts_data_tables.js"></script>
 </head>
@@ -71,37 +70,15 @@ else
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="logout.php">Log Out</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 <!--Start of Page Content-->
-
-<!-- Old Code - Revert Back To This If Can't Work With New Design-->
-<!--
-<div id="page-content-wrapper">
-    <div id="profile">
-        <h1 class="content-header">Your Profile</h1>
-
-        <h3 class="edit-header">Edit Account Information</h3>
-        <p class="profile-prompt">Username: <?php $db_connection->getUserNameFromID($user_id)?></p>
-    </div>
-    <div id="posts">
-        <h1 class="content-header">Your Posts</h1>
-        <h3 class="edit-header">Your Books</h3>
-        <table id="user_post_datatable" class="display" cellspacing="0"></table>
-        <a href="#">
-            <button type="button" class="btn btn-primary" id="btn-sell">
-            </button>
-        </a>
-    </div>
-</div>
--->
-
 <div id="wrapper-content">
-    <div class="container">
+    <div class="container first-container">
         <h1>Your Account</h1>
     </div>
     <div class="container border">
@@ -109,17 +86,21 @@ else
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-xs-18 section-header">Profile</div>
-                    <div class="col-xs-18 section-description">Username & Password</div>
+                    <div class="col-xs-18 section-description">Account Settings & Contact</div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="row">
-                    <div class="col-xs-18 subsection-header">Edit Account Information</div>
+                    <div class="col-xs-18 subsection-header">Account Information</div>
                     <div class="col-xs-18">
-                        <a href="editUsername.php" class="link">Username</a>
+                        <a href="editUsername.php" class="link">Change Username</a>
                     </div>
-                    <div class="col-xs-18"><a href="#" class="link">Password</a></div>
-                    <div class="col-xs-18"><a href="#" class="link">Contact Information</a></div>
+                    <div class="col-xs-18">
+                        <a href="editPassword.php" class="link">Change Password</a>
+                    </div>
+                    <div class="col-xs-18">
+                        <a href="editContact.php" class="link">Edit Contact Information</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -144,13 +125,14 @@ else
     </div>
 </div>
 
+<!-- Footer -->
 <div class="container-fluid footer">
     <span class="footer-desc">
-            Designed and coded with love by
-            <a href="http://cs480-projects.github.io/teams-fall2016/WebHeads/index.html">
-                &lt;WebHeads/&gt;
-            </a>
-            .
+        Designed and coded with love by
+        <a href="http://cs480-projects.github.io/teams-fall2016/WebHeads/index.html">
+            &lt;WebHeads/&gt;
+        </a>
+        .
     </span>
 </div>
 

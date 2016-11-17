@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Raleway:300';
+@import url('https://fonts.googleapis.com/css?family=Raleway:300');
 
 /* Main */
 html, body {
@@ -6,32 +6,74 @@ html, body {
     width: 100%;
 }
 
+/* Page Content */
 #wrapper-content {
     width: 100%;
-    height: 100%;
-    position: relative;
-    padding-top: 80px;
+    min-height: 100%;
+}
+
+#wrapper-content:after {
+    content: "";
+    display: block;
+    height: 80px;
 }
 
 .container {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0;
-    position: absolute;
-    text-align: center;
-    border: 1px solid #373737;
+    width: 60%;
+    padding-top: 10%;
 }
 
-h1 {
+h1,
+.warning {
     font-family: 'Raleway', sans-serif;
+    color: #373737;
+}
+
+/* Form */
+form > .form-group > #username,
+form > .form-group > #oldPass,
+form > .form-group > #newPass,
+form > .form-group > #phoneNum,
+form > .form-group > #email,
+form > .form-group > #otherContact {
+    padding: 0 5px;
+    border-bottom: 1px solid #373737;
+    border-radius: 0;
+}
+
+form > .row > .form-link:nth-child(1) {
+    text-align: right;
+}
+
+/* Save Button */
+.btn-default {
+    border: 1px solid #C0B283;
+    color: #373737;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 1.5px;
+    -webkit-transition: color 0.3s ease-in-out;
+    -o-transition: color 0.3s ease-in-out;
+    -moz-transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+}
+
+.btn-default:hover {
+    background: transparent;
+    border: 1px solid #C0B283;
+    color: #C0B283;
+}
+
+.btn-default:focus,
+.btn-default:active {
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 /* Footer */
 .footer {
     width: 100%;
-    position: absolute;
-    bottom: 0;
     padding: 30px 50px 30px 50px;
     background-color: #373737;
 }
@@ -47,4 +89,11 @@ h1 {
 .footer > span.footer-desc > a:hover,
 .footer > span.footer-desc > a:focus {
     text-decoration: none;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 991px) {
+    .footer {
+        margin-top: 20px;
+    }
 }

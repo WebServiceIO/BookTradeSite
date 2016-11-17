@@ -1,43 +1,39 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:300');
 
 /* Main */
-html, body {
-    height: 100%;
+html {
     width: 100%;
+    height: 100%;
 }
 
 body {
-    margin: 0;
-    background: url("../images/LoginRegBackground.png") center center/100% 100% no-repeat fixed !important;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
+    min-height: 100%;
 }
 
+/* Page Content */
 #wrapper-content {
     width: 100%;
-    height: 100%;
     position: relative;
 }
 
 .container {
     width: 60%;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0;
+    transform: translateX(-50%);
     position: absolute;
     text-align: center;
 }
 
 h1 {
-    color: black;
+    margin-top: 80px;
+    color: #C0B283;
     font-family: 'Rubik', sans-serif;
+    font-weight: 300;
 }
 
 /* Form */
-.form-control {
+.form-content {
+    height: 34px;
     margin: 0;
     background: rgba(250, 250, 250, 0.9);
     border: 1px solid #DCDCDC;
@@ -45,17 +41,26 @@ h1 {
     box-shadow: none;
     display: inline-block;
     font-family: 'Rubik', sans-serif;
+    font-weight: 300;
 }
 
-.form-control:hover,
-.form-control:focus {
+.form-content:hover,
+.form-content:focus {
     border: 1px solid #DCDCDC;
     box-shadow: none;
     -webkit-box-shadow: none;
 }
 
+form > .form-group > label {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    color: #373737;
+}
+
 .text-muted {
-    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    color: #B87A6F;
 }
 
 /* Submit Button */
@@ -63,6 +68,7 @@ h1 {
     border: 1px solid #C0B283;
     color: #373737;
     font-family: 'Rubik', sans-serif;
+    font-weight: 300;
     letter-spacing: 1.5px;
     -webkit-transition: color 0.3s ease-in-out;
     -o-transition: color 0.3s ease-in-out;
@@ -82,6 +88,26 @@ h1 {
     outline: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
+}
+
+.footer {
+    width: 100%;
+    margin-top: 20px;
+    padding: 30px 50px 30px 50px;
+    background-color: #373737;
+}
+
+.footer > span {
+    color: #F4F4F4;
+}
+
+.footer > span.footer-desc > a {
+    color: #C0B283;
+}
+
+.footer > span.footer-desc > a:hover,
+.footer > span.footer-desc > a:focus {
+    text-decoration: none;
 }
 
 /* Media Queries */
@@ -106,5 +132,12 @@ h1 {
         margin-top: 10%;
         margin-bottom: 10%;
         width: 50%;
+    }
+}
+
+@media only screen and (min-height: 730px) {
+    .container {
+        top: 50%;
+        transform: translateY(-50%);
     }
 }

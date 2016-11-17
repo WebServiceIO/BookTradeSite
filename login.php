@@ -18,36 +18,36 @@
 </head>
 <body>
 
-    <div id="wrapper-content">
-        <div class="container">
-            <img src="includes/images/Logo-(White).png" class="img-fluid" alt="Logo">
+<div id="wrapper-content">
+    <div class="container">
+        <img src="includes/images/Logo-(White).png" class="img-fluid" alt="Logo">
 
-            <h1>Sign in to bookxchange</h1>
+        <h1>Sign in to bookxchange</h1>
 
-            <?php
-            require_once('includes/php/web_security.php');
-            require_once('includes/php/db_util.php');
-            require_once('includes/php/session.php');
-            require_once('includes/php/config/config.php');
+        <?php
+        require_once('includes/php/web_security.php');
+        require_once('includes/php/db_util.php');
+        require_once('includes/php/session.php');
+        require_once('includes/php/config/config.php');
 
-            // start a session for login
-            session_start();
+        // start a session for login
+        session_start();
 
-            $db = new DBUtilities();
+        $db = new DBUtilities();
 
-            $email = null;
-            $pass = null;
-            $is_valid_email = null;
-            $is_valid_password = null;
+        $email = null;
+        $pass = null;
+        $is_valid_email = null;
+        $is_valid_password = null;
 
-            if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
-            {
-                header('Location:' . site_root);
-            }
+        if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
+        {
+            header('Location:' . site_root);
+        }
 
-            ?>
+        ?>
 
-            <form id="login_form" name="login" action =" <?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method = "post" onsubmit = "return validateForm()">
+        <form id="login_form" name="login" action =" <?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method = "post" onsubmit = "return validateForm()">
             <div class = "form-group">
                 <?php
                 if(isset($_POST['email']))
@@ -69,8 +69,8 @@
                 }
                 ?>
 
-                <input type = "email" class = "form-control" id = "email" name = "email" aria-decribedby = "email" placeholder = "Email" value = "<?php if(isset($_POST['email'])) ?>">
-                </div>
+                <input type = "email" class = "form-control" id = "email" name = "email" placeholder = "Email" value = "<?php if(isset($_POST['email'])) ?>">
+            </div>
             <div class="form-group">
                 <?php
                 if(isset($_POST['password']))
@@ -91,40 +91,55 @@
                     }
                 } ?>
                 <input type="password" class="form-control" id="password" name = "password" placeholder="Password">
-                </div>
+            </div>
             <button type="submit" class="btn btn-default btn-transparent">Sign in</button>
-            </form>
+        </form>
 
-            <?php
+        <div class="row other-links">
+            <div class="col-xs-18 col-md-6">
+                <a href="index.php">
+                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    Go back to homepage
+                </a>
+            </div>
+            <div class="col-xs-18 col-md-6">
+                <a href="register.php">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    Create an account here
+                </a>
+            </div>
+        </div>
 
-            header('Cache-Control: no-cache, no-store, must-revalidate');
-            $session = new Session();
+        <?php
 
-            if (isset($_POST['password']) && isset($_POST['email']))
+        header('Cache-Control: no-cache, no-store, must-revalidate');
+        $session = new Session();
+
+        if (isset($_POST['password']) && isset($_POST['email']))
+        {
+            // if password and email are both submitted
+            if ($_POST['password'] && $_POST['email'])
             {
-                // if password and email are both submitted
-                if ($_POST['password'] && $_POST['email'])
+                echo $is_valid_email;
+                echo $is_valid_password;
+
+
+                if ($is_valid_email && $is_valid_password)
                 {
-                    echo $is_valid_email;
-                    echo $is_valid_password;
-
-
-                    if ($is_valid_email && $is_valid_password)
-                    {
-                        $user_id = $db->getUserIdFromEmail($email);
-                        $finger_print = $db->getFingerprintInfoFromId($user_id);
-                        $session_arr = $session->createSessionEntry($user_id);
-                        $db->insertSession($session_arr);
-                        header('Cache-Control: no-cache, no-store, must-revalidate');
-                        header('Location:' . site_root);
-                    }
+                    $user_id = $db->getUserIdFromEmail($email);
+                    $finger_print = $db->getFingerprintInfoFromId($user_id);
+                    $session_arr = $session->createSessionEntry($user_id);
+                    $db->insertSession($session_arr);
+                    header('Cache-Control: no-cache, no-store, must-revalidate');
+                    header('Location:' . site_root);
                 }
             }
+        }
 
-            ?>
+        ?>
 
-        </div>
     </div>
+</div>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
-@import 'https://fonts.googleapis.com/css?family=Raleway:300';
-@import 'https://fonts.googleapis.com/css?family=Montserrat';
+@import url('https://fonts.googleapis.com/css?family=Raleway:300');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
 
 /* Navbar Defaults */
@@ -111,23 +111,6 @@
 .navbar .nav li.dropdown.open.active > .dropdown-toggle {
     background-color: transparent;
 }
-
-/*
-.dropdown-menu > li > a {
-    color: #373737;
-    font-family: 'Rubik', sans-serif;
-    font-weight: 300;
-    -webkit-transition: color 0.3s ease-in-out;
-	-o-transition: color 0.3s ease-in-out;
-	-moz-transition: color 0.3s ease-in-out;
-	transition: color 0.3s ease-in-out;
-}
-
-.dropdown-menu > li > a:hover {
-    color: #B87A6F;
-    background-color: transparent;
-}
-*/
 
 .navbar-default .navbar-nav > li > ul > li > a {
     color: #373737;

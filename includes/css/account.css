@@ -12,12 +12,27 @@ h1 {
 }
 
 #wrapper-content {
-    padding-top: 80px;
+    width: 100%;
+    min-height: 100%;
+    margin-bottom: -80px;
+}
+
+#wrapper-content:after {
+    content: "";
+    display: block;
+    height: 80px;
+}
+
+#wrapper-content > div:nth-child(2) {
+    margin-bottom: 20px;
+}
+
+.first-container {
+    padding-top: 10%;
 }
 
 .container {
     width: 80%;
-    margin-bottom: 20px;
 }
 
 .border {
@@ -66,8 +81,6 @@ h1,
 /* Footer */
 .footer {
     width: 100%;
-    position: absolute;
-    bottom: 0;
     padding: 30px 50px 30px 50px;
     background-color: #373737;
 }
@@ -83,4 +96,11 @@ h1,
 .footer > span.footer-desc > a:hover,
 .footer > span.footer-desc > a:focus {
     text-decoration: none;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 991px) {
+    .footer {
+        margin-top: 20px;
+    }
 }
