@@ -68,8 +68,19 @@
 }
 
 .input-group-addon {
+    padding-right: 0;
     background: none;
     border: 0;
+}
+
+.input-group-addon > .btn-link {
+    color: #373737;
+}
+
+.input-group-addon > .btn-link:hover,
+.input-group-addon > .btn-link:focus {
+    text-decoration: none;
+    outline: 0;
 }
 
 .form-control {

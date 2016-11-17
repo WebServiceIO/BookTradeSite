@@ -15,7 +15,7 @@ body {
     background-size: cover;
 }
 
-/* Content */
+/* Page Content */
 #wrapper-content {
     width: 100%;
     height: 100%;
@@ -30,6 +30,11 @@ body {
     padding: 0;
     position: absolute;
     text-align: center;
+}
+
+.img-fluid {
+    width: 90px;
+    height: auto;
 }
 
 h1, h4 {

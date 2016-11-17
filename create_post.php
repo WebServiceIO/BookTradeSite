@@ -41,7 +41,9 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon" style="width:1%;">
-                            <span class="glyphicon glyphicon-search"></span>
+                            <button type="submit" class="btn btn-link">
+                                <span class="glyphicon glyphicon-search"></span>&nbsp;
+                            </button>
                         </span>
                         <input type="text" class="form-control" name = "isbn" placeholder="Find your perfect book here...">
                     </div>
