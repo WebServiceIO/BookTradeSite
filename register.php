@@ -26,7 +26,7 @@
 
 <div id="wrapper-content">
     <div class="container">
-        <img src="includes/images/Logo-(White).png" class="img-fluid" alt="Logo">
+        <img src="includes/images/Logo-(Small)-(White).png" class="img-fluid" alt="Logo">
 
         <h1>Create your account</h1>
 
