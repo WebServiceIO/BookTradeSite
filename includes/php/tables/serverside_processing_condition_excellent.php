@@ -20,13 +20,22 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
 
 include_once('serverside_processing_datatables_initial_template.php');
 
-//$sWhere_v1 = "WHERE item_condition = 'Excellent'";
-//$sWhere_v2 = " AND WHERE item_condition = 'Excellent'";
+$sWhere_v1 = "";
+$sWhere_v2 = "";
+//
+//if($post_id_array_str  == null)
+//{
+//    // cheap fix, need to change before production
+//    $post_id_array_str = "(-1)";
+//
+//    $sWhere_v1 = "WHERE post_id IN " . $post_id_array_str . "AND item_condition = 'Excellent'";
+//    $sWhere_v2 = " AND WHERE post_id IN " . $post_id_array_str . "AND item_condition = 'Excellent'";
+//}
+//else {
+    $sWhere_v1 = "WHERE post_id IN " . $post_id_array_str . "AND item_condition = 'Excellent'";
+    $sWhere_v2 = " AND WHERE post_id IN " . $post_id_array_str . "AND item_condition = 'Excellent'";
 
-
-
-$sWhere_v1 = "WHERE post_id IN " . $post_id_array_str . "AND item_condition = 'Excellent'";
-$sWhere_v2 = " AND WHERE post_id IN " . $post_id_array_str . "AND item_condition = 'Excellent'";
+//}
 
 
 include_once('serverside_processing_datatables_template.php');

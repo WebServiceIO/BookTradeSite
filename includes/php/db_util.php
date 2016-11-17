@@ -289,7 +289,18 @@ class DBUtilities
     }
 
 
-
+    function checkForValidIsbn($isbn)
+    {
+        try {
+            $statement = $this->db_connection->prepare("SELECT * FROM isbns WHERE isbn = :isbn");
+            $statement->bindValue(':isbn', $isbn, PDO::PARAM_STR);
+            $statement->execute();
+            return  $statement->rowCount();
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
 
     public function insertSession($session_info)
     {

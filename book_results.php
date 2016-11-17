@@ -51,6 +51,13 @@ $db_connection = new DBUtilities();
 $isbn_id = $db_connection->getIsbnIdFromIsbn($_POST['isbn']);
 $_SESSION['isbn_id'] = $isbn_id;
 
+//if($db_connection->checkForValidIsbn($_POST['isbn']) == 0)
+//{
+//
+//
+//
+//}
+
 ?>
 
 <!-- Navigation Bar -->
@@ -89,7 +96,7 @@ $_SESSION['isbn_id'] = $isbn_id;
 
                 require_once('includes/php/db_util.php');
                 $db = new DBUtilities();
-                session_start();
+
 
 
                 if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
@@ -125,6 +132,25 @@ $_SESSION['isbn_id'] = $isbn_id;
 
 <div id="content_wrapper">
 
+
+    <?php
+
+    $condition = 1;
+
+    if($db_connection->checkForValidIsbn($_POST['isbn']) == 0)
+    {
+        $condition = 0;
+    }
+
+
+
+
+    ?>
+
+
+
+    <?php if((int)$condition == 1): ?>
+
     <h3>Good</h3>
     <div class="display datatables_template">
         <table id="condition_good_datatable" class="display" cellspacing="0"></table>
@@ -154,7 +180,25 @@ $_SESSION['isbn_id'] = $isbn_id;
     <div class="display datatables_template">
         <table id="condition_new_datatable" class="display" cellspacing="0"></table>
     </div>
+
+    <?php else: ?>
+
+        <h1> No data or invalid isbn</h1>
+
+    <?php endif; ?>
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

@@ -69,7 +69,7 @@
                 }
                 ?>
 
-                <input type = "email" class = "form-control" id = "email" name = "email" placeholder = "Email" value = "<?php if(isset($_POST['email'])) ?>">
+                <input type = "email" class = "form-control" id = "email" name = "email" placeholder = "Email" value = "<?php if(isset($_POST['email'])) { echo $_POST['email']; }?>">
             </div>
             <div class="form-group">
                 <?php
@@ -120,10 +120,6 @@
             // if password and email are both submitted
             if ($_POST['password'] && $_POST['email'])
             {
-                echo $is_valid_email;
-                echo $is_valid_password;
-
-
                 if ($is_valid_email && $is_valid_password)
                 {
                     $user_id = $db->getUserIdFromEmail($email);
