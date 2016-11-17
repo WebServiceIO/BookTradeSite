@@ -118,7 +118,7 @@ else
                 <div class="row">
                     <div class="col-xs-18 subsection-header">Your Books</div>
                     <div class="col-xs-18"><a href="create_post.php" class="link">Sell Another Book</a></div>
-                    <div class="col-xs-18"><a href="#" class="link">View Your Books</a></div>
+                    <div class="col-xs-18"><a href="viewBooks.php" class="link">View Your Books</a></div>
                 </div>
             </div>
         </div>

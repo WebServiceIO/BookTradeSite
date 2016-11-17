@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>bookxchange | Change Your Username</title>
+    <title>bookxchange</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,11 +12,13 @@
     <!-- CSS -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="includes/css/navbar.css">
-    <link rel="stylesheet" href="includes/css/editContent.css">
+    <link rel = "stylesheet" href = "includes/css/datatables1.10.12/jquery.dataTables.min.css?v=1.0">
     <!-- JavaScript -->
     <script src="includes/js/jquery1.11.1/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="includes/js/navbar.js"></script>
+    <script src = "includes/js/datatables1.10.12/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="includes/js/tables/user_posts_data_tables.js"></script>
 </head>
 <body>
 
@@ -39,9 +41,9 @@
             <form class="navbar-form navbar-left" action = "book_results.php" method = "POST">
                 <div class="form-group">
                     <div class="input-group">
-                            <span class="input-group-addon" style="width:1%;">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </span>
+                        <span class="input-group-addon" style="width:1%;">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </span>
                         <input type="text" class="form-control" name = "isbn" placeholder="Find your perfect book here...">
                     </div>
                 </div>
@@ -63,24 +65,24 @@
                     {
                         echo '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome ' . $db->getFName($_SESSION['USER_ID']) . ' <span class="caret"></span></a>';
                         echo '
-                                <ul class="dropdown-menu">
-                                    <li><a href="home.php">Your Account</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="create_post.php">Add Book to Sell</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="logout.php">Log out</a></li>
-                                </ul>
-                                </li>
-                            ';
+                            <ul class="dropdown-menu">
+                                <li><a href="home.php">Your Account</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="create_post.php">Add Book to Sell</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="logout.php">Log out</a></li>
+                            </ul>
+                            </li>
+                        ';
 
                     }
                 }
                 else
                 {
                     echo '
-                                <li><a href="login.php">Log In</a></li>
-                                <li><a href="register.php">Register</a></li>
-                        ';
+                            <li><a href="login.php">Log In</a></li>
+                            <li><a href="register.php">Register</a></li>
+                    ';
                 }
                 ?>
             </ul>
@@ -88,40 +90,10 @@
     </div>
 </nav>
 
-<!-- Start of Page Content -->
 <div id="wrapper-content">
     <div class="container">
-        <h1>Change Your Username</h1>
-        <p class="warning">
-            Click the 'Submit' button when you are finished or click
-            the 'Cancel' button to go back to your account page.
-        </p>
-
-        <form>
-            <div class="form-group">
-                <input type="text" class="form-control" id="username" aria-describedby="newUsername" placeholder="Enter new username" value="username goes here">
-            </div>
-            <div class="row">
-                <div class="col-xs-6 form-link">
-                    <a href="home.php" class="btn btn-default btn-transparent">Cancel</a>
-                </div>
-                <div class="col-xs-6 form-link">
-                    <button type="submit" class="btn btn-default btn-transparent">Submit</button>
-                </div>
-            </div>
-        </form>
+        <table id="user_post_datatable" class="display" cellspacing="0"></table>
     </div>
-</div>
-
-<!-- Footer -->
-<div class="container-fluid footer">
-    <span class="footer-desc">
-        Designed and coded with love by
-        <a href="http://cs480-projects.github.io/teams-fall2016/WebHeads/index.html">
-            &lt;WebHeads/&gt;
-        </a>
-        .
-    </span>
 </div>
 
 </body>
