@@ -26,14 +26,20 @@
     require_once('includes/php/db_tables/post.php');
     $post = null;
     $db_connection = new DBUtilities();
-
     session_start();
 
-    if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']) && isset($_SESSION['post_id']))
+    // TODO find alternative way besides switching between session post id and post post_id
+    if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']) && (isset($_SESSION['post_id'])) || isset($_POST['post_id']))
     {
         if(!empty($_SESSION['post_id']))
         {
             $post = $db_connection->getUserPost($_SESSION['post_id']);
+            // TODO if unset, refreshing doesnt work, need to use get or find an alternative way
+            //unset($_SESSION['post_id']);
+        }
+        else if(!empty($_POST['post_id']))
+        {
+            $post = $db_connection->getUserPost($_POST['post_id']);
             // TODO if unset, refreshing doesnt work, need to use get or find an alternative way
             //unset($_SESSION['post_id']);
         }

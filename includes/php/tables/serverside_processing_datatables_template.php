@@ -93,11 +93,6 @@ $iFilteredTotal = current($db_connection->query('SELECT FOUND_ROWS()')->fetch())
 $sQuery = "SELECT COUNT(`" . $index_column . "`) FROM `" . $table . "`";
 $iTotal = current($db_connection->query($sQuery)->fetch());
 
-
-
-
-
-
 // Output
 $output = array(
     "sEcho" => intval($_GET['sEcho']),
