@@ -69,6 +69,7 @@
                                     <li><a href="home.php">Your Account</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="create_post.php">Add Book to Sell</a></li>
+                                    <li><a href="view_books.php">View Your Books</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="logout.php">Log out</a></li>
                                 </ul>

@@ -21,13 +21,12 @@
     <!-- CSS -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="includes/css/navbar.css">
-    <link rel="stylesheet" href="includes/css/results.css">
     <link rel="stylesheet" href="includes/css/datatables1.10.12/jquery.dataTables.min.css?v=1.0">
+    <link rel="stylesheet" href="includes/css/results.css">
     <!-- JavaScript -->
     <script src="includes/js/jquery1.11.1/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="includes/js/navbar.js"></script>
-    <script src="includes/js/result.js"></script>
     <script src="includes/js/datatables1.10.12/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="includes/js/tables/results_post_data_tables.js"></script>
 </head>
@@ -109,6 +108,7 @@ $_SESSION['isbn_id'] = $isbn_id;
                                 <li><a href="home.php">Your Account</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="create_post.php">Add Book to Sell</a></li>
+                                <li><a href="view_books.php">View Your Books</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="logout.php">Log out</a></li>
                             </ul>
@@ -130,8 +130,7 @@ $_SESSION['isbn_id'] = $isbn_id;
     </div>
 </nav>
 
-<div id="content_wrapper">
-
+<div class="container">
 
     <?php
 
@@ -142,44 +141,39 @@ $_SESSION['isbn_id'] = $isbn_id;
         $condition = 0;
     }
 
-
-
-
     ?>
-
-
 
     <?php if((int)$condition == 1): ?>
 
-    <h3>Good</h3>
-    <div class="display datatables_template">
-        <table id="condition_good_datatable" class="display" cellspacing="0"></table>
-    </div>
+        <h3 class="sect-header">New</h3>
+        <div class="display datatables_template">
+            <table id="condition_new_datatable" class="display" cellspacing="0"></table>
+        </div>
 
-    <h3>Poor</h3>
-    <div class="display datatables_template">
-        <table id="condition_poor_datatable" class="display" cellspacing="0"></table>
-    </div>
+        <h3 class="sect-header">Excellent</h3>
+        <div class="display datatables_template">
+            <table id="condition_excellent_datatable" class="display" cellspacing="0"></table>
+        </div>
 
-    <h3>Ok</h3>
-    <div class="display datatables_template">
-        <table id="condition_ok_datatable" class="display" cellspacing="0"></table>
-    </div>
+        <h3 class="sect-header">Good</h3>
+        <div class="display datatables_template">
+            <table id="condition_good_datatable" class="display" cellspacing="0"></table>
+        </div>
 
-    <h3>Acceptable</h3>
-    <div class="display datatables_template">
-        <table id="condition_acceptable_datatable" class="display" cellspacing="0"></table>
-    </div>
+        <h3 class="sect-header">Acceptable</h3>
+        <div class="display datatables_template">
+            <table id="condition_acceptable_datatable" class="display" cellspacing="0"></table>
+        </div>
 
-    <h3>Excellent</h3>
-    <div class="display datatables_template">
-        <table id="condition_excellent_datatable" class="display" cellspacing="0"></table>
-    </div>
+        <h3 class="sect-header">Okay</h3>
+        <div class="display datatables_template">
+            <table id="condition_ok_datatable" class="display" cellspacing="0"></table>
+        </div>
 
-    <h3>New</h3>
-    <div class="display datatables_template">
-        <table id="condition_new_datatable" class="display" cellspacing="0"></table>
-    </div>
+        <h3 class="sect-header">Poor</h3>
+        <div class="display datatables_template">
+            <table id="condition_poor_datatable" class="display" cellspacing="0"></table>
+        </div>
 
     <?php else: ?>
 
@@ -187,18 +181,7 @@ $_SESSION['isbn_id'] = $isbn_id;
 
     <?php endif; ?>
 
-
 </div>
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

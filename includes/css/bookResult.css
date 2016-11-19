@@ -1,27 +1,88 @@
-#myCarousel .carousel-indicators {
-    bottom: 0;
-    left: 10px;
-    margin-left: 5px;
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
+
+/******************************************************************************
+General
+******************************************************************************/
+html, body {
     width: 100%;
 }
-#myCarousel .carousel-indicators li {
-    border: medium none;
-    border-radius: 0;
-    float: left;
-    height: 44px;
-    margin-bottom: 5px;
-    margin-left: 0;
-    margin-right: 5px !important;
-    margin-top: 0;
-    width: 120px;
+
+.wrapper {
+    margin-top: 45px;
+    margin-bottom: 45px;
 }
-#myCarousel .carousel-indicators img {
-    border: 2px solid #FFFFFF;
-    float: left;
-    height: 44px;
-    left: 0;
-    width: 120px;
+
+a,
+a:hover,
+a:focus {
+    color: #373737;
+    text-decoration: none;
 }
-#myCarousel .carousel-indicators .active img {
-    border: 2px solid #39b3d7;
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+h1, h2 {
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+}
+
+h1 > span {
+    font-size: 28px;
+}
+
+h2 {
+    color: #B87A6F;
+}
+
+.container > .container {
+    width: 60%;
+    border: 1px solid #373737;
+    border-radius: 5px;
+}
+
+.container > .container > .row {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.container > .container > .row:not(:last-child) {
+    border-bottom: 1px solid #DCD0C0;
+}
+
+.col-md-6 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    color: #373737;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    padding: 30px 50px 30px 50px;
+    background-color: #373737;
+}
+
+.footer > span {
+    color: #F4F4F4;
+}
+
+.footer > span.footer-desc > a {
+    color: #C0B283;
+}
+
+.footer > span.footer-desc > a:hover,
+.footer > span.footer-desc > a:focus {
+    text-decoration: none;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 991px) {
+    .footer {
+        margin-top: 20px;
+    }
 }
