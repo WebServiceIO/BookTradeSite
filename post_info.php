@@ -50,22 +50,12 @@ else if((!isset($_SESSION['post_id'])) && !isset($_POST['post_id'])) {
 }
 else
 {
-    if(empty($_SESSION['post_id']))
-    {
-        header('Location:' . site_root);
-        die();
-    }
-    else
+    if(!empty($_SESSION['post_id']))
     {
         $post = $db_connection->getUserPost($_SESSION['post_id']);
     }
 
-    if(!empty($_POST['post_id']))
-    {
-        header('Location:' . site_root);
-        die();
-    }
-    else
+    else if(!empty($_POST['post_id']))
     {
         $post = $db_connection->getUserPost($_POST['post_id']);
     }
@@ -115,7 +105,7 @@ else
 
                 require_once('includes/php/db_util.php');
                 $db = new DBUtilities();
-                session_start();
+
 
 
 //                if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
@@ -147,7 +137,7 @@ else
 
 require_once('includes/php/db_util.php');
 require_once('includes/php/db_tables/post.php');
-$post = null;
+
 $db_connection = new DBUtilities();
 session_start();
 
