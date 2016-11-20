@@ -147,7 +147,7 @@
                 }
 
                 ?>
-                <input type="text" class="form-control" id="contact_info" name = "contact_info" aria-describedby="contact_info" placeholder="Contact Info" value="<?php if(isset($_POST['contact_info'])) {echo $_POST['contact_info']; } ?>">
+                <textarea class="form-control" id="contact_info" rows="3" placeholder="Contact Info"><?php if(isset($_POST['contact_info'])) {echo $_POST['contact_info']; } ?></textarea>
             </div>
             <div class="form-group">
                 <?php

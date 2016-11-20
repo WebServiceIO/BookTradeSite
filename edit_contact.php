@@ -76,9 +76,8 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
         <h1>Edit Contact Information</h1>
         <p class="warning">
             All of your contact information will be displayed on your book post.
-            You do not have to fill out all of the fields. Click the 'Submit'
-            button when you are finished or click the 'Cancel' button to go
-            back to your account page.
+            Click the 'Submit' button when you are finished or click the 'Cancel'
+            button to go back to your account page.
         </p>
 
         <form id="edit_contact_form" name="edit_contact" action =" <?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method = "post" >
@@ -133,7 +132,8 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
                     }
                 }
                 ?>
-                <input type="text" class="form-control" id="contact_info" name="contact_info" aria-describedby="new_contact_info" placeholder="Enter your contact information">
+<!--                <input type="text" class="form-control" id="contact_info" name="contact_info" aria-describedby="new_contact_info" placeholder="Enter your contact information">-->
+                <textarea class="form-control" id="contact_info" name="contact_info" rows="5"></textarea>
             </div>
             <div class="row">
                 <div class="col-xs-6 form-link">

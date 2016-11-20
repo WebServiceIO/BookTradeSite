@@ -67,8 +67,9 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="logout.php">Log Out</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="home.php">My Account</a></li>
+                <li><a href="logout.php">Log Out</a></li>
             </ul>
         </div>
     </div>
