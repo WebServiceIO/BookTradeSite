@@ -20,6 +20,20 @@
 </head>
 <body>
 
+<?php
+header('Cache-Control: no-cache, no-store, must-revalidate');
+
+require_once('includes/php/db_util.php');
+$db = new DBUtilities();
+session_start();
+$condition = 0;
+
+if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
+{
+    header('Location:' . site_root);
+    die();
+}
+?>
 <!-- Navigation Bar -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -49,43 +63,8 @@
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
-
-                <?php
-
-                header('Cache-Control: no-cache, no-store, must-revalidate');
-
-                require_once('includes/php/db_util.php');
-                $db = new DBUtilities();
-                session_start();
-
-
-                if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
-                {
-                    if(strcmp($db->getFingerprintInfoFromId($_SESSION['USER_ID']), $_SESSION['FINGER_PRINT']) == 0)
-                    {
-                        echo '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome ' . $db->getFName($_SESSION['USER_ID']) . ' <span class="caret"></span></a>';
-                        echo '
-                                <ul class="dropdown-menu">
-                                    <li><a href="home.php">Your Account</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="create_post.php">Add Book to Sell</a></li>
-                                    <li><a href="view_books.php">View Your Books</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="logout.php">Log out</a></li>
-                                </ul>
-                                </li>
-                            ';
-
-                    }
-                }
-                else
-                {
-                    echo '
-                                <li><a href="login.php">Log In</a></li>
-                                <li><a href="register.php">Register</a></li>
-                        ';
-                }
-                ?>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="logout.php">Log Out</a></li>
             </ul>
         </div>
     </div>
@@ -102,27 +81,59 @@
             back to your account page.
         </p>
 
-        <form>
+        <form id="edit_contact_form" name="edit_contact" action =" <?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method = "post" >
+<!--            <div class="form-group">-->
+<!--                <input type="text" class="form-control" id="phoneNum" aria-describedby="phoneNum" placeholder="Enter your phone number">-->
+<!--            </div>-->
+<!--            <div class="form-check">-->
+<!--                <label class="form-check-label">-->
+<!--                    <input type="checkbox" class="form-check-input">-->
+<!--                    Call-->
+<!--                </label>-->
+<!--            </div>-->
+<!--            <div class="form-check">-->
+<!--                <label class="form-check-label">-->
+<!--                    <input type="checkbox" class="form-check-input">-->
+<!--                    Text-->
+<!--                </label>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your e-mail address">-->
+<!--            </div>-->
             <div class="form-group">
-                <input type="text" class="form-control" id="phoneNum" aria-describedby="phoneNum" placeholder="Enter your phone number">
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Call
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Text
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your e-mail address">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="otherContact" aria-describedby="otherContact" placeholder="Enter other contact information">
+                <?php
+                if(isset($_POST['contact_info']))
+                {
+                    if(empty($_POST['contact_info']))
+                    {
+                        echo '<h3 style="background-color:red;"> Please enter contact information </h3>';
+                    }
+                    else
+                    {
+                        $condition = 1;
+                    }
+                }
+
+                if($condition == 1)
+                {
+                    if($db->changeContactInfo(trim($_POST['contact_info']), $_SESSION['USER_ID']))
+                    {
+                        $previous_page = "javascript:history.go(-1)";
+
+                        if(isset($_SERVER['HTTP_REFERER'])) {
+                            $previous_page = $_SERVER['HTTP_REFERER'];
+                        }
+                        header('Cache-Control: no-cache, no-store, must-revalidate');
+                        header('Location:' .  account);
+                        die();
+                    }
+                    else
+                    {
+                        echo '<h3 style="background-color:red;"> An error has occurred </h3>';
+                    }
+                }
+                ?>
+                <input type="text" class="form-control" id="contact_info" name="contact_info" aria-describedby="new_contact_info" placeholder="Enter your contact information">
             </div>
             <div class="row">
                 <div class="col-xs-6 form-link">

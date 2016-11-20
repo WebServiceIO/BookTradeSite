@@ -181,10 +181,13 @@
                                 {
                                     $condition = 1;
                                 }
+                                else
+                                    echo '<h3 style="background-color:red;"> Passwords do not match </h3>';
                             }
                         }
                     }
-                } ?>
+                }
+                ?>
                 <input type="password" class="form-control" id="password_conf" name = "password_conf" placeholder="Password (Again)">
             </div>
             <button type="submit" class="btn btn-default btn-transparent">Register</button>
@@ -201,11 +204,14 @@
             $newUserPassword = $_POST['password'];
             $newContactInfo = $_POST['contact_info'];
 
-            if (!$db->registerUser(trim($newUserName), $newUserPassword, trim($newUserFirstName), trim($newUserLastName), trim($newUserEmail), trim($newContactInfo))) {
+            if (!$db->registerUser(trim($newUserName), $newUserPassword, trim($newUserFirstName), trim($newUserLastName), trim($newUserEmail), trim($newContactInfo)))
+            {
                 echo '<h3 style="background-color:red;"> An Error Has Occurred </h3>';
-            } else
+            }
+            else {
                 header('Location:' . login);
-            die();
+                die();
+            }
         }
 
 

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>bookxchange | Change Your Username</title>
+    <title>bookxchange | Change Your Password</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,11 +18,8 @@
     <script type="text/javascript" src="includes/js/navbar.js"></script>
 </head>
 <body>
-
-
 <?php
-
-header('Cache-Control: no-cache, no-store, must-revalidate');
+//header('Cache-Control: no-cache, no-store, must-revalidate');
 
 require_once('includes/php/db_util.php');
 $db = new DBUtilities();
@@ -36,9 +32,6 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
     die();
 }
 ?>
-
-
-<!-- Navigation Bar -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -51,7 +44,6 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
             </button>
             <a class="navbar-brand" href="index.php">bookXchange</a>
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="my-nav">
             <form class="navbar-form navbar-left" action = "book_results.php" method = "POST">
@@ -67,67 +59,111 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="logout.php">Log Out</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="logout.php">Log Out</a></li>
             </ul>
         </div>
     </div>
 </nav>
-
 <!-- Start of Page Content -->
 <div id="wrapper-content">
     <div class="container">
-        <h1>Change Your Username</h1>
+        <h1>Change Your Password</h1>
         <p class="warning">
             Click the 'Submit' button when you are finished or click
             the 'Cancel' button to go back to your account page.
         </p>
-
-        <form id="edit_username_form" name="edit_username" action =" <?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method = "post" >
-
-        <div class="form-group">
+        <form id="edit_password_form" name="edit_password" action ="<?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method = "post" >
+            <div class="form-group">
             <?php
-            if(isset($_POST['username']))
-            {
-                if(empty($_POST['username']))
+                $old_pass_valid = null;
+
+                if(isset($_POST['old_password']))
                 {
-                    echo '<h3 style="background-color:red;"> Please enter a username </h3>';
-                }
-                else
-                {
-                    if ($db->checkUsername(trim($_POST['username'])))
+                    if(empty($_POST['old_password']))
                     {
-                        echo '<h3 style="background-color:red;"> Username already exist </h3>';
+                       echo '<h3 style="background-color:red;"> Please enter your current password </h3>';
                     }
                     else
                     {
-                        $condition = 1;
-                    }
-                }
-            }
-            if($condition == 1)
-            {
-                if($db->changeUsername($_POST['username'], $_SESSION['USER_ID']))
-                {
-                    $previous_page = "javascript:history.go(-1)";
+                        $email = $db->getEmailFromUserId($_SESSION['USER_ID']);
 
-                    if(isset($_SERVER['HTTP_REFERER'])) {
-                        $previous_page = $_SERVER['HTTP_REFERER'];
+                        if($db->verifyPassword($email, $_POST['old_password']))
+                        {
+                            $old_pass_valid = true;
+                        }
+                        else
+                        {
+                            echo '<h3 style="background-color:red;"> Current password not valid </h3>';
+                        }
                     }
-                    echo '<h3 style="background-color:red;"> An error has occurred </h3>';
-                    header('Cache-Control: no-cache, no-store, must-revalidate');
-                    header('Location:' .  account);
-                    die();
                 }
-                else
-                {
-                    echo '<h3 style="background-color:red;"> An error has occurred </h3>';
-                }
-            }
             ?>
-            <input type="text" class="form-control" id="username" name = "username" aria-describedby="newUsername" placeholder="Enter new username" value="<?php if(isset($_POST['username'])) {echo $_POST['username']; } ?>">
-        </div>
+                <input type="password" class="form-control" id="old_password" name="old_password" aria-describedby="old_password" placeholder="Enter current password">
+            </div>
+            <div class="form-group">
+                <?php
+                $new_pass_valid = null;
 
+                if(isset($_POST['new_password']))
+                {
+                    if(empty($_POST['new_password']))
+                    {
+                       echo '<h3 style="background-color:red;"> Please enter a new password </h3>';
+                    }
+                    else
+                        $new_pass_valid = true;
+                }
+                ?>
+                <input type="password" class="form-control" id="new_password" name="new_password" aria-describedby="new_password" placeholder="Enter a new password">
+            </div>
+            <div class="form-group">
+                <?php
+                $new_password_conf = null;
+
+                if(isset($_POST['new_password_conf']))
+                {
+                    if(empty($_POST['new_password_conf']))
+                    {
+                        echo '<h3 style="background-color:red;"> Please enter the same password </h3>';
+                    }
+                    else
+                    {
+                        if($new_pass_valid)
+                        {
+                            if (strcmp($_POST['new_password_conf'], $_POST['new_password']) == 0)
+                            {
+                                $new_password_conf = true;
+                            }
+                            else {
+                                echo '<h3 style="background-color:red;"> Passwords do not match </h3>';
+                            }
+                        }
+                    }
+                }
+
+                if($old_pass_valid && $new_pass_valid && $new_password_conf)
+                {
+                    if($db->changeUserPassword($_POST['new_password_conf'], $_SESSION['USER_ID']))
+                    {
+                        $previous_page = "javascript:history.go(-1)";
+
+                        if(isset($_SERVER['HTTP_REFERER'])) {
+                            $previous_page = $_SERVER['HTTP_REFERER'];
+                        }
+
+                        header('Cache-Control: no-cache, no-store, must-revalidate');
+                        header('Location:' .  account);
+                        die();
+                    }
+                    else
+                    {
+                        echo '<h3 style="background-color:red;"> An error has occurred </h3>';
+                    }
+                }
+                ?>
+                <input type="password" class="form-control" id="new_password_conf" name="new_password_conf" aria-describedby="new_password_conf" placeholder="Enter the same password">
+            </div>
             <div class="row">
                 <div class="col-xs-6 form-link">
                     <a href="home.php" class="btn btn-default btn-transparent">Cancel</a>
@@ -145,10 +181,8 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
         Designed and coded with love by
         <a href="http://cs480-projects.github.io/teams-fall2016/WebHeads/index.html">
             &lt;WebHeads/&gt;
-        </a>
-        .
+        </a>.
     </span>
 </div>
-
 </body>
 </html>

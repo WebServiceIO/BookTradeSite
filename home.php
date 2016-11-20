@@ -101,10 +101,10 @@ else
                         <a href="edit_username.php" class="link">Change Username</a>
                     </div>
                     <div class="col-xs-18">
-                        <a href="editPassword.php" class="link">Change Password</a>
+                        <a href="edit_password.php" class="link">Change Password</a>
                     </div>
                     <div class="col-xs-18">
-                        <a href="editContact.php" class="link">Edit Contact Information</a>
+                        <a href="edit_contact.php" class="link">Edit Contact Information</a>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 require_once('config/included_classes.php');
 require_once('db_tables/post.php');
+require_once('web_security.php');
 
 class DBUtilities
 {
@@ -117,6 +118,18 @@ class DBUtilities
         }
     }
 
+    public function getEmailFromUserId($user_id)
+    {
+        try {
+            $statement = $this->db_connection->prepare("SELECT email FROM users WHERE user_id = :user_id");
+            $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            $statement->execute();
+            return $statement->fetch()['email'];
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     public function getIsbnFromPostID($post_id)
     {
         try {
@@ -140,24 +153,6 @@ class DBUtilities
         }
     }
 
-
-//    public function getAllUserPost($user_id)
-//    {
-//        try {
-//            $statement = $this->db_connection->prepare("SELECT * FROM post WHERE user_id = :user_id");
-//            $statement->bindParam(':user_id', $user_id);
-//            $statement->execute();
-//            return $statement->fetchAll(PDO::FETCH_CLASS, 'UserPost');
-//        } catch (PDOException $e) {
-//            echo $e->getMessage();
-//        }
-//    }
-
-
-    /**
-     * @param $post_id
-     * @return UserPost
-     */
     public function getUserPost($post_id)
     {
         try {
@@ -210,6 +205,7 @@ class DBUtilities
     function registerUser($username, $password, $fname, $lname, $email, $contact_info)
     {
         $check = null;
+
         try {
         $check = $this->db_connection->prepare("SELECT * FROM users WHERE username = :username OR email = :email");
         $check->bindParam(':username', $username);
@@ -264,6 +260,36 @@ class DBUtilities
         try {
             $statement = $this->db_connection->prepare("UPDATE users SET username = :new_username WHERE user_id = :user_id");
             $statement->bindValue(':new_username', $username, PDO::PARAM_STR);
+            $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+            return $statement->execute();
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+
+    function changeUserPassword($password, $user_id)
+    {
+        try {
+            $statement = $this->db_connection->prepare("UPDATE users SET password = :new_hashed_password WHERE user_id = :user_id");
+            $hashed_password = Security::hash_password($password);
+            $statement->bindValue(':new_hashed_password', $hashed_password, PDO::PARAM_STR);
+            $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+            return $statement->execute();
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+
+
+    function changeContactInfo($contact_info, $user_id)
+    {
+        try {
+            $statement = $this->db_connection->prepare("UPDATE users SET contact_info = :new_contact_info WHERE user_id = :user_id");
+            $statement->bindValue(':new_contact_info', $contact_info, PDO::PARAM_STR);
             $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT);
             return $statement->execute();
         }
@@ -331,7 +357,7 @@ class DBUtilities
             }
             return false;
         } catch (PDOException $e) {
-            echo "Error, please report to admin error code 548" . $e;
+            echo $e->getMessage();
             return false;
         }
     }
