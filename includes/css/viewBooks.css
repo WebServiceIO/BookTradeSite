@@ -1,24 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300');
 @import url('https://fonts.googleapis.com/css?family=Rubik:300');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300');
 
 /******************************************************************************
 General
 ******************************************************************************/
-html, body {
-    height: 100%;
-    width: 100%;
-}
-
-body {
-    margin: 0;
-}
-
 .container {
-    margin-bottom: 100px;
+    margin-top: 65px;
 }
 
-.sect-header {
-    margin-top: 100px;
+h1 {
+    margin-bottom: 45px;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -92,10 +83,3 @@ table.display tbody tr:nth-child(even) td {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-
-/*
-th:nth-of-type(1),
-td:nth-of-type(1) {
-    display: none;
-}
-*/

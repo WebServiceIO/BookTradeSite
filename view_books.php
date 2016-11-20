@@ -12,7 +12,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="includes/css/navbar.css">
-    <link rel = "stylesheet" href = "includes/css/datatables1.10.12/jquery.dataTables.min.css?v=1.0">
+    <link rel="stylesheet" href = "includes/css/datatables1.10.12/jquery.dataTables.min.css?v=1.0">
+    <link rel="stylesheet" href="includes/css/viewBooks.css">
     <!-- JavaScript -->
     <script src="includes/js/jquery1.11.1/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -94,10 +95,9 @@
     </div>
 </nav>
 
-<div id="wrapper-content">
-    <div class="container">
-        <table id="user_post_datatable" class="display" cellspacing="0"></table>
-    </div>
+<div class="container">
+    <h1>Your Books</h1>
+    <table id="user_post_datatable" class="display" cellspacing="0"></table>
 </div>
 
 </body>

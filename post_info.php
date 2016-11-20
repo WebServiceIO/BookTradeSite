@@ -178,7 +178,7 @@ if(isset($_SERVER['HTTP_REFERER'])) {
     <div class="container wrapper">
         <a href="<?= $previous_page ?>">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span>Back to Results</span>
+            <span>Back</span>
         </a>
 
         <h1>

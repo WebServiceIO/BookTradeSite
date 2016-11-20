@@ -97,32 +97,13 @@
         <h1>Edit Contact Information</h1>
         <p class="warning">
             All of your contact information will be displayed on your book post.
-            You do not have to fill out all of the fields. Click the 'Submit'
-            button when you are finished or click the 'Cancel' button to go
-            back to your account page.
+            Click the 'Submit' button when you are finished or click the 'Cancel'
+            button to go back to your account page.
         </p>
 
         <form>
             <div class="form-group">
-                <input type="text" class="form-control" id="phoneNum" aria-describedby="phoneNum" placeholder="Enter your phone number">
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Call
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Text
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your e-mail address">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="otherContact" aria-describedby="otherContact" placeholder="Enter other contact information">
+                <textarea class="form-control" id="contactInfo" rows="3"></textarea>
             </div>
             <div class="row">
                 <div class="col-xs-6 form-link">

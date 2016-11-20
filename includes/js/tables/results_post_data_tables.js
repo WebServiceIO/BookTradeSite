@@ -7,7 +7,13 @@ $(document).ready(function() {
         oLanguage: {
             sProcessing: "Retrieving all post...",
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
-            sInfo: "(_START_ to _END_ of _TOTAL_ total)"
+            sInfo: "(_START_ to _END_ of _TOTAL_ total)",
+            oPaginate: {
+                sPrevious: "<",
+                sNext: ">",
+                sFirst: "<<",
+                sLast: ">>"
+            }
         },
         columnDefs: [
             {
@@ -63,7 +69,13 @@ $(document).ready(function() {
         oLanguage: {
             sProcessing: "Retrieving all post...",
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
-            sInfo: "(_START_ to _END_ of _TOTAL_ total)"
+            sInfo: "(_START_ to _END_ of _TOTAL_ total)",
+            oPaginate: {
+                sPrevious: "<",
+                sNext: ">",
+                sFirst: "<<",
+                sLast: ">>"
+            }
         },
         columnDefs: [
             {
@@ -119,7 +131,13 @@ $(document).ready(function() {
         oLanguage: {
             sProcessing: "Retrieving all post...",
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
-            sInfo: "(_START_ to _END_ of _TOTAL_ total)"
+            sInfo: "(_START_ to _END_ of _TOTAL_ total)",
+            oPaginate: {
+                sPrevious: "<",
+                sNext: ">",
+                sFirst: "<<",
+                sLast: ">>"
+            }
         },
         columnDefs: [
             {
@@ -172,7 +190,13 @@ $(document).ready(function() {
         oLanguage: {
             sProcessing: "Retrieving all post...",
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
-            sInfo: "(_START_ to _END_ of _TOTAL_ total)"
+            sInfo: "(_START_ to _END_ of _TOTAL_ total)",
+            oPaginate: {
+                sPrevious: "<",
+                sNext: ">",
+                sFirst: "<<",
+                sLast: ">>"
+            }
         },
         columnDefs: [
             {
@@ -229,7 +253,13 @@ $(document).ready(function() {
         oLanguage: {
             sProcessing: "Retrieving all post...",
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
-            sInfo: "(_START_ to _END_ of _TOTAL_ total)"
+            sInfo: "(_START_ to _END_ of _TOTAL_ total)",
+            oPaginate: {
+                sPrevious: "<",
+                sNext: ">",
+                sFirst: "<<",
+                sLast: ">>"
+            }
         },
         columnDefs: [
             {
@@ -286,7 +316,13 @@ $(document).ready(function() {
         oLanguage: {
             sProcessing: "Retrieving all post...",
             sLengthMenu: "Showing _MENU_ entries &nbsp;",
-            sInfo: "(_START_ to _END_ of _TOTAL_ total)"
+            sInfo: "(_START_ to _END_ of _TOTAL_ total)",
+            oPaginate: {
+                sPrevious: "<",
+                sNext: ">",
+                sFirst: "<<",
+                sLast: ">>"
+            }
         },
         columnDefs: [
             {
@@ -320,29 +356,29 @@ $(document).ready(function() {
         bDeferRender: true
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-    //set tables
-    $('.datatables_template')
-        .css("margin", "auto auto")
-        .css("width", "-webkit-calc(100% - 200px)")
-        .css("width", "-moz-calc(100% - 200px)")
-        .css("width", "calc(100% - 200px)");
-    // let tables be below nav bar
-    $('#content_wrapper').css("margin-top", $('nav').height() + 5);
-    /*width: -webkit-calc(100% - 200px);*/
-    /*width:    -moz-calc(100% - 200px);*/
-    /*width:         calc(100% - 200px);*/
-
-
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
