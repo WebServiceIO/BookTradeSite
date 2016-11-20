@@ -40,7 +40,7 @@ $(document).ready(function() {
             {"title": "Condition"},
             {"title": "Price"},
             {"title": "Comments"},
-            {"title": "Misc"}
+            {"title": "More Info"}
         ],
         bJQueryUI: false,
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',
