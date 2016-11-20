@@ -11,7 +11,7 @@ $(document).ready(function() {
         },
         columnDefs: [
             {
-                "aTargets" : [9],
+                "aTargets" : [7],
                 "data": null,
                 "mData": function (source, type, val)
                 {
@@ -25,13 +25,11 @@ $(document).ready(function() {
         ],
         aoColumns:[
             {"title": "Post"},
-            {"title": "User"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
             {"title": "Price"},
-            {"title": "Contact"},
             {"title": "Comments"},
             {"title": "Misc"}
         ],
@@ -69,7 +67,7 @@ $(document).ready(function() {
         },
         columnDefs: [
             {
-                "aTargets" : [9],
+                "aTargets" : [7],
                 "data": null,
                 "mData": function (source, type, val)
                 {
@@ -83,13 +81,11 @@ $(document).ready(function() {
         ],
         aoColumns:[
             {"title": "Post"},
-            {"title": "User"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
             {"title": "Price"},
-            {"title": "Contact"},
             {"title": "Comments"},
             {"title": "Misc"}
         ],
@@ -127,7 +123,7 @@ $(document).ready(function() {
         },
         columnDefs: [
             {
-                "aTargets" : [9],
+                "aTargets" : [7],
                 "data": null,
                 "mData": function (source, type, val)
                 {
@@ -141,13 +137,11 @@ $(document).ready(function() {
         ],
         aoColumns:[
             {"title": "Post"},
-            {"title": "User"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
             {"title": "Price"},
-            {"title": "Contact"},
             {"title": "Comments"},
             {"title": "Misc"}
         ],
@@ -182,7 +176,7 @@ $(document).ready(function() {
         },
         columnDefs: [
             {
-                "aTargets" : [9],
+                "aTargets" : [7],
                 "data": null,
                 "mData": function (source, type, val)
                 {
@@ -196,13 +190,11 @@ $(document).ready(function() {
         ],
         aoColumns:[
             {"title": "Post"},
-            {"title": "User"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
             {"title": "Price"},
-            {"title": "Contact"},
             {"title": "Comments"},
             {"title": "Misc"}
         ],
@@ -241,7 +233,7 @@ $(document).ready(function() {
         },
         columnDefs: [
             {
-                "aTargets" : [9],
+                "aTargets" : [7],
                 "data": null,
                 "mData": function (source, type, val)
                 {
@@ -255,13 +247,11 @@ $(document).ready(function() {
         ],
         aoColumns:[
             {"title": "Post"},
-            {"title": "User"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
             {"title": "Price"},
-            {"title": "Contact"},
             {"title": "Comments"},
             {"title": "Misc"}
         ],
@@ -300,7 +290,7 @@ $(document).ready(function() {
         },
         columnDefs: [
             {
-                "aTargets" : [9],
+                "aTargets" : [7],
                 "data": null,
                 "mData": function (source, type, val)
                 {
@@ -314,13 +304,11 @@ $(document).ready(function() {
         ],
         aoColumns:[
             {"title": "Post"},
-            {"title": "User"},
             {"title": "Title"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Class"},
             {"title": "Price"},
-            {"title": "Contact"},
             {"title": "Comments"},
             {"title": "Misc"}
         ],

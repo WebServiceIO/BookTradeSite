@@ -35,6 +35,12 @@
 </head>
 <body>
 
+<?php
+
+ini_set('session.cache_limiter','public');
+session_cache_limiter(false);
+?>
+
 <!-- Navigation Bar -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -67,6 +73,7 @@
 
                 <?php
 
+
                 header('Cache-Control: no-cache, no-store, must-revalidate');
 
                 require_once('includes/php/db_util.php');
@@ -89,6 +96,18 @@
                                 <li><a href="logout.php">Log out</a></li>
                             </ul>
                             </li>
+                        ';
+                    }
+                    else
+                    {
+
+
+
+                        // session in DB doesnt match, end all sessions and replace current one
+                        session_destroy();
+                        echo '
+                            <li><a href="login.php">Log In</a></li>
+                            <li><a href="register.php">Register</a></li>
                         ';
 
                     }

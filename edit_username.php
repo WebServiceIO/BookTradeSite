@@ -20,6 +20,24 @@
 </head>
 <body>
 
+
+<?php
+
+header('Cache-Control: no-cache, no-store, must-revalidate');
+
+require_once('includes/php/db_util.php');
+$db = new DBUtilities();
+session_start();
+$condition = 0;
+
+if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
+{
+    header('Location:' . site_root);
+    die();
+}
+?>
+
+
 <!-- Navigation Bar -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -49,43 +67,8 @@
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
-
-                <?php
-
-                header('Cache-Control: no-cache, no-store, must-revalidate');
-
-                require_once('includes/php/db_util.php');
-                $db = new DBUtilities();
-                session_start();
-
-
-                if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
-                {
-                    if(strcmp($db->getFingerprintInfoFromId($_SESSION['USER_ID']), $_SESSION['FINGER_PRINT']) == 0)
-                    {
-                        echo '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome ' . $db->getFName($_SESSION['USER_ID']) . ' <span class="caret"></span></a>';
-                        echo '
-                                <ul class="dropdown-menu">
-                                    <li><a href="home.php">Your Account</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="create_post.php">Add Book to Sell</a></li>
-                                    <li><a href="view_books.php">View Your Books</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="logout.php">Log out</a></li>
-                                </ul>
-                                </li>
-                            ';
-
-                    }
-                }
-                else
-                {
-                    echo '
-                                <li><a href="login.php">Log In</a></li>
-                                <li><a href="register.php">Register</a></li>
-                        ';
-                }
-                ?>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="logout.php">Log Out</a></li>
             </ul>
         </div>
     </div>
@@ -100,10 +83,33 @@
             the 'Cancel' button to go back to your account page.
         </p>
 
-        <form>
-            <div class="form-group">
-                <input type="text" class="form-control" id="username" aria-describedby="newUsername" placeholder="Enter new username" value="username goes here">
-            </div>
+        <form id="edit_username_form" name="edit_username" action =" <?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method = "post" >
+
+        <div class="form-group">
+            <?php
+            if(isset($_POST['username']))
+            {
+                if(empty($_POST['username']))
+                {
+                    echo '<h3 style="background-color:red;"> Please enter a username </h3>';
+                }
+                else
+                {
+                    if ($db->checkUsername(trim($_POST['username'])))
+                    {
+                        echo '<h3 style="background-color:red;"> Username already exist </h3>';
+                    }
+                    else
+                    {
+                        $condition = 1;
+                    }
+                }
+            }
+
+            ?>
+            <input type="text" class="form-control" id="username" name = "username" aria-describedby="newUsername" placeholder="Enter new username" value="<?php if(isset($_POST['username'])) {echo $_POST['username']; } ?>">
+        </div>
+
             <div class="row">
                 <div class="col-xs-6 form-link">
                     <a href="home.php" class="btn btn-default btn-transparent">Cancel</a>
@@ -113,6 +119,32 @@
                 </div>
             </div>
         </form>
+
+
+        <?php
+
+        if($condition == 1)
+        {
+            echo $_POST['username'];
+
+            if($db->changeUsername($_POST['username'], $_SESSION['USER_ID']))
+            {
+                $previous_page = "javascript:history.go(-1)";
+
+                if(isset($_SERVER['HTTP_REFERER'])) {
+                    $previous_page = $_SERVER['HTTP_REFERER'];
+                }
+                echo '<h3 style="background-color:red;"> An error has occurred </h3>';
+                header('Cache-Control: no-cache, no-store, must-revalidate');
+                header('Location:' .  account);
+                die();
+            }
+            else
+            {
+                echo '<h3 style="background-color:red;"> An error has occurred </h3>';
+            }
+        }
+        ?>
     </div>
 </div>
 

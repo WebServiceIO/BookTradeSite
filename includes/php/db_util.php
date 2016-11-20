@@ -207,7 +207,7 @@ class DBUtilities
         }
     }
 
-    function registerUser($username, $password, $fname, $lname, $email)
+    function registerUser($username, $password, $fname, $lname, $email, $contact_info)
     {
         $check = null;
         try {
@@ -225,13 +225,14 @@ class DBUtilities
                 return false;
             else {
                 try {
-                    $insert = $this->db_connection->prepare("INSERT INTO users (username, password, email, fname, lname) VALUES (:username, :hashed_password, :email, :fname, :lname)");
+                    $insert = $this->db_connection->prepare("INSERT INTO users (username, password, email, fname, lname, contact_info) VALUES (:username, :hashed_password, :email, :fname, :lname, :contact_info)");
                     $hashed_password = Security::hash_password($password);
                     $insert->bindValue(':username', $username, PDO::PARAM_STR);
                     $insert->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
                     $insert->bindValue(':email', $email, PDO::PARAM_STR);
                     $insert->bindValue(':fname', $fname, PDO::PARAM_STR);
                     $insert->bindValue(':lname', $lname, PDO::PARAM_STR);
+                    $insert->bindValue(':contact_info', $contact_info, PDO::PARAM_STR);
                     // execute query
                     $insert->execute();
                 }catch(PDOException $e){
@@ -250,11 +251,21 @@ class DBUtilities
         try {
             $statement = $this->db_connection->prepare("SELECT username FROM users WHERE username = :username");
             $statement->bindValue(':username', $username, PDO::PARAM_STR);
+            $statement->execute();
+            return $statement->fetchColumn();
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
 
-            if ($statement->rowCount() >= 1)
-                return true;
-            else
-                return false;
+    function changeUsername($username, $user_id)
+    {
+        try {
+            $statement = $this->db_connection->prepare("UPDATE users SET username = :new_username WHERE user_id = :user_id");
+            $statement->bindValue(':new_username', $username, PDO::PARAM_STR);
+            $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+            return $statement->execute();
         }
         catch(PDOException $e){
             echo $e->getMessage();

@@ -34,6 +34,33 @@ $post_id_array = $db_tools->getAllPostIdFromIsbnId($isbn_id);
     $post_id_array_str .= ')';
 //}
 
+$columns = Array('post_id', 'title', 'author', 'edition', 'class', 'price', 'comments');
+
+//$columns = Array('post_id', 'user_id', 'title',  'author', 'edition', 'class', 'price', 'contact', 'comments');
 
 
-$columns = Array('post_id', 'user_id', 'title',  'author', 'edition', 'class', 'price', 'contact', 'comments');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -59,31 +59,27 @@
 </nav>
 
 <?php
+ini_set('session.cache_limiter','public');
+session_cache_limiter(false);
 
 require_once ('includes/php/db_util.php');
 require_once ('includes/php/config/config.php');
 session_start();
 $db_connection = new DBUtilities();
 
-echo 'debug 1';
 
 if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
 {
     header('Location:' . site_root);
+    die();
 }
 else {
-    echo 'debug 2';
     $user_id = $_SESSION['USER_ID'];
 
 
 
     if (!empty($_POST['ISBN']) && !empty($_POST['Price']) && !empty($_POST['Condition'])) {
         // add entry into DB
-
-
-        echo 'debug 3';
-
-
         $post_results = $db_connection->addPost($user_id, $_POST['ISBN'], $_POST['Title'], $_POST['Author'], $_POST['Edition'], $_POST['Class'], $_POST['Price'], $_POST['Contact'], $_POST['Comments'], $_POST['Condition']);
 
         $_SESSION['post_id'] = $post_results['post_id'];
@@ -91,19 +87,13 @@ else {
 
         if ($post_results['condition'])
         {
-            echo 'debug 4';
-
-
           header('Location:' . indiv_root);
         }
         else
         {
-            echo 'debug 5';
             echo '<h3 style="background-color:red;"> An Error has occurred. Please try again later </h3>';
         }
     }
-    else
-        echo 'debug 6';
 }
 
 ?>
@@ -112,7 +102,7 @@ else {
     <div class="container">
         <h1>Add New Book</h1>
 
-        <form action="<?php $_SERVER['REQUEST_URI'] ?>" method="post">
+        <form action="<?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method="post">
             <?php if(isset($_POST['ISBN'])) { if(empty($_POST['ISBN'])) { echo '<h3 style="background-color:red;"> Please enter the ISBN number </h3>'; } } ?>
             <div class="form-group">
                 <input type="text" name="ISBN" class="form-control form-content" id="inputISBN" aria-describedby="enterISBNOfBook" placeholder="ISBN**">

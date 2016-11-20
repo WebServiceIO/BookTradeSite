@@ -13,11 +13,12 @@ $(document).ready(function() {
         },
         columnDefs: [
             {
-                "aTargets" : [9],
+                "aTargets" : [8],
                 "data": null,
                 "mData": function (source, type, val)
                 {
                     var post_id = source[0];
+
                     return  '<form name="post" action ="' + window.location.pathname.replace(/[^\\\/]*$/, '') + 'post_info.php" method="post">  ' +
                         '<input type="hidden" name="post_id" value="' + post_id + '"/> ' +
                         '<button type="submit" class="btn btn-default btn-transparent">View</button> ' +
@@ -26,16 +27,15 @@ $(document).ready(function() {
             }
         ],
         aoColumns: [
-            {"title": "Post ID"},
-
+            {"title": "Post"},
             {"title": "Title"},
             {"title": "Class"},
             {"title": "Author"},
             {"title": "Edition"},
             {"title": "Condition"},
             {"title": "Price"},
-            {"title": "Contact"},
-            {"title": "Comments"}
+            {"title": "Comments"},
+            {"title": "Misc"}
         ],
         bJQueryUI: false,
         sDom: '<"H"fli><"proc1"r>t<"proc2"r><"F"pli>',

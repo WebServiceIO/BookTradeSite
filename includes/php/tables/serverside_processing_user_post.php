@@ -28,7 +28,7 @@ else if(isset($_SESSION['USER_ID']))
     $sWhere_v1 = "WHERE user_id = " . $user_id;
     $sWhere_v2 = " AND WHERE user_id = " . $user_id;
 
-    $columns = Array('post_id', 'title', 'class', 'author', 'edition', 'item_condition', 'price', 'comments', 'contact');
+    $columns = Array('post_id', 'title', 'class', 'author', 'edition', 'item_condition', 'price', 'comments');
 
     include_once('serverside_processing_datatables_template.php');
 }

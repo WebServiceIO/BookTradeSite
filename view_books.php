@@ -53,8 +53,9 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <?php
-
-                header('Cache-Control: no-cache, no-store, must-revalidate');
+                ini_set('session.cache_limiter','public');
+                session_cache_limiter(false);
+//                header('Cache-Control: no-cache, no-store, must-revalidate');
 
                 require_once('includes/php/db_util.php');
                 $db = new DBUtilities();

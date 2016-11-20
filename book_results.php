@@ -33,7 +33,8 @@
 <body>
 
 <?php
-
+ini_set('session.cache_limiter','public');
+session_cache_limiter(false);
 //include_once ('includes/php/config/config.php');
 include_once ('includes/php/db_util.php');
 session_start();
@@ -41,21 +42,14 @@ session_start();
 if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']) || !isset($_POST['isbn']))
 {
     header('Location:' . site_root);
+    die();
 }
 
 $db_connection = new DBUtilities();
-
 // TODO     PARSE ISBN NUMBER HERE
+    $isbn_id = $db_connection->getIsbnIdFromIsbn($_POST['isbn']);
+    $_SESSION['isbn_id'] = $isbn_id;
 
-$isbn_id = $db_connection->getIsbnIdFromIsbn($_POST['isbn']);
-$_SESSION['isbn_id'] = $isbn_id;
-
-//if($db_connection->checkForValidIsbn($_POST['isbn']) == 0)
-//{
-//
-//
-//
-//}
 
 ?>
 
@@ -91,12 +85,10 @@ $_SESSION['isbn_id'] = $isbn_id;
 
                 <?php
 
-                header('Cache-Control: no-cache, no-store, must-revalidate');
+               // header('Cache-Control: no-cache, no-store, must-revalidate');
 
                 require_once('includes/php/db_util.php');
                 $db = new DBUtilities();
-
-
 
                 if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
                 {

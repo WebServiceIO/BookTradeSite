@@ -24,7 +24,9 @@
 <body>
 
 <?php
-//require_once('includes/php/config.php');
+ini_set('session.cache_limiter','public');
+session_cache_limiter(false);
+
 require_once('includes/php/db_util.php');
 // start a session
 session_start();
@@ -34,6 +36,7 @@ $user_id = -1;
 if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
 {
     header('Location:' . site_root);
+    die();
 }
 else
 {
@@ -95,7 +98,7 @@ else
                 <div class="row">
                     <div class="col-xs-18 subsection-header">Account Information</div>
                     <div class="col-xs-18">
-                        <a href="editUsername.php" class="link">Change Username</a>
+                        <a href="edit_username.php" class="link">Change Username</a>
                     </div>
                     <div class="col-xs-18">
                         <a href="editPassword.php" class="link">Change Password</a>

@@ -25,6 +25,9 @@
         <h1>Sign in to bookxchange</h1>
 
         <?php
+        ini_set('session.cache_limiter','public');
+        session_cache_limiter(false);
+
         require_once('includes/php/web_security.php');
         require_once('includes/php/db_util.php');
         require_once('includes/php/session.php');
@@ -43,11 +46,12 @@
         if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
         {
             header('Location:' . site_root);
+            die();
         }
 
         ?>
 
-        <form id="login_form" name="login" action =" <?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method = "post" onsubmit = "return validateForm()">
+        <form id="login_form" name="login" action =" <?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method = "post" onsubmit = "return validateForm()">
             <div class = "form-group">
                 <?php
                 if(isset($_POST['email']))
@@ -112,6 +116,7 @@
 
         <?php
 
+
         header('Cache-Control: no-cache, no-store, must-revalidate');
         $session = new Session();
 
@@ -123,11 +128,16 @@
                 if ($is_valid_email && $is_valid_password)
                 {
                     $user_id = $db->getUserIdFromEmail($email);
-                    $finger_print = $db->getFingerprintInfoFromId($user_id);
                     $session_arr = $session->createSessionEntry($user_id);
                     $db->insertSession($session_arr);
+                    $finger_print = $db->getFingerprintInfoFromId($user_id);
+
+                    $_SESSION['USER_ID'] = $user_id;
+                    $_SESSION['FINGER_PRINT'] = $finger_print;
+
                     header('Cache-Control: no-cache, no-store, must-revalidate');
                     header('Location:' . site_root);
+                    die();
                 }
             }
         }

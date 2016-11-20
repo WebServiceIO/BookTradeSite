@@ -7,6 +7,12 @@ require_once('includes/php/config/config.php');
 
 session_start();
 
+if(!isset($_SESSION['USER_ID']) && !isset($_SESSION['FINGER_PRINT']))
+{
+    header('Location:' . site_root);
+    die();
+}
+
 if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
 {
     $user_id = $_SESSION['USER_ID'];
@@ -15,6 +21,7 @@ if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
     session_destroy();
 }
 
-header('Location:' . site_root);
+
+
 
 
