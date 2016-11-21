@@ -25,16 +25,20 @@
 
 header('Cache-Control: no-cache, no-store, must-revalidate');
 
-require_once('includes/php/db_util.php');
-$db = new DBUtilities();
 session_start();
-$condition = 0;
 
 if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
 {
     header('Location:' . site_root);
     die();
 }
+
+require_once('includes/php/db_util.php');
+$db = new DBUtilities();
+
+$condition = 0;
+
+
 ?>
 
 
@@ -102,27 +106,23 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
                     }
                     else
                     {
-                        $condition = 1;
-                    }
-                }
-            }
-            if($condition == 1)
-            {
-                if($db->changeUsername($_POST['username'], $_SESSION['USER_ID']))
-                {
-                    $previous_page = "javascript:history.go(-1)";
+                        if($db->changeUsername($_POST['username'], $_SESSION['USER_ID']))
+                        {
+                            $previous_page = "javascript:history.go(-1)";
 
-                    if(isset($_SERVER['HTTP_REFERER'])) {
-                        $previous_page = $_SERVER['HTTP_REFERER'];
+                            if(isset($_SERVER['HTTP_REFERER'])) {
+                                $previous_page = $_SERVER['HTTP_REFERER'];
+                            }
+                            echo '<h3 style="background-color:red;"> An error has occurred </h3>';
+                            header('Cache-Control: no-cache, no-store, must-revalidate');
+                            header('Location:' .  account);
+                            die();
+                        }
+                        else
+                        {
+                            echo '<h3 style="background-color:red;"> An error has occurred </h3>';
+                        }
                     }
-                    echo '<h3 style="background-color:red;"> An error has occurred </h3>';
-                    header('Cache-Control: no-cache, no-store, must-revalidate');
-                    header('Location:' .  account);
-                    die();
-                }
-                else
-                {
-                    echo '<h3 style="background-color:red;"> An error has occurred </h3>';
                 }
             }
             ?>
@@ -150,6 +150,5 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
         .
     </span>
 </div>
-
 </body>
 </html>

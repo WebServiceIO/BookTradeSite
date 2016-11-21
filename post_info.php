@@ -32,19 +32,21 @@
 <?php
 ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
-require_once('includes/php/db_util.php');
-require_once('includes/php/db_tables/post.php');
-$post = null;
-$db_connection = new DBUtilities();
-session_start();
 
+session_start();
 
 if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
 {
     header('Location:' . site_root);
     die();
 }
-else if((!isset($_SESSION['post_id'])) && !isset($_POST['post_id'])) {
+
+require_once('includes/php/db_util.php');
+require_once('includes/php/db_tables/post.php');
+$post = null;
+$db_connection = new DBUtilities();
+
+ if((!isset($_SESSION['post_id'])) && !isset($_POST['post_id'])) {
     header('Location:' . site_root);
     die();
 }
@@ -60,12 +62,6 @@ else
         $post = $db_connection->getUserPost($_POST['post_id']);
     }
 }
-
-
-
-
-
-
 
 ?>
 
@@ -100,33 +96,25 @@ else
             <ul class="nav navbar-nav navbar-right">
 
                 <?php
-
-                //header('Cache-Control: no-cache, no-store, must-revalidate');
+                header('Cache-Control: no-cache, no-store, must-revalidate');
 
                 require_once('includes/php/db_util.php');
-                $db = new DBUtilities();
 
-
-
-//                if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
-//                {
-                    if(strcmp($db->getFingerprintInfoFromId($_SESSION['USER_ID']), $_SESSION['FINGER_PRINT']) == 0)
-                    {
-                        echo '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome ' . $db->getFName($_SESSION['USER_ID']) . ' <span class="caret"></span></a>';
-                        echo '
-                            <ul class="dropdown-menu">
-                                <li><a href="home.php">Your Account</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="create_post.php">Add Book to Sell</a></li>
-                                <li><a href="view_books.php">View Your Books</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="logout.php">Log out</a></li>
-                            </ul>
-                            </li>
-                        ';
-
-                    }
-//                }
+                if(strcmp($db_connection->getFingerprintInfoFromId($_SESSION['USER_ID']), $_SESSION['FINGER_PRINT']) == 0)
+                {
+                    echo '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome ' . $db_connection->getFName($_SESSION['USER_ID']) . ' <span class="caret"></span></a>';
+                    echo '
+                        <ul class="dropdown-menu">
+                            <li><a href="home.php">Your Account</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="create_post.php">Add Book to Sell</a></li>
+                            <li><a href="view_books.php">View Your Books</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="logout.php">Log out</a></li>
+                        </ul>
+                        </li>
+                    ';
+                }
                 ?>
             </ul>
         </div>
@@ -137,33 +125,6 @@ else
 
 require_once('includes/php/db_util.php');
 require_once('includes/php/db_tables/post.php');
-
-$db_connection = new DBUtilities();
-session_start();
-
-
-//if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']) && (isset($_SESSION['post_id'])) || isset($_POST['post_id']))
-//{
-//    if(!empty($_SESSION['post_id']))
-//    {
-//        $post = $db_connection->getUserPost($_SESSION['post_id']);
-//        //unset($_SESSION['post_id']);
-//    }
-//    else if(!empty($_POST['post_id']))
-//    {
-//        $post = $db_connection->getUserPost($_POST['post_id']);
-//        //unset($_SESSION['post_id']);
-//    }
-//    else
-//    {
-//        header('Location:' . site_root);
-//        die();
-//    }
-//}
-//else {
-//    header('Location:' . site_root);
-//    die();
-//}
 
 $previous_page = "javascript:history.go(-1)";
 

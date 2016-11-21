@@ -27,22 +27,14 @@
 ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
 
-require_once('includes/php/db_util.php');
-// start a session
 session_start();
-
-$user_id = -1;
 
 if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
 {
     header('Location:' . site_root);
     die();
 }
-else
-{
-    $user_id = $_SESSION['USER_ID'];
-    $db_connection = new DBUtilities();
-}
+
 ?>
 
 <!-- Navigation Bar -->

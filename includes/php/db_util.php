@@ -19,12 +19,21 @@ class DBUtilities
         try
         {
             $this->db_connection->beginTransaction();
+            $isbn_id = null;
 
-            $isbn_table_statement = $this->db_connection->prepare("INSERT INTO isbns (isbn) VALUES(:isbn)");
-            $isbn_table_statement->bindParam(':isbn', $isbn, PDO::PARAM_INT);
-            $isbn_table_statement->execute();
-
-            $last_isbn_entry = $this->db_connection->lastInsertId();
+            // isbn = exist already in db
+            // TODO convert the two following functions into one
+            if($this->checkForIsbn($isbn)) {
+                $isbn_id = $this->getIsbnIdFromIsbn($isbn);
+            }
+            // isbn != exist in db
+            else
+            {
+                $isbn_table_statement = $this->db_connection->prepare("INSERT INTO isbns (isbn) VALUES(:isbn)");
+                $isbn_table_statement->bindParam(':isbn', $isbn, PDO::PARAM_INT);
+                $isbn_table_statement->execute();
+                $isbn_id = $this->db_connection->lastInsertId();
+            }
 
             $post_table_statement = $this->db_connection->prepare("INSERT INTO posts (user_id, title, author, edition, class, price, contact, comments, item_condition) VALUES (:user_id, :title, :author, :edition, :class, :price, :contact, :comments, :item_condition)");
             $post_table_statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
@@ -41,7 +50,7 @@ class DBUtilities
             $last_post_entry = $this->db_connection->lastInsertId();
 
             $junction_table_statement = $this->db_connection->prepare("INSERT INTO posts_isbns (isbn_id, post_id) VALUES (:isbn_id, :post_id)");
-            $junction_table_statement->bindParam(':isbn_id', $last_isbn_entry, PDO::PARAM_INT);
+            $junction_table_statement->bindParam(':isbn_id', $isbn_id, PDO::PARAM_INT);
             $junction_table_statement->bindParam(':post_id', $last_post_entry, PDO::PARAM_INT);
             $junction_table_statement->execute();
 
@@ -228,21 +237,23 @@ class DBUtilities
             echo $e->getMessage();
         }
 
-        if($check != null) {
-            if ($check->rowCount() > 0)
+        if($check != null)
+        {
+            if ($check->fetchColumn())
                 return false;
-            else {
+            else
+            {
                 try {
-                    $insert = $this->db_connection->prepare("INSERT INTO users (username, password, email, fname, lname, contact_info) VALUES (:username, :hashed_password, :email, :fname, :lname, :contact_info)");
+                    $statement = $this->db_connection->prepare("INSERT INTO users (username, password, email, fname, lname, contact_info) VALUES (:username, :hashed_password, :email, :fname, :lname, :contact_info)");
                     $hashed_password = Security::hash_password($password);
-                    $insert->bindValue(':username', $username, PDO::PARAM_STR);
-                    $insert->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
-                    $insert->bindValue(':email', $email, PDO::PARAM_STR);
-                    $insert->bindValue(':fname', $fname, PDO::PARAM_STR);
-                    $insert->bindValue(':lname', $lname, PDO::PARAM_STR);
-                    $insert->bindValue(':contact_info', $contact_info, PDO::PARAM_STR);
+                    $statement->bindValue(':username', $username, PDO::PARAM_STR);
+                    $statement->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
+                    $statement->bindValue(':email', $email, PDO::PARAM_STR);
+                    $statement->bindValue(':fname', $fname, PDO::PARAM_STR);
+                    $statement->bindValue(':lname', $lname, PDO::PARAM_STR);
+                    $statement->bindValue(':contact_info', $contact_info, PDO::PARAM_STR);
                     // execute query
-                    $insert->execute();
+                    $statement->execute();
                 }catch(PDOException $e){
                     echo $e->getMessage();
                 }
@@ -323,6 +334,19 @@ class DBUtilities
         }
     }
 
+    function getIsbnIdCountFromIsbn($isbn)
+    {
+        try {
+            $statement = $this->db_connection->prepare("SELECT isbn_id FROM isbns WHERe isbn = :isbn");
+            $statement->bindValue(':isbn', $isbn, PDO::PARAM_STR);
+            $statement->execute();
+            return  $statement->fetchColumn();
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
 
     function getAllPostIdFromIsbnId($isbn_id)
     {
@@ -338,13 +362,13 @@ class DBUtilities
     }
 
 
-    function checkForValidIsbn($isbn)
+    function checkForIsbn($isbn)
     {
         try {
             $statement = $this->db_connection->prepare("SELECT * FROM isbns WHERE isbn = :isbn");
             $statement->bindValue(':isbn', $isbn, PDO::PARAM_STR);
             $statement->execute();
-            return  $statement->rowCount();
+            return  $statement->fetchColumn();
         }
         catch(PDOException $e){
             echo $e->getMessage();
@@ -354,10 +378,7 @@ class DBUtilities
     public function insertSession($session_info)
     {
         try {
-//            $statement = $this->db_connection->prepare("INSERT INTO sessions (user_id, fingerprint, time_stamp) VALUES(:user_id, :fingerp, :time_stamp )");
-            $statement = $this->db_connection->prepare("REPLACE INTO sessions (user_id, fingerprint, time_stamp) VALUES(:user_id, :fingerp, :time_stamp )");
-
-
+            $statement = $this->db_connection->prepare("REPLACE INTO sessions (user_id, fingerprint, time_stamp) VALUES(:user_id, :fingerp, :time_stamp)");
 
             if (isset($session_info['user_id']) && isset($session_info['finger_print']) && isset($session_info['time_stamp']))
             {

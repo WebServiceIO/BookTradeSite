@@ -35,8 +35,6 @@
 <?php
 ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
-//include_once ('includes/php/config/config.php');
-include_once ('includes/php/db_util.php');
 session_start();
 
 if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']) || !isset($_POST['isbn']))
@@ -45,12 +43,13 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']) || !isset($
     die();
 }
 
+//include_once ('includes/php/config/config.php');
+include_once ('includes/php/db_util.php');
+
 $db_connection = new DBUtilities();
-// TODO     PARSE ISBN NUMBER HERE
-    $isbn_id = $db_connection->getIsbnIdFromIsbn($_POST['isbn']);
-    $_SESSION['isbn_id'] = $isbn_id;
 
-
+$isbn_id = $db_connection->getIsbnIdFromIsbn($_POST['isbn']);
+$_SESSION['isbn_id'] = $isbn_id;
 ?>
 
 <!-- Navigation Bar -->
@@ -84,9 +83,6 @@ $db_connection = new DBUtilities();
             <ul class="nav navbar-nav navbar-right">
 
                 <?php
-
-               // header('Cache-Control: no-cache, no-store, must-revalidate');
-
                 require_once('includes/php/db_util.php');
                 $db = new DBUtilities();
 
@@ -128,7 +124,7 @@ $db_connection = new DBUtilities();
 
     $condition = 1;
 
-    if($db_connection->checkForValidIsbn($_POST['isbn']) == 0)
+    if($db_connection->checkForIsbn($_POST['isbn']) == 0)
     {
         $condition = 0;
     }

@@ -1,6 +1,6 @@
 <?php
 //require_once '.../vendor/swiftmailer/swiftmailer/lib/swift_required.php';
-require_once 'vendor\swiftmailer\swiftmailer\lib\swift_required.php';
+require_once '..\..\vendor\swiftmailer\swiftmailer\lib\swift_required.php';
 class emailServerConnection{
 
     private $servername = 'ssl://smtp.gmail.com';

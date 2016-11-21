@@ -28,26 +28,26 @@
         ini_set('session.cache_limiter','public');
         session_cache_limiter(false);
 
-        require_once('includes/php/web_security.php');
-        require_once('includes/php/db_util.php');
-        require_once('includes/php/session.php');
-        require_once('includes/php/config/config.php');
-
-        // start a session for login
         session_start();
-
-        $db = new DBUtilities();
-
-        $email = null;
-        $pass = null;
-        $is_valid_email = null;
-        $is_valid_password = null;
 
         if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
         {
             header('Location:' . site_root);
             die();
         }
+
+        require_once('includes/php/web_security.php');
+        require_once('includes/php/db_util.php');
+        require_once('includes/php/session.php');
+        require_once('includes/php/config/config.php');
+
+
+        $db = new DBUtilities();
+
+        $email = null;
+        $pass = null;
+
+        $conditions = Array('email' => false, 'password' => false);
 
         ?>
 
@@ -63,11 +63,14 @@
                     else
                     {
                         $email = trim($_POST['email']);
-                        $is_valid_email = $db->checkEmail($email);
 
-                        if (!$is_valid_email)
+                        if (!$db->checkEmail($email))
                         {
                             echo '<h3 style="background-color:red;"> Email not valid </h3>';
+                        }
+                        else
+                        {
+                            $conditions['email'] = true;
                         }
                     }
                 }
@@ -86,11 +89,14 @@
                     else
                     {
                         $password = $_POST['password'];
-                        $is_valid_password = $db->verifyPassword($email, $password);
 
-                        if (!$is_valid_password)
+                        if (!$db->verifyPassword($email, $password))
                         {
                             echo '<h3 style="background-color:red;"> Password not valid </h3>';
+                        }
+                        else
+                        {
+                            $conditions['password'] = true;
                         }
                     }
                 } ?>
@@ -125,7 +131,7 @@
             // if password and email are both submitted
             if ($_POST['password'] && $_POST['email'])
             {
-                if ($is_valid_email && $is_valid_password)
+                if ($conditions['password'] && $conditions['email'])
                 {
                     $user_id = $db->getUserIdFromEmail($email);
                     $session_arr = $session->createSessionEntry($user_id);

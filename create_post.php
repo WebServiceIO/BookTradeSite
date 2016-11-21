@@ -62,10 +62,7 @@
 ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
 
-require_once ('includes/php/db_util.php');
-require_once ('includes/php/config/config.php');
 session_start();
-$db_connection = new DBUtilities();
 
 
 if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
@@ -73,60 +70,97 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
     header('Location:' . site_root);
     die();
 }
-else {
-    $user_id = $_SESSION['USER_ID'];
 
 
 
-    if (!empty($_POST['ISBN']) && !empty($_POST['Price']) && !empty($_POST['Condition'])) {
-        // add entry into DB
-        $post_results = $db_connection->addPost($user_id, $_POST['ISBN'], $_POST['Title'], $_POST['Author'], $_POST['Edition'], $_POST['Class'], $_POST['Price'], $_POST['Contact'], $_POST['Comments'], $_POST['Condition']);
+require_once ('includes/php/db_util.php');
+require_once ('includes/php/config/config.php');
 
-        $_SESSION['post_id'] = $post_results['post_id'];
+$db_connection = new DBUtilities();
+$isbn = null;
+$condition = 0;
+$user_id = $_SESSION['USER_ID'];
+$conditions = Array('isbn' => false, 'price' => false);
 
-
-        if ($post_results['condition'])
-        {
-          header('Location:' . indiv_root);
-        }
-        else
-        {
-            echo '<h3 style="background-color:red;"> An Error has occurred. Please try again later </h3>';
-        }
-    }
-}
 
 ?>
 
 <div id="wrapper-content">
     <div class="container">
         <h1>Add New Book</h1>
-
         <form action="<?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method="post">
-            <?php if(isset($_POST['ISBN'])) { if(empty($_POST['ISBN'])) { echo '<h3 style="background-color:red;"> Please enter the ISBN number </h3>'; } } ?>
+
+            <?php
+            if(isset($_POST['isbn']))
+            {
+                if(empty($_POST['isbn']))
+                {
+                    echo '<h3 style="background-color:red;"> Please enter the ISBN number </h3>';
+                }
+                else
+                {
+                    $result = $validation->isbn_validate_and_format($_POST['isbn']);
+
+                    if(!$result['CONDITION'])
+                    {
+                        echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                    }
+                    else
+                    {
+                        $isbn = $result['RESULT'];
+                        $condition['isbn'] = true;
+                    }
+                }
+            }
+            ?>
             <div class="form-group">
-                <input type="text" name="ISBN" class="form-control form-content" id="inputISBN" aria-describedby="enterISBNOfBook" placeholder="ISBN**">
+                <input type="text" name="isbn" class="form-control form-content" id="inputISBN" aria-describedby="enterISBNOfBook" placeholder="ISBN**"  value="<?php if(isset($_POST['isbn'])) {echo $_POST['isbn']; }?>">
             </div>
             <div class="form-group">
-                <input type="text" name="Title" class="form-control form-content" id="inputTitle" aria-describedby="enterTitleOfBook" placeholder="Title">
+                <input type="text" name="title" class="form-control form-content" id="inputTitle" aria-describedby="enterTitleOfBook" placeholder="Title"  value="<?php if(isset($_POST['title'])) {echo $_POST['title']; }?>">
             </div>
             <div class="form-group">
-                <input type="text" name="Class" class="form-control form-content" id="inputClass" aria-describedby="enterClass" placeholder="Class Used For">
+                <input type="text" name="class" class="form-control form-content" id="inputClass" aria-describedby="enterClass" placeholder="Class Used For"  value="<?php if(isset($_POST['class'])) {echo $_POST['class']; }?>">
             </div>
             <div class="form-group">
-                <input type="text" name="Author" class="form-control form-content" id="inputAuthor" aria-describedby="enterAuthor" placeholder="Author">
+                <input type="text" name="author" class="form-control form-content" id="inputAuthor" aria-describedby="enterAuthor" placeholder="Author"  value="<?php if(isset($_POST['author'])) {echo $_POST['author']; }?>">
             </div>
             <div class="form-group">
-                <input type="text" name="Edition" class="form-control form-content" id="inputEdition" aria-describedby="enterEdition" placeholder="Edition">
+                <input type="text" name="edition" class="form-control form-content" id="inputEdition" aria-describedby="enterEdition" placeholder="Edition"  value="<?php if(isset($_POST['edition'])) {echo $_POST['edition']; }?>">
             </div>
-            <?php if(isset($_POST['Price'])) { if(empty($_POST['Price'])) { echo '<h3 style="background-color:red;">  Please enter the book\'s price </h3>'; } } ?>
+            <?php
+            if(isset($_POST['price']))
+            {
+                if(empty($_POST['price']))
+                {
+                    echo '<h3 style="background-color:red;">  Please enter the book\'s price </h3>';
+                }
+                else
+                {
+                    // TODO validation here
+                    $condition['price'] = true;
+                }
+            }
+            ?>
             <div class="form-group">
-                <input type="number" name="Price" class="form-control form-content" id="inputPrice" aria-describedby="enterPrice" placeholder="Price**">
+                <input type="number" name="price" class="form-control form-content" id="inputPrice" aria-describedby="enterPrice" placeholder="Price**" value="<?php if(isset($_POST['price'])) {echo $_POST['price']; }?>">
             </div>
             <div class="form-group">
                 <label for="condition">Condition</label>
-                <?php if(isset($_POST['Condition'])) { if(empty($_POST['Condition'])) { echo '<h3 style="background-color:red;">  Please enter the book\'s condition </h3>'; } } ?>
-                <select class="form-control form-content" id="condition" name="Condition">
+                <?php
+                if(isset($_POST['condition']))
+                {
+                    if(empty($_POST['condition']))
+                    {
+                        echo '<h3 style="background-color:red;">  Please enter the book\'s condition </h3>';
+                    }
+                    else
+                    {
+
+                    }
+                }
+                ?>
+                <select class="form-control form-content" id="condition" name="condition">
                     <option value="Select_one" disabled selected>Select one</option>
                     <option value="New">New</option>
                     <option value="Excellent">Excellent</option>
@@ -136,12 +170,38 @@ else {
                 </select>
             </div>
             <div class="form-group">
-                <label for="Comments">Comments</label>
+                <label for="comments">Comments</label>
                 <small id="commentsHelp" class="form-text text-muted">Is there anything you want to say about your book, method of contact, etc.?</small>
-                <textarea class="form-control form-content" id="Comments" rows="3" name="Comments"></textarea>
+                <textarea class="form-control form-content" id="comments" rows="3" name="comments"><?php if(isset($_POST['comments'])) {echo $_POST['comments']; }?></textarea>
             </div>
             <button type="submit" class="btn btn-default btn-transparent">Submit</button>
         </form>
+        <?php
+
+        if (!empty($_POST['isbn']) && !empty($_POST['price']) && !empty($_POST['condition']) && $isbn != null)
+        {
+            if($conditions['price'] && $conditions['isbn'])
+            {
+                $post_results = $db_connection->addPost($user_id, trim($isbn), trim($_POST['title']), trim($_POST['author']), trim($_POST['edition']), trim($_POST['class']), trim($_POST['price']), trim($_POST['contact']), $_POST['comments'], $_POST['condition']);
+
+                $_SESSION['post_id'] = $post_results['post_id'];
+
+                if ($post_results['condition'])
+                {
+                    header('Location:' . indiv_root);
+                }
+                else
+                {
+                    echo '<h3 style="background-color:red;"> An Error has occurred. Please try again later </h3>';
+                }
+            }
+            else
+                echo '<h3 style="background-color:red;"> lease provide required fields</h3>';
+
+        }
+
+        ?>
+
     </div>
 </div>
 

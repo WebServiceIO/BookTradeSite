@@ -34,15 +34,7 @@
         ini_set('session.cache_limiter','public');
         session_cache_limiter(false);
 
-
-        require_once('includes/php/web_security.php');
-        require_once('includes/php/db_util.php');
-        require_once('includes/php/config/config.php');
-
         session_start();
-
-        $db = new DBUtilities();
-        $condition = 0;
 
         if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
         {
@@ -50,18 +42,17 @@
             die();
         }
 
+        require_once('includes/php/web_security.php');
+        require_once('includes/php/db_util.php');
+        require_once('includes/php/config/config.php');
+        require_once ('includes/php/validation/validation.php');
 
-        ?>
-        <?php
-        if(isset($_POST['password']) && isset($_POST['password_conf']))
-        {
-            if (strcmp($_POST['password'], $_POST['password_conf']) != 0)
-            {
-                echo '<h3 style="background-color:red;"> Passwords do not match </h3>';
-            }
-            else
-                $condition = 1;
-        }
+        $validation = new Validation();
+        $db = new DBUtilities();
+
+        $conditions = Array('fname' => false, 'lname' => false, 'password' => false, 'password_compare' => false, 'email' => false, 'username' => false, 'contact_info' => false);
+
+
         ?>
         <form id="reg_form" name="registration" action="<?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method = "post"  onsubmit="return validateForm()">
             <div class="form-group">
@@ -73,7 +64,16 @@
                         echo '<h3 style="background-color:red;"> Please enter your first name </h3>';
                     }
                     else
-                        $condition = 1;
+                    {
+                        $result = $validation->name_validate($_POST['first_name']);
+
+                        if(!$result['CONDITION'])
+                        {
+                            echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                        }
+                        else
+                            $conditions['fname'] = true;
+                    }
                 }
                 ?>
                 <input type="text" class="form-control" id="fname" name = "first_name" aria-describedby="firstName" placeholder="First Name" value="<?php if(isset($_POST['first_name'])) {echo $_POST['first_name']; }?>">
@@ -87,7 +87,16 @@
                         echo '<h3 style="background-color:red;"> Please enter your last name </h3>';
                     }
                     else
-                        $condition = 1;
+                    {
+                        $result = $validation->name_validate($_POST['last_name']);
+
+                        if(!$result['CONDITION'])
+                        {
+                            echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                        }
+                        else
+                            $conditions['lname'] = true;
+                    }
                 }
                 ?>
                 <input type="text" class="form-control" id="lname" name = "last_name" aria-describedby="lastName" placeholder="Last Name" value="<?php if(isset($_POST['last_name'])){echo $_POST['last_name']; }  ?>">
@@ -102,11 +111,21 @@
                     }
                     else
                     {
-                        if ($db->checkEmail($_POST['email'])) {
+                        if ($db->checkEmail($_POST['email']))
+                        {
                             echo '<h3 style="background-color:red;"> Email already exist </h3>';
                         }
                         else
-                            $condition = 1;
+                        {
+                            $result = $validation->email_validate($_POST['email']);
+
+                            if(!$result['CONDITION'])
+                            {
+                                echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                            }
+                            else
+                                $conditions['email'] = true;
+                        }
                     }
                 }
                 ?>
@@ -122,12 +141,12 @@
                     }
                     else
                     {
-                        if ($db->checkUsername($_POST['username']) == 0)
+                        if ($db->checkUsername($_POST['username']))
                         {
                             echo '<h3 style="background-color:red;"> Username already exist </h3>';
                         }
                         else
-                            $condition = 1;
+                            $conditions['username'] = true;
                     }
                 }
 
@@ -143,11 +162,11 @@
                         echo '<h3 style="background-color:red;"> Please enter some information for users to contact you (this can be changed later). </h3>';
                     }
                     else
-                        $condition = 1;
+                        $conditions['contact_info'] = true;
                 }
 
                 ?>
-                <textarea class="form-control" id="contact_info" rows="3" placeholder="Contact Info"><?php if(isset($_POST['contact_info'])) {echo $_POST['contact_info']; } ?></textarea>
+                <textarea class="form-control" id="contact_info" name="contact_info" rows="3" placeholder="Contact Info"><?php if(isset($_POST['contact_info'])) {echo $_POST['contact_info']; } ?>"</textarea>
             </div>
             <div class="form-group">
                 <?php
@@ -158,35 +177,35 @@
                         echo '<h3 style="background-color:red;"> Please enter a password </h3>';
                     }
                     else
-                        $condition = 1;
+                        $conditions['password'] = true;
                 }
                 ?>
                 <input type="password" class="form-control" id="password" name = "password" placeholder="Password">
             </div>
             <div class="form-group">
                 <?php
-                if(isset($_POST['password_conf']))
-                {
-                    if(empty($_POST['password_conf']))
+                    if(isset($_POST['password_conf']))
                     {
-                        echo '<h3 style="background-color:red;"> Please enter the same password </h3>';
-                    }
-                    else
-                    {
-                        if(isset($_POST['password']))
+                        if(empty($_POST['password_conf']))
                         {
-                            if (empty($_POST['password']))
+                            echo '<h3 style="background-color:red;"> Please enter the same password </h3>';
+                        }
+                        else
+                        {
+                            if(isset($_POST['password']))
                             {
-                                if (strcmp($_POST['password'], $_POST['password_conf']) == 0)
+                                if (empty($_POST['password']))
                                 {
-                                    $condition = 1;
+                                    if (strcmp($_POST['password'], $_POST['password_conf']) == 0)
+                                    {
+                                        $conditions['password_compare'] = true;
+                                    }
+                                    else
+                                        echo '<h3 style="background-color:red;"> Passwords do not match </h3>';
                                 }
-                                else
-                                    echo '<h3 style="background-color:red;"> Passwords do not match </h3>';
                             }
                         }
                     }
-                }
                 ?>
                 <input type="password" class="form-control" id="password_conf" name = "password_conf" placeholder="Password (Again)">
             </div>
@@ -195,22 +214,32 @@
 
         <?php
 
-        if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_conf']) && !empty($_POST['username']) && !empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['contact_info'])) {
+        if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_conf']) && !empty($_POST['username']) && !empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['contact_info']))
+        {
+            $condition = true;
 
-            $newUserEmail = $_POST['email'];
-            $newUserFirstName = $_POST['first_name'];
-            $newUserLastName = $_POST['last_name'];
-            $newUserName = $_POST['username'];
-            $newUserPassword = $_POST['password'];
-            $newContactInfo = $_POST['contact_info'];
-
-            if (!$db->registerUser(trim($newUserName), $newUserPassword, trim($newUserFirstName), trim($newUserLastName), trim($newUserEmail), trim($newContactInfo)))
+            foreach ($conditions as &$value)
             {
-                echo '<h3 style="background-color:red;"> An Error Has Occurred </h3>';
+                if(!$value)
+                {
+                    $condition = false;
+                    break;
+                }
             }
-            else {
-                header('Location:' . login);
-                die();
+
+            if($condition)
+            {
+                $newUserEmail = $_POST['email'];
+                $newUserFirstName = $_POST['first_name'];
+                $newUserLastName = $_POST['last_name'];
+                $newUserName = $_POST['username'];
+                $newUserPassword = $_POST['password'];
+                $newContactInfo = $_POST['contact_info'];
+
+                if ($db->registerUser(trim($newUserName), $newUserPassword, trim($newUserFirstName), trim($newUserLastName), trim($newUserEmail), trim($newContactInfo))) {
+                    header('Location:' . login);
+                    die();
+                }
             }
         }
 

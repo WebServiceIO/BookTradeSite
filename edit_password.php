@@ -19,18 +19,22 @@
 </head>
 <body>
 <?php
-//header('Cache-Control: no-cache, no-store, must-revalidate');
+header('Cache-Control: no-cache, no-store, must-revalidate');
 
-require_once('includes/php/db_util.php');
-$db = new DBUtilities();
 session_start();
-$condition = 0;
 
 if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
 {
     header('Location:' . site_root);
     die();
 }
+
+require_once('includes/php/db_util.php');
+
+$db = new DBUtilities();
+
+$conditions = Array('old_password' => false, 'new_password' => false, 'password_confirm' => false);
+
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -76,8 +80,6 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
         <form id="edit_password_form" name="edit_password" action ="<?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method = "post" >
             <div class="form-group">
             <?php
-                $old_pass_valid = null;
-
                 if(isset($_POST['old_password']))
                 {
                     if(empty($_POST['old_password']))
@@ -90,7 +92,7 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
 
                         if($db->verifyPassword($email, $_POST['old_password']))
                         {
-                            $old_pass_valid = true;
+                            $conditions['old_password'] = true;
                         }
                         else
                         {
@@ -103,8 +105,6 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
             </div>
             <div class="form-group">
                 <?php
-                $new_pass_valid = null;
-
                 if(isset($_POST['new_password']))
                 {
                     if(empty($_POST['new_password']))
@@ -112,7 +112,7 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
                        echo '<h3 style="background-color:red;"> Please enter a new password </h3>';
                     }
                     else
-                        $new_pass_valid = true;
+                        $conditions['new_password'] = true;
                 }
                 ?>
                 <input type="password" class="form-control" id="new_password" name="new_password" aria-describedby="new_password" placeholder="Enter a new password">
@@ -129,11 +129,11 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
                     }
                     else
                     {
-                        if($new_pass_valid)
+                        if($conditions['new_password'])
                         {
                             if (strcmp($_POST['new_password_conf'], $_POST['new_password']) == 0)
                             {
-                                $new_password_conf = true;
+                                $conditions['password_confirm']  = true;
                             }
                             else {
                                 echo '<h3 style="background-color:red;"> Passwords do not match </h3>';
@@ -142,7 +142,7 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
                     }
                 }
 
-                if($old_pass_valid && $new_pass_valid && $new_password_conf)
+                if($conditions['old_password'] && $conditions['new_password'] && $conditions['password_confirm'])
                 {
                     if($db->changeUserPassword($_POST['new_password_conf'], $_SESSION['USER_ID']))
                     {
