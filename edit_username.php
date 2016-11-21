@@ -38,6 +38,10 @@ $db = new DBUtilities();
 
 $condition = 0;
 
+require_once('includes/php/validation/validation.php');
+
+$validation = new Validation();
+
 
 ?>
 
@@ -100,27 +104,36 @@ $condition = 0;
                 }
                 else
                 {
-                    if ($db->checkUsername(trim($_POST['username'])))
+                    $result = $validation->username_validate($_POST['username']);
+
+                    if(!$result['CONDITION'])
                     {
-                        echo '<h3 style="background-color:red;"> Username already exist </h3>';
+                        echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
                     }
                     else
                     {
-                        if($db->changeUsername($_POST['username'], $_SESSION['USER_ID']))
+                        if ($db->checkUsername(trim($_POST['username'])))
                         {
-                            $previous_page = "javascript:history.go(-1)";
-
-                            if(isset($_SERVER['HTTP_REFERER'])) {
-                                $previous_page = $_SERVER['HTTP_REFERER'];
-                            }
-                            echo '<h3 style="background-color:red;"> An error has occurred </h3>';
-                            header('Cache-Control: no-cache, no-store, must-revalidate');
-                            header('Location:' .  account);
-                            die();
+                            echo '<h3 style="background-color:red;"> Username already exist </h3>';
                         }
                         else
                         {
-                            echo '<h3 style="background-color:red;"> An error has occurred </h3>';
+                            if($db->changeUsername($_POST['username'], $_SESSION['USER_ID']))
+                            {
+                                $previous_page = "javascript:history.go(-1)";
+
+                                if(isset($_SERVER['HTTP_REFERER'])) {
+                                    $previous_page = $_SERVER['HTTP_REFERER'];
+                                }
+                                echo '<h3 style="background-color:red;"> An error has occurred </h3>';
+                                header('Cache-Control: no-cache, no-store, must-revalidate');
+                                header('Location:' .  account);
+                                die();
+                            }
+                            else
+                            {
+                                echo '<h3 style="background-color:red;"> An error has occurred </h3>';
+                            }
                         }
                     }
                 }

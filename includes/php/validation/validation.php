@@ -72,4 +72,51 @@ class Validation
             return Array('ERROR' => 'Invalid length', 'CONDITION' => false);
         }
     }
+
+    function price_validate($price)
+    {
+        if (strcmp(gettype($price), 'integer') == 0) {
+            return Array('ERROR' => 'OK', 'CONDITION' => true);
+        } else if (strcmp(gettype($price), 'string') == 0) {
+            $price = trim($price);
+
+            if (is_numeric($price) && (strlen($price) >= 1)) {
+                return Array('ERROR' => 'OK', 'CONDITION' => true);
+            } else
+                return Array('ERROR' => 'Invalid format', 'CONDITION' => false);
+        } else
+            return Array('ERROR' => 'Invalid format', 'CONDITION' => false);
+    }
+
+    function username_validate($username)
+    {
+        if(strlen($username) >= 2)
+        {
+            return Array('ERROR' => 'OK', 'CONDITION' => true);
+        }
+        else
+        {
+            return Array('ERROR' => 'Invalid Length', 'CONDITION' => true);
+        }
+    }
+
+    function password_validation($password)
+    {
+        $password = trim($password);
+
+        $pattern = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,15}$/";
+
+        preg_match($pattern, $password, $matches);
+
+        if (!empty($matches))
+        {
+            return Array('ERROR' => 'Ok', 'CONDITION' => false);
+        }
+        else
+        {
+            return Array('ERROR' => 'Invalid password format', 'CONDITION' => false);
+        }
+
+    }
+
 }

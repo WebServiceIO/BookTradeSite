@@ -111,9 +111,8 @@ $condition = 0;
                         }
                     }
                 }
-
-
                 ?>
+                <label for="contact_info">Enter contact information here</label>
                 <textarea class="form-control" id="contact_info" name="contact_info" rows="5"></textarea>
             </div>
             <div class="row">

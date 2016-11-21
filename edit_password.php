@@ -30,10 +30,14 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
 }
 
 require_once('includes/php/db_util.php');
+require_once('includes/php/validation/validation.php');
+
 
 $db = new DBUtilities();
 
 $conditions = Array('old_password' => false, 'new_password' => false, 'password_confirm' => false);
+
+$validation = new Validation();
 
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -112,7 +116,16 @@ $conditions = Array('old_password' => false, 'new_password' => false, 'password_
                        echo '<h3 style="background-color:red;"> Please enter a new password </h3>';
                     }
                     else
-                        $conditions['new_password'] = true;
+                    {
+                        $result = $validation->password_validation($_POST['new_password']);
+
+                        if(!$result['CONDITION'])
+                        {
+                            echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                        }
+                        else
+                            $conditions['new_password'] = true;
+                    }
                 }
                 ?>
                 <input type="password" class="form-control" id="new_password" name="new_password" aria-describedby="new_password" placeholder="Enter a new password">

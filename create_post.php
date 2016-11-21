@@ -137,8 +137,16 @@ $conditions = Array('isbn' => false, 'price' => false);
                 }
                 else
                 {
-                    // TODO validation here
-                    $condition['price'] = true;
+                    $result = $validation->price_validate($_POST['price']);
+
+                    if(!$result['CONDITION'])
+                    {
+                        echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                    }
+                    else
+                    {
+                        $condition['price'] = true;
+                    }
                 }
             }
             ?>
@@ -153,10 +161,6 @@ $conditions = Array('isbn' => false, 'price' => false);
                     if(empty($_POST['condition']))
                     {
                         echo '<h3 style="background-color:red;">  Please enter the book\'s condition </h3>';
-                    }
-                    else
-                    {
-
                     }
                 }
                 ?>

@@ -146,7 +146,16 @@
                             echo '<h3 style="background-color:red;"> Username already exist </h3>';
                         }
                         else
-                            $conditions['username'] = true;
+                        {
+                            $result = $validation->username_validate($_POST['username']);
+
+                            if(!$result['CONDITION'])
+                            {
+                                echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                            }
+                            else
+                                $conditions['username'] = true;
+                        }
                     }
                 }
 
@@ -177,7 +186,16 @@
                         echo '<h3 style="background-color:red;"> Please enter a password </h3>';
                     }
                     else
-                        $conditions['password'] = true;
+                    {
+                        $result = $validation->password_validation($_POST['password']);
+
+                        if(!$result['CONDITION'])
+                        {
+                            echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                        }
+                        else
+                            $conditions['password'] = true;
+                    }
                 }
                 ?>
                 <input type="password" class="form-control" id="password" name = "password" placeholder="Password">
@@ -196,6 +214,7 @@
                             {
                                 if (empty($_POST['password']))
                                 {
+                                    // since they should match, not password validation here since it is already taken care of
                                     if (strcmp($_POST['password'], $_POST['password_conf']) == 0)
                                     {
                                         $conditions['password_compare'] = true;
