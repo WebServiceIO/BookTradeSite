@@ -31,8 +31,9 @@ h1,
 
 /* Form */
 form > .form-group > #username,
-form > .form-group > #oldPass,
-form > .form-group > #newPass {
+form > .form-group > #old_password,
+form > .form-group > #new_password,
+form > .form-group > #new_password_conf {
     padding: 0 5px;
     border-bottom: 1px solid #373737;
     border-radius: 0;

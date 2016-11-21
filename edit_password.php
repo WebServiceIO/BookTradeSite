@@ -162,7 +162,7 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
                     }
                 }
                 ?>
-                <input type="password" class="form-control" id="new_password_conf" name="new_password_conf" aria-describedby="new_password_conf" placeholder="Enter the same password">
+                <input type="password" class="form-control" id="new_password_conf" name="new_password_conf" aria-describedby="new_password_conf" placeholder="Enter new password again">
             </div>
             <div class="row">
                 <div class="col-xs-6 form-link">

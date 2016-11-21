@@ -226,7 +226,7 @@ if(isset($_SERVER['HTTP_REFERER'])) {
             </div>
             <div class="row">
                 <div class="col-md-6">Contact</div>
-                <div class="col-md-6"><?php echo $post->getContact(); ?></div>
+                <div class="col-md-6"><?php echo $db_connection->getContactFromID($post->getUserId()); ?></div>
             </div>
         </div>
     </div>

@@ -81,24 +81,6 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
         </p>
 
         <form id="edit_contact_form" name="edit_contact" action =" <?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method = "post" >
-<!--            <div class="form-group">-->
-<!--                <input type="text" class="form-control" id="phoneNum" aria-describedby="phoneNum" placeholder="Enter your phone number">-->
-<!--            </div>-->
-<!--            <div class="form-check">-->
-<!--                <label class="form-check-label">-->
-<!--                    <input type="checkbox" class="form-check-input">-->
-<!--                    Call-->
-<!--                </label>-->
-<!--            </div>-->
-<!--            <div class="form-check">-->
-<!--                <label class="form-check-label">-->
-<!--                    <input type="checkbox" class="form-check-input">-->
-<!--                    Text-->
-<!--                </label>-->
-<!--            </div>-->
-<!--            <div class="form-group">-->
-<!--                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your e-mail address">-->
-<!--            </div>-->
             <div class="form-group">
                 <?php
                 if(isset($_POST['contact_info']))
@@ -132,7 +114,6 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
                     }
                 }
                 ?>
-<!--                <input type="text" class="form-control" id="contact_info" name="contact_info" aria-describedby="new_contact_info" placeholder="Enter your contact information">-->
                 <textarea class="form-control" id="contact_info" name="contact_info" rows="5"></textarea>
             </div>
             <div class="row">

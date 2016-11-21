@@ -205,7 +205,7 @@ session_cache_limiter(false);
         <div class="col-xs-18 col-md-2">
             <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
             <br>
-            Click on 'Posts' and add a new book
+            Click on 'Sell Another Book' and follow directions
         </div>
         <div class="col-xs-18 col-md-2">
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
