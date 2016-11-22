@@ -5,7 +5,7 @@ function validateForm() {
 
    // Regular expression requiring at least 8 characters with at least one
    // letter and one number
-   var patt2 = /^(?=.*[a-z])(?=.*[0-9])(?=.{8,})/i;
+   var patt2 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,15}$/;
 
    // reads from the "email" field and checks against regex patt1
    var x = document.forms["registration"]["email"].value;
@@ -17,8 +17,9 @@ function validateForm() {
    // reads from the "password" field and checks agaianst regex patt2
    var x = document.forms["registration"]["password"].value;
    if (patt2.test(x) == false) {
-      alert("Invalid password! \nPasswords must be at least 8 characters long" +
-          " and must include at least one number and one letter");
+      alert("Invalid password! \nPasswords must be between 8 and 15 characters long" +
+          " and must include at least one number and one uppercase letter, one" +
+           "lowercase letter, and one symbol!");
       return false;
    }
 
