@@ -4,7 +4,7 @@ function validateForm() {
    var patt1 = /^.+@.+\.edu$/i;
 
    // Regular expression requiring at least 8 characters with at least one
-   // letter and one number
+   // letter (upper and lower), one symbol, and one number
    var patt2 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,15}$/;
 
    // reads from the "email" field and checks against regex patt1
