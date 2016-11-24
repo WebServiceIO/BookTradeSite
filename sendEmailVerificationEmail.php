@@ -30,19 +30,13 @@
       $verificationLink = md5(uniqid(rand()));
       echo $verificationLink;
       $user_id = "01";
-      $username = "Gio";
-      $fname ="Giovanni";
-      $lname ="Hernandez";
-      $email = "gdhern4282@gmail.com";
-      $password = "12345";
-      $contact_info = "555-123-4567";
-      tempUserDb($user_id, $username, $fname, $lname, $email, $password, $contact_info, $verificationLink);
+      tempUserDb($user_id, $verificationLink);
       return $verificationLink;
     }
 
-    function tempUserDb($user_id, $username, $fname, $lname, $email, $password, $contact_info, $verificationLink){
+    function tempUserDb($user_id, $verificationLink){
        $dbconnection = new PDO('mysql:dbname=' . "bookxchange" . ';host=' . "127.0.0.1", "admin1", "1234");
-      $statement = $dbconnection->prepare("INSERT INTO unverified_users(user_id,username,fname,lname,email,password,contact_info, verificationLink) VALUES ('$user_id','$username','$fname','$lname','$email','$password','$contact_info','$verificationLink')");
+      $statement = $dbconnection->prepare("INSERT INTO unverified_users(user_id, verificationLink) VALUES ('$user_id','$verificationLink')");
       $result = $statement->execute();
     }
 
