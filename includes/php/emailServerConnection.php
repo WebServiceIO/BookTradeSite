@@ -5,7 +5,7 @@ class emailServerConnection{
 
     static function connectToEmail(){
         //$servername = 'ssl://smtp.gmail.com';
-        $servername = 'smtp.gmail.com';
+        $servername = 'ssl://smtp.gmail.com';
         $username = 'bkxchnge@gmail.com';
         $password = 'cdgt1234';
         $port = 25;
