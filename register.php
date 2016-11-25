@@ -256,8 +256,8 @@
                 $newContactInfo = $_POST['contact_info'];
 
                 if ($db->registerUser(trim($newUserName), $newUserPassword, trim($newUserFirstName), trim($newUserLastName), trim($newUserEmail), trim($newContactInfo))) {
-                    header('Location:' . login);
-                    die();
+                    //header('Location:' . login);
+                    //die();
                 }
             }
         }
