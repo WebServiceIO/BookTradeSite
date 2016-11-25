@@ -12,13 +12,21 @@
 
         $link = generateLink();
 
-        $message = Swift_Message::newInstance("HTML")
-        ->setFrom(array('bkxchnge@gmail.com'))
-        ->setTo(array("$email"))
-        ->setBody(generate_message($link),'text/html');
 
-        $mailer = Swift_Mailer::newInstance($emailconnection);
-        $mailer->send($message);
+        try {
+
+            $message = Swift_Message::newInstance("HTML")
+                ->setFrom(array('bkxchnge@gmail.com'))
+                ->setTo(array("$email"))
+                ->setBody(generate_message($link),'text/html');
+
+            $mailer = Swift_Mailer::newInstance($emailconnection);
+            $mailer->send($message);
+        }
+        catch (Exception $e)
+        {
+            var_dump($e->getMessage(), $e->getTraceAsString());
+        }
 
         $db_connection->addUserVerification($user_id, $link);
     }
