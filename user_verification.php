@@ -32,7 +32,17 @@
 
 
 
-            $mailer->send($message);
+           // $mailer->send($message);
+
+            $errors = "";
+
+            if ($recipients = $mailer->send($message, $errors))
+            {
+                echo 'Message successfully sent!';
+            } else {
+                echo "There was an error:\n";
+                print_r($errors);
+            }
         }
         catch (Exception $e)
         {
