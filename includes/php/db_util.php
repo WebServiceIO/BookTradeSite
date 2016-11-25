@@ -417,13 +417,18 @@ class DBUtilities
 
     function addUserVerification($user_id, $verification_link)
     {
+        echo 'DEBUG 1.2';
         try {
             $statement = $this->db_connection->prepare("INSERT INTO unverified_users(user_id, verification_link) VALUES(:user_id, :veri_link)");
             $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT);
             $statement->bindValue(':veri_link', $verification_link, PDO::PARAM_STR);
+
+            echo 'DEBUG 2';
+
             return $statement->execute();
 
         } catch (PDOException $e) {
+            echo 'DEBUG 3';
             echo $e->getMessage();
             return false;
         }

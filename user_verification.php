@@ -20,6 +20,10 @@
         $mailer = Swift_Mailer::newInstance($emailconnection);
         $mailer->send($message);
 
+        echo 'DEBUG';
+
+        echo $message;
+
         $db_connection->addUserVerification($user_id, $link);
     }
 
