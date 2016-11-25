@@ -16,8 +16,8 @@
       $result = $mailer->send($message);
     }
 
-    function generate_message(){
-      $link = generateLink();
+    function generate_message($user_id){
+      $link = generateLink($user_id);
       $message = "Welcome to BookXChange. Please verify your account to begin buying and selling textbooks on campus.<br /><br /> <a href='localhost/bkxc/verifiedUser.php?verificationLink=$link'>$link</a>";
       return $message;
     }
