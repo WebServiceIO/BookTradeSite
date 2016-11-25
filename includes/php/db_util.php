@@ -3,7 +3,7 @@
 require_once('config/included_classes.php');
 require_once('db_tables/post.php');
 require_once('web_security.php');
-require_once('sendEmailVerificationEmail.php');
+
 class DBUtilities
 {
     private  $db_connection;
@@ -223,6 +223,19 @@ class DBUtilities
         }
     }
 
+    public function checkValidUser($user_id)
+    {
+        try {
+            $statement = $this->db_connection->prepare("SELECT valid_bit FROM users WHERE user_id = :user_id");
+            $statement->bindParam(':user_id', $user_id, PDO::PARAM_STR);
+            $statement->execute();
+            return $statement->fetch()['valid_bit'];
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+
     function registerUser($username, $password, $fname, $lname, $email, $contact_info)
     {
         $check = null;
@@ -255,12 +268,12 @@ class DBUtilities
                     // execute query
                     $statement->execute();
 
-                    ////////////////
                     $id = $this->db_connection->prepare("SELECT user_id FROM users WHERE username = '$username'");
                     $id->execute();
-                    $result=$id->fetch(PDO::FETCH_ASSOC);
+                    $result = $id->fetch(PDO::FETCH_ASSOC);
+
                     sendEmail($email,$result['user_id']);
-                    ////////////////
+
                 }catch(PDOException $e){
                     echo $e->getMessage();
                 }
@@ -382,7 +395,7 @@ class DBUtilities
         }
     }
 
-    public function insertSession($session_info)
+    function insertSession($session_info)
     {
         try {
             $statement = $this->db_connection->prepare("REPLACE INTO sessions (user_id, fingerprint, time_stamp) VALUES(:user_id, :fingerp, :time_stamp)");
@@ -401,4 +414,53 @@ class DBUtilities
             return false;
         }
     }
+
+    function addUserVerification($user_id, $verification_link)
+    {
+        try {
+            $statement = $this->db_connection->prepare("INSERT INTO unverified_users(user_id, verification_link) VALUES(:user_id, :veri_link)");
+            $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+            $statement->bindValue(':veri_link', $verification_link, PDO::PARAM_STR);
+            return $statement->execute();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+
+    function activateAccount($link)
+    {
+        try {
+            $this->db_connection->beginTransaction();
+
+
+            $statement = $this->db_connection->prepare("SELECT user_id FROM unverified_users WHERE verification_link = :link");
+            $statement->bindValue(':link', $link, PDO::PARAM_STR);
+            $result = $statement->execute();
+
+            $user_id = $statement->fetch();
+            $user_id = $user_id['user_id'];
+
+
+            $statement = $this->db_connection->prepare("UPDATE users SET valid_bit = 1 WHERE user_id = :user_id");
+            $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+            $result = $statement->execute();
+
+
+            $statement = $this->db_connection->prepare("DELETE FROM unverified_users WHERE user_id = :user_id");
+            $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+            $result = $statement->execute();
+
+            $this->db_connection->commit();
+
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            $this->db_connection->rollBack();
+            return false;
+        }
+    }
+
 }

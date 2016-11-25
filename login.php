@@ -40,9 +40,14 @@
         require_once('includes/php/db_util.php');
         require_once('includes/php/session.php');
         require_once('includes/php/config/config.php');
-
+        require_once './includes/php/config/db_injection.php';
 
         $db = new DBUtilities();
+
+        if (isset($_GET['verification_link']) && !empty($_GET['verification_link']))
+        {
+            $db->activateAccount($_GET['verification_link']);
+        }
 
         $email = null;
         $pass = null;
@@ -89,7 +94,6 @@
                     else
                     {
                         $password = $_POST['password'];
-
                         if (!$db->verifyPassword($email, $password))
                         {
                             echo '<h3 style="background-color:red;"> Password not valid </h3>';
@@ -134,16 +138,26 @@
                 if ($conditions['password'] && $conditions['email'])
                 {
                     $user_id = $db->getUserIdFromEmail($email);
-                    $session_arr = $session->createSessionEntry($user_id);
-                    $db->insertSession($session_arr);
-                    $finger_print = $db->getFingerprintInfoFromId($user_id);
 
-                    $_SESSION['USER_ID'] = $user_id;
-                    $_SESSION['FINGER_PRINT'] = $finger_print;
+                    if($db->checkValidUser($user_id) == 1)
+                    {
+                        $session_arr = $session->createSessionEntry($user_id);
+                        $db->insertSession($session_arr);
+                        $finger_print = $db->getFingerprintInfoFromId($user_id);
 
-                    header('Cache-Control: no-cache, no-store, must-revalidate');
-                    header('Location:' . site_root);
-                    die();
+                        $_SESSION['USER_ID'] = $user_id;
+                        $_SESSION['FINGER_PRINT'] = $finger_print;
+
+                        header('Cache-Control: no-cache, no-store, must-revalidate');
+                        header('Location:' . site_root);
+                        die();
+                    }
+                    else
+                    {
+                        echo '<h3 style="background-color:red;"> Please activate your account </h3>';
+                    }
+
+
                 }
             }
         }

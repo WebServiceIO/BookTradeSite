@@ -1,9 +1,9 @@
 <?php
-require_once 'vendor/swiftmailer/swiftmailer/lib/swift_required.php';
+//require_once '../../vendor/swiftmailer/swiftmailer/lib/swift_required.php';
 
 class emailServerConnection{
 
-    function connectToEmail(){
+    static function connectToEmail(){
         $servername = 'ssl://smtp.gmail.com';
         $username = 'bkxchnge@gmail.com';
         $password = 'cdgt1234';

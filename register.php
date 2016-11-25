@@ -46,13 +46,12 @@
         require_once('includes/php/db_util.php');
         require_once('includes/php/config/config.php');
         require_once ('includes/php/validation/validation.php');
-        require_once('sendEmailVerificationEmail.php');
+        require_once('user_verification.php');
 
         $validation = new Validation();
         $db = new DBUtilities();
 
         $conditions = Array('fname' => false, 'lname' => false, 'password' => false, 'password_compare' => false, 'email' => false, 'username' => false, 'contact_info' => false);
-
 
         ?>
         <form id="reg_form" name="registration" action="<?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method = "post"  onsubmit="return validateForm()">
@@ -192,7 +191,6 @@
 
                         if(!$result['CONDITION'])
                         {
-                            echo 'debug 1111';
                             echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
                         }
                         else
@@ -258,8 +256,7 @@
                 $newContactInfo = $_POST['contact_info'];
 
                 if ($db->registerUser(trim($newUserName), $newUserPassword, trim($newUserFirstName), trim($newUserLastName), trim($newUserEmail), trim($newContactInfo))) {
-
-                    //header('Location:' . login);
+                    header('Location:' . login);
                     die();
                 }
             }
