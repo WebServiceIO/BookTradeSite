@@ -10,9 +10,19 @@ class emailServerConnection{
         //$port = 25;
         //$port = 587;
         $port = 465;
-        $connection = Swift_SmtpTransport::newInstance($servername,$port)
-        ->setUsername($username)
-        ->setPassword($password);
+        $connection = Swift_SmtpTransport::newInstance($servername, $port)
+            ->setUsername($username)
+            ->setPassword($password)
+            ->setEncryption('ssl');
+
+//        $connection = Swift_SmtpTransport::newInstance()
+//            ->setHost($servername)
+//            ->setPort($port)
+//                ->setu($username)
+//            ->setPassword($password)
+//            ->setEncryption('ssl');
+
+
         return $connection;
     }
 }
