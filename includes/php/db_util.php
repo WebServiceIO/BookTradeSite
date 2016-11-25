@@ -268,11 +268,11 @@ class DBUtilities
                     // execute query
                     $statement->execute();
 
-//                    $id = $this->db_connection->prepare("SELECT user_id FROM users WHERE username = '$username'");
-//                    $id->execute();
-//                    $result = $id->fetch(PDO::FETCH_ASSOC);
-//
-//                   sendEmail($email,$result['user_id']);
+                    $id = $this->db_connection->prepare("SELECT user_id FROM users WHERE username = '$username'");
+                    $id->execute();
+                    $result = $id->fetch(PDO::FETCH_ASSOC);
+
+                   sendEmail($email,$result['user_id']);
 
                 }catch(PDOException $e){
                     echo $e->getMessage();
