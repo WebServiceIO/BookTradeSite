@@ -3,24 +3,35 @@
     require_once './includes/php/config/db_injection.php';
     require_once './vendor/swiftmailer/swiftmailer/lib/swift_required.php';
     require_once './includes/php/db_util.php';
-    $emailconnection = emailServerConnection::connectToEmail();
+   // $emailconnection = emailServerConnection::connectToEmail();
 
     function sendEmail($email,$user_id){
-        global $emailconnection;
+        //global $emailconnection;
+
+
 
         $db_connection = new DBUtilities();
 
         $link = generateLink();
 
-
         try {
 
-            $message = Swift_Message::newInstance("HTML")
-                ->setFrom(array('bkxchnge@gmail.com'))
-                ->setTo(array("$email"))
-                ->setBody(generate_message($link),'text/html');
+            $emailconnection = emailServerConnection::connectToEmail();
 
             $mailer = Swift_Mailer::newInstance($emailconnection);
+
+//            $message = Swift_Message::newInstance("HTML")
+//                ->setFrom(array('bkxchnge@gmail.com'))
+//                ->setTo(array("$email"))
+//                ->setBody(generate_message($link),'text/html');
+
+            $message = Swift_Message::newInstance("BookXchange user activation")
+                ->setFrom(array('bkxchnge@gmail.com' => 'BookXchange'))
+                ->setTo(array($email))
+                ->setBody(generate_message($link),'text/html');
+
+
+
             $mailer->send($message);
         }
         catch (Exception $e)
