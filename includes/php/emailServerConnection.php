@@ -11,17 +11,16 @@ class emailServerConnection{
         $username = 'bkxchnge@gmail.com';
         $password = 'cdgt1234';
         //$port = 25;
-        //$port = 587;
-        $port = 465;
+        $port = 587;
+        //$port = 465;
 
 
         $connection = Swift_SmtpTransport::newInstance($servername, $port, "ssl")
             ->setUsername($username)
             ->setPassword($password)
-            ->setAuthMode('login')
             ->setSourceIp('0.0.0.0');
 
-       var_dump($connection->start());
+
 
 //        $connection = Swift_SmtpTransport::newInstance($servername, $port)
 //            ->setUsername($username)
