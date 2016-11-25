@@ -44,10 +44,10 @@
 
         $db = new DBUtilities();
 
-        if (isset($_GET['verification_link']) && !empty($_GET['verification_link']))
-        {
-            $db->activateAccount($_GET['verification_link']);
-        }
+//        if (isset($_GET['verification_link']) && !empty($_GET['verification_link']))
+//        {
+//            $db->activateAccount($_GET['verification_link']);
+//        }
 
         $email = null;
         $pass = null;
@@ -139,8 +139,8 @@
                 {
                     $user_id = $db->getUserIdFromEmail($email);
 
-                    if($db->checkValidUser($user_id) == 1)
-                    {
+//                    if($db->checkValidUser($user_id) == 1)
+//                    {
                         $session_arr = $session->createSessionEntry($user_id);
                         $db->insertSession($session_arr);
                         $finger_print = $db->getFingerprintInfoFromId($user_id);
@@ -151,11 +151,11 @@
                         header('Cache-Control: no-cache, no-store, must-revalidate');
                         header('Location:' . site_root);
                         die();
-                    }
-                    else
-                    {
-                        echo '<h3 style="background-color:red;"> Please activate your account </h3>';
-                    }
+//                    }
+//                    else
+//                    {
+//                        echo '<h3 style="background-color:red;"> Please activate your account </h3>';
+//                    }
 
 
                 }
