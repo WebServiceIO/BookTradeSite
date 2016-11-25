@@ -25,8 +25,7 @@
 
     function generate_message($link){
         //$url =  htmlspecialchars($_SERVER['HTTP_HOST']);
-        //$url = "https://wwww.collegexchange.info";
-        $url = "http://127.0.0.1:8081/BookTradeSite";
+        $url = "https://wwww.collegexchange.info";
 //        $message = "<p>Welcome to BookXChange. Please verify your account to begin buying and selling textbooks on campus.</p>
 //        <br />
 //        <a href = '$url/login.php?verification_link=$link'>Click here to activate!</a>
