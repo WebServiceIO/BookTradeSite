@@ -3,7 +3,7 @@
 require_once('config/included_classes.php');
 require_once('db_tables/post.php');
 require_once('web_security.php');
-
+require_once('sendEmailVerificationEmail.php');
 class DBUtilities
 {
     private  $db_connection;
@@ -244,7 +244,7 @@ class DBUtilities
             else
             {
                 try {
-                    $statement = $this->db_connection->prepare("INSERT INTO users (username, password, email, fname, lname, contact_info) VALUES (:username, :hashed_password, :email, :fname, :lname, :contact_info)");
+                    $statement = $this->db_connection->prepare("INSERT INTO users (username, password, email, fname, lname, contact_info, valid_bit) VALUES (:username, :hashed_password, :email, :fname, :lname, :contact_info, '0')");
                     $hashed_password = Security::hash_password($password);
                     $statement->bindValue(':username', $username, PDO::PARAM_STR);
                     $statement->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
@@ -254,6 +254,13 @@ class DBUtilities
                     $statement->bindValue(':contact_info', $contact_info, PDO::PARAM_STR);
                     // execute query
                     $statement->execute();
+
+                    ////////////////
+                    $id = $this->db_connection->prepare("SELECT user_id FROM users WHERE username = '$username'");
+                    $id->execute();
+                    $result=$id->fetch(PDO::FETCH_ASSOC);
+                    sendEmail($email,$result['user_id']);
+                    ////////////////
                 }catch(PDOException $e){
                     echo $e->getMessage();
                 }
@@ -395,4 +402,3 @@ class DBUtilities
         }
     }
 }
-

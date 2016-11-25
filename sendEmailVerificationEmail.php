@@ -1,20 +1,16 @@
 <?php
     require_once './includes/php/emailServerConnection.php';
-    // require_once './php/DataBaseLoader.php';
-    //require_once './includes/php/config/db_injection.php';
+    require_once './includes/php/config/db_injection.php';
     require_once './vendor/swiftmailer/swiftmailer/lib/swift_required.php';
-  //  $dbconnection = DataBaseLoader::connect();
     $emailconnection = emailServerConnection::connectToEmail();
 
-    sendEmail("gdhern4282@gmail.com");
-
-    function sendEmail($email){
+    function sendEmail($email,$user_id){
       global $emailconnection;
 
       $message = Swift_Message::newInstance("HTML")
       ->setFrom(array('bkxchnge@gmail.com'))
       ->setTo(array("$email"))
-      ->setBody(generate_message(),'text/html');
+      ->setBody(generate_message($user_id),'text/html');
 
       $mailer = Swift_Mailer::newInstance($emailconnection);
       $result = $mailer->send($message);
@@ -26,16 +22,15 @@
       return $message;
     }
 
-    function generateLink(){
+    function generateLink($user_id){
       $verificationLink = md5(uniqid(rand()));
       echo $verificationLink;
-      $user_id = "01";
       tempUserDb($user_id, $verificationLink);
       return $verificationLink;
     }
 
     function tempUserDb($user_id, $verificationLink){
-       $dbconnection = new PDO('mysql:dbname=' . "bookxchange" . ';host=' . "127.0.0.1", "admin1", "1234");
+      $dbconnection = DataBaseLoader::connect();
       $statement = $dbconnection->prepare("INSERT INTO unverified_users(user_id, verificationLink) VALUES ('$user_id','$verificationLink')");
       $result = $statement->execute();
     }

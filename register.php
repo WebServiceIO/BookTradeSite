@@ -46,6 +46,7 @@
         require_once('includes/php/db_util.php');
         require_once('includes/php/config/config.php');
         require_once ('includes/php/validation/validation.php');
+        require_once('sendEmailVerificationEmail.php');
 
         $validation = new Validation();
         $db = new DBUtilities();
@@ -256,7 +257,8 @@
                 $newContactInfo = $_POST['contact_info'];
 
                 if ($db->registerUser(trim($newUserName), $newUserPassword, trim($newUserFirstName), trim($newUserLastName), trim($newUserEmail), trim($newContactInfo))) {
-                    header('Location:' . login);
+
+                    //header('Location:' . login);
                     die();
                 }
             }
