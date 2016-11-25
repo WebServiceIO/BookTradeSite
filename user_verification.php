@@ -32,24 +32,26 @@
 
 
 
-           // $mailer->send($message);
+           $mailer->send($message);
 
-            $errors = "";
+            //$errors = "";
 
-            if ($recipients = $mailer->send($message, $errors))
-            {
-                echo 'Message successfully sent!';
-            } else {
-                echo "There was an error:\n";
-                print_r($errors);
-            }
+//            if ($recipients = $mailer->send($message, $errors))
+//            {
+//               // echo 'Message successfully sent!';
+//            } else {
+//                //echo "There was an error:\n";
+//                print_r($errors);
+//            }
+
+            $db_connection->addUserVerification($user_id, $link);
         }
         catch (Exception $e)
         {
-            var_dump($e->getMessage(), $e->getTraceAsString());
+            var_dump($e->getMessage());
         }
 
-        $db_connection->addUserVerification($user_id, $link);
+
     }
 
     function generate_message($link){

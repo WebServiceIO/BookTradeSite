@@ -7,7 +7,7 @@ class emailServerConnection{
         //$servername = 'ssl://gmail-smtp-msa.l.google.com';
         //$servername ='173.194.65.108';
        // $servername = 'ssl://smtp.gmail.com';
-        $servername = "ssl://" .gethostbyname("smtp.gmail.com");
+        $servername = gethostbyname("smtp.gmail.com");
         $username = 'bkxchnge@gmail.com';
         $password = 'cdgt1234';
         //$port = 25;
