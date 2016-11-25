@@ -8,18 +8,18 @@ class emailServerConnection{
         $servername = 'ssl://smtp.gmail.com';
         $username = 'bkxchnge@gmail.com';
         $password = 'cdgt1234';
-        $port = 25;
+        //$port = 25;
         //$port = 587;
-        //$port = 465;
+        $port = 465;
 
 
-//        $connection = Swift_SmtpTransport::newInstance($servername, $port, "ssl")
-//            ->setUsername($username)
-//            ->setPassword($password);
-
-        $connection = Swift_SmtpTransport::newInstance($servername, $port)
+        $connection = Swift_SmtpTransport::newInstance($servername, $port, "ssl")
             ->setUsername($username)
             ->setPassword($password);
+
+//        $connection = Swift_SmtpTransport::newInstance($servername, $port)
+//            ->setUsername($username)
+//            ->setPassword($password);
 
 
 //        $connection = Swift_SmtpTransport::newInstance($servername, $port)
