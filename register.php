@@ -176,7 +176,7 @@
                 }
 
                 ?>
-                <textarea class="form-control" id="contact_info" name="contact_info" rows="3" placeholder="Contact Info"><?php if(isset($_POST['contact_info'])) {echo $_POST['contact_info']; } ?>"</textarea>
+                <textarea class="form-control" id="contact_info" name="contact_info" rows="3" placeholder="Contact Info"><?php if(isset($_POST['contact_info'])) {echo $_POST['contact_info']; } ?></textarea>
             </div>
             <div class="form-group">
                 <?php
@@ -192,6 +192,7 @@
 
                         if(!$result['CONDITION'])
                         {
+                            echo 'debug 1111';
                             echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
                         }
                         else
@@ -213,7 +214,7 @@
                         {
                             if(isset($_POST['password']))
                             {
-                                if (empty($_POST['password']))
+                                if (!empty($_POST['password']))
                                 {
                                     // since they should match, not password validation here since it is already taken care of
                                     if (strcmp($_POST['password'], $_POST['password_conf']) == 0)

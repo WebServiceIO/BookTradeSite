@@ -110,7 +110,7 @@ class Validation
 
         if (!empty($matches))
         {
-            return Array('ERROR' => 'Ok', 'CONDITION' => false);
+            return Array('ERROR' => 'Ok', 'CONDITION' => true);
         }
         else
         {
