@@ -114,7 +114,7 @@ class Validation
         }
         else
         {
-            return Array('ERROR' => 'Passwords must be 8 - 15 characters long with at least one number, one uppercase letter, one lowercase letter, and one symbol', 'CONDITION' => false);
+            return Array('ERROR' => 'Password must be 8 - 15 characters long with at least one number, one uppercase letter, one lowercase letter, and one symbol', 'CONDITION' => false);
         }
 
     }
