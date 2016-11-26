@@ -6,14 +6,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/includes/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/includes/images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/includes/images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/includes/images/favicons/manifest.json">
+    <link rel="shortcut icon" href="/includes/images/favicons/favicon.ico">
+    <meta name="msapplication-config" content="/includes/images/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Meta Tags -->
     <meta name="author" content="Christine Nguyen Tanner Summers Giovanni Hernandez David Ghermezi">
     <meta name="description" content="The solution for buying and selling textbooks.">
     <meta name="keywords" content="bookxchange christine nguyen tanner summers giovanni hernandez david ghermezi">
-
     <!--[if lt IE 9]>
     <script  src="includes/js/html5shiv.js"></script>
     <![endif]-->
-
     <!-- CSS -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="includes/css/register.css">
@@ -61,7 +68,7 @@
                 {
                     if(empty($_POST['first_name']))
                     {
-                        echo '<h3 style="background-color:red;"> Please enter your first name </h3>';
+                        echo '<h3> Please enter your first name </h3>';
                     }
                     else
                     {
@@ -69,7 +76,7 @@
 
                         if(!$result['CONDITION'])
                         {
-                            echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                            echo '<h3>' . $result['ERROR'] . '</h3>';
                         }
                         else
                             $conditions['fname'] = true;
@@ -84,7 +91,7 @@
                 {
                     if(empty($_POST['last_name']))
                     {
-                        echo '<h3 style="background-color:red;"> Please enter your last name </h3>';
+                        echo '<h3> Please enter your last name </h3>';
                     }
                     else
                     {
@@ -92,7 +99,7 @@
 
                         if(!$result['CONDITION'])
                         {
-                            echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                            echo '<h3>' . $result['ERROR'] . '</h3>';
                         }
                         else
                             $conditions['lname'] = true;
@@ -107,13 +114,13 @@
                 {
                     if (empty($_POST['email']))
                     {
-                        echo '<h3 style="background-color:red;"> Please enter your email </h3>';
+                        echo '<h3> Please enter your email </h3>';
                     }
                     else
                     {
                         if ($db->checkEmail($_POST['email']))
                         {
-                            echo '<h3 style="background-color:red;"> Email already exist </h3>';
+                            echo '<h3> Email already exists </h3>';
                         }
                         else
                         {
@@ -121,7 +128,7 @@
 
                             if(!$result['CONDITION'])
                             {
-                                echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                                echo '<h3>' . $result['ERROR'] . '</h3>';
                             }
                             else
                                 $conditions['email'] = true;
@@ -137,13 +144,13 @@
                 {
                     if(empty($_POST['username']))
                     {
-                        echo '<h3 style="background-color:red;"> Please enter a username </h3>';
+                        echo '<h3> Please enter a username </h3>';
                     }
                     else
                     {
                         if ($db->checkUsername($_POST['username']))
                         {
-                            echo '<h3 style="background-color:red;"> Username already exist </h3>';
+                            echo '<h3> Username already exists </h3>';
                         }
                         else
                         {
@@ -151,7 +158,7 @@
 
                             if(!$result['CONDITION'])
                             {
-                                echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                                echo '<h3>' . $result['ERROR'] . '</h3>';
                             }
                             else
                                 $conditions['username'] = true;
@@ -168,7 +175,7 @@
                 {
                     if(empty($_POST['contact_info']))
                     {
-                        echo '<h3 style="background-color:red;"> Please enter some information for users to contact you (this can be changed later). </h3>';
+                        echo '<h3> Please enter some information for users to contact you (this can be changed later). </h3>';
                     }
                     else
                         $conditions['contact_info'] = true;
@@ -183,7 +190,7 @@
                 {
                     if(empty($_POST['password']))
                     {
-                        echo '<h3 style="background-color:red;"> Please enter a password </h3>';
+                        echo '<h3> Please enter a password </h3>';
                     }
                     else
                     {
@@ -191,7 +198,7 @@
 
                         if(!$result['CONDITION'])
                         {
-                            echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                            echo '<h3>' . $result['ERROR'] . '</h3>';
                         }
                         else
                             $conditions['password'] = true;
@@ -206,7 +213,7 @@
                     {
                         if(empty($_POST['password_conf']))
                         {
-                            echo '<h3 style="background-color:red;"> Please enter the same password </h3>';
+                            echo '<h3> Please enter the same password </h3>';
                         }
                         else
                         {
@@ -220,7 +227,7 @@
                                         $conditions['password_compare'] = true;
                                     }
                                     else
-                                        echo '<h3 style="background-color:red;"> Passwords do not match </h3>';
+                                        echo '<h3> Passwords do not match </h3>';
                                 }
                             }
                         }

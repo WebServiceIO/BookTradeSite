@@ -165,7 +165,7 @@ $_SESSION['isbn_id'] = $isbn_id;
 
     <?php else: ?>
 
-        <h1> No data or invalid isbn</h1>
+        <h1>You have entered an invalid ISBN or there is no one selling that book.</h1>
 
     <?php endif; ?>
 

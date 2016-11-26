@@ -18,8 +18,8 @@ function validateForm() {
    var x = document.forms["registration"]["password"].value;
    if (patt2.test(x) == false) {
       alert("Invalid password! \nPasswords must be between 8 and 15 characters long" +
-          " and must include at least one number and one uppercase letter, one" +
-           "lowercase letter, and one symbol!");
+          " and must include at least one number, one uppercase letter, one" +
+           " lowercase letter, and one symbol!");
       return false;
    }
 

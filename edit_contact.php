@@ -6,9 +6,19 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/includes/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/includes/images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/includes/images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/includes/images/favicons/manifest.json">
+    <link rel="shortcut icon" href="/includes/images/favicons/favicon.ico">
+    <meta name="msapplication-config" content="/includes/images/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Meta Tags -->
     <meta name="author" content="Christine Nguyen Tanner Summers Giovanni Hernandez David Ghermezi">
     <meta name="description" content="The solution for buying and selling textbooks.">
     <meta name="keywords" content="bookxchange christine nguyen tanner summers giovanni hernandez david ghermezi">
+    <meta charset="utf-8">
     <!-- CSS -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="includes/css/navbar.css">
