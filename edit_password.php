@@ -170,18 +170,19 @@ $validation = new Validation();
                 {
                     if($db->changeUserPassword($_POST['new_password_conf'], $_SESSION['USER_ID']))
                     {
-                        // TODO may not be needed
-//                        $previous_page = "javascript:history.go(-1)";
-//
-//                        if(isset($_SERVER['HTTP_REFERER'])) {
-//                            $previous_page = $_SERVER['HTTP_REFERER'];
-//                        }
+                        $previous_page = "javascript:history.go(-1)";
+
+                        if(isset($_SERVER['HTTP_REFERER'])) {
+                            $previous_page = $_SERVER['HTTP_REFERER'];
+                        }
 
 
-                        flush();
+
                         header('Cache-Control: no-cache, no-store, must-revalidate');
                         header('Location:' .  account);
                         die();
+
+
                     }
                     else
                     {

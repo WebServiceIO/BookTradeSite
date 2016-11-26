@@ -134,7 +134,7 @@ $validation = new Validation();
                                 if(isset($_SERVER['HTTP_REFERER'])) {
                                     $previous_page = $_SERVER['HTTP_REFERER'];
                                 }
-                                echo '<h3 style="background-color:red;"> An error has occurred </h3>';
+
                                 header('Cache-Control: no-cache, no-store, must-revalidate');
                                 header('Location:' .  account);
                                 die();
