@@ -117,6 +117,7 @@ ob_start();
                     else
                     {
                         $isbn = $result['RESULT'];
+
                         $conditions['isbn'] = true;
                     }
                 }
@@ -195,7 +196,6 @@ ob_start();
 
         if (!empty($_POST['isbn']) && !empty($_POST['price']) && !empty($_POST['condition']) && $isbn != null)
         {
-
             if($conditions['price'] && $conditions['isbn'])
             {
 

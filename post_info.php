@@ -52,14 +52,15 @@ $db_connection = new DBUtilities();
 }
 else
 {
-    if(!empty($_SESSION['post_id']))
-    {
-        $post = $db_connection->getUserPost($_SESSION['post_id']);
-    }
-
-    else if(!empty($_POST['post_id']))
+    if(!empty($_POST['post_id']))
     {
         $post = $db_connection->getUserPost($_POST['post_id']);
+    }
+
+    else if(!empty($_SESSION['post_id']))
+    {
+        $post = $db_connection->getUserPost($_SESSION['post_id']);
+        unset($_SESSION['post_id']);
     }
 }
 
