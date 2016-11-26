@@ -44,7 +44,9 @@
 //                print_r($errors);
 //            }
 
-            $db_connection->addUserVerification($user_id, $link);
+            return $link;
+
+            //$db_connection->addUserVerification($user_id, $link);
         }
         catch (Exception $e)
         {
