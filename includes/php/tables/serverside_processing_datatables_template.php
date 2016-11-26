@@ -83,12 +83,10 @@ for ($i = 0; $i < count($columns); $i++) {
     }
 }
 
-var_dump($sQuery);
 
 $statement->execute();
 $rResult = $statement->fetchAll();
 
-var_dump($rResult);
 
 $iFilteredTotal = current($db_connection->query('SELECT FOUND_ROWS()')->fetch());
 
@@ -96,7 +94,6 @@ $iFilteredTotal = current($db_connection->query('SELECT FOUND_ROWS()')->fetch())
 $sQuery = "SELECT COUNT(`" . $index_column . "`) FROM `" . $table . "`";
 $iTotal = current($db_connection->query($sQuery)->fetch());
 
-var_dump($iTotal);
 
 
 // Output
@@ -123,8 +120,5 @@ foreach ($rResult as $aRow) {
     }
     $output['aaData'][] = $row;
 }
-
-var_dump($output);
-
 
 echo json_encode($output);
