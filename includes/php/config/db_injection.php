@@ -54,7 +54,7 @@ class DataBaseLoader
                 echo 'Critical error has occurred, please report to admin';
             }
 
-                $db_connection = new PDO('mysql:dbname=' . $db . ';host=' . $host, $user, $pass);
+                $db_connection = new PDO('mysql:dbname=' . trim($db) . ';host=' . trim($host), trim($user), trim($pass));
                 // set the PDO error mode to exception
                 $db_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
