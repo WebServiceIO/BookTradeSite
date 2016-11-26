@@ -32,7 +32,7 @@
 <?php
 ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
-
+include_once ('includes/php/config/config.php');
 session_start();
 
 if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
@@ -43,6 +43,7 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
 
 require_once('includes/php/db_util.php');
 require_once('includes/php/db_tables/post.php');
+
 $post = null;
 $db_connection = new DBUtilities();
 
@@ -123,9 +124,6 @@ else
 </nav>
 
 <?php
-
-require_once('includes/php/db_util.php');
-require_once('includes/php/db_tables/post.php');
 
 $previous_page = "javascript:history.go(-1)";
 

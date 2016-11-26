@@ -35,8 +35,6 @@
 <?php
 ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
-
-
 include_once ('includes/php/config/config.php');
 session_start();
 

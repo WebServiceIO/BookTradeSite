@@ -66,7 +66,7 @@
                 ini_set('session.cache_limiter','public');
                 session_cache_limiter(false);
                 header('Cache-Control: no-cache, no-store, must-revalidate');
-
+                include_once ('includes/php/config/config.php');
                 require_once('includes/php/db_util.php');
                 $db = new DBUtilities();
                 session_start();
@@ -87,7 +87,6 @@
                             </ul>
                             </li>
                         ';
-
                     }
                 }
                 else

@@ -32,7 +32,7 @@
 
 <?php
 header('Cache-Control: no-cache, no-store, must-revalidate');
-
+include_once ('includes/php/config/config.php');
 session_start();
 
 if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))

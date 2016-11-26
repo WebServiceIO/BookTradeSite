@@ -39,6 +39,7 @@
 
 ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
+include_once ('includes/php/config/config.php');
 ?>
 
 <!-- Navigation Bar -->
@@ -72,14 +73,11 @@ session_cache_limiter(false);
             <ul class="nav navbar-nav navbar-right">
 
                 <?php
-
-
                 header('Cache-Control: no-cache, no-store, must-revalidate');
 
                 require_once('includes/php/db_util.php');
                 $db = new DBUtilities();
                 session_start();
-
 
                 if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
                 {
@@ -100,9 +98,6 @@ session_cache_limiter(false);
                     }
                     else
                     {
-
-
-
                         // session in DB doesnt match, end all sessions and replace current one
                         session_destroy();
                         echo '

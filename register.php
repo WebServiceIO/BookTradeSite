@@ -40,7 +40,7 @@
         <?php
         ini_set('session.cache_limiter','public');
         session_cache_limiter(false);
-
+        include_once ('includes/php/config/config.php');
         session_start();
 
         if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
@@ -51,9 +51,8 @@
 
         require_once('includes/php/web_security.php');
         require_once('includes/php/db_util.php');
-        require_once('includes/php/config/config.php');
         require_once ('includes/php/validation/validation.php');
-        require_once('user_verification.php');
+       // require_once('user_verification.php');
 
         $validation = new Validation();
         $db = new DBUtilities();
