@@ -39,18 +39,39 @@ session_start();
 
 if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']) || !isset($_POST['isbn']))
 {
-    header('Location:' . site_root);
-    die();
+    if(empty($_POST['isbn']))
+    {
+        header('Location:' . site_root);
+        die();
+    }
 }
 
-//include_once ('includes/php/config/config.php');
 include_once ('includes/php/db_util.php');
-
+include_once ('includes/php/validation/validation.php');
 $db_connection = new DBUtilities();
+$validation = new Validation();
+$condition = 0;
+$result = $validation->isbn_validate_and_format($_POST['isbn']);
+$isbn = "";
 
-$isbn_id = $db_connection->getIsbnIdFromIsbn($_POST['isbn']);
-$_SESSION['isbn_id'] = $isbn_id;
+    if(!$result['CONDITION'])
+    {
+        $condition = 0;
+    }
+    else
+    {
+        if($db_connection->checkForIsbn($result['RESULT']) >= 1)
+        {
+            $isbn = $result['RESULT'];
+            $condition = 1;
+            $_SESSION['isbn_id'] = $isbn;
+        }
+        else
+            $condition = 0;
+    }
+
 ?>
+
 
 <!-- Navigation Bar -->
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -83,14 +104,12 @@ $_SESSION['isbn_id'] = $isbn_id;
             <ul class="nav navbar-nav navbar-right">
 
                 <?php
-                require_once('includes/php/db_util.php');
-                $db = new DBUtilities();
 
                 if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
                 {
-                    if(strcmp($db->getFingerprintInfoFromId($_SESSION['USER_ID']), $_SESSION['FINGER_PRINT']) == 0)
+                    if(strcmp($db_connection->getFingerprintInfoFromId($_SESSION['USER_ID']), $_SESSION['FINGER_PRINT']) == 0)
                     {
-                        echo '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome ' . $db->getFName($_SESSION['USER_ID']) . ' <span class="caret"></span></a>';
+                        echo '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome ' . $db_connection->getFName($_SESSION['USER_ID']) . ' <span class="caret"></span></a>';
                         echo '
                             <ul class="dropdown-menu">
                                 <li><a href="home.php">Your Account</a></li>
@@ -102,7 +121,6 @@ $_SESSION['isbn_id'] = $isbn_id;
                             </ul>
                             </li>
                         ';
-
                     }
                 }
                 else
@@ -119,18 +137,6 @@ $_SESSION['isbn_id'] = $isbn_id;
 </nav>
 
 <div class="container">
-
-    <?php
-
-    $condition = 1;
-
-    if($db_connection->checkForIsbn($_POST['isbn']) == 0)
-    {
-        $condition = 0;
-    }
-
-    ?>
-
     <?php if((int)$condition == 1): ?>
 
         <h3 class="sect-header">New</h3>
