@@ -36,7 +36,7 @@ class Validation
 
             if (!empty($matches))
             {
-                return Array('ERROR' => 'Ok', 'CONDITION' => false, 'RESULT' => $matches[0]);
+                return Array('ERROR' => 'Ok', 'CONDITION' => true, 'RESULT' => $matches[0]);
             }
             else
             {
@@ -47,7 +47,7 @@ class Validation
         {
             if (!empty($matches))
             {
-                return Array('ERROR' => 'Ok', 'CONDITION' => false, 'RESULT' => $matches[0]);
+                return Array('ERROR' => 'Ok', 'CONDITION' => true, 'RESULT' => $matches[0]);
             }
             else
             {

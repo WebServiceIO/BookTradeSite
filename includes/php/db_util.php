@@ -14,7 +14,7 @@ class DBUtilities
         $this->db_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    function addPost($user_id, $isbn, $title, $author, $edition, $class, $price, $contact, $comments, $item_condition)
+    function addPost($user_id, $isbn, $title, $author, $edition, $class, $price, $comments, $item_condition)
     {
         try
         {
@@ -35,14 +35,13 @@ class DBUtilities
                 $isbn_id = $this->db_connection->lastInsertId();
             }
 
-            $post_table_statement = $this->db_connection->prepare("INSERT INTO posts (user_id, title, author, edition, class, price, contact, comments, item_condition) VALUES (:user_id, :title, :author, :edition, :class, :price, :contact, :comments, :item_condition)");
+            $post_table_statement = $this->db_connection->prepare("INSERT INTO posts (user_id, title, author, edition, class, price, comments, item_condition) VALUES (:user_id, :title, :author, :edition, :class, :price, :comments, :item_condition)");
             $post_table_statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
             $post_table_statement->bindParam(':title', $title, PDO::PARAM_STR);
             $post_table_statement->bindParam(':author', $author, PDO::PARAM_STR);
             $post_table_statement->bindParam(':edition', $edition, PDO::PARAM_STR);
             $post_table_statement->bindParam(':class', $class, PDO::PARAM_STR);
             $post_table_statement->bindParam(':price', $price, PDO::PARAM_INT);
-            $post_table_statement->bindParam(':contact', $contact, PDO::PARAM_STR);
             $post_table_statement->bindParam(':comments', $comments, PDO::PARAM_STR);
             $post_table_statement->bindParam(':item_condition', $item_condition, PDO::PARAM_STR);
             $post_table_statement->execute();

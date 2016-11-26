@@ -66,7 +66,6 @@
         </div>
     </div>
 </nav>
-
 <?php
 ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
@@ -85,20 +84,21 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
 require_once ('includes/php/db_util.php');
 require_once ('includes/php/config/config.php');
 
+require_once('includes/php/validation/validation.php');
+
+$validation = new Validation();
+
 $db_connection = new DBUtilities();
 $isbn = null;
-$condition = 0;
 $user_id = $_SESSION['USER_ID'];
 $conditions = Array('isbn' => false, 'price' => false);
 
-
+ob_start();
 ?>
-
 <div id="wrapper-content">
     <div class="container">
         <h1>Add New Book</h1>
         <form action="<?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method="post">
-
             <?php
             if(isset($_POST['isbn']))
             {
@@ -117,7 +117,7 @@ $conditions = Array('isbn' => false, 'price' => false);
                     else
                     {
                         $isbn = $result['RESULT'];
-                        $condition['isbn'] = true;
+                        $conditions['isbn'] = true;
                     }
                 }
             }
@@ -154,7 +154,7 @@ $conditions = Array('isbn' => false, 'price' => false);
                     }
                     else
                     {
-                        $condition['price'] = true;
+                        $conditions['price'] = true;
                     }
                 }
             }
@@ -191,20 +191,26 @@ $conditions = Array('isbn' => false, 'price' => false);
         </form>
         <?php
 
+
+
         if (!empty($_POST['isbn']) && !empty($_POST['price']) && !empty($_POST['condition']) && $isbn != null)
         {
+
             if($conditions['price'] && $conditions['isbn'])
             {
-                $post_results = $db_connection->addPost($user_id, trim($isbn), trim($_POST['title']), trim($_POST['author']), trim($_POST['edition']), trim($_POST['class']), trim($_POST['price']), trim($_POST['contact']), $_POST['comments'], $_POST['condition']);
+
+                $post_results = $db_connection->addPost($user_id, trim($isbn), trim($_POST['title']), trim($_POST['author']), trim($_POST['edition']), trim($_POST['class']), trim($_POST['price']), $_POST['comments'], $_POST['condition']);
 
                 $_SESSION['post_id'] = $post_results['post_id'];
 
                 if ($post_results['condition'])
                 {
+                    ob_end_clean();
                     header('Location:' . indiv_root);
                 }
                 else
                 {
+
                     echo '<h3 style="background-color:red;"> An Error has occurred. Please try again later </h3>';
                 }
             }
@@ -213,8 +219,8 @@ $conditions = Array('isbn' => false, 'price' => false);
 
         }
 
-        ?>
 
+        ?>
     </div>
 </div>
 
