@@ -32,7 +32,7 @@
 header('Cache-Control: no-cache, no-store, must-revalidate');
 include_once ('includes/php/config/config.php');
 session_start();
-
+ob_start();
 if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']))
 {
     header('Location:' . site_root);
@@ -176,19 +176,17 @@ $validation = new Validation();
                             $previous_page = $_SERVER['HTTP_REFERER'];
                         }
 
-
-
                         header('Cache-Control: no-cache, no-store, must-revalidate');
                         header('Location:' .  account);
                         die();
-
-
                     }
                     else
                     {
                         echo '<h3 style="background-color:red;"> An error has occurred </h3>';
                     }
                 }
+                ob_end_flush();
+
                 ?>
                 <input type="password" class="form-control" id="new_password_conf" name="new_password_conf" aria-describedby="new_password_conf" placeholder="Enter new password again">
             </div>
