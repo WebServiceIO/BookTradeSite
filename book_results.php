@@ -35,6 +35,9 @@
 <?php
 ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
+
+
+
 session_start();
 
 if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']) || !isset($_POST['isbn']))
@@ -46,6 +49,7 @@ if(!isset($_SESSION['USER_ID']) || !isset($_SESSION['FINGER_PRINT']) || !isset($
     }
 }
 
+include_once ('includes/php/config/config.php');
 include_once ('includes/php/db_util.php');
 include_once ('includes/php/validation/validation.php');
 $db_connection = new DBUtilities();
