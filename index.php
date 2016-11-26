@@ -79,41 +79,41 @@ include_once ('includes/php/config/config.php');
                 $db = new DBUtilities();
                 session_start();
 
-//                if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
-//                {
-//                    if(strcmp($db->getFingerprintInfoFromId($_SESSION['USER_ID']), $_SESSION['FINGER_PRINT']) == 0)
-//                    {
-//                        echo '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome ' . $db->getFName($_SESSION['USER_ID']) . ' <span class="caret"></span></a>';
-//                        echo '
-//                            <ul class="dropdown-menu">
-//                                <li><a href="home.php">Your Account</a></li>
-//                                <li role="separator" class="divider"></li>
-//                                <li><a href="create_post.php">Add Book to Sell</a></li>
-//                                <li><a href="view_books.php">View Your Books</a></li>
-//                                <li role="separator" class="divider"></li>
-//                                <li><a href="logout.php">Log out</a></li>
-//                            </ul>
-//                            </li>
-//                        ';
-//                    }
-//                    else
-//                    {
-//                        // session in DB doesnt match, end all sessions and replace current one
-//                        session_destroy();
-//                        echo '
-//                            <li><a href="login.php">Log In</a></li>
-//                            <li><a href="register.php">Register</a></li>
-//                        ';
-//
-//                    }
-//                }
-//                else
-//                {
-//                    echo '
-//                            <li><a href="login.php">Log In</a></li>
-//                            <li><a href="register.php">Register</a></li>
-//                    ';
-//                }
+                if(isset($_SESSION['USER_ID']) && isset($_SESSION['FINGER_PRINT']))
+                {
+                    if(strcmp($db->getFingerprintInfoFromId($_SESSION['USER_ID']), $_SESSION['FINGER_PRINT']) == 0)
+                    {
+                        echo '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome ' . $db->getFName($_SESSION['USER_ID']) . ' <span class="caret"></span></a>';
+                        echo '
+                            <ul class="dropdown-menu">
+                                <li><a href="home.php">Your Account</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="create_post.php">Add Book to Sell</a></li>
+                                <li><a href="view_books.php">View Your Books</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="logout.php">Log out</a></li>
+                            </ul>
+                            </li>
+                        ';
+                    }
+                    else
+                    {
+                        // session in DB doesnt match, end all sessions and replace current one
+                        session_destroy();
+                        echo '
+                            <li><a href="login.php">Log In</a></li>
+                            <li><a href="register.php">Register</a></li>
+                        ';
+
+                    }
+                }
+                else
+                {
+                    echo '
+                            <li><a href="login.php">Log In</a></li>
+                            <li><a href="register.php">Register</a></li>
+                    ';
+                }
                     ?>
             </ul>
         </div>
