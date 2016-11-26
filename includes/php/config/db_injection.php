@@ -30,7 +30,7 @@ class DataBaseLoader
 
                 if(($cur = fgets($handle)) !== false)
                 {
-                    $x = $cur;
+                    $pass = $cur;
                 }
                 else
                     echo 'Error has occurred, please report to admin';
@@ -57,7 +57,6 @@ class DataBaseLoader
                 $db_connection = new PDO('mysql:dbname=' . $db . ';host=' . $host, $user, $pass);
                 // set the PDO error mode to exception
                 $db_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                //echo "Connected successfully";
         }
         catch(PDOException $e)
         {
