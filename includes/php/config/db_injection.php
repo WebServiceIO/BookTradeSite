@@ -8,7 +8,7 @@ require_once 'config.php';
 $user = "";
 $x = "";
 
-$handle = fopen("var/admin/admin", "r");
+$handle = fopen("/var/admin/admin", "r");
 
 if ($handle)
 {
