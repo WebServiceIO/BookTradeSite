@@ -59,12 +59,15 @@ $isbn = "";
 
     if(!$result['CONDITION'])
     {
+        echo ' DEBUG  0';
         $condition = 0;
     }
     else
     {
+        echo ' DEBUG  1';
         if($db_connection->checkForIsbn($result['RESULT']) >= 1)
         {
+            echo ' DEBUG  2';
             $isbn = $result['RESULT'];
             $condition = 1;
             $_SESSION['isbn_id'] = $isbn;

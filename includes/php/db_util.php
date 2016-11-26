@@ -11,7 +11,7 @@ class DBUtilities
     function __construct()
     {
         $this->db_connection = DataBaseLoader::connect();
-        $this->db_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+       // $this->db_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
     function addPost($user_id, $isbn, $title, $author, $edition, $class, $price, $comments, $item_condition)

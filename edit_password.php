@@ -177,7 +177,6 @@ $validation = new Validation();
 //                            $previous_page = $_SERVER['HTTP_REFERER'];
 //                        }
 
-                        echo ' DEBUG';
 
                         flush();
                         header('Cache-Control: no-cache, no-store, must-revalidate');
