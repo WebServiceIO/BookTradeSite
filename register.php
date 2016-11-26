@@ -27,7 +27,6 @@
     <!-- JavaScript -->
     <script src="includes/js/jquery1.11.1/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="includes/js/registration.js"></script>
 </head>
 <body>
 
