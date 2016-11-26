@@ -107,7 +107,6 @@ $validation = new Validation();
                         if($db->verifyPassword($email, $_POST['old_password']))
                         {
                             $conditions['old_password'] = true;
-                            echo 'debug 1';
                         }
                         else
                         {
@@ -135,7 +134,6 @@ $validation = new Validation();
                             echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
                         }
                         else {
-                            echo 'debug 2';
                             $conditions['new_password'] = true;
                         }
                     }
@@ -172,17 +170,16 @@ $validation = new Validation();
                 {
                     if($db->changeUserPassword($_POST['new_password_conf'], $_SESSION['USER_ID']))
                     {
-//                        $previous_page = "javascript:history.go(-1)";
-//
-//                        if(isset($_SERVER['HTTP_REFERER'])) {
-//                            $previous_page = $_SERVER['HTTP_REFERER'];
-//                        }
+                        // TODO may not be needed
+                        $previous_page = "javascript:history.go(-1)";
 
-                        echo 'debug 3';
-
+                        if(isset($_SERVER['HTTP_REFERER'])) {
+                            $previous_page = $_SERVER['HTTP_REFERER'];
+                        }
                        // header('Cache-Control: no-cache, no-store, must-revalidate');
-                        //header('Location:' .  account);
-                        //die();
+//                        header('Location:' .  account);
+                        header('Location: home.php');
+                        die();
                     }
                     else
                     {
