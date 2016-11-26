@@ -120,6 +120,7 @@ class DBUtilities
             $statement = $this->db_connection->prepare("SELECT username FROM users WHERE user_id = :user_id");
             $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
             $statement->execute();
+
             return $statement->fetch()['username'];
         } catch (PDOException $e) {
             echo $e->getMessage();
