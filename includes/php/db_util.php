@@ -139,6 +139,18 @@ class DBUtilities
         }
     }
 
+    public function getContactInfo($user_id)
+    {
+        try {
+            $statement = $this->db_connection->prepare("SELECT contact_info FROM users WHERE user_id = :user_id");
+            $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            $statement->execute();
+            return $statement->fetch()['contact_info'];
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     public function getContactFromID($user_id)
     {
         try {

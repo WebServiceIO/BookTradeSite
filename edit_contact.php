@@ -123,7 +123,7 @@ $condition = 0;
                 }
                 ?>
                 <label for="contact_info">Enter contact information here</label>
-                <textarea class="form-control" id="contact_info" name="contact_info" rows="5"></textarea>
+                <textarea class="form-control" id="contact_info" name="contact_info" rows="5"><?php echo $db->getContactInfo($_SESSION['USER_ID'])?></textarea>
             </div>
             <div class="row">
                 <div class="col-xs-6 form-link">
