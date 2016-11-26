@@ -104,7 +104,7 @@ class Validation
     {
         $password = trim($password);
 
-        $pattern = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,15}$/";
+        $pattern = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*?]).{8,15}$/";
 
         preg_match($pattern, $password, $matches);
 
@@ -114,7 +114,7 @@ class Validation
         }
         else
         {
-            return Array('ERROR' => 'Invalid password format', 'CONDITION' => false);
+            return Array('ERROR' => 'Password must be 8 - 15 characters long with at least one number, one uppercase letter, one lowercase letter, and one symbol', 'CONDITION' => false);
         }
 
     }
