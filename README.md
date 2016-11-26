@@ -1,4 +1,4 @@
-# BookTradeSite
+BookTradeSite
 ===============
 bookxchange is a web service for students who are looking to buy/sell their textbooks to other students at their own school. The website for bookxchange can be found [here](https://www.collegexchange.info/).
 
