@@ -160,11 +160,6 @@ $result = $validation->isbn_validate_and_format($_POST['isbn']);
             <table id="condition_acceptable_datatable" class="display" cellspacing="0"></table>
         </div>
 
-        <h3 class="sect-header">Okay</h3>
-        <div class="display datatables_template">
-            <table id="condition_ok_datatable" class="display" cellspacing="0"></table>
-        </div>
-
         <h3 class="sect-header">Poor</h3>
         <div class="display datatables_template">
             <table id="condition_poor_datatable" class="display" cellspacing="0"></table>
