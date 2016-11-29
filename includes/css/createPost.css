@@ -1,26 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:300');
 
 /* Main */
-html {
-    width: 100%;
-    height: 100%;
-}
-
-body {
+html, body {
     min-height: 100%;
-}
-
-/* Page Content */
-#wrapper-content {
     width: 100%;
-    position: relative;
 }
 
 .container {
     width: 60%;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
+    padding: 0;
     text-align: center;
 }
 
@@ -90,26 +78,6 @@ form > .form-group > label {
     box-shadow: none;
 }
 
-.footer {
-    width: 100%;
-    margin-top: 20px;
-    padding: 30px 50px 30px 50px;
-    background-color: #373737;
-}
-
-.footer > span {
-    color: #F4F4F4;
-}
-
-.footer > span.footer-desc > a {
-    color: #C0B283;
-}
-
-.footer > span.footer-desc > a:hover,
-.footer > span.footer-desc > a:focus {
-    text-decoration: none;
-}
-
 /* Media Queries */
 @media only screen and (max-width: 575px) {
     .container {
@@ -138,6 +106,5 @@ form > .form-group > label {
 @media only screen and (min-height: 730px) {
     .container {
         top: 50%;
-        transform: translateY(-50%);
     }
 }

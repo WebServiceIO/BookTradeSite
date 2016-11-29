@@ -90,144 +90,132 @@ $conditions = Array('isbn' => false, 'price' => false);
 
 ob_start();
 ?>
-<div id="wrapper-content">
-    <div class="container">
-        <h1>Add New Book</h1>
-        <form action="<?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method="post">
-            <?php
-            if(isset($_POST['isbn']))
-            {
-                if(empty($_POST['isbn']))
-                {
-                    echo '<h3 style="background-color:red;"> Please enter the ISBN number </h3>';
-                }
-                else
-                {
-                    $result = $validation->isbn_validate_and_format($_POST['isbn']);
 
-                    if(!$result['CONDITION'])
-                    {
-                        echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
-                    }
-                    else
-                    {
-                        $isbn = $result['RESULT'];
-
-                        $conditions['isbn'] = true;
-                    }
-                }
-            }
-            ?>
-            <div class="form-group">
-                <input type="text" name="isbn" class="form-control form-content" id="inputISBN" aria-describedby="enterISBNOfBook" placeholder="ISBN**"  value="<?php if(isset($_POST['isbn'])) {echo $_POST['isbn']; }?>">
-            </div>
-            <div class="form-group">
-                <input type="text" name="title" class="form-control form-content" id="inputTitle" aria-describedby="enterTitleOfBook" placeholder="Title"  value="<?php if(isset($_POST['title'])) {echo $_POST['title']; }?>">
-            </div>
-            <div class="form-group">
-                <input type="text" name="class" class="form-control form-content" id="inputClass" aria-describedby="enterClass" placeholder="Class Used For"  value="<?php if(isset($_POST['class'])) {echo $_POST['class']; }?>">
-            </div>
-            <div class="form-group">
-                <input type="text" name="author" class="form-control form-content" id="inputAuthor" aria-describedby="enterAuthor" placeholder="Author"  value="<?php if(isset($_POST['author'])) {echo $_POST['author']; }?>">
-            </div>
-            <div class="form-group">
-                <input type="text" name="edition" class="form-control form-content" id="inputEdition" aria-describedby="enterEdition" placeholder="Edition"  value="<?php if(isset($_POST['edition'])) {echo $_POST['edition']; }?>">
-            </div>
-            <?php
-            if(isset($_POST['price']))
-            {
-                if(empty($_POST['price']))
-                {
-                    echo '<h3 style="background-color:red;">  Please enter the book\'s price </h3>';
-                }
-                else
-                {
-                    $result = $validation->price_validate($_POST['price']);
-
-                    if(!$result['CONDITION'])
-                    {
-                        echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
-                    }
-                    else
-                    {
-                        $conditions['price'] = true;
-                    }
-                }
-            }
-            ?>
-            <div class="form-group">
-                <input type="number" name="price" class="form-control form-content" id="inputPrice" aria-describedby="enterPrice" placeholder="Price**" value="<?php if(isset($_POST['price'])) {echo $_POST['price']; }?>">
-            </div>
-            <div class="form-group">
-                <label for="condition">Condition</label>
-                <?php
-                if(isset($_POST['condition']))
-                {
-                    if(empty($_POST['condition']))
-                    {
-                        echo '<h3 style="background-color:red;">  Please enter the book\'s condition </h3>';
-                    }
-                }
-                ?>
-                <select class="form-control form-content" id="condition" name="condition">
-                    <option value="Select_one" disabled selected>Select one</option>
-                    <option value="New">New</option>
-                    <option value="Excellent">Excellent</option>
-                    <option value="Good">Good</option>
-                    <option value="Acceptable">Acceptable</option>
-                    <option value="Poor">Poor</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="comments">Comments</label>
-                <small id="commentsHelp" class="form-text text-muted">Is there anything you want to say about your book, method of contact, etc.?</small>
-                <textarea class="form-control form-content" id="comments" rows="3" name="comments"><?php if(isset($_POST['comments'])) {echo $_POST['comments']; }?></textarea>
-            </div>
-            <button type="submit" class="btn btn-default btn-transparent">Submit</button>
-        </form>
+<div class="container">
+    <h1>Add New Book</h1>
+    <form action="<?php htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" method="post">
         <?php
-
-
-
-        if (!empty($_POST['isbn']) && !empty($_POST['price']) && !empty($_POST['condition']) && $isbn != null)
+        if(isset($_POST['isbn']))
         {
-            if($conditions['price'] && $conditions['isbn'])
+            if(empty($_POST['isbn']))
             {
-
-                $post_results = $db_connection->addPost($user_id, trim($isbn), trim($_POST['title']), trim($_POST['author']), trim($_POST['edition']), trim($_POST['class']), trim($_POST['price']), $_POST['comments'], $_POST['condition']);
-
-                $_SESSION['post_id'] = $post_results['post_id'];
-
-                if ($post_results['condition'])
-                {
-                    ob_end_clean();
-                    header('Location:' . indiv_root);
-                }
-                else
-                {
-
-                    echo '<h3 style="background-color:red;"> An Error has occurred. Please try again later </h3>';
-                }
+                echo '<h3 style="background-color:red;"> Please enter the ISBN number </h3>';
             }
             else
-                echo '<h3 style="background-color:red;"> lease provide required fields</h3>';
+            {
+                $result = $validation->isbn_validate_and_format($_POST['isbn']);
 
+                if(!$result['CONDITION'])
+                {
+                    echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                }
+                else
+                {
+                    $isbn = $result['RESULT'];
+
+                    $conditions['isbn'] = true;
+                }
+            }
         }
-
-
         ?>
-    </div>
-</div>
+        <div class="form-group">
+            <input type="text" name="isbn" class="form-control form-content" id="inputISBN" aria-describedby="enterISBNOfBook" placeholder="ISBN**"  value="<?php if(isset($_POST['isbn'])) {echo $_POST['isbn']; }?>">
+        </div>
+        <div class="form-group">
+            <input type="text" name="title" class="form-control form-content" id="inputTitle" aria-describedby="enterTitleOfBook" placeholder="Title"  value="<?php if(isset($_POST['title'])) {echo $_POST['title']; }?>">
+        </div>
+        <div class="form-group">
+            <input type="text" name="class" class="form-control form-content" id="inputClass" aria-describedby="enterClass" placeholder="Class Used For"  value="<?php if(isset($_POST['class'])) {echo $_POST['class']; }?>">
+        </div>
+        <div class="form-group">
+            <input type="text" name="author" class="form-control form-content" id="inputAuthor" aria-describedby="enterAuthor" placeholder="Author"  value="<?php if(isset($_POST['author'])) {echo $_POST['author']; }?>">
+        </div>
+        <div class="form-group">
+            <input type="text" name="edition" class="form-control form-content" id="inputEdition" aria-describedby="enterEdition" placeholder="Edition"  value="<?php if(isset($_POST['edition'])) {echo $_POST['edition']; }?>">
+        </div>
+        <?php
+        if(isset($_POST['price']))
+        {
+            if(empty($_POST['price']))
+            {
+                echo '<h3 style="background-color:red;">  Please enter the book\'s price </h3>';
+            }
+            else
+            {
+                $result = $validation->price_validate($_POST['price']);
 
-<!-- Footer -->
-<div class="container-fluid footer">
-    <span class="footer-desc">
-        Designed and coded with love by
-        <a href="http://cs480-projects.github.io/teams-fall2016/WebHeads/index.html">
-            &lt;WebHeads/&gt;
-        </a>
-        .
-    </span>
+                if(!$result['CONDITION'])
+                {
+                    echo '<h3 style="background-color:red;">' . $result['ERROR'] . '</h3>';
+                }
+                else
+                {
+                    $conditions['price'] = true;
+                }
+            }
+        }
+        ?>
+        <div class="form-group">
+            <input type="number" name="price" class="form-control form-content" id="inputPrice" aria-describedby="enterPrice" placeholder="Price**" value="<?php if(isset($_POST['price'])) {echo $_POST['price']; }?>">
+        </div>
+        <div class="form-group">
+            <label for="condition">Condition</label>
+            <?php
+            if(isset($_POST['condition']))
+            {
+                if(empty($_POST['condition']))
+                {
+                    echo '<h3 style="background-color:red;">  Please enter the book\'s condition </h3>';
+                }
+            }
+            ?>
+            <select class="form-control form-content" id="condition" name="condition">
+                <option value="Select_one" disabled selected>Select one</option>
+                <option value="New">New</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Acceptable">Acceptable</option>
+                <option value="Poor">Poor</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="comments">Comments</label>
+            <small id="commentsHelp" class="form-text text-muted">Is there anything you want to say about your book, method of contact, etc.?</small>
+            <textarea class="form-control form-content" id="comments" rows="3" name="comments"><?php if(isset($_POST['comments'])) {echo $_POST['comments']; }?></textarea>
+        </div>
+        <button type="submit" class="btn btn-default btn-transparent">Submit</button>
+    </form>
+    <?php
+
+
+
+    if (!empty($_POST['isbn']) && !empty($_POST['price']) && !empty($_POST['condition']) && $isbn != null)
+    {
+        if($conditions['price'] && $conditions['isbn'])
+        {
+
+            $post_results = $db_connection->addPost($user_id, trim($isbn), trim($_POST['title']), trim($_POST['author']), trim($_POST['edition']), trim($_POST['class']), trim($_POST['price']), $_POST['comments'], $_POST['condition']);
+
+            $_SESSION['post_id'] = $post_results['post_id'];
+
+            if ($post_results['condition'])
+            {
+                ob_end_clean();
+                header('Location:' . indiv_root);
+            }
+            else
+            {
+
+                echo '<h3 style="background-color:red;"> An Error has occurred. Please try again later </h3>';
+            }
+        }
+        else
+            echo '<h3 style="background-color:red;"> lease provide required fields</h3>';
+
+    }
+
+
+    ?>
 </div>
     
 </body>
